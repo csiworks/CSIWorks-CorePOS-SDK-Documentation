@@ -1,0 +1,9 @@
+{
+  "label": "ActionConnector",
+  "position": 5,
+  "link": {
+    "slug": "/action-controller",
+    "type": "generated-index",
+    "description": "This API Reference guide provides detailed instructions on how to utilize all ActionConnector functionality"
+  }
+}

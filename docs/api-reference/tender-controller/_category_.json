@@ -1,0 +1,9 @@
+{
+  "label": "TenderConnector",
+  "position": 4,
+  "link": {
+    "slug": "/tender-controller",
+    "type": "generated-index",
+    "description": "This API Reference guide provides detailed instructions on how to utilize all TenderConnector functionality"
+  }
+}
