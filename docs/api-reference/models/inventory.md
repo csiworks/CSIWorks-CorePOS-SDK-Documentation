@@ -90,7 +90,7 @@ The `Item` model represents an inventory item, containing the following fields:
 - `categories`: A list of [**Category**](#category), a list of categories the item belongs to.
 - `productCode`: The product code for the item.
 - `itemCost`: The cost of the item.
-- `quantity`: The available quantity of the item.
+- `stockQuantity`: The available stock quantity of the item.
 - `trackInventory`: A flag indicating whether inventory tracking is enabled for this item.
   - Allows the item quantity to update dynamically when sales occur.
 - `dualPricingBasePriceType`: The base price type for dual pricing. Can be: `CASH (0)`, `CARD (1)`.
@@ -125,7 +125,7 @@ data class Item(
     val categories: List<Category>?,
     val productCode: String?,
     val itemCost: Long?,
-    val quantity: Int?,
+    val stockQuantity: Double?,
     val trackInventory: Boolean,
     val dualPricingBasePriceType: Int,
     val isEBT: Boolean,
