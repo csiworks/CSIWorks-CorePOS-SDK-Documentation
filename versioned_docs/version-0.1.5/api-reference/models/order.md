@@ -83,17 +83,20 @@ The LineItem can be thought of as an item placed on the checkout conveyor belt a
 - `lineItemDiscounts`: A list of [**LineItemDiscount**](#lineitemdiscount) applied to this line item.  
 - `lineItemTaxes`: A list of [**LineItemCharge**](#lineitemcharge) with `amountType = Percentage`.  
 - `lineItemFees`: A list of [**LineItemCharge**](#lineitemcharge) with `amountType = Fixed`.  
+- `lineItemPayment`: The payment method associated with this line item.  
 - `isEBT`: A flag indicating whether the line item is eligible for Electronic Benefit Transfer (EBT).  
 - `devNotes`: A map of developer notes or metadata for debugging and custom usage.  
+- `binName`: A specific identifier for categorizing items in an order. This is the general name of a specific group of items, united by some logic (e.g., "EBT Items").  
+- `isTaxable`: A flag indicating whether the line item is subject to taxes.  
 
 ```kotlin
 @Parcelize
 data class LineItem(
-    val lineItemId: String? = null, // UUID
+    val lineItemId: String? = null,
     val quantity: Double,
     val totalCash: Long?,
     val totalCard: Long?,
-    val itemId: String? = null, // Reference of Item
+    val itemId: String? = null,
     val imagePath: String?,
     val thumbnailPath: String?,
     val name: String,
@@ -102,15 +105,133 @@ data class LineItem(
     val unitCash: Long?,
     val unitCard: Long?,
     val lineItemDiscounts: List<LineItemDiscount>,
-    val lineItemTaxes: List<LineItemCharge>, // amountType = Percentage
-    val lineItemFees: List<LineItemCharge>,  // amountType = Fixed
+    val lineItemTaxes: List<LineItemCharge>,
+    val lineItemFees: List<LineItemCharge>,
+    val lineItemPayment: String?,
     val isEBT: Boolean,
-    val devNotes: Map<String, String>?
+    val devNotes: Map<String, String>?,
+    val binName: String?,
+    val isTaxable: Boolean
 ) : Parcelable {
-
     fun getPriceType(): PriceType? {
         return PriceType from priceType
     }
+}
+```
+
+### LineItemBuilder
+
+The `LineItemBuilder` class provides a fluent interface for creating and modifying `LineItem` objects with validation and utility methods.
+
+#### Factory Methods
+
+- `create()` - Creates a new empty builder instance
+- `from(lineItem)` - Creates a builder from an existing LineItem
+- `variablePrice(itemId, name, cashPrice, devNotes?, binName?)` - Creates a variable price line item
+- `perUnit(itemId, name, quantity, unitPrice, devNotes?, binName?)` - Creates a per-unit line item
+- `fixedPrice(itemId, name, devNotes?, binName?)` - Creates a fixed price line item
+
+#### Basic Usage
+
+```kotlin
+// Create a new line item
+val lineItem = LineItemBuilder.create()
+    .setName("Coffee")
+    .setQuantity(2.0)
+    .setUnitCash(250)
+    .setPriceType(PriceType.PER_UNIT.code)
+    .build()
+
+// Modify existing line item
+val updatedItem = LineItemBuilder.from(existingItem)
+    .setQuantity(3.0)
+    .addDiscount(discount)
+    .build()
+```
+
+#### Builder Methods
+
+**Basic Setters:**
+- `setLineItemId(String?)` - Set line item ID
+- `setQuantity(Double)` - Set item quantity
+- `setTotalCash(Long?)` - Set total cash price
+- `setTotalCard(Long?)` - Set total card price
+- `setItemId(String?)` - Set item reference ID
+- `setName(String)` - Set item name
+- `setPriceType(Int)` - Set pricing type
+- `setLineItemPayment(String?)` - Set payment method
+- `setEBT(Boolean)` - Set EBT eligibility
+- `setBinName(String?)` - Set category identifier
+- `setTaxable(Boolean)` - Set tax eligibility
+
+**Collection Methods:**
+- `addDiscount(LineItemDiscount)` - Add a discount
+- `addTax(LineItemCharge)` - Add a tax
+- `addFee(LineItemCharge)` - Add a fee
+- `addDevNote(String, String)` - Add developer note
+- `removeDiscount(String)` - Remove discount by ID
+- `removeTax(String)` - Remove tax by ID
+- `removeFee(String)` - Remove fee by ID
+- `clearDiscounts()` - Remove all discounts
+- `clearTaxes()` - Remove all taxes
+- `clearFees()` - Remove all fees
+
+**Build Methods:**
+- `build()` - Build and validate LineItem (throws on error)
+- `buildOrNull()` - Build LineItem, return null on error
+- `isValid()` - Check if current state is valid
+- `getValidationErrors()` - Get list of validation errors
+
+```kotlin
+class LineItemBuilder {
+    companion object {
+        fun create(): LineItemBuilder
+        fun from(lineItem: LineItem): LineItemBuilder
+        fun variablePrice(itemId: String, name: String, cashPrice: Long, devNotes: Map<String, String>? = null, binName: String? = null): LineItemBuilder
+        fun perUnit(itemId: String, name: String, quantity: Double, unitPrice: Long, devNotes: Map<String, String>? = null, binName: String? = null): LineItemBuilder
+        fun fixedPrice(itemId: String, name: String, devNotes: Map<String, String>? = null, binName: String? = null): LineItemBuilder
+    }
+    
+    fun setLineItemId(lineItemId: String?): LineItemBuilder
+    fun setQuantity(quantity: Double): LineItemBuilder
+    fun setTotalCash(totalCash: Long?): LineItemBuilder
+    fun setTotalCard(totalCard: Long?): LineItemBuilder
+    fun setItemId(itemId: String?): LineItemBuilder
+    fun setImagePath(imagePath: String?): LineItemBuilder
+    fun setThumbnailPath(thumbnailPath: String?): LineItemBuilder
+    fun setName(name: String): LineItemBuilder
+    fun setPriceType(priceType: Int): LineItemBuilder
+    fun setUnitType(unitType: String?): LineItemBuilder
+    fun setUnitCash(unitCash: Long?): LineItemBuilder
+    fun setUnitCard(unitCard: Long?): LineItemBuilder
+    fun setLineItemDiscounts(lineItemDiscounts: List<LineItemDiscount>): LineItemBuilder
+    fun setLineItemTaxes(lineItemTaxes: List<LineItemCharge>): LineItemBuilder
+    fun setLineItemFees(lineItemFees: List<LineItemCharge>): LineItemBuilder
+    fun setLineItemPayment(lineItemPayment: String?): LineItemBuilder
+    fun setEBT(isEBT: Boolean): LineItemBuilder
+    fun setDevNotes(devNotes: Map<String, String>): LineItemBuilder
+    fun setBinName(binName: String?): LineItemBuilder
+    fun setTaxable(isTaxable: Boolean): LineItemBuilder
+    
+    fun addDiscount(discount: LineItemDiscount): LineItemBuilder
+    fun addTax(tax: LineItemCharge): LineItemBuilder
+    fun addFee(fee: LineItemCharge): LineItemBuilder
+    fun addDevNote(key: String, value: String): LineItemBuilder
+    
+    fun removeDiscount(discountId: String): LineItemBuilder
+    fun removeTax(taxId: String): LineItemBuilder
+    fun removeFee(feeId: String): LineItemBuilder
+    fun removeDevNote(key: String): LineItemBuilder
+    
+    fun clearDiscounts(): LineItemBuilder
+    fun clearTaxes(): LineItemBuilder
+    fun clearFees(): LineItemBuilder
+    fun clearDevNotes(): LineItemBuilder
+    
+    fun build(): LineItem
+    fun buildOrNull(): LineItem?
+    fun isValid(): Boolean
+    fun getValidationErrors(): List<String>
 }
 ```
 
@@ -225,4 +346,61 @@ data class Transaction(
     val cardType: String?,
     val date: Long
 ) : Parcelable
+```
+
+### LineItemUtils
+
+The `LineItemUtils` object provides utility functions for common LineItem operations.
+
+#### Available Methods
+
+- `updateQuantity(lineItem, newQuantity)` - Updates quantity and recalculates totals
+- `updateUnitPrice(lineItem, newUnitPrice)` - Updates unit price and recalculates totals
+- `addDiscount(lineItem, name, amount, type)` - Adds a discount to the line item
+- `removeDiscount(lineItem, discountName)` - Removes a discount by name
+- `addTax(lineItem, name, amount, type)` - Adds a tax to the line item
+- `updateName(lineItem, newName)` - Updates the item name
+- `updateEBTStatus(lineItem, isEBT)` - Updates EBT eligibility
+- `addDevNote(lineItem, key, value)` - Adds or updates a developer note
+- `removeDevNote(lineItem, key)` - Removes a developer note
+- `createUpdateCopy(lineItem)` - Creates a copy for updates
+- `validateForUpdate(lineItem)` - Validates item for update operations
+
+#### Usage Examples
+
+```kotlin
+// Update quantity
+val updatedItem = LineItemUtils.updateQuantity(lineItem, 3.0)
+
+// Add discount
+val discountedItem = LineItemUtils.addDiscount(
+    lineItem, 
+    "Holiday Sale", 
+    500, 
+    DiscountType.FIXED
+)
+
+// Update EBT status
+val ebtItem = LineItemUtils.updateEBTStatus(lineItem, true)
+```
+
+```kotlin
+object LineItemUtils {
+    fun updateQuantity(lineItem: LineItem, newQuantity: Double): LineItem
+    fun updateUnitPrice(lineItem: LineItem, newUnitPrice: Long): LineItem
+    fun addDiscount(lineItem: LineItem, discountName: String, discountAmount: Long, discountType: Int): LineItem
+    fun removeDiscount(lineItem: LineItem, discountName: String): LineItem
+    fun addTax(lineItem: LineItem, taxName: String, taxAmount: Long, chargeAmountType: Int): LineItem
+    fun updateName(lineItem: LineItem, newName: String): LineItem
+    fun updateEBTStatus(lineItem: LineItem, isEBT: Boolean): LineItem
+    fun addDevNote(lineItem: LineItem, key: String, value: String): LineItem
+    fun removeDevNote(lineItem: LineItem, key: String): LineItem
+    fun createUpdateCopy(lineItem: LineItem): LineItem
+    fun validateForUpdate(lineItem: LineItem): ValidationResult
+}
+
+sealed class ValidationResult {
+    object Success : ValidationResult()
+    data class Error(val message: String) : ValidationResult()
+}
 ```
