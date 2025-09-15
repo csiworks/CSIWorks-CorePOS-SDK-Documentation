@@ -50,6 +50,7 @@ In `YourPaymentActivity`, read the incoming extras from the launch intent, run y
 - `Intents.EXTRA_TENDER`(Tender) — The [`Tender`](../models/models-tender#tender) record configured in CorePOS.
 - `Intents.EXTRA_NOTE`(String, optional) —	Optional order notes.
 
+
 #### Return Results to CorePOS
 After executing your specific logic, finish your Activity with a result intent. CorePOS will then continue processing the payment. If successful, include the required and optional extras shown below. If cancelled or failed, return `RESULT_CANCELED` and (optionally) an error code/message.
 
@@ -62,6 +63,7 @@ After executing your specific logic, finish your Activity with a result intent. 
 - `Intents.EXTRA_CLIENT_ID`(String) — Unique ID from your system (e.g., a payment or transaction ID).
 - `Intents.EXTRA_NOTE`(String) — Notes about the payment.
 - `Intents.EXTRA_TIP_AMOUNT`(Long) — Tip in smallest unit.
+- `Intents.EXTRA_LINE_ITEM_IDS`(List(String)) — List of line item UUIDs.
 
 **Success example:**
 ```kotlin

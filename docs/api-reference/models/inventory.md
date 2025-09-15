@@ -158,13 +158,37 @@ enum class PriceType(val code: Int) {
 }
 ```
 
+### EbtFlag
+
+The `EbtFlag` model represents EBT (Electronic Benefit Transfer) eligibility status for an inventory item, containing the following fields:
+
+- `itemId`: A unique **UUID** identifier for the item.
+- `isEbt`: A flag indicating whether the item is eligible for EBT.
+
+```kotlin
+@Parcelize
+data class EbtFlag(
+    val itemId: String,
+    val isEbt: Boolean
+): Parcelable {
+    companion object {
+        fun mapToList(flagsMap: Map<String, Boolean>): List<EbtFlag> {
+            return flagsMap.map { (itemId, flag) ->
+                EbtFlag(itemId, flag)
+            }
+        }
+    }
+}
+```
+
 ### ItemFilter
 
 The `ItemFilter` model is used to filter items when retrieving a list from the inventory. It contains the following fields:
 
+- `nameQuery`: Filter items by name containing this query (optional)  
 - `categoryId`: Filter by a specific category **UUID** (optional)  
 - `withoutCategory`: If true, includes only items without a category  
-- `nameQuery`: Filter items by name containing this query (optional)  
+- `filterByEbt`: Filter items by EBT eligibility status (optional)  
 - `productCode`: Filter items by product code (optional)  
 
 ```kotlin
@@ -173,9 +197,10 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class ItemFilter(
+    val nameQuery: String? = null,
     val categoryId: String? = null,
     val withoutCategory: Boolean = false,
-    val nameQuery: String? = null,
+    val filterByEbt: Boolean? = null,
     val productCode: String? = null
 ) : Parcelable
 ```

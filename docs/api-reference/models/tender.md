@@ -70,3 +70,4 @@ enum class TenderType(val code: Int) {
 - `Intents.EXTRA_CLIENT_ID`(String) — Unique ID from your system (e.g., a payment or transaction ID).
 - `Intents.EXTRA_NOTE`(String) — Notes about the payment.
 - `Intents.EXTRA_TIP_AMOUNT`(Long) — Tip in smallest unit.
+- `Intents.EXTRA_LINE_ITEM_IDS`(List(String)) — List of line item UUIDs.
