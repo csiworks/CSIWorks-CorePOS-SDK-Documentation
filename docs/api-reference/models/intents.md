@@ -67,29 +67,29 @@ object Intents {
 - `ACTION_PAYMENT_PROCESSED`: Broadcast when a payment transaction is processed
 - `ACTION_LINE_ITEM_DELETED`: Broadcast when a line item is removed from an order
 - `ACTION_BARCODE_SCANNED`: Broadcast when a barcode is scanned via the scanner
-- `ACTION_MERCHANT_TENDER`: Broadcast when a merchant tender action is initiated **[Used in Tender Controller]**
+- `ACTION_MERCHANT_TENDER`: Broadcast when a merchant tender action is initiated **[Used in Tender connector]**
 - `ACTION_MERCHANT_ACTION`: Broadcast when a custom merchant action is triggered
 
 ## Extra Data Descriptions
 
-- `EXTRA_AMOUNT` (Double): Final amount in the smallest unit **[Used in Tender Controller - Required outgoing extra]**
-- `EXTRA_TIP_AMOUNT` (Double): Tip in smallest unit **[Used in Tender Controller - Optional outgoing extra]**
-- `EXTRA_CLIENT_ID` (String): Unique ID from your system (e.g., a payment or transaction ID) **[Used in Tender Controller - Optional outgoing extra]**
-- `EXTRA_NOTE` (String): Notes about the payment or optional order notes **[Used in Tender Controller - Incoming/outgoing extra]**
-- `EXTRA_ORDER_ID` (String): CorePOS order UUID **[Used in Tender Controller - Incoming extra]**
-- `EXTRA_CASH_AMOUNT` (Double): Total cash amount in the smallest currency unit (e.g., cents) **[Used in Tender Controller - Incoming extra]**
-- `EXTRA_CARD_AMOUNT` (Double): Total card amount in the smallest currency unit (e.g., cents) **[Used in Tender Controller - Incoming extra]**
-- `EXTRA_CASH_TAX_AMOUNT` (Double): Portion of the amount that is cash tax, in smallest unit **[Used in Tender Controller - Incoming extra]**
-- `EXTRA_CARD_TAX_AMOUNT` (Double): Portion of the amount that is card tax, in smallest unit **[Used in Tender Controller - Incoming extra]**
+- `EXTRA_AMOUNT` (Double): Final amount in the smallest unit **[Used in Tender connector - Required outgoing extra]**
+- `EXTRA_TIP_AMOUNT` (Double): Tip in smallest unit **[Used in Tender connector - Optional outgoing extra]**
+- `EXTRA_CLIENT_ID` (String): Unique ID from your system (e.g., a payment or transaction ID) **[Used in Tender connector - Optional outgoing extra]**
+- `EXTRA_NOTE` (String): Notes about the payment or optional order notes **[Used in Tender connector - Incoming/outgoing extra]**
+- `EXTRA_ORDER_ID` (String): CorePOS order UUID **[Used in Tender connector - Incoming extra]**
+- `EXTRA_CASH_AMOUNT` (Double): Total cash amount in the smallest currency unit (e.g., cents) **[Used in Tender connector - Incoming extra]**
+- `EXTRA_CARD_AMOUNT` (Double): Total card amount in the smallest currency unit (e.g., cents) **[Used in Tender connector - Incoming extra]**
+- `EXTRA_CASH_TAX_AMOUNT` (Double): Portion of the amount that is cash tax, in smallest unit **[Used in Tender connector - Incoming extra]**
+- `EXTRA_CARD_TAX_AMOUNT` (Double): Portion of the amount that is card tax, in smallest unit **[Used in Tender connector - Incoming extra]**
 - `EXTRA_BARCODE` (String): The scanned barcode data/value
 - `EXTRA_BARCODE_FORMAT` (String): The format/type of the scanned barcode
 - `EXTRA_LINE_ITEM_ID` (String): Unique UUID identifier for a single line item
-- `EXTRA_LINE_ITEM_IDS` (List(String)): List of line item UUIDs **[Used in Tender Controller - Optional outgoing extra]**
+- `EXTRA_LINE_ITEM_IDS` (List(String)): List of line item UUIDs **[Used in Tender connector - Optional outgoing extra]**
 - `EXTRA_ITEM_ID` (String): Unique UUID identifier for an inventory item
 - `EXTRA_ACTION_NAME` (String): Name of the custom action being performed
 - `EXTRA_PAYMENT_REQUEST` (PaymentRequest): Serialized payment request object
-- `EXTRA_TENDER_TYPE` (TenderType): Specify a concrete TenderType (e.g., EBT). If omitted, CorePOS records it as a Custom Tender **[Used in Tender Controller - Optional outgoing extra]**
-- `EXTRA_TENDER` (String): The Tender record configured in CorePOS **[Used in Tender Controller - Optional outgoing extra]**
+- `EXTRA_TENDER_TYPE` (TenderType): Specify a concrete TenderType (e.g., EBT). If omitted, CorePOS records it as a Custom Tender **[Used in Tender connector - Optional outgoing extra]**
+- `EXTRA_TENDER` (String): The Tender record configured in CorePOS **[Used in Tender connector - Optional outgoing extra]**
 
 ## Event Descriptions
 
