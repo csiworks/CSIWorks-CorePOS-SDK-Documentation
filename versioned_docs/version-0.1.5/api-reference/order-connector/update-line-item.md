@@ -21,7 +21,7 @@ fun updateLineItem(orderId: String, lineItem: LineItem): LineItem?
 - `lineItem` (LineItem): The [`LineItem`](../models/models-order#lineitem) to update with new data.
 
 #### Returns:
-`LineItem?` - Returns the updated line item if successful, or null if the operation fails.
+`LineItem?` - Returns the updated [`LineItem`](../models/models-order#lineitem) if successful, or null if the operation fails.
 
 #### Error Handling:
 Returns null on failure.

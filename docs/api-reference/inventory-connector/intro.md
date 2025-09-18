@@ -2,7 +2,7 @@
 id: inventory-api-introduction
 sidebar_position: 1
 title: Introduction
-description: Introdaction of Inventoryconnector.
+description: Introduction of InventoryConnector.
 hide_title: true
 pagination_prev: null
 ---

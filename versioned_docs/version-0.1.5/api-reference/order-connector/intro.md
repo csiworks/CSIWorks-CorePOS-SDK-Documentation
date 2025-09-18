@@ -2,7 +2,7 @@
 id: order-api-introduction
 sidebar_position: 1
 title: Introduction
-description: Introdaction of Orderconnector.
+description: Introduction of OrderСonnector.
 hide_title: true
 pagination_prev: null
 ---

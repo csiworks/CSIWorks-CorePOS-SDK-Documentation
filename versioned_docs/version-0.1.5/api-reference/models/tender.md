@@ -37,11 +37,9 @@ The `TenderType` enum defines the available payment method types that can be use
 - `GIFT(5)`: Gift card payments
 - `LOYALTY(6)`: Loyalty points or rewards payments
 
-### Functions
+### Static Functions
 ```kotlin
-companion object {
-    infix fun from(code: Int): TenderType?
-}
+infix fun from(code: Int): TenderType?
 ```
 Returns the TenderType enum value corresponding to the provided code.
 #### Parameters:

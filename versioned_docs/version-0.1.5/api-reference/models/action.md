@@ -12,7 +12,7 @@ hide_title: true
 ```kotlin
 data class Action
 ```
-The `Action` model represents a **custom action button** that appears on the checkout screen below the default payment methods, containing the following fields:  
+The `Action` model represents a **custom action button** that appears on the home screen (landscape) and cart screen (portrait) on top bar, containing the following fields:  
 
 ### Values
 - `uuid`: A unique **UUID** identifier for the action button.  

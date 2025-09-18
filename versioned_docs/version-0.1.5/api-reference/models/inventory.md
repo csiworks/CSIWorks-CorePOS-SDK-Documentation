@@ -38,7 +38,7 @@ The `Charge` model represents taxes and fees associated with inventory items, co
   - If it's **PERCENTAGE**, it represents the percentage value.
 - `isDefault`: A flag indicating whether this charge is the default charge.
 
-### Funcations
+### Public Functions
 ```kotlin
 fun getAmountType(): AmountType?
 ```
@@ -102,7 +102,7 @@ This means the item behaves as follows when `dualPricing` changes
 - If the base price = CARD → only the CASH price is updated  
 :::
 
-### Functions
+### Public Functions
 ```kotlin
 fun getPriceType(): PriceType?
 ```
@@ -123,11 +123,9 @@ The `PriceType` enum defines the different types of pricing available for items:
 - `VARIABLE (1)`: A variable price for the item.
 - `PER_UNIT (2)`: Price per unit of the item.
 
-### Functions
+### Static Functions
 ```kotlin
-companion object {
-    infix fun from(code: Int): PriceType?
-}
+infix fun from(code: Int): PriceType?
 ```
 Returns the PriceType enum value corresponding to the provided code.
 #### Parameters:
@@ -145,11 +143,9 @@ The `AmountType` enum defines the different types of charge amounts:
 - `FIXED (0)`: A fixed amount charge, such as a flat fee.
 - `PERCENTAGE (1)`: A percentage-based charge, such as a tax rate.
 
-### Functions
+### Static Functions
 ```kotlin
-companion object {
-    infix fun from(code: Int): AmountType?
-}
+infix fun from(code: Int): AmountType?
 ```
 Returns the AmountType enum value corresponding to the provided code.
 #### Parameters:
@@ -167,11 +163,9 @@ The `EbtFlag` model represents EBT (Electronic Benefit Transfer) eligibility sta
 - `itemId`: A unique **UUID** identifier for the item.
 - `isEbt`: A flag indicating whether the item is eligible for EBT.
 
-### Functions
+### Static  Functions
 ```kotlin
-companion object {
-    fun mapToList(flagsMap: Map<String, Boolean>): List<EbtFlag>
-}
+fun mapToList(flagsMap: Map<String, Boolean>): List<EbtFlag>
 ```
 Converts a map of item IDs and EBT flags to a list of EbtFlag objects.
 #### Parameters:

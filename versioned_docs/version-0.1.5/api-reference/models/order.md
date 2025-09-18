@@ -69,7 +69,7 @@ The LineItem can be thought of as an item placed on the checkout conveyor belt a
 - `lineItemDiscounts`: A list of [**LineItemDiscount**](#lineitemdiscount) applied to this line item.  
 - `lineItemTaxes`: A list of [**LineItemCharge**](#lineitemcharge) with `amountType = Percentage`.  
 - `lineItemFees`: A list of [**LineItemCharge**](#lineitemcharge) with `amountType = Fixed`.  
-- `lineItemPayment`: The payment method associated with this line item.  
+- `lineItemPayment`: A **UUID** identifier for transaction wich associated with this line item.  
 - `isEBT`: A flag indicating whether the line item is eligible for Electronic Benefit Transfer (EBT).  
 - `devNotes`: A map of developer notes or metadata for debugging and custom usage.  
 - `binName`: A specific identifier for categorizing items in an order. This is the general name of a specific group of items, united by some logic (e.g., "EBT Items").  
@@ -97,7 +97,7 @@ The `LineItemBuilder` class provides a fluent interface for creating and modifyi
 - `setItemId(String?)` - Set item reference ID
 - `setName(String)` - Set item name
 - `setPriceType(Int)` - Set pricing type
-- `setLineItemPayment(String?)` - Set payment method
+- `setLineItemPayment(String?)` - Set transaction id for line-item
 - `setEBT(Boolean)` - Set EBT eligibility
 - `setBinName(String?)` - Set category identifier
 - `setTaxable(Boolean)` - Set tax eligibility

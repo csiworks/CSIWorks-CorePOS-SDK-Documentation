@@ -10,53 +10,6 @@ hide_title: true
 
 The `Intents` object contains constants for CorePOS SDK intent actions, extras, and events used for inter-app communication and system notifications.
 
-```kotlin
-package com.coreposnow.sdk.utils
-
-object Intents {
-    
-    // Action Intent Constants
-    const val ACTION_ORDER_CREATED = "com.corepos.intent.action.ORDER_CREATED"
-    const val ACTION_ORDER_SAVED = "com.corepos.intent.action.ORDER_SAVED"
-    const val ACTION_ORDER_CLOSED = "com.corepos.intent.action.ORDER_CLOSED"
-    const val ACTION_ORDER_DELETED = "com.corepos.intent.action.ORDER_DELETED"
-    const val ACTION_LINE_ITEM_ADDED = "com.corepos.intent.action.LINE_ITEM_ADDED"
-    const val ACTION_PAYMENT_PROCESSED = "com.corepos.intent.action.PAYMENT_PROCESSED"
-    const val ACTION_LINE_ITEM_DELETED = "com.corepos.intent.action.LINE_ITEM_DELETED"
-    const val ACTION_BARCODE_SCANNED = "com.corepos.intent.action.BARCODE_SCANNED"
-    const val ACTION_MERCHANT_TENDER = "com.corepos.intent.action.MERCHANT_TENDER"
-    const val ACTION_MERCHANT_ACTION = "com.corepos.intent.action.MERCHANT_ACTION"
-    
-    // Extra Data Constants
-    const val EXTRA_AMOUNT = "com.corepos.intent.extra.EXTRA_AMOUNT"
-    const val EXTRA_TIP_AMOUNT = "com.corepos.intent.extra.EXTRA_TIP_AMOUNT"
-    const val EXTRA_CLIENT_ID = "com.corepos.intent.extra.EXTRA_CLIENT_ID"
-    const val EXTRA_NOTE = "com.corepos.intent.extra.EXTRA_NOTE"
-    const val EXTRA_ORDER_ID = "com.corepos.intent.extra.ORDER_ID"
-    const val EXTRA_CASH_AMOUNT = "com.corepos.intent.extra.CASH_AMOUNT"
-    const val EXTRA_CARD_AMOUNT = "com.corepos.intent.extra.CARD_AMOUNT"
-    const val EXTRA_CASH_TAX_AMOUNT = "com.corepos.intent.extra.CASH_TAX_AMOUNT"
-    const val EXTRA_CARD_TAX_AMOUNT = "com.corepos.intent.extra.CARD_TAX_AMOUNT"
-    const val EXTRA_BARCODE = "com.corepos.intent.extra.BARCODE"
-    const val EXTRA_BARCODE_FORMAT = "com.corepos.intent.extra.BARCODE_FORMAT"
-    const val EXTRA_LINE_ITEM_ID = "com.corepos.intent.extra.LINE_ITEM_ID"
-    const val EXTRA_LINE_ITEM_IDS = "com.corepos.intent.extra.LINE_ITEM_IDS"
-    const val EXTRA_ITEM_ID = "com.corepos.intent.extra.ITEM_ID"
-    const val EXTRA_ACTION_NAME = "com.corepos.intent.extra.ACTION_NAME"
-    const val EXTRA_PAYMENT_REQUEST = "com.corepos.intent.extra.PAYMENT_REQUEST"
-    const val EXTRA_TENDER_TYPE = "com.corepos.intent.extra.TENDER_TYPE"
-    const val EXTRA_TENDER = "com.corepos.intent.extra.TENDER"
-    
-    // Event Constants
-    const val EVENT_ORDER_BUILD_START = "com.corepos.intent.event.ORDER_BUILD_START"
-    const val EVENT_CART_OVERVIEW_START = "com.corepos.intent.event.CART_OVERVIEW_START"
-    const val EVENT_CASH_CHARGE_START = "com.corepos.intent.event.CASH_CHARGE_START"
-    const val EVENT_CREDIT_CHARGE_START = "com.corepos.intent.event.CREDIT_CHARGE_START"
-    const val EVENT_DEBIT_CHARGE_START = "com.corepos.intent.event.DEBIT_CHARGE_START"
-    const val EVENT_PAYMENT_SELECTION_START = "com.corepos.intent.event.PAYMENT_SELECTION_START"
-}
-```
-
 ## Action Intent Descriptions
 
 - `ACTION_ORDER_CREATED`: Broadcast when a new order is created in the system
