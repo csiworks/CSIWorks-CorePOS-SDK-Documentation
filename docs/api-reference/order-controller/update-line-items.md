@@ -27,7 +27,7 @@ data class LineItemBulkUpdate(
     val quantity: Double? = null,
     val price: Double? = null,
     val binName: String? = null,
-    val isTaxable: Boolean? = null,
+    val taxable: Boolean? = null,
     val lineItemPayment: LineItemPayment? = null
 )
 ```

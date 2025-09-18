@@ -13,7 +13,7 @@ hide_title: true
 ### Signature:
 
 ```kotlin
-fun updateItemStockQuantity(itemId: String, quantity: Double)
+fun updateItemquantity(itemId: String, quantity: Double)
 ```
 
 #### Parameters:
@@ -31,7 +31,7 @@ Triggers error callback on failure.
 private fun updateStock(itemId: String, newQuantity: Double) {
     lifecycleScope.launch(Dispatchers.IO) {
         try {
-            inventoryConnector.updateItemStockQuantity(itemId, newQuantity)
+            inventoryConnector.updateItemquantity(itemId, newQuantity)
             withContext(Dispatchers.Main) {
                 showStockUpdated()
                 refreshItemList()
@@ -49,16 +49,16 @@ private fun updateStock(itemId: String, newQuantity: Double) {
 ### Best Practice with Repository Pattern:
 ```kotlin
 interface InventoryRepository {
-    suspend fun updateItemStockQuantity(itemId: String, quantity: Double): Boolean
+    suspend fun updateItemquantity(itemId: String, quantity: Double): Boolean
 }
 
 class InventoryRepositoryImpl(
     private val inventoryConnector: InventoryConnector
 ) : InventoryRepository {
     
-    override suspend fun updateItemStockQuantity(itemId: String, quantity: Double): Boolean {
+    override suspend fun updateItemquantity(itemId: String, quantity: Double): Boolean {
         return try {
-            inventoryConnector.updateItemStockQuantity(itemId, quantity)
+            inventoryConnector.updateItemquantity(itemId, quantity)
             true
         } catch (e: Exception) {
             Log.e("InventoryRepo", "Failed to update stock quantity: ${e.message}")

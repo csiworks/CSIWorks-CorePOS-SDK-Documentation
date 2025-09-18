@@ -38,7 +38,7 @@ class InventoryConnector(context: Context) : ServiceConnector<IInventoryService>
 
     fun deleteCategory(categoryId: String) = /* ... */
 
-    fun updateItemStockQuantity(itemId: String, quantity: Double) = /* ... */
+    fun updateItemquantity(itemId: String, quantity: Double) = /* ... */
 
     fun getDualPriceRate(): Float? = /* ... */
 

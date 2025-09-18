@@ -87,7 +87,7 @@ The LineItem can be thought of as an item placed on the checkout conveyor belt a
 - `isEBT`: A flag indicating whether the line item is eligible for Electronic Benefit Transfer (EBT).  
 - `devNotes`: A map of developer notes or metadata for debugging and custom usage.  
 - `binName`: A specific identifier for categorizing items in an order. This is the general name of a specific group of items, united by some logic (e.g., "EBT Items").  
-- `isTaxable`: A flag indicating whether the line item is subject to taxes.  
+- `taxable`: A flag indicating whether the line item is subject to taxes.  
 
 ```kotlin
 @Parcelize
@@ -111,7 +111,7 @@ data class LineItem(
     val isEBT: Boolean,
     val devNotes: Map<String, String>?,
     val binName: String?,
-    val isTaxable: Boolean
+    val taxable: Boolean
 ) : Parcelable {
     fun getPriceType(): PriceType? {
         return PriceType from priceType
@@ -211,7 +211,7 @@ class LineItemBuilder {
     fun setEBT(isEBT: Boolean): LineItemBuilder
     fun setDevNotes(devNotes: Map<String, String>): LineItemBuilder
     fun setBinName(binName: String?): LineItemBuilder
-    fun setTaxable(isTaxable: Boolean): LineItemBuilder
+    fun setTaxable(taxable: Boolean): LineItemBuilder
     
     fun addDiscount(discount: LineItemDiscount): LineItemBuilder
     fun addTax(tax: LineItemCharge): LineItemBuilder
