@@ -7,18 +7,11 @@ hide_title: true
 ---
 
 ## Introduction
-The `MerchantConnector` provides methods to interact with merchant data in the CorePOS system. The primary functionality includes retrieving merchant information through callbacks.
-
 ### Class Overview
-
 ```kotlin
-class MerchantConnector(context: Context) : ServiceConnector<IMerchantService>(context) {
-
-    override fun getServiceInterface(iBinder: IBinder?): IMerchantService { /* ... */ }
-
-    fun getMerchant(): Merchant? = /* ... */
-}
+class MerchantConnector(context: Context)
 ```
+The `MerchantConnector` provides methods to interact with merchant data in the CorePOS system. The primary functionality includes retrieving merchant information through callbacks.
 
 **Purpose:** Manages merchant operations like retrieving merchant details.
 

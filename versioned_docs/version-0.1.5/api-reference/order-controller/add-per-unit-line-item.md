@@ -17,7 +17,8 @@ fun addPerUnitLineItem(
     orderId: String,
     itemId: String,
     quantity: Double,
-    devNotes: Map<String, String>?
+    devNotes: Map<String, String>?,
+    binName: String?
 ): LineItem?
 ```
 
@@ -26,6 +27,7 @@ fun addPerUnitLineItem(
 - `itemId` (String): Unique **UUID** identifier of the inventory [`Item`](../models/models-inventory#item).
 - `quantity` (Double): Number of units.
 - `devNotes` (Map(String, String)?, optional): Free-form metadata.
+- `binName` (String?): Optional, A specific identifier for categorizing items in an order. This is the general name of a specific group of items, united by some logic.
 
 #### Returns:
 `LineItem?`: The created [`LineItem`](../models/models-order#lineitem), or `null` if the operation fails.
@@ -40,7 +42,9 @@ private fun addWeightedItem(orderId: String, itemId: String, qtyKg: Double) {
         val lineItem = orderConnector.addPerUnitLineItem(
             orderId = orderId,
             itemId = itemId,
-            quantity = qtyKg
+            quantity = qtyKg,
+            devNotes = null,
+            binName = null
         )
         withContext(Dispatchers.Main) {
             lineItem?.let(::onLineItemAdded) ?: showError("Failed to add per-unit item")
@@ -56,7 +60,8 @@ interface OrderRepository {
        orderId: String,
        itemId: String,
        quantity: Double,
-       devNotes: Map<String, String>?
+       devNotes: Map<String, String>?,
+       binName: String?
     ): LineItem?
 }
 
@@ -67,9 +72,10 @@ class OrderRepositoryImpl(
        orderId: String,
        itemId: String,
        quantity: Double,
-       devNotes: Map<String, String>?
+       devNotes: Map<String, String>?,
+       binName: String?
     ): LineItem? = try {
-        orderConnector.addPerUnitLineItem(orderId, itemId, cashPrice, devNotes)
+        orderConnector.addPerUnitLineItem(orderId, itemId, quantity, devNotes, binName)
     } catch (_: Exception) { null }
 }
 ```

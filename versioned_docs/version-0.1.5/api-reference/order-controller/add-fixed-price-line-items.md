@@ -13,39 +13,38 @@ hide_title: true
 ### Signature:
 
 ```kotlin
-fun addFixedPriceLineItems(orderCode: String, items: List<FixedPriceItem>)
+fun addFixedPriceLineItems(
+    orderId: String,
+    itemId: String,
+    itemsNumber: Int,
+    devNotes: Map<String, String>?,
+    binName: String?
+): List<LineItem>?
 ```
 
 #### Parameters:
-- `orderCode` (String): Unique **UUID** identifier of the [`Order`](../models/models-order#order).
-- `items` (List(FixedPriceItem)): List of fixed-price items to add.
-
-#### Data Classes:
-```kotlin
-data class FixedPriceItem(
-    val itemId: String,
-    val price: Double,
-    val binName: String = ""
-)
-```
+- `orderId` (String): Unique **UUID** identifier of the [`Order`](../models/models-order#order).
+- `itemId` (String): Unique **UUID** identifier of the [`Item`](../models/models-inventory#item).
+- `itemsNumber` (Int): Number of line items to add for this item.
+- `devNotes` (Map<String, String>?): Optional development notes as key-value pairs.
+- `binName` (String?): Optional, A specific identifier for categorizing items in an order. This is the general name of a specific group of items, united by some logic.  
 
 #### Returns:
-Void (Unit) No return value is provided. The operation is asynchronous, and a callback is triggered to indicate success or failure.
+List<[`LineItem`](../models/models-order#lineitem)>? - Returns the list of created line items or null if the operation fails.
 
 #### Error Handling:
 Triggers error callback on failure.
 
 ### Example Usage:
 ```kotlin
-private fun addBulkFixedPriceItems(orderCode: String, itemData: List<Pair<String, Double>>) {
+private fun addBulkFixedPriceItems(orderId: String, itemId: String, itemsNumber: Int, devNotes: Map<String, String>? = null, binName: String? = null) {
     lifecycleScope.launch(Dispatchers.IO) {
-        val fixedPriceItems = itemData.map { (itemId, price) ->
-            FixedPriceItem(itemId = itemId, price = price, binName = "BULK_BIN")
-        }
-        orderConnector.addFixedPriceLineItems(orderCode, fixedPriceItems)
-        val updated = orderConnector.getOrder(orderCode)
-        withContext(Dispatchers.Main) {
-            updateOrderUI(updated)
+        val lineItems = orderConnector.addFixedPriceLineItems(orderId, itemId, itemsNumber, devNotes, binName)
+        lineItems?.let {
+            val updated = orderConnector.getOrder(orderId)
+            withContext(Dispatchers.Main) {
+                updateOrderUI(updated)
+            }
         }
     }
 }
@@ -54,16 +53,16 @@ private fun addBulkFixedPriceItems(orderCode: String, itemData: List<Pair<String
 ### Best Practice with Repository Pattern::
 ```kotlin
 interface OrderRepository {
-    fun addFixedPriceLineItems(orderCode: String, items: List<FixedPriceItem>)
+    fun addFixedPriceLineItems(orderId: String, itemId: String, itemsNumber: Int, devNotes: Map<String, String>?, binName: String?): List<LineItem>?
 }
 
 class OrderRepositoryImpl(
     private val orderConnector: OrderConnector
 ) : OrderRepository {
-    override suspend fun addFixedPriceLineItems(orderCode: String, items: List<FixedPriceItem>): Boolean {
+    override suspend fun addFixedPriceLineItems(orderId: String, itemId: String, itemsNumber: Int, devNotes: Map<String, String>?, binName: String?): List<LineItem>? {
         return try {
-            orderConnector.addFixedPriceLineItems(orderCode, items)
-            true
-        } catch (_: Exception) { false }
+            orderConnector.addFixedPriceLineItems(orderId, itemId, itemsNumber, devNotes, binName)
+        } catch (_: Exception) { null }
     }
 }
+```

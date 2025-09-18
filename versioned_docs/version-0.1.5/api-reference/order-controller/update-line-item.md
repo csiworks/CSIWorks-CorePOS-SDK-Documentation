@@ -13,58 +13,45 @@ hide_title: true
 ### Signature:
 
 ```kotlin
-fun updateLineItem(orderCode: String, lineItemId: String, updates: LineItemUpdate)
+fun updateLineItem(orderId: String, lineItem: LineItem): LineItem?
 ```
 
 #### Parameters:
-- `orderCode` (String): Unique **UUID** identifier of the [`Order`](../models/models-order#order).
-- `lineItemId` (String): Unique **UUID** identifier of the [`LineItem`](../models/models-order#lineitem) to update.
-- `updates` (LineItemUpdate): The update data for the line item.
-
-#### Data Classes:
-```kotlin
-data class LineItemUpdate(
-    val quantity: Double? = null,
-    val price: Double? = null,
-    val binName: String? = null,
-    val taxable: Boolean? = null,
-    val lineItemPayment: LineItemPayment? = null
-)
-```
+- `orderId` (String): Unique **UUID** identifier of the [`Order`](../models/models-order#order).
+- `lineItem` (LineItem): The [`LineItem`](../models/models-order#lineitem) to update with new data.
 
 #### Returns:
-Void (Unit) No return value is provided. The operation is asynchronous, and a callback is triggered to indicate success or failure.
+`LineItem?` - Returns the updated line item if successful, or null if the operation fails.
 
 #### Error Handling:
-Triggers error callback on failure.
+Returns null on failure.
 
 ### Example Usage:
 ```kotlin
-private fun updateItemQuantity(orderCode: String, lineItemId: String, newQuantity: Double) {
+private fun updateItemQuantity(orderId: String, lineItem: LineItem, newQuantity: Double) {
     lifecycleScope.launch(Dispatchers.IO) {
-        val updates = LineItemUpdate(quantity = newQuantity)
-        orderConnector.updateLineItem(orderCode, lineItemId, updates)
-        val updated = orderConnector.getOrder(orderCode)
+        val updatedLineItem = lineItem.copy(quantity = newQuantity)
+        val result = orderConnector.updateLineItem(orderId, updatedLineItem)
         withContext(Dispatchers.Main) {
-            updateOrderUI(updated)
+            result?.let { updateOrderUI(it) }
         }
     }
 }
 ```
 
-### Best Practice with Repository Pattern::
+### Best Practice with Repository Pattern:
 ```kotlin
 interface OrderRepository {
-    fun updateLineItem(orderCode: String, lineItemId: String, updates: LineItemUpdate)
+    suspend fun updateLineItem(orderId: String, lineItem: LineItem): LineItem?
 }
 
 class OrderRepositoryImpl(
     private val orderConnector: OrderConnector
 ) : OrderRepository {
-    override suspend fun updateLineItem(orderCode: String, lineItemId: String, updates: LineItemUpdate): Boolean {
+    override suspend fun updateLineItem(orderId: String, lineItem: LineItem): LineItem? {
         return try {
-            orderConnector.updateLineItem(orderCode, lineItemId, updates)
-            true
-        } catch (_: Exception) { false }
+            orderConnector.updateLineItem(orderId, lineItem)
+        } catch (_: Exception) { null }
     }
 }
+```

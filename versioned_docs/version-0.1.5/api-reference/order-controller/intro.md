@@ -8,80 +8,13 @@ pagination_prev: null
 ---
 
 ## Introduction
-
-The `OrderConnector`provides methods to retrieve the active order, fetch an order by ID, add line items (variable price or per-unit), and delete line items in the CorePOS system. All methods are executed asynchronously and return results through callbacks.
-
 ### Class Overview
 
 ```kotlin
-class OrderConnector(context: Context) : ServiceConnector(context) {
-    override fun getServiceInterface(iBinder: IBinder?): IOrderService =
-        IOrderService.Stub.asInterface(iBinder)
-
-    override val serviceClassName: String =
-        "com.csiworks.corepos.background.service.order.OrderCommunicationService"
-
-    fun getOrder(orderId: String): Order? = /* ... */
-    fun getActiveOrder(): Order? = /* ... */
-
-    fun addVariablePriceLineItem(
-        orderId: String,
-        itemId: String,
-        cashPrice: Long,
-        devNotes: Map<String, String>?,
-        binName: String?
-    ): LineItem? = /* ... */
-
-    fun addPerUnitLineItem(
-        orderId: String,
-        itemId: String,
-        quantity: Double,
-        devNotes: Map<String, String>?,
-        binName: String?
-    ): LineItem? = /* ... */
-
-    fun addFixedPriceLineItem(
-        orderId: String,
-        itemId: String,
-        devNotes: Map<String, String>?,
-        binName: String?
-    ): LineItem? = /* ... */
-
-    fun addFixedPriceLineItems(
-        orderId: String,
-        itemId: String,
-        itemsNumber: Int,
-        devNotes: Map<String, String>?,
-        binName: String?
-    ): List<LineItem>? = /* ... */
-
-    fun deleteLineItem(orderId: String, lineItemId: String) { /* ... */ }
-    fun deleteLineItems(orderId: String, lineItemIds: List<String>) { /* ... */ }
-
-    fun updateLineItem(orderId: String, lineItem: LineItem): LineItem? = /* ... */
-    fun updateLineItems(orderId: String, lineItems: List<LineItem>): List<LineItem>? = /* ... */
-
-    fun addLineItemDiscount(
-        orderId: String,
-        lineItemId: String,
-        discountName: String,
-        amountType: AmountType,
-        amount: Long
-    ): Order? = /* ... */
-
-    fun deleteLineItemDiscount(
-        orderId: String,
-        lineItemId: String,
-        discountId: String
-    ): Order? = /* ... */
-
-    fun deleteLineItemDiscounts(
-        orderId: String,
-        lineItemId: String,
-        discountIds: List<String>
-    ): Order? = /* ... */
-}
+class OrderConnector(context: Context)
 ```
+
+The `OrderConnector`provides methods to retrieve the active order, fetch an order by ID, add line items (variable price or per-unit), and delete line items in the CorePOS system. All methods are executed asynchronously and return results through callbacks.
 
 **Purpose:** Manage order operations: fetch orders, add line items, and delete line items.
 [`Quick Example:`](../../quick-start/quick-guide-examples#manage-orders) - Quick example of order managing

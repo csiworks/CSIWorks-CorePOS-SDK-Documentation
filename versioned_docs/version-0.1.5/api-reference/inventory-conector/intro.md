@@ -8,43 +8,13 @@ pagination_prev: null
 ---
 
 ## Introduction
-
-The `InventoryConnector` provides methods to manage inventory items, categories, and related operations in the CorePOS system. All methods are executed asynchronously and return results through callbacks.
-
 ### Class Overview
 
 ```kotlin
-class InventoryConnector(context: Context) : ServiceConnector<IInventoryService>(context) {
-
-    override fun getServiceInterface(iBinder: IBinder?): IInventoryService { /* ... */ }
-
-    fun getItems(filter: ItemFilter? = null): List<Item>? = /* ... */
-
-    fun getItem(itemId: String): Item? = /* ... */
-
-    fun getCategories(): List<Category>? = /* ... */
-
-    fun saveItem(item: Item, imageUri: String?): Item? = /* ... */
-
-    fun deleteItem(itemId: String) = /* ... */
-
-    fun getCharges(): List<Charge>? = /* ... */
-
-    fun saveCharge(charge: Charge): Charge? = /* ... */
-
-    fun deleteCharge(chargeId: String) = /* ... */
-
-    fun saveCategory(category: Category): Category? = /* ... */
-
-    fun deleteCategory(categoryId: String) = /* ... */
-
-    fun updateItemquantity(itemId: String, quantity: Double) = /* ... */
-
-    fun getDualPriceRate(): Float? = /* ... */
-
-    fun updateEbtFlags(flags: Map<String, Boolean>) = /* ... */
-}
+class InventoryConnector(context: Context)
 ```
+
+The `InventoryConnector` provides methods to manage inventory items, categories, and related operations in the CorePOS system. All methods are executed asynchronously and return results through callbacks.
 
 **Purpose:** Manages inventory operations including retrieving, creating, updating, and deleting items and categories.
 [`Quick Example:`](../../quick-start/quick-guide-examples#retrieve-inventory-items) - Quick example of retrieve inventory items

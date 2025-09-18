@@ -13,11 +13,11 @@ hide_title: true
 ### Signature:
 
 ```kotlin
-fun deleteLineItems(orderCode: String, lineItemIds: List<String>)
+fun deleteLineItems(orderId: String, lineItemIds: List<String>)
 ```
 
 #### Parameters:
-- `orderCode` (String): Unique **UUID** identifier of the [`Order`](../models/models-order#order).
+- `orderId` (String): Unique **UUID** identifier of the [`Order`](../models/models-order#order).
 - `lineItemIds` (List(String)): List of unique **UUID** identifiers of the [`LineItem`](../models/models-order#lineitem) objects to remove.
 
 #### Returns:
@@ -28,10 +28,10 @@ Triggers error callback on failure.
 
 ### Example Usage:
 ```kotlin
-private fun removeMultipleItems(orderCode: String, itemsToRemove: List<String>) {
+private fun removeMultipleItems(orderId: String, itemsToRemove: List<String>) {
     lifecycleScope.launch(Dispatchers.IO) {
-        orderConnector.deleteLineItems(orderCode, itemsToRemove)
-        val updated = orderConnector.getOrder(orderCode)
+        orderConnector.deleteLineItems(orderId, itemsToRemove)
+        val updated = orderConnector.getOrder(orderId)
         withContext(Dispatchers.Main) {
             updateOrderUI(updated)
         }
@@ -42,16 +42,17 @@ private fun removeMultipleItems(orderCode: String, itemsToRemove: List<String>) 
 ### Best Practice with Repository Pattern::
 ```kotlin
 interface OrderRepository {
-    fun deleteLineItems(orderCode: String, lineItemIds: List<String>)
+    fun deleteLineItems(orderId: String, lineItemIds: List<String>)
 }
 
 class OrderRepositoryImpl(
     private val orderConnector: OrderConnector
 ) : OrderRepository {
-    override suspend fun deleteLineItems(orderCode: String, lineItemIds: List<String>): Boolean {
+    override suspend fun deleteLineItems(orderId: String, lineItemIds: List<String>): Boolean {
         return try {
-            orderConnector.deleteLineItems(orderCode, lineItemIds)
+            orderConnector.deleteLineItems(orderId, lineItemIds)
             true
         } catch (_: Exception) { false }
     }
 }
+```

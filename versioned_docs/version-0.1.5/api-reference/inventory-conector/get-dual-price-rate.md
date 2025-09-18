@@ -20,7 +20,7 @@ fun getDualPriceRate(): Float?
 None
 
 #### Returns:
-`Float?`: The current dual pricing rate as a decimal (e.g., 0.035 for 3.5%), or `null` if the operation fails.
+`Float?`: The current dual pricing rate as a decimal (e.g., 3.5 for 3.5%), or `null` if the operation fails.
 
 #### Error Handling:
 Returns `null` on error.
@@ -43,7 +43,7 @@ private fun loadDualPriceRate() {
 }
 
 private fun displayDualPriceRate(rate: Float) {
-    val percentage = rate * 100
+    val percentage = rate
     textView.text = "Dual Price Rate: ${String.format("%.2f", percentage)}%"
 }
 ```

@@ -7,17 +7,11 @@ hide_title: true
 ---
 
 ## Introduction
-The `PrinterConnector` provides methods to interact with the printing service in the CorePOS system. The primary functionality includes sending bitmap images to be printed.
-
 ### Class Overview
-
 ```kotlin
-class PrinterConnector(context: Context) : ServiceConnector<IPrinterService>(context) {
-
-    override fun getServiceInterface(iBinder: IBinder?): IPrinterService { /* ... */ }
-    fun printBitmap(bitmap: Bitmap) { /* ... */ }
-}
+class PrinterConnector(context: Context)
 ```
+The `PrinterConnector` provides methods to interact with the printing service in the CorePOS system. The primary functionality includes sending bitmap images to be printed.
 
 **Purpose:** Manages printing operations, including printing bitmap images.
 

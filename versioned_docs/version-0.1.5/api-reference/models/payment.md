@@ -58,6 +58,10 @@ The `Card` model represents payment card information, containing the following f
 ```kotlin
 data class PaymentRequest
 ```
+:::caution Not Currently Functional
+This model is not currently in use and may not be functional in the current version.
+:::
+
 The `PaymentRequest` model represents a payment transaction request, containing the following fields:
 
 ### Values
@@ -81,6 +85,10 @@ The `PaymentResponse` model represents the result of a payment transaction, cont
 ```kotlin
 class PaymentRequestBuilder
 ```
+:::caution Not Currently Functional
+This builder is not currently in use and may not be functional in the current version.
+:::
+
 The `PaymentRequestBuilder` class provides a fluent interface for creating `PaymentRequest` objects with validation and utility methods.
 
 ### Factory Methods
