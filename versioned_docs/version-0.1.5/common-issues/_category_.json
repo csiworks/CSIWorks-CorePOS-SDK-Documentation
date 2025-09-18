@@ -1,9 +1,0 @@
-{
-  "label": "Common Issues and Troubleshooting",
-  "position": 6,
-  "link": {
-    "slug": "/common-issues",
-    "type": "generated-index",
-    "description": "This guide helps you resolve common issues when integrating the CorePOS SDK into your application."
-  }
-}

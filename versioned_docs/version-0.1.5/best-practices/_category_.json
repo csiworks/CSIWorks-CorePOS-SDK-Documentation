@@ -1,9 +1,0 @@
-{
-  "label": "Best Practices",
-  "position": 5,
-  "link": {
-    "slug": "/best-practices",
-    "type": "generated-index",
-    "description": "This guide provides comprehensive best practices for developing robust applications with the CorePOS SDK."
-  }
-}

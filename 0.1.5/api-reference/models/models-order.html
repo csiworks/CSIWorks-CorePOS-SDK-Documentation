@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-0.1.5 docs-doc-page docs-doc-id-api-reference/models/models-order" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.1">
+<title data-rh="true">Order | CorePOS SDK</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://csiworks.github.io/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-order"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="0.1.5"><meta data-rh="true" name="docusaurus_tag" content="docs-default-0.1.5"><meta data-rh="true" name="docsearch:version" content="0.1.5"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-0.1.5"><meta data-rh="true" property="og:title" content="Order | CorePOS SDK"><meta data-rh="true" name="description" content="Order models."><meta data-rh="true" property="og:description" content="Order models."><link data-rh="true" rel="icon" href="/CSIWorks-CorePOS-SDK-Documentation/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://csiworks.github.io/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-order"><link data-rh="true" rel="alternate" href="https://csiworks.github.io/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-order" hreflang="en"><link data-rh="true" rel="alternate" href="https://csiworks.github.io/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-order" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Api Reference","item":"https://csiworks.github.io/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference"},{"@type":"ListItem","position":2,"name":"Models","item":"https://csiworks.github.io/CSIWorks-CorePOS-SDK-Documentation/0.1.5/models"},{"@type":"ListItem","position":3,"name":"Order","item":"https://csiworks.github.io/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-order"}]}</script><link rel="stylesheet" href="/CSIWorks-CorePOS-SDK-Documentation/assets/css/styles.c7e05508.css">
+<script src="/CSIWorks-CorePOS-SDK-Documentation/assets/js/runtime~main.3790d00b.js" defer="defer"></script>
+<script src="/CSIWorks-CorePOS-SDK-Documentation/assets/js/main.b4328ab4.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t="light";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/CSIWorks-CorePOS-SDK-Documentation/img/logo.png"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/CSIWorks-CorePOS-SDK-Documentation/"><div class="navbar__logo"><img src="/CSIWorks-CorePOS-SDK-Documentation/img/logo.png" alt="CorePOS Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/CSIWorks-CorePOS-SDK-Documentation/img/logo.png" alt="CorePOS Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">CorePOS SDK</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-order">0.1.5</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/introduction">Introduction</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/installation">Installation</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/quick-guide">Quick Guide</a><button aria-label="Expand sidebar category &#x27;Quick Guide&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference">Api Reference</a><button aria-label="Collapse sidebar category &#x27;Api Reference&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" tabindex="0" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/models">Models</a><button aria-label="Collapse sidebar category &#x27;Models&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-inventory">Inventory</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-merchant">Merchant</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-order">Order</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-tender">Tender</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-action">Action</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-exception">Exception</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-payment">Payment</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-intents">Intents</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/inventory-connector">InventoryConnector</a><button aria-label="Expand sidebar category &#x27;InventoryConnector&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/order-connector">OrderConnector</a><button aria-label="Expand sidebar category &#x27;OrderConnector&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/tender-connector">TenderConnector</a><button aria-label="Expand sidebar category &#x27;TenderConnector&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/action-connector">ActionConnector</a><button aria-label="Expand sidebar category &#x27;ActionConnector&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/printer-api">PrinterConnector</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/merchant-api">MerchantConnector</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/payment-api">PaymentConnector</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/best-practices">Best Practices</a><button aria-label="Expand sidebar category &#x27;Best Practices&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/common-issues">Common Issues and Troubleshooting</a><button aria-label="Expand sidebar category &#x27;Common Issues and Troubleshooting&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/CSIWorks-CorePOS-SDK-Documentation/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference"><span>Api Reference</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/models"><span>Models</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Order</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h2 class="anchor anchorWithStickyNavbar_LWe7" id="order-models">Order Models<a href="#order-models" class="hash-link" aria-label="Direct link to Order Models" title="Direct link to Order Models">​</a></h2>
+<p>This section covers all order models (entities) used in the API</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lineitemdiscount">LineItemDiscount<a href="#lineitemdiscount" class="hash-link" aria-label="Direct link to LineItemDiscount" title="Direct link to LineItemDiscount">​</a></h2>
+<div class="language-kotlin codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-kotlin codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">data</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">class</span><span class="token plain"> LineItemDiscount</span><br></span></code></pre></div></div>
+<p>The <code>LineItemDiscount</code> model represents a discount, applied to a single line item, containing the following fields:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="values">Values<a href="#values" class="hash-link" aria-label="Direct link to Values" title="Direct link to Values">​</a></h3>
+<ul>
+<li><code>lineItemDiscountId</code>: A unique <strong>UUID</strong> identifier for the line item discount.</li>
+<li><code>name</code>: The name of the discount (e.g., &quot;Holiday Sale&quot;).</li>
+<li><code>discountType</code>: The type of discount. Can be <code>FIXED (0)</code> or <code>PERCENTAGE (1)</code>.<!-- -->
+<ul>
+<li><strong>FIXED</strong>, Represents a fixed amount discount.</li>
+<li><strong>PERCENTAGE</strong>, Represents a percentage discount.</li>
+</ul>
+</li>
+<li><code>amount</code>: The discount amount.</li>
+<li><code>isActive</code>: A flag indicating whether the discount is currently active.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lineitemcharge">LineItemCharge<a href="#lineitemcharge" class="hash-link" aria-label="Direct link to LineItemCharge" title="Direct link to LineItemCharge">​</a></h2>
+<div class="language-kotlin codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-kotlin codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">data</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">class</span><span class="token plain"> LineItemCharge</span><br></span></code></pre></div></div>
+<p>The <code>LineItemCharge</code> model represents taxes and fees, applied to a single line item, containing the following fields:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="values-1">Values<a href="#values-1" class="hash-link" aria-label="Direct link to Values" title="Direct link to Values">​</a></h3>
+<ul>
+<li><code>lineItemCharge</code>: A unique <strong>UUID</strong> identifier for the line item charge.</li>
+<li><code>chargeId</code>: A unique <strong>UUID</strong> identifier for the charge. Reference to the corresponding inventory <a href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-inventory#charge"><strong>Charge</strong></a>.</li>
+<li><code>name</code>: The name of the charge (e.g., &quot;Sales Tax&quot;, &quot;Shipping Fee&quot;).</li>
+<li><code>chargeAmountType</code>: The type of charge amount. Can be <code>FIXED (0)</code> or <code>PERCENTAGE (1)</code>.<!-- -->
+<ul>
+<li><strong>FIXED</strong>, Represents a fixed amount, such as a flat fee.</li>
+<li><strong>PERCENTAGE</strong>, Represents a percentage, such as a tax rate.</li>
+</ul>
+</li>
+<li><code>amount</code>: The amount of the charge.<!-- -->
+<ul>
+<li>If the type is <strong>FIXED</strong>, it&#x27;s a specific amount.</li>
+<li>If it&#x27;s <strong>PERCENTAGE</strong>, it represents the percentage value.</li>
+</ul>
+</li>
+<li><code>isDefault</code>: A flag indicating whether this charge is the default charge.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lineitem">LineItem<a href="#lineitem" class="hash-link" aria-label="Direct link to LineItem" title="Direct link to LineItem">​</a></h2>
+<div class="language-kotlin codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-kotlin codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">data</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">class</span><span class="token plain"> LineItem</span><br></span></code></pre></div></div>
+<p>The <code>LineItem</code> model represents a purchased or selected item within an order, containing the following fields:</p>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>Line Item Introduction</div><div class="admonitionContent_BuS1"><p>The LineItem can be thought of as an item placed on the checkout conveyor belt at a store.</p></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="values-2">Values<a href="#values-2" class="hash-link" aria-label="Direct link to Values" title="Direct link to Values">​</a></h3>
+<ul>
+<li><code>lineItemId</code>: A unique <strong>UUID</strong> identifier for the line item.</li>
+<li><code>quantity</code>: The quantity of the item in the line item (supports fractional values).</li>
+<li><code>totalCash</code>: The total cash price for the line item (after adjustments).</li>
+<li><code>totalCard</code>: The total card price for the line item (after adjustments).</li>
+<li><code>itemId</code>: A unique <strong>UUID</strong> identifier for the item. Reference to the corresponding inventory <a href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-inventory#item"><strong>Item</strong></a>.</li>
+<li><code>imagePath</code>: A path to the item&#x27;s image.</li>
+<li><code>thumbnailPath</code>: A path to the item&#x27;s thumbnail image.</li>
+<li><code>name</code>: The name of the item.</li>
+<li><code>priceType</code>: <a href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-inventory#pricetype-enum"><strong>PriceType</strong></a>, the type of pricing applied to this line item.</li>
+<li><code>unitType</code>: The unit type for the item (e.g., <code>Lb</code>, <code>Oz</code>, <code>Kg</code>).</li>
+<li><code>unitCash</code>: The cash price per unit of the item.</li>
+<li><code>unitCard</code>: The card price per unit of the item.</li>
+<li><code>lineItemDiscounts</code>: A list of <a href="#lineitemdiscount"><strong>LineItemDiscount</strong></a> applied to this line item.</li>
+<li><code>lineItemTaxes</code>: A list of <a href="#lineitemcharge"><strong>LineItemCharge</strong></a> with <code>amountType = Percentage</code>.</li>
+<li><code>lineItemFees</code>: A list of <a href="#lineitemcharge"><strong>LineItemCharge</strong></a> with <code>amountType = Fixed</code>.</li>
+<li><code>lineItemPayment</code>: A <strong>UUID</strong> identifier for transaction wich associated with this line item.</li>
+<li><code>isEBT</code>: A flag indicating whether the line item is eligible for Electronic Benefit Transfer (EBT).</li>
+<li><code>devNotes</code>: A map of developer notes or metadata for debugging and custom usage.</li>
+<li><code>binName</code>: A specific identifier for categorizing items in an order. This is the general name of a specific group of items, united by some logic (e.g., &quot;EBT Items&quot;).</li>
+<li><code>taxable</code>: A flag indicating whether the line item is subject to taxes.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lineitembuilder">LineItemBuilder<a href="#lineitembuilder" class="hash-link" aria-label="Direct link to LineItemBuilder" title="Direct link to LineItemBuilder">​</a></h2>
+<div class="language-kotlin codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-kotlin codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">class</span><span class="token plain"> LineItemBuilder</span><br></span></code></pre></div></div>
+<p>The <code>LineItemBuilder</code> class provides a fluent interface for creating and modifying <code>LineItem</code> objects with validation and utility methods.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="factory-methods">Factory Methods<a href="#factory-methods" class="hash-link" aria-label="Direct link to Factory Methods" title="Direct link to Factory Methods">​</a></h3>
+<ul>
+<li><code>create()</code> - Creates a new empty builder instance</li>
+<li><code>from(lineItem)</code> - Creates a builder from an existing LineItem</li>
+<li><code>variablePrice(itemId, name, cashPrice, devNotes?, binName?)</code> - Creates a variable price line item</li>
+<li><code>perUnit(itemId, name, quantity, unitPrice, devNotes?, binName?)</code> - Creates a per-unit line item</li>
+<li><code>fixedPrice(itemId, name, devNotes?, binName?)</code> - Creates a fixed price line item</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="builder-methods">Builder Methods<a href="#builder-methods" class="hash-link" aria-label="Direct link to Builder Methods" title="Direct link to Builder Methods">​</a></h3>
+<p><strong>Basic Setters:</strong></p>
+<ul>
+<li><code>setLineItemId(String?)</code> - Set line item ID</li>
+<li><code>setQuantity(Double)</code> - Set item quantity</li>
+<li><code>setTotalCash(Long?)</code> - Set total cash price</li>
+<li><code>setTotalCard(Long?)</code> - Set total card price</li>
+<li><code>setItemId(String?)</code> - Set item reference ID</li>
+<li><code>setName(String)</code> - Set item name</li>
+<li><code>setPriceType(Int)</code> - Set pricing type</li>
+<li><code>setLineItemPayment(String?)</code> - Set transaction id for line-item</li>
+<li><code>setEBT(Boolean)</code> - Set EBT eligibility</li>
+<li><code>setBinName(String?)</code> - Set category identifier</li>
+<li><code>setTaxable(Boolean)</code> - Set tax eligibility</li>
+</ul>
+<p><strong>Collection Methods:</strong></p>
+<ul>
+<li><code>addDiscount(LineItemDiscount)</code> - Add a discount</li>
+<li><code>addTax(LineItemCharge)</code> - Add a tax</li>
+<li><code>addFee(LineItemCharge)</code> - Add a fee</li>
+<li><code>addDevNote(String, String)</code> - Add developer note</li>
+<li><code>removeDiscount(String)</code> - Remove discount by ID</li>
+<li><code>removeTax(String)</code> - Remove tax by ID</li>
+<li><code>removeFee(String)</code> - Remove fee by ID</li>
+<li><code>clearDiscounts()</code> - Remove all discounts</li>
+<li><code>clearTaxes()</code> - Remove all taxes</li>
+<li><code>clearFees()</code> - Remove all fees</li>
+</ul>
+<p><strong>Build Methods:</strong></p>
+<ul>
+<li><code>build()</code> - Build and validate LineItem (throws on error)</li>
+<li><code>buildOrNull()</code> - Build LineItem, return null on error</li>
+<li><code>isValid()</code> - Check if current state is valid</li>
+<li><code>getValidationErrors()</code> - Get list of validation errors</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="orderdiscount">OrderDiscount<a href="#orderdiscount" class="hash-link" aria-label="Direct link to OrderDiscount" title="Direct link to OrderDiscount">​</a></h2>
+<div class="language-kotlin codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-kotlin codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">data</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">class</span><span class="token plain"> OrderDiscount</span><br></span></code></pre></div></div>
+<p>The <code>OrderDiscount</code> model represents a discount applied at the <strong>order level</strong> (as opposed to line-item level), containing the following fields:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="values-3">Values<a href="#values-3" class="hash-link" aria-label="Direct link to Values" title="Direct link to Values">​</a></h3>
+<ul>
+<li><code>orderDiscountId</code>: A unique <strong>UUID</strong> identifier for the order discount.</li>
+<li><code>discountId</code>: A unique <strong>UUID</strong> identifier for the discount. Reference to the corresponding inventory <a href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-inventory#discount"><strong>Discount</strong></a>.</li>
+<li><code>name</code>: The name of the discount (e.g., &quot;Holiday Promo&quot;, &quot;Employee Discount&quot;).</li>
+<li><code>discountType</code>: The type of discount. Can be <code>FIXED (0)</code> or <code>PERCENTAGE (1)</code>.<!-- -->
+<ul>
+<li><strong>FIXED</strong>, Represents a fixed amount discount.</li>
+<li><strong>PERCENTAGE</strong>, Represents a percentage discount.</li>
+</ul>
+</li>
+<li><code>amount</code>: The discount amount.</li>
+<li><code>isActive</code>: A flag indicating whether the discount is currently active.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="order">Order<a href="#order" class="hash-link" aria-label="Direct link to Order" title="Direct link to Order">​</a></h2>
+<div class="language-kotlin codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-kotlin codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">data</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">class</span><span class="token plain"> Order</span><br></span></code></pre></div></div>
+<p>The <code>Order</code> model represents a order, containing the following fields:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="values-4">Values<a href="#values-4" class="hash-link" aria-label="Direct link to Values" title="Direct link to Values">​</a></h3>
+<ul>
+<li><code>orderId</code>: A unique <strong>UUID</strong> identifier for the order.</li>
+<li><code>customerId</code>: A unique <strong>UUID</strong> identifier. Reference to the customer who placed the order.</li>
+<li><code>items</code>: A list of <a href="#lineitem"><strong>LineItem</strong></a> objects included in the order.</li>
+<li><code>cashSubtotal</code>: The subtotal of the order when paid with cash (before discounts and taxes).</li>
+<li><code>cardSubtotal</code>: The subtotal of the order when paid with card (before discounts and taxes).</li>
+<li><code>ebtSubtotal</code>: The subtotal of the order eligible for <strong>EBT</strong> (Electronic Benefit Transfer).</li>
+<li><code>orderDiscounts</code>: A list of <a href="#orderdiscount"><strong>OrderDiscount</strong></a> applied to the order.</li>
+<li><code>cashTax</code>: The total tax applied when paying with cash.</li>
+<li><code>cardTax</code>: The total tax applied when paying with card.</li>
+<li><code>tipAmount</code>: The total tip amount added to the order.</li>
+<li><code>fee</code>: The total fees applied to the order (e.g., service fees).</li>
+<li><code>cashTotal</code>: The final total amount when paying with cash (subtotal + tax + fees - discounts).</li>
+<li><code>cardTotal</code>: The final total amount when paying with card (subtotal + tax + fees - discounts).</li>
+<li><code>ebtTotal</code>: The final total amount eligible for <strong>EBT</strong>.</li>
+<li><code>transactions</code>: A list of <a href="#transaction"><strong>Transaction</strong></a> objects associated with this order.</li>
+<li><code>state</code>: The current state of the order. Can be:<!-- -->
+<ul>
+<li><code>OPEN (0)</code> – Order is open and not yet paid.</li>
+<li><code>PAID (1)</code> – Order is fully paid.</li>
+<li><code>PARTIALLY_PAID (2)</code> – Order is partially paid.</li>
+<li><code>PARTIALLY_REFUNDED (3)</code> – Order has been partially refunded.</li>
+<li><code>REFUNDED (4)</code> – Order has been fully refunded.</li>
+</ul>
+</li>
+<li><code>notes</code>: Optional notes or comments about the order.</li>
+<li><code>createdAt</code>: A timestamp (epoch) representing when the order was created.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="transaction">Transaction<a href="#transaction" class="hash-link" aria-label="Direct link to Transaction" title="Direct link to Transaction">​</a></h2>
+<div class="language-kotlin codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-kotlin codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">data</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">class</span><span class="token plain"> Transaction</span><br></span></code></pre></div></div>
+<p>The <code>Transaction</code> model represents a financial operation related to an order, containing the following fields:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="values-5">Values<a href="#values-5" class="hash-link" aria-label="Direct link to Values" title="Direct link to Values">​</a></h3>
+<ul>
+<li><code>transactionId</code>: A unique <strong>UUID</strong> identifier for the transaction.</li>
+<li><code>orderId</code>: Reference to the <a href="#order"><strong>Order</strong></a> this transaction belongs to.</li>
+<li><code>transactionType</code>: The type of transaction. Can be:<!-- -->
+<ul>
+<li><code>SALE (0)</code> – A completed sale transaction.</li>
+<li><code>VOID (1)</code> – A voided transaction (canceled before settlement).</li>
+<li><code>REFUND (2)</code> – A refund transaction.</li>
+</ul>
+</li>
+<li><code>paymentMethod</code>: The method of payment used. Can be:<!-- -->
+<ul>
+<li><code>CASH (0)</code> – Cash payment.</li>
+<li><code>CREDIT_CARD (1)</code> – Credit card payment.</li>
+<li><code>DEBIT_CARD (2)</code> – Debit card payment.</li>
+<li><code>EBT_CARD (3)</code> – Electronic Benefit Transfer (EBT) card payment.</li>
+</ul>
+</li>
+<li><code>amount</code>: The total transaction amount.</li>
+<li><code>taxAmount</code>: The portion of the transaction that is tax.</li>
+<li><code>cardNumber</code>: The masked card number (if applicable).</li>
+<li><code>cardType</code>: The type of card used if applicable.</li>
+<li><code>date</code>: A timestamp (epoch) representing when the transaction occurred.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lineitemutils">LineItemUtils<a href="#lineitemutils" class="hash-link" aria-label="Direct link to LineItemUtils" title="Direct link to LineItemUtils">​</a></h2>
+<div class="language-kotlin codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-kotlin codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">object</span><span class="token plain"> LineItemUtils</span><br></span></code></pre></div></div>
+<p>The <code>LineItemUtils</code> object provides utility functions for common LineItem operations.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="available-methods">Available Methods<a href="#available-methods" class="hash-link" aria-label="Direct link to Available Methods" title="Direct link to Available Methods">​</a></h3>
+<ul>
+<li><code>updateQuantity(lineItem, newQuantity)</code> - Updates quantity and recalculates totals</li>
+<li><code>updateUnitPrice(lineItem, newUnitPrice)</code> - Updates unit price and recalculates totals</li>
+<li><code>addDiscount(lineItem, name, amount, type)</code> - Adds a discount to the line item</li>
+<li><code>removeDiscount(lineItem, discountName)</code> - Removes a discount by name</li>
+<li><code>addTax(lineItem, name, amount, type)</code> - Adds a tax to the line item</li>
+<li><code>updateName(lineItem, newName)</code> - Updates the item name</li>
+<li><code>updateEBTStatus(lineItem, isEBT)</code> - Updates EBT eligibility</li>
+<li><code>addDevNote(lineItem, key, value)</code> - Adds or updates a developer note</li>
+<li><code>removeDevNote(lineItem, key)</code> - Removes a developer note</li>
+<li><code>createUpdateCopy(lineItem)</code> - Creates a copy for updates</li>
+<li><code>validateForUpdate(lineItem)</code> - Validates item for update operations</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-merchant"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Merchant</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/CSIWorks-CorePOS-SDK-Documentation/0.1.5/api-reference/models/models-tender"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Tender</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#order-models" class="table-of-contents__link toc-highlight">Order Models</a></li><li><a href="#lineitemdiscount" class="table-of-contents__link toc-highlight">LineItemDiscount</a><ul><li><a href="#values" class="table-of-contents__link toc-highlight">Values</a></li></ul></li><li><a href="#lineitemcharge" class="table-of-contents__link toc-highlight">LineItemCharge</a><ul><li><a href="#values-1" class="table-of-contents__link toc-highlight">Values</a></li></ul></li><li><a href="#lineitem" class="table-of-contents__link toc-highlight">LineItem</a><ul><li><a href="#values-2" class="table-of-contents__link toc-highlight">Values</a></li></ul></li><li><a href="#lineitembuilder" class="table-of-contents__link toc-highlight">LineItemBuilder</a><ul><li><a href="#factory-methods" class="table-of-contents__link toc-highlight">Factory Methods</a></li><li><a href="#builder-methods" class="table-of-contents__link toc-highlight">Builder Methods</a></li></ul></li><li><a href="#orderdiscount" class="table-of-contents__link toc-highlight">OrderDiscount</a><ul><li><a href="#values-3" class="table-of-contents__link toc-highlight">Values</a></li></ul></li><li><a href="#order" class="table-of-contents__link toc-highlight">Order</a><ul><li><a href="#values-4" class="table-of-contents__link toc-highlight">Values</a></li></ul></li><li><a href="#transaction" class="table-of-contents__link toc-highlight">Transaction</a><ul><li><a href="#values-5" class="table-of-contents__link toc-highlight">Values</a></li></ul></li><li><a href="#lineitemutils" class="table-of-contents__link toc-highlight">LineItemUtils</a><ul><li><a href="#available-methods" class="table-of-contents__link toc-highlight">Available Methods</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 CSIworks, Inc. CorePOS SDK Documentation</div></div></div></footer></div>
+</body>
+</html>
