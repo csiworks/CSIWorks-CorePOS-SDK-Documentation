@@ -6,14 +6,17 @@ description: Order models.
 hide_title: true
 ---
 
-## Inventory models
+## Order Models
 
 This section covers all order models (entities) used in the API
 
-### LineItemDiscount
-
+## LineItemDiscount
+```kotlin
+data class LineItemDiscount
+```
 The `LineItemDiscount` model represents a discount, applied to a single line item, containing the following fields:
 
+### Values
 - `lineItemDiscountId`: A unique **UUID** identifier for the line item discount.
 - `name`: The name of the discount (e.g., "Holiday Sale").
 - `discountType`: The type of discount. Can be `FIXED (0)` or `PERCENTAGE (1)`.
@@ -22,21 +25,13 @@ The `LineItemDiscount` model represents a discount, applied to a single line ite
 - `amount`: The discount amount.
 - `isActive`: A flag indicating whether the discount is currently active.
 
-``` kotlin
-@Parcelize
-data class LineItemDiscount(
-    val lineItemDiscountId: String?,
-    val name: String,
-    val discountType: Int,
-    val amount: Long,
-    val isActive: Boolean
-) : Parcelable
+## LineItemCharge
+```kotlin
+data class LineItemCharge
 ```
-
-### LineItemCharge
-
 The `LineItemCharge` model represents taxes and fees, applied to a single line item, containing the following fields:
 
+### Values
 - `lineItemCharge`: A unique **UUID** identifier for the line item charge.
 - `chargeId`: A unique **UUID** identifier for the charge. Reference to the corresponding inventory [**Charge**](models-inventory#charge).
 - `name`: The name of the charge (e.g., "Sales Tax", "Shipping Fee").
@@ -48,26 +43,17 @@ The `LineItemCharge` model represents taxes and fees, applied to a single line i
   - If it's **PERCENTAGE**, it represents the percentage value.
 - `isDefault`: A flag indicating whether this charge is the default charge.
 
+## LineItem
 ```kotlin
-@Parcelize
-data class LineItemCharge(
-    val lineItemChargeId: String?,
-    val chargeId: String?, // Reference of Charge
-    val name: String,
-    val chargeAmountType: Int,
-    val amount: Long,
-    val isDefault: Boolean
-) : Parcelable
+data class LineItem
 ```
-
-### LineItem  
-
 The `LineItem` model represents a purchased or selected item within an order, containing the following fields:
 
 :::note Line Item Introduction
 The LineItem can be thought of as an item placed on the checkout conveyor belt at a store.
 :::
 
+### Values
 - `lineItemId`: A unique **UUID** identifier for the line item.  
 - `quantity`: The quantity of the item in the line item (supports fractional values).  
 - `totalCash`: The total cash price for the line item (after adjustments).  
@@ -83,42 +69,65 @@ The LineItem can be thought of as an item placed on the checkout conveyor belt a
 - `lineItemDiscounts`: A list of [**LineItemDiscount**](#lineitemdiscount) applied to this line item.  
 - `lineItemTaxes`: A list of [**LineItemCharge**](#lineitemcharge) with `amountType = Percentage`.  
 - `lineItemFees`: A list of [**LineItemCharge**](#lineitemcharge) with `amountType = Fixed`.  
+- `lineItemPayment`: A **UUID** identifier for transaction wich associated with this line item.  
 - `isEBT`: A flag indicating whether the line item is eligible for Electronic Benefit Transfer (EBT).  
 - `devNotes`: A map of developer notes or metadata for debugging and custom usage.  
+- `binName`: A specific identifier for categorizing items in an order. This is the general name of a specific group of items, united by some logic (e.g., "EBT Items").  
+- `taxable`: A flag indicating whether the line item is subject to taxes.
 
+## LineItemBuilder
 ```kotlin
-@Parcelize
-data class LineItem(
-    val lineItemId: String? = null, // UUID
-    val quantity: Double,
-    val totalCash: Long?,
-    val totalCard: Long?,
-    val itemId: String? = null, // Reference of Item
-    val imagePath: String?,
-    val thumbnailPath: String?,
-    val name: String,
-    val priceType: Int,
-    val unitType: String?,
-    val unitCash: Long?,
-    val unitCard: Long?,
-    val lineItemDiscounts: List<LineItemDiscount>,
-    val lineItemTaxes: List<LineItemCharge>, // amountType = Percentage
-    val lineItemFees: List<LineItemCharge>,  // amountType = Fixed
-    val isEBT: Boolean,
-    val devNotes: Map<String, String>?
-) : Parcelable {
-
-    fun getPriceType(): PriceType? {
-        return PriceType from priceType
-    }
-}
+class LineItemBuilder
 ```
+The `LineItemBuilder` class provides a fluent interface for creating and modifying `LineItem` objects with validation and utility methods.
 
-### OrderDiscount  
+### Factory Methods
+- `create()` - Creates a new empty builder instance
+- `from(lineItem)` - Creates a builder from an existing LineItem
+- `variablePrice(itemId, name, cashPrice, devNotes?, binName?)` - Creates a variable price line item
+- `perUnit(itemId, name, quantity, unitPrice, devNotes?, binName?)` - Creates a per-unit line item
+- `fixedPrice(itemId, name, devNotes?, binName?)` - Creates a fixed price line item
 
+### Builder Methods
+**Basic Setters:**
+- `setLineItemId(String?)` - Set line item ID
+- `setQuantity(Double)` - Set item quantity
+- `setTotalCash(Long?)` - Set total cash price
+- `setTotalCard(Long?)` - Set total card price
+- `setItemId(String?)` - Set item reference ID
+- `setName(String)` - Set item name
+- `setPriceType(Int)` - Set pricing type
+- `setLineItemPayment(String?)` - Set transaction id for line-item
+- `setEBT(Boolean)` - Set EBT eligibility
+- `setBinName(String?)` - Set category identifier
+- `setTaxable(Boolean)` - Set tax eligibility
+
+**Collection Methods:**
+- `addDiscount(LineItemDiscount)` - Add a discount
+- `addTax(LineItemCharge)` - Add a tax
+- `addFee(LineItemCharge)` - Add a fee
+- `addDevNote(String, String)` - Add developer note
+- `removeDiscount(String)` - Remove discount by ID
+- `removeTax(String)` - Remove tax by ID
+- `removeFee(String)` - Remove fee by ID
+- `clearDiscounts()` - Remove all discounts
+- `clearTaxes()` - Remove all taxes
+- `clearFees()` - Remove all fees
+
+**Build Methods:**
+- `build()` - Build and validate LineItem (throws on error)
+- `buildOrNull()` - Build LineItem, return null on error
+- `isValid()` - Check if current state is valid
+- `getValidationErrors()` - Get list of validation errors
+
+## OrderDiscount
+```kotlin
+data class OrderDiscount
+```
 The `OrderDiscount` model represents a discount applied at the **order level** (as opposed to line-item level), containing the following fields:
 
-- `orderDiscountId`: A unique **UUID** identifier for the order discoun.  
+### Values
+- `orderDiscountId`: A unique **UUID** identifier for the order discount.  
 - `discountId`: A unique **UUID** identifier for the discount. Reference to the corresponding inventory [**Discount**](models-inventory#discount). 
 - `name`: The name of the discount (e.g., "Holiday Promo", "Employee Discount").  
 - `discountType`: The type of discount. Can be `FIXED (0)` or `PERCENTAGE (1)`.
@@ -127,22 +136,13 @@ The `OrderDiscount` model represents a discount applied at the **order level** (
 - `amount`: The discount amount.
 - `isActive`: A flag indicating whether the discount is currently active.
 
+## Order
 ```kotlin
-@Parcelize
-data class OrderDiscount(
-    val orderDiscountId: String?,
-    val discountId: String?, // Reference of Discount
-    val name: String,
-    val discountType: Int,
-    val amount: Long,
-    val isActive: Boolean
-) : Parcelable
+data class Order
 ```
-
-### Order  
-
 The `Order` model represents a order, containing the following fields:
 
+### Values
 - `orderId`: A unique **UUID** identifier for the order.  
 - `customerId`: A unique **UUID** identifier. Reference to the customer who placed the order.  
 - `items`: A list of [**LineItem**](#lineitem) objects included in the order.  
@@ -165,36 +165,15 @@ The `Order` model represents a order, containing the following fields:
   - `PARTIALLY_REFUNDED (3)` – Order has been partially refunded.  
   - `REFUNDED (4)` – Order has been fully refunded.  
 - `notes`: Optional notes or comments about the order.  
-- `createdAt`: A timestamp (epoch) representing when the order was created.  
+- `createdAt`: A timestamp (epoch) representing when the order was created.
 
+## Transaction
 ```kotlin
-@Parcelize
-data class Order(
-    val orderId: String?,
-    val customerId: String?,
-    val items: List<LineItem>,
-    val cashSubtotal: Long?,
-    val cardSubtotal: Long?,
-    val ebtSubtotal: Long,
-    val orderDiscounts: List<OrderDiscount>?,
-    val cashTax: Long?,
-    val cardTax: Long?,
-    val tipAmount: Long,
-    val fee: Long,
-    val cashTotal: Long?,
-    val cardTotal: Long?,
-    val ebtTotal: Long,
-    val transactions: List<Transaction>?,
-    val state: Int,
-    val notes: String?,
-    val createdAt: Long
-) : Parcelable
+data class Transaction
 ```
-
-### Transaction  
-
 The `Transaction` model represents a financial operation related to an order, containing the following fields:
 
+### Values
 - `transactionId`: A unique **UUID** identifier for the transaction.  
 - `orderId`: Reference to the [**Order**](#order) this transaction belongs to.  
 - `transactionType`: The type of transaction. Can be: 
@@ -210,19 +189,23 @@ The `Transaction` model represents a financial operation related to an order, co
 - `taxAmount`: The portion of the transaction that is tax.  
 - `cardNumber`: The masked card number (if applicable).  
 - `cardType`: The type of card used if applicable.  
-- `date`: A timestamp (epoch) representing when the transaction occurred.  
+- `date`: A timestamp (epoch) representing when the transaction occurred.
 
+## LineItemUtils
 ```kotlin
-@Parcelize
-data class Transaction(
-    val transactionId: String?,
-    val orderId: String?,
-    val transactionType: Int,
-    val paymentMethod: Int,
-    val amount: Long,
-    val taxAmount: Long,
-    val cardNumber: String?,
-    val cardType: String?,
-    val date: Long
-) : Parcelable
+object LineItemUtils
 ```
+The `LineItemUtils` object provides utility functions for common LineItem operations.
+
+### Available Methods
+- `updateQuantity(lineItem, newQuantity)` - Updates quantity and recalculates totals
+- `updateUnitPrice(lineItem, newUnitPrice)` - Updates unit price and recalculates totals
+- `addDiscount(lineItem, name, amount, type)` - Adds a discount to the line item
+- `removeDiscount(lineItem, discountName)` - Removes a discount by name
+- `addTax(lineItem, name, amount, type)` - Adds a tax to the line item
+- `updateName(lineItem, newName)` - Updates the item name
+- `updateEBTStatus(lineItem, isEBT)` - Updates EBT eligibility
+- `addDevNote(lineItem, key, value)` - Adds or updates a developer note
+- `removeDevNote(lineItem, key)` - Removes a developer note
+- `createUpdateCopy(lineItem)` - Creates a copy for updates
+- `validateForUpdate(lineItem)` - Validates item for update operations

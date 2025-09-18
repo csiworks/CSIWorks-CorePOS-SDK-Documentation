@@ -30,12 +30,12 @@ The **CorePOS app must be installed and running** on the device to bind to its s
 
 ### API Reference
 - **[Models](models)** - About all SDK models (entities)
-- **[Inventory API](api-reference/inventory-conector/inventory-api-introduction)** - Manage products and categories
-- **[Order API](api-reference/order-controller/order-api-introduction)** - Handle orders and transactions
-- **[Tender API](api-reference/tender-controller/tender-api-introduction)** - Manage tender methods
+- **[Inventory API](api-reference/inventory-connector/inventory-api-introduction)** - Manage products and categories
+- **[Order API](api-reference/order-connector/order-api-introduction)** - Handle orders and transactions
+- **[Tender API](api-reference/tender-connector/tender-api-introduction)** - Manage tender methods
 - **[Printer API](api-reference/printer-api)** - Print receipts
 - **[Merchant API](api-reference/merchant-api)** - Access store information
-- **[Action API](api-reference/action-controller/action-api-introduction)** - Manage action methods
+- **[Action API](api-reference/action-connector/action-api-introduction)** - Manage action methods
 
 ### Guides
 - **[Best Practices](best-practices)** - Development guidelines and patterns

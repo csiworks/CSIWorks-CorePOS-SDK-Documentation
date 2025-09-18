@@ -1,9 +1,0 @@
-{
-  "label": "OrderConnector",
-  "position": 3,
-  "link": {
-    "slug": "/order-controller",
-    "type": "generated-index",
-    "description": "This API Reference guide provides detailed instructions on how to utilize all OrderConnector functionality"
-  }
-}

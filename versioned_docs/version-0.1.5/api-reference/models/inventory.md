@@ -7,29 +7,27 @@ pagination_prev: null
 hide_title: true
 ---
 
-## Inventory models
+## Inventory Models
 
-This section covers all inventory  models (entities) used in the API
+This section covers all inventory models (entities) used in the API
 
-### Category
-
+## Category
+```kotlin
+data class Category
+```
 The `Category` model represents a category in the inventory, containing the following fields:
 
+### Values
 - `categoryId`: A unique **UUID** identifier for the category.
 - `name`: The name of the category.
 
+## Charge
 ```kotlin
-@Parcelize
-data class Category(
-    val categoryId: String?,
-    val name: String?
-) : Parcelable
+data class Charge
 ```
-
-### Charge
-
 The `Charge` model represents taxes and fees associated with inventory items, containing the following fields:
 
+### Values
 - `chargeId`: A unique **UUID** identifier for the charge.
 - `name`: The name of the charge (e.g., "Sales Tax", "Shipping Fee").
 - `chargeAmountType`: The type of charge amount. Can be `FIXED (0)` or `PERCENTAGE (1)`.
@@ -40,21 +38,23 @@ The `Charge` model represents taxes and fees associated with inventory items, co
   - If it's **PERCENTAGE**, it represents the percentage value.
 - `isDefault`: A flag indicating whether this charge is the default charge.
 
+### Public Functions
 ```kotlin
-@Parcelize
-data class Charge(
-    val chargeId: String?,
-    val name: String,
-    val chargeAmountType: Int,
-    val amount: Long,
-    val isDefault: Boolean
-) : Parcelable
+fun getAmountType(): AmountType?
 ```
+Returns the AmountType enum value corresponding to the chargeAmountType field.
+#### Parameters:
+`None`
+#### Returns:
+`AmountType?` - The [**AmountType**](#amounttype-enum) enum value (FIXED or PERCENTAGE) based on chargeAmountType, or null if invalid
 
-### Discount
-
+## Discount
+```kotlin
+data class Discount
+```
 The `Discount` model represents a discount applied to items in the inventory, containing the following fields:
 
+### Values
 - `discountId`: A unique **UUID** identifier for the discount.
 - `name`: The name of the discount (e.g., "Holiday Sale").
 - `discountType`: The type of discount. Can be `FIXED (0)` or `PERCENTAGE (1)`.
@@ -63,21 +63,13 @@ The `Discount` model represents a discount applied to items in the inventory, co
 - `amount`: The discount amount.
 - `isActive`: A flag indicating whether the discount is currently active.
 
+## Item
 ```kotlin
-@Parcelize
-data class Discount(
-    val discountId: String?,
-    val name: String,
-    val discountType: Int,
-    val amount: Long,
-    val isActive: Boolean
-) : Parcelable
+data class Item
 ```
-
-### Item
-
 The `Item` model represents an inventory item, containing the following fields:
 
+### Values
 - `itemId`: A unique **UUID** identifier for the item.
 - `name`: The name of the item.
 - `imagePath`: A path to the item's image.
@@ -90,7 +82,7 @@ The `Item` model represents an inventory item, containing the following fields:
 - `categories`: A list of [**Category**](#category), a list of categories the item belongs to.
 - `productCode`: The product code for the item.
 - `itemCost`: The cost of the item.
-- `stockQuantity`: The available stock quantity of the item.
+- `quantity`: The available stock quantity of the item.
 - `trackInventory`: A flag indicating whether inventory tracking is enabled for this item.
   - Allows the item quantity to update dynamically when sales occur.
 - `dualPricingBasePriceType`: The base price type for dual pricing. Can be: `CASH (0)`, `CARD (1)`.
@@ -110,72 +102,86 @@ This means the item behaves as follows when `dualPricing` changes
 - If the base price = CARD → only the CASH price is updated  
 :::
 
+### Public Functions
 ```kotlin
-@Parcelize
-data class Item(
-    val itemId: String? = null,
-    val name: String,
-    val imagePath: String?,
-    val thumbnailPath: String?,
-    val unitCash: Long?,
-    val unitCard: Long?,
-    val priceType: Int,
-    val unitType: String?,
-    val charges: List<Charge>,
-    val categories: List<Category>?,
-    val productCode: String?,
-    val itemCost: Long?,
-    val stockQuantity: Double?,
-    val trackInventory: Boolean,
-    val dualPricingBasePriceType: Int,
-    val isEBT: Boolean,
-    val isAvailable: Boolean
-) : Parcelable {
-
-    fun getPriceType(): PriceType? {
-        return PriceType from priceType
-    }
-}
+fun getPriceType(): PriceType?
 ```
+Returns the PriceType enum value corresponding to the priceType field.
+#### Parameters:
+`None`
+#### Returns:
+`PriceType?` - The [**PriceType**](#pricetype-enum) enum value (FIXED, VARIABLE, or PER_UNIT) based on priceType, or null if invalid
 
-### PriceType Enum
-
+## PriceType Enum
+```kotlin
+enum class PriceType
+```
 The `PriceType` enum defines the different types of pricing available for items:
 
+### Values
 - `FIXED (0)`: A fixed price for the item.
 - `VARIABLE (1)`: A variable price for the item.
 - `PER_UNIT (2)`: Price per unit of the item.
 
+### Static Functions
 ```kotlin
-enum class PriceType(val code: Int) {
-    FIXED(0),
-    VARIABLE(1),
-    PER_UNIT(2);
-
-    companion object {
-        infix fun from(code: Int): PriceType? = entries.associateBy { it.code }[code]
-    }
-}
+infix fun from(code: Int): PriceType?
 ```
+Returns the PriceType enum value corresponding to the provided code.
+#### Parameters:
+`code: Int` - The integer code representing the price type
+#### Returns:
+`PriceType?` - The corresponding PriceType enum value, or null if the code is invalid
 
-### ItemFilter
+## AmountType Enum
+```kotlin
+enum class AmountType
+```
+The `AmountType` enum defines the different types of charge amounts:
 
+### Values
+- `FIXED (0)`: A fixed amount charge, such as a flat fee.
+- `PERCENTAGE (1)`: A percentage-based charge, such as a tax rate.
+
+### Static Functions
+```kotlin
+infix fun from(code: Int): AmountType?
+```
+Returns the AmountType enum value corresponding to the provided code.
+#### Parameters:
+`code: Int` - The integer code representing the amount type
+#### Returns:
+`AmountType?` - The corresponding AmountType enum value, or null if the code is invalid
+
+## EbtFlag
+```kotlin
+data class EbtFlag
+```
+The `EbtFlag` model represents EBT (Electronic Benefit Transfer) eligibility status for an inventory item, containing the following fields:
+
+### Values
+- `itemId`: A unique **UUID** identifier for the item.
+- `isEbt`: A flag indicating whether the item is eligible for EBT.
+
+### Static  Functions
+```kotlin
+fun mapToList(flagsMap: Map<String, Boolean>): List<EbtFlag>
+```
+Converts a map of item IDs and EBT flags to a list of EbtFlag objects.
+#### Parameters:
+`flagsMap: Map<String, Boolean>` - A map where keys are item IDs and values are EBT eligibility flags
+#### Returns:
+`List<EbtFlag>` - A list of EbtFlag objects created from the input map
+
+## ItemFilter
+```kotlin
+data class ItemFilter
+```
 The `ItemFilter` model is used to filter items when retrieving a list from the inventory. It contains the following fields:
 
+### Values
+- `nameQuery`: Filter items by name containing this query (optional)  
 - `categoryId`: Filter by a specific category **UUID** (optional)  
 - `withoutCategory`: If true, includes only items without a category  
-- `nameQuery`: Filter items by name containing this query (optional)  
-- `productCode`: Filter items by product code (optional)  
-
-```kotlin
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
-
-@Parcelize
-data class ItemFilter(
-    val categoryId: String? = null,
-    val withoutCategory: Boolean = false,
-    val nameQuery: String? = null,
-    val productCode: String? = null
-) : Parcelable
-```
+- `filterByEbt`: Filter items by EBT eligibility status (optional)  
+- `productCode`: Filter items by product code (optional)

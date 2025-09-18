@@ -6,26 +6,21 @@ description: Exception model.
 hide_title: true
 ---
 
-## Exception
+## Exception Models
 
-This section covers about exception model (entitie) used in the API
+This section covers about exception models (entities) used in the API
 
-### ErrorResult
+## ErrorResult
+```kotlin
+data class ErrorResult
+```
+The `ErrorResult` model returns when an error occurred while calling the function, containing the following fields:
 
-The `ErrorResult` - returns when an error occurred while calling the function, containing the following fields:
-
+### Values
 - `code`: [`Error code`](#error-codes).
 - `message`: Error message
 
-```kotlin
-@Parcelize
-data class ErrorResult(
-    val code: Int,
-    val message: String
-) : Parcelable
-```
-
-### Error codes
+## Error Codes
 - `100`: No authority
 - `101`: Invalid uuid
 - `102`: Invalid price type
