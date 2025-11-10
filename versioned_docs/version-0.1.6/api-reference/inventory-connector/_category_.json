@@ -1,0 +1,9 @@
+{
+  "label": "InventoryConnector",
+  "position": 2,
+  "link": {
+    "slug": "/inventory-connector",
+    "type": "generated-index",
+    "description": "This API Reference guide provides detailed instructions on how to utilize all InventoryConnector functionality"
+  }
+}
