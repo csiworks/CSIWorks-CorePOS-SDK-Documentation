@@ -73,7 +73,7 @@ The LineItem can be thought of as an item placed on the checkout conveyor belt a
 - `isEBT`: A flag indicating whether the line item is eligible for Electronic Benefit Transfer (EBT).  
 - `devNotes`: A map of developer notes or metadata for debugging and custom usage.  
 - `binName`: A specific identifier for categorizing items in an order. This is the general name of a specific group of items, united by some logic (e.g., "EBT Items").  
-- `taxable`: A flag indicating whether the line item is subject to taxes.
+- `isTaxable`: A flag indicating whether the line item is subject to taxes.
 
 ## LineItemBuilder
 ```kotlin
@@ -164,8 +164,13 @@ The `Order` model represents a order, containing the following fields:
   - `PARTIALLY_PAID (2)` – Order is partially paid.  
   - `PARTIALLY_REFUNDED (3)` – Order has been partially refunded.  
   - `REFUNDED (4)` – Order has been fully refunded.  
+- `orderPaymentType`: Defines how the order was paid. 
+  - `FULL (0)` – The order was paid in full with a single payment method. 
+  - `SPLIT_ITEM (1)` – The order was split by individual items (different items paid separately).
+  - `SPLIT_CUSTOM (2)` – The order was paid using a custom mix of payment methods (e.g., part in cash and part by card).
 - `notes`: Optional notes or comments about the order.  
 - `createdAt`: A timestamp (epoch) representing when the order was created.
+- `employee`: The [**Employee**](#employee) who carried out or processed this order. May be null if no employee was assigned.
 
 ## Transaction
 ```kotlin
@@ -190,6 +195,7 @@ The `Transaction` model represents a financial operation related to an order, co
 - `cardNumber`: The masked card number (if applicable).  
 - `cardType`: The type of card used if applicable.  
 - `date`: A timestamp (epoch) representing when the transaction occurred.
+- `employee`: The [**Employee**](#employee) who processed this transaction. May be null if no employee was assigned.
 
 ## LineItemUtils
 ```kotlin
@@ -209,3 +215,14 @@ The `LineItemUtils` object provides utility functions for common LineItem operat
 - `removeDevNote(lineItem, key)` - Removes a developer note
 - `createUpdateCopy(lineItem)` - Creates a copy for updates
 - `validateForUpdate(lineItem)` - Validates item for update operations
+
+## Employee
+```kotlin
+data class Employee
+```
+The `Employee` model represents an employee record, containing identifying and contact information, containing the following fields:
+
+### Values
+- `employeeId`: A unique **UUID** identifier for the employee.  
+- `name`: The full name of the employee. May be null if not provided.
+- `email`: The employee’s email address.  

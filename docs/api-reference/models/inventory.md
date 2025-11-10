@@ -38,7 +38,7 @@ The `Charge` model represents taxes and fees associated with inventory items, co
   - If it's **PERCENTAGE**, it represents the percentage value.
 - `isDefault`: A flag indicating whether this charge is the default charge.
 
-### Functions
+### Public Functions
 ```kotlin
 fun getAmountType(): AmountType?
 ```
@@ -82,7 +82,7 @@ The `Item` model represents an inventory item, containing the following fields:
 - `categories`: A list of [**Category**](#category), a list of categories the item belongs to.
 - `productCode`: The product code for the item.
 - `itemCost`: The cost of the item.
-- `quantity`: The available stock quantity of the item.
+- `stockQuantity`: The available stock quantity of the item.
 - `trackInventory`: A flag indicating whether inventory tracking is enabled for this item.
   - Allows the item quantity to update dynamically when sales occur.
 - `dualPricingBasePriceType`: The base price type for dual pricing. Can be: `CASH (0)`, `CARD (1)`.
@@ -102,7 +102,7 @@ This means the item behaves as follows when `dualPricing` changes
 - If the base price = CARD → only the CASH price is updated  
 :::
 
-### Functions
+### Public Functions
 ```kotlin
 fun getPriceType(): PriceType?
 ```
@@ -185,3 +185,28 @@ The `ItemFilter` model is used to filter items when retrieving a list from the i
 - `withoutCategory`: If true, includes only items without a category  
 - `filterByEbt`: Filter items by EBT eligibility status (optional)  
 - `productCode`: Filter items by product code (optional)
+
+## ItemPageResult
+```kotlin
+data class ItemPageResult
+```
+The `ItemPageResult` model represents a paginated response returned when fetching a list of items. It contains both the retrieved items and pagination metadata to manage navigation between pages. Сontaining the following fields:
+
+### Values
+- `items`: A list of [**Item**](#item) returned for the current page.
+- `currentPage`: The current page index (starting from 0) that was fetched.
+- `pageSize`: The number of items per page as specified in the request.
+- `totalItems`: The total number of items available across all pages.
+- `totalPages`: The total number of pages available
+- `hasNextPage`: Indicates whether there is a next page available after the current one
+- `hasPreviousPage`: Indicates whether there is a previous page available before the current one
+
+## CategoryWithCount
+```kotlin
+data class CategoryWithCount
+```
+The `CategoryWithCount` model represents a product category along with the number of items that belong to it. Сontaining the following fields:
+
+### Values
+- `category`: The [**Category**](#category) represents a category in the inventory.
+- `itemCount`: The total number of items associated with this category.

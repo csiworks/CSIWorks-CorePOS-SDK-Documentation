@@ -208,3 +208,56 @@ class ReceiptActivity : AppCompatActivity() {
     }
 }
 ```
+
+### Handle Barcode Scan
+```kotlin
+  class BarcodeReceiver : BaseReceiver(), KoinComponent {
+
+    private val handler: Handler by lazy { Handler() }
+
+    override fun onReceiveAllowed(context: Context, intent: Intent) {
+        when (intent.action) {
+            Intents.ACTION_BARCODE_SCANNED -> {
+                val barcode = intent.getStringExtra(Intents.EXTRA_BARCODE)
+                barcode?.let {
+                    returnResult(context)
+                    handler.barcodeReceived(
+                        barcode = barcode,
+                        onCompleted = { isSuccess ->
+                            changeStatus(context, isSuccess)
+                        }
+                    )
+                }
+            }
+        }
+    }
+
+    private fun returnResult(context: Context) {
+        val myHandler = Bundle().apply {
+            putString(EXTRA_BARCODE_HANDLER_PACKAGE_NAME, context.packageName)
+            putSerializable(EXTRA_BARCODE_HANDLING_STATUS, BarcodeHandlingStatus.PENDING)
+        }
+
+        val currentExtras = getResultExtras(true)
+        val handlers = currentExtras.getParcelableArrayList<Bundle>(EXTRA_BARCODE_HANDLERS)
+            ?: arrayListOf()
+
+        handlers.add(myHandler)
+
+        val newExtras = Bundle().apply {
+            putParcelableArrayList(EXTRA_BARCODE_HANDLERS, handlers)
+        }
+        setResultExtras(newExtras)
+    }
+
+    private fun changeStatus(context: Context, isSuccess: Boolean = true) {
+        val status = if (isSuccess) BarcodeHandlingStatus.SUCCESS else BarcodeHandlingStatus.CANCELLED
+
+        val broadcastIntent = Intent(ACTION_BARCODE_HANDLED).apply {
+            putExtra(EXTRA_BARCODE_HANDLER_PACKAGE_NAME, context.packageName)
+            putExtra(EXTRA_BARCODE_HANDLING_STATUS, status)
+        }
+        context.sendBroadcast(broadcastIntent)
+    }
+  }
+```
