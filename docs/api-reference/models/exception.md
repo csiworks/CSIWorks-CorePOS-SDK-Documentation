@@ -1,6 +1,6 @@
 ---
 id: models-exception
-sidebar_position: 5
+sidebar_position: 8
 title: Exception
 description: Exception model.
 hide_title: true

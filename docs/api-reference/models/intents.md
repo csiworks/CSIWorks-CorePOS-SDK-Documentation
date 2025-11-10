@@ -22,6 +22,7 @@ The `Intents` object contains constants for CorePOS SDK intent actions, extras, 
 - `ACTION_BARCODE_SCANNED`: Broadcast when a barcode is scanned via the scanner
 - `ACTION_MERCHANT_TENDER`: Broadcast when a merchant tender action is initiated **[Used in Tender connector]**
 - `ACTION_MERCHANT_ACTION`: Broadcast when a custom merchant action is triggered
+- `ACTION_BARCODE_HANDLED `: Broadcast sent from third-party apps after barcode processing. This allows the CorePOS to track which third-party apps processed the barcode, as well as the status of their processing. **[Used by third-party apps to report barcode handling results]**
 
 ## Extra Data Descriptions
 
@@ -43,6 +44,15 @@ The `Intents` object contains constants for CorePOS SDK intent actions, extras, 
 - `EXTRA_PAYMENT_REQUEST` (PaymentRequest): Serialized payment request object
 - `EXTRA_TENDER_TYPE` (TenderType): Specify a concrete TenderType (e.g., EBT). If omitted, CorePOS records it as a Custom Tender **[Used in Tender connector - Optional outgoing extra]**
 - `EXTRA_TENDER` (String): The Tender record configured in CorePOS **[Used in Tender connector - Optional outgoing extra]**
+- `EXTRA_BARCODE_HANDLERS` (ArrayList(Bundle)): A list of all barcode handlers that have processed or are processing the scanned barcode. Each handler is represented as a Bundle containing
+
+:::caution Important Notes
+Third-party apps must **add their handler to the existing** list and **must not overwrite** the current contents, ensuring that each handler is represented only once.
+:::
+
+- `EXTRA_BARCODE_HANDLER_PACKAGE_NAME` (String): The package name of the third-party app that handled the barcode.
+- `EXTRA_BARCODE_HANDLING_STATUS` ([**BarcodeHandlingStatus**](models-scanner#barcodehandlingstatus)) The current processing status of the handler.
+
 
 ## Event Descriptions
 
