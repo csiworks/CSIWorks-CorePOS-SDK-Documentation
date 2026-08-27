@@ -1,0 +1,1 @@
+{"responses":{"200":{"description":"OK","content":{"application/json":{"schema":{"required":["applyToDebit","percentage"],"type":"object","properties":{"percentage":{"maximum":4,"type":"number","format":"float"},"applyToDebit":{"type":"boolean"}},"title":"DualPricingSettingDto"}}}}}}

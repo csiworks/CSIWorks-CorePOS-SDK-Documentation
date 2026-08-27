@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
+    "gen-sdk-docs": "tsx scripts/generate-sdk-reference.mts",
+    "gen-api-docs": "tsx scripts/prepare-openapi-spec.mts && docusaurus clean-api-docs all && docusaurus gen-api-docs all",
+    "clean-api-docs": "docusaurus clean-api-docs all",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
@@ -19,6 +22,9 @@
     "@docusaurus/preset-classic": "3.8.1",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
+    "docusaurus-plugin-openapi-docs": "^4.7.1",
+    "docusaurus-theme-openapi-docs": "^4.7.1",
+    "path-browserify": "^1.0.1",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
@@ -27,6 +33,8 @@
     "@docusaurus/module-type-aliases": "3.8.1",
     "@docusaurus/tsconfig": "3.8.1",
     "@docusaurus/types": "3.8.1",
+    "@types/node": "^26.4.0",
+    "tsx": "^4.23.12",
     "typescript": "~5.6.2"
   },
   "browserslist": {
