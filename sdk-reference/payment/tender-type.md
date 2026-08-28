@@ -1,7 +1,6 @@
 ---
 title: TenderType
 sidebar_label: TenderType
-slug: /payment/tender-type
 ---
 
 # TenderType

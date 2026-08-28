@@ -1,7 +1,6 @@
 ---
 title: LineItemUtils
 sidebar_label: LineItemUtils
-slug: /order/line-item-utils
 ---
 
 # LineItemUtils

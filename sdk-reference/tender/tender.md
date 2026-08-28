@@ -1,7 +1,6 @@
 ---
 title: Tender
 sidebar_label: Tender
-slug: /tender/tender
 ---
 
 # Tender

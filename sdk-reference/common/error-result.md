@@ -1,7 +1,6 @@
 ---
 title: ErrorResult
 sidebar_label: ErrorResult
-slug: /common/error-result
 ---
 
 # ErrorResult

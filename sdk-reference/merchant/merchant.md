@@ -1,7 +1,6 @@
 ---
 title: Merchant
 sidebar_label: Merchant
-slug: /merchant/merchant
 ---
 
 # Merchant

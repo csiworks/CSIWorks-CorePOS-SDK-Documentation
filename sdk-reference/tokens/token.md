@@ -1,7 +1,6 @@
 ---
 title: Token
 sidebar_label: Token
-slug: /tokens/token
 ---
 
 # Token

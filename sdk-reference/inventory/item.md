@@ -1,7 +1,6 @@
 ---
 title: Item
 sidebar_label: Item
-slug: /inventory/item
 ---
 
 # Item

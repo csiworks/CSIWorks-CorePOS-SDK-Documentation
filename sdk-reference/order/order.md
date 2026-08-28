@@ -1,7 +1,6 @@
 ---
 title: Order
 sidebar_label: Order
-slug: /order/order
 ---
 
 # Order

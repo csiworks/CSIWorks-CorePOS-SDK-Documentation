@@ -1,7 +1,6 @@
 ---
 title: PriceType
 sidebar_label: PriceType
-slug: /inventory/price-type
 ---
 
 # PriceType

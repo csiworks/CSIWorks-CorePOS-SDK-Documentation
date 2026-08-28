@@ -1,7 +1,6 @@
 ---
 title: OrderDiscount
 sidebar_label: OrderDiscount
-slug: /order/order-discount
 ---
 
 # OrderDiscount

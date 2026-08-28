@@ -1,7 +1,6 @@
 ---
 title: PermissionDeniedException
 sidebar_label: PermissionDeniedException
-slug: /common-exception/permission-denied-exception
 ---
 
 # PermissionDeniedException

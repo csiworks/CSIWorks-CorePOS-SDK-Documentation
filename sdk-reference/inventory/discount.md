@@ -1,7 +1,6 @@
 ---
 title: Discount
 sidebar_label: Discount
-slug: /inventory/discount
 ---
 
 # Discount

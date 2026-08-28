@@ -1,7 +1,6 @@
 ---
 title: EbtFlag
 sidebar_label: EbtFlag
-slug: /inventory/ebt-flag
 ---
 
 # EbtFlag

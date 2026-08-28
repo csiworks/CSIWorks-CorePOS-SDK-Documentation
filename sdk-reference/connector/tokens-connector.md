@@ -1,7 +1,6 @@
 ---
 title: TokensConnector
 sidebar_label: TokensConnector
-slug: /connector/tokens-connector
 ---
 
 # TokensConnector

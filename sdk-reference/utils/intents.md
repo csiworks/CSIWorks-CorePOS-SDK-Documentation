@@ -1,7 +1,6 @@
 ---
 title: Intents
 sidebar_label: Intents
-slug: /utils/intents
 ---
 
 # Intents

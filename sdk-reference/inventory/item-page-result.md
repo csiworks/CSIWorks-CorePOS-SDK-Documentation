@@ -1,7 +1,6 @@
 ---
 title: ItemPageResult
 sidebar_label: ItemPageResult
-slug: /inventory/item-page-result
 ---
 
 # ItemPageResult

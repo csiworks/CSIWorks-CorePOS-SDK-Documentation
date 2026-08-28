@@ -16,59 +16,12 @@
       "bearerAuth": []
     }
   ],
-  "tags": [
-    {
-      "name": "Apps",
-      "description": "App billing information."
-    },
-    {
-      "name": "Categories",
-      "description": "Manage inventory categories."
-    },
-    {
-      "name": "Charges",
-      "description": "Manage charges (taxes and extra fees) applied to items."
-    },
-    {
-      "name": "Discounts",
-      "description": "Manage discounts."
-    },
-    {
-      "name": "Dual Pricing",
-      "description": "Read dual-pricing configuration."
-    },
-    {
-      "name": "Items",
-      "description": "Manage inventory items."
-    },
-    {
-      "name": "Merchants",
-      "description": "Read and update merchant information."
-    },
-    {
-      "name": "OAuth2",
-      "description": "Authorization and token endpoints."
-    },
-    {
-      "name": "Orders",
-      "description": "Read orders and manage line-item dev notes."
-    },
-    {
-      "name": "Tip Settings",
-      "description": "Read and update tipping configuration."
-    },
-    {
-      "name": "Transactions",
-      "description": "Read payment transactions."
-    }
-  ],
   "paths": {
     "/third-party-api/v1/tip-settings": {
       "get": {
         "tags": [
           "Tip Settings"
         ],
-        "summary": "Get tip settings",
         "description": "Returns the merchant's tipping configuration, including the preset tip suggestions.\n\nThis API requires **MERCHANT READ** authority.",
         "operationId": "get-tip-settings",
         "responses": {
@@ -82,13 +35,13 @@
               }
             }
           }
-        }
+        },
+        "summary": "Get tip settings"
       },
       "put": {
         "tags": [
           "Tip Settings"
         ],
-        "summary": "Update tip settings",
         "description": "Replaces the merchant's tipping configuration, including the preset tip suggestions.\n\nThis API requires **MERCHANT WRITE** authority.",
         "operationId": "update-tip-settings",
         "requestBody": {
@@ -112,7 +65,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Update tip settings"
       }
     },
     "/third-party-api/v1/merchants/{merchantId}": {
@@ -120,19 +74,18 @@
         "tags": [
           "Merchants"
         ],
-        "summary": "Get merchant",
         "description": "Returns the merchant's business information. The merchant must be the one the calling app is authorized for.\n\nThis API requires **MERCHANT READ** authority.",
         "operationId": "get-merchant",
         "parameters": [
           {
             "name": "merchantId",
             "in": "path",
-            "description": "UUID of the merchant.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the merchant."
           }
         ],
         "responses": {
@@ -146,25 +99,25 @@
               }
             }
           }
-        }
+        },
+        "summary": "Get merchant"
       },
       "put": {
         "tags": [
           "Merchants"
         ],
-        "summary": "Update merchant",
         "description": "Updates the merchant's business information (name, address, phone number).\n\nThis API requires **MERCHANT WRITE** authority.",
         "operationId": "update-merchant",
         "parameters": [
           {
             "name": "merchantId",
             "in": "path",
-            "description": "UUID of the merchant to update.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the merchant to update."
           }
         ],
         "requestBody": {
@@ -188,7 +141,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Update merchant"
       }
     },
     "/third-party-api/v1/items/{itemUuid}": {
@@ -196,19 +150,18 @@
         "tags": [
           "Items"
         ],
-        "summary": "Get item",
         "description": "Returns a single inventory item by its UUID.\n\nThis API requires **ITEM READ** authority.",
         "operationId": "get-item",
         "parameters": [
           {
             "name": "itemUuid",
             "in": "path",
-            "description": "UUID of the item.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the item."
           }
         ],
         "responses": {
@@ -222,25 +175,25 @@
               }
             }
           }
-        }
+        },
+        "summary": "Get item"
       },
       "put": {
         "tags": [
           "Items"
         ],
-        "summary": "Update item",
         "description": "Updates an existing inventory item. The full state is applied: omitted optional fields fall back to their defaults.\n\nThis API requires **ITEM WRITE** authority.",
         "operationId": "update-item",
         "parameters": [
           {
             "name": "itemUuid",
             "in": "path",
-            "description": "UUID of the item to update.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the item to update."
           }
         ],
         "requestBody": {
@@ -264,32 +217,33 @@
               }
             }
           }
-        }
+        },
+        "summary": "Update item"
       },
       "delete": {
         "tags": [
           "Items"
         ],
-        "summary": "Delete item",
         "description": "Soft-deletes an inventory item. The item disappears from the register but remains readable via includeDeleted.\n\nThis API requires **ITEM WRITE** authority.",
         "operationId": "delete-item",
         "parameters": [
           {
             "name": "itemUuid",
             "in": "path",
-            "description": "UUID of the item to delete.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the item to delete."
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "summary": "Delete item"
       }
     },
     "/third-party-api/v1/discounts/{discountId}": {
@@ -297,19 +251,18 @@
         "tags": [
           "Discounts"
         ],
-        "summary": "Get discount",
         "description": "Returns a single discount by its UUID.\n\nThis API requires **ITEM READ** authority.",
         "operationId": "get-discount",
         "parameters": [
           {
             "name": "discountId",
             "in": "path",
-            "description": "UUID of the discount.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the discount."
           }
         ],
         "responses": {
@@ -323,25 +276,25 @@
               }
             }
           }
-        }
+        },
+        "summary": "Get discount"
       },
       "put": {
         "tags": [
           "Discounts"
         ],
-        "summary": "Update discount",
         "description": "Updates an existing discount.\n\nThis API requires **ITEM WRITE** authority.",
         "operationId": "update-discount",
         "parameters": [
           {
             "name": "discountId",
             "in": "path",
-            "description": "UUID of the discount to update.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the discount to update."
           }
         ],
         "requestBody": {
@@ -358,32 +311,33 @@
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "summary": "Update discount"
       },
       "delete": {
         "tags": [
           "Discounts"
         ],
-        "summary": "Delete discount",
         "description": "Soft-deletes a discount so it can no longer be applied.\n\nThis API requires **ITEM WRITE** authority.",
         "operationId": "delete-discount",
         "parameters": [
           {
             "name": "discountId",
             "in": "path",
-            "description": "UUID of the discount to delete.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the discount to delete."
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "summary": "Delete discount"
       }
     },
     "/third-party-api/v1/charges/{chargeId}": {
@@ -391,19 +345,18 @@
         "tags": [
           "Charges"
         ],
-        "summary": "Get charge",
         "description": "Returns a single charge by its UUID.\n\nThis API requires **ITEM READ** authority.",
         "operationId": "get-charge",
         "parameters": [
           {
             "name": "chargeId",
             "in": "path",
-            "description": "UUID of the charge.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the charge."
           }
         ],
         "responses": {
@@ -417,25 +370,25 @@
               }
             }
           }
-        }
+        },
+        "summary": "Get charge"
       },
       "put": {
         "tags": [
           "Charges"
         ],
-        "summary": "Update charge",
         "description": "Updates an existing charge.\n\nThis API requires **ITEM WRITE** authority.",
         "operationId": "update-charge",
         "parameters": [
           {
             "name": "chargeId",
             "in": "path",
-            "description": "UUID of the charge to update.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the charge to update."
           }
         ],
         "requestBody": {
@@ -459,32 +412,33 @@
               }
             }
           }
-        }
+        },
+        "summary": "Update charge"
       },
       "delete": {
         "tags": [
           "Charges"
         ],
-        "summary": "Delete charge",
         "description": "Soft-deletes a charge. It is removed from the items it was applied to.\n\nThis API requires **ITEM WRITE** authority.",
         "operationId": "delete-charge",
         "parameters": [
           {
             "name": "chargeId",
             "in": "path",
-            "description": "UUID of the charge to delete.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the charge to delete."
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "summary": "Delete charge"
       }
     },
     "/third-party-api/v1/categories/{categoryId}": {
@@ -492,19 +446,18 @@
         "tags": [
           "Categories"
         ],
-        "summary": "Get category",
         "description": "Returns a single inventory category by its UUID.\n\nThis API requires **ITEM READ** authority.",
         "operationId": "get-category",
         "parameters": [
           {
             "name": "categoryId",
             "in": "path",
-            "description": "UUID of the category.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the category."
           }
         ],
         "responses": {
@@ -518,25 +471,25 @@
               }
             }
           }
-        }
+        },
+        "summary": "Get category"
       },
       "put": {
         "tags": [
           "Categories"
         ],
-        "summary": "Update category",
         "description": "Updates the name of an existing inventory category.\n\nThis API requires **ITEM WRITE** authority.",
         "operationId": "update-category",
         "parameters": [
           {
             "name": "categoryId",
             "in": "path",
-            "description": "UUID of the category to update.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the category to update."
           }
         ],
         "requestBody": {
@@ -553,32 +506,33 @@
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "summary": "Update category"
       },
       "delete": {
         "tags": [
           "Categories"
         ],
-        "summary": "Delete category",
         "description": "Soft-deletes an inventory category. Items keep their other categories.\n\nThis API requires **ITEM WRITE** authority.",
         "operationId": "delete-category",
         "parameters": [
           {
             "name": "categoryId",
             "in": "path",
-            "description": "UUID of the category to delete.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the category to delete."
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "summary": "Delete category"
       }
     },
     "/third-party-api/v1/orders/{orderId}/line-items/{lineItemId}/dev-notes": {
@@ -586,29 +540,28 @@
         "tags": [
           "Orders"
         ],
-        "summary": "Add line item dev notes",
         "description": "Adds (or overwrites) free-form key-value metadata on a line item. Dev notes are only visible to third-party apps, not to the merchant. Returns the updated order.\n\nThis API requires **ORDER WRITE** authority.",
         "operationId": "add-line-item-dev-notes",
         "parameters": [
           {
             "name": "orderId",
             "in": "path",
-            "description": "UUID of the order.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the order."
           },
           {
             "name": "lineItemId",
             "in": "path",
-            "description": "UUID of the line item.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the line item."
           }
         ],
         "requestBody": {
@@ -635,35 +588,35 @@
               }
             }
           }
-        }
+        },
+        "summary": "Add line item dev notes"
       },
       "delete": {
         "tags": [
           "Orders"
         ],
-        "summary": "Delete line item dev notes",
         "description": "Removes the dev-note entries with the given keys from a line item. Returns the updated order.\n\nThis API requires **ORDER WRITE** authority.",
         "operationId": "delete-line-item-dev-notes",
         "parameters": [
           {
             "name": "orderId",
             "in": "path",
-            "description": "UUID of the order.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the order."
           },
           {
             "name": "lineItemId",
             "in": "path",
-            "description": "UUID of the line item.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the line item."
           }
         ],
         "requestBody": {
@@ -691,7 +644,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Delete line item dev notes"
       }
     },
     "/third-party-api/v1/oauth2/tokens": {
@@ -699,7 +653,6 @@
         "tags": [
           "OAuth2"
         ],
-        "summary": "Issue access token",
         "description": "Exchanges an authorization code for an access/refresh token pair.",
         "operationId": "issue-access-token",
         "requestBody": {
@@ -724,7 +677,8 @@
             }
           }
         },
-        "security": []
+        "security": [],
+        "summary": "Issue access token"
       }
     },
     "/third-party-api/v1/oauth2/tokens/refresh": {
@@ -732,7 +686,6 @@
         "tags": [
           "OAuth2"
         ],
-        "summary": "Refresh access token",
         "description": "Issues a new access/refresh token pair from a valid refresh token.",
         "operationId": "refresh-access-token",
         "requestBody": {
@@ -757,97 +710,8 @@
             }
           }
         },
-        "security": []
-      }
-    },
-    "/third-party-api/v1/items/{itemUuid}/images": {
-      "post": {
-        "tags": [
-          "Items"
-        ],
-        "summary": "Upload item image",
-        "description": "Attaches or replaces the image of an inventory item. Send as multipart/form-data with an 'image' file part. Returns the stored image paths.\n\nThis API requires **ITEM WRITE** authority.",
-        "operationId": "upload-item-image",
-        "parameters": [
-          {
-            "name": "itemUuid",
-            "in": "path",
-            "description": "UUID of the item.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "required": [
-                  "image"
-                ],
-                "type": "object",
-                "properties": {
-                  "image": {
-                    "type": "string",
-                    "format": "binary"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ItemImageDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/third-party-api/v1/items/batch": {
-      "post": {
-        "tags": [
-          "Items"
-        ],
-        "summary": "Batch create items",
-        "description": "Creates multiple inventory items in a single call and returns the created items.\n\nThis API requires **ITEM WRITE** authority.",
-        "operationId": "batch-create-items",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/ThirdPartyItemCreateDto"
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/ItemDto"
-                  }
-                }
-              }
-            }
-          }
-        }
+        "security": [],
+        "summary": "Refresh access token"
       }
     },
     "/third-party-api/v1/items": {
@@ -855,14 +719,13 @@
         "tags": [
           "Items"
         ],
-        "summary": "List items",
         "description": "Returns a page of the merchant's inventory items, optionally filtered by name, category, price range, EBT eligibility, product code or modification time.\n\nThis API requires **ITEM READ** authority.",
         "operationId": "list-items",
         "parameters": [
           {
             "name": "page",
             "in": "query",
-            "description": "Zero-based page index (0..N)",
+            "description": "Zero-based page index to fetch.",
             "required": false,
             "schema": {
               "minimum": 0,
@@ -873,7 +736,7 @@
           {
             "name": "size",
             "in": "query",
-            "description": "The size of the page to be returned",
+            "description": "Number of elements per page.",
             "required": false,
             "schema": {
               "minimum": 1,
@@ -884,7 +747,7 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+            "description": "Sorting criteria: 'property,(asc|desc)'. Multiple sort parameters are supported.",
             "required": false,
             "schema": {
               "type": "array",
@@ -896,114 +759,113 @@
           {
             "name": "itemIds",
             "in": "query",
-            "description": "Restrict the result to items with these UUIDs (at most 120).",
             "required": false,
             "schema": {
-              "maxLength": 120,
-              "minLength": 0,
-              "type": "string",
-              "description": "Restrict the result to items with these UUIDs (at most 120)."
-            }
+              "maxItems": 120,
+              "minItems": 0,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "description": "Restrict the result to items with these UUIDs (at most 120)."
           },
           {
             "name": "name",
             "in": "query",
-            "description": "Match items whose name contains this text (case-insensitive).",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "Match items whose name contains this text (case-insensitive)."
-            }
+              "type": "string"
+            },
+            "description": "Match items whose name contains this text (case-insensitive)."
           },
           {
             "name": "categoryId",
             "in": "query",
-            "description": "Only items that belong to the category with this UUID.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only items that belong to the category with this UUID."
-            }
+              "format": "uuid"
+            },
+            "description": "Only items that belong to the category with this UUID."
           },
           {
             "name": "filterByEbt",
             "in": "query",
-            "description": "When true, only EBT-eligible items are returned.",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "When true, only EBT-eligible items are returned."
-            }
+              "type": "boolean"
+            },
+            "description": "When true, only EBT-eligible items are returned."
           },
           {
             "name": "minPrice",
             "in": "query",
-            "description": "Only items whose price is at least this amount, in the smallest currency unit (e.g. cents).",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "Only items whose price is at least this amount, in the smallest currency unit (e.g. cents)."
-            }
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": "Only items whose price is at least this amount, in the smallest currency unit (e.g. cents)."
           },
           {
             "name": "maxPrice",
             "in": "query",
-            "description": "Only items whose price is at most this amount, in the smallest currency unit (e.g. cents).",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "Only items whose price is at most this amount, in the smallest currency unit (e.g. cents)."
-            }
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": "Only items whose price is at most this amount, in the smallest currency unit (e.g. cents)."
           },
           {
             "name": "productCode",
             "in": "query",
-            "description": "Match items with this product code (e.g. scanned barcode value).",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "Match items with this product code (e.g. scanned barcode value)."
-            }
+              "type": "string"
+            },
+            "description": "Match items with this product code (e.g. scanned barcode value)."
           },
           {
             "name": "lastModified",
             "in": "query",
-            "description": "Only items modified exactly at this instant (ISO-8601). Prefer lastModifiedFrom/lastModifiedTo ranges.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only items modified exactly at this instant (ISO-8601). Prefer lastModifiedFrom/lastModifiedTo ranges."
-            }
+              "format": "date-time"
+            },
+            "description": "Only items modified exactly at this instant (ISO-8601). Prefer lastModifiedFrom/lastModifiedTo ranges."
           },
           {
             "name": "lastModifiedFrom",
             "in": "query",
-            "description": "Only items modified at or after this instant (ISO-8601). Useful for incremental sync.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only items modified at or after this instant (ISO-8601). Useful for incremental sync."
-            }
+              "format": "date-time"
+            },
+            "description": "Only items modified at or after this instant (ISO-8601). Useful for incremental sync."
           },
           {
             "name": "lastModifiedTo",
             "in": "query",
-            "description": "Only items modified at or before this instant (ISO-8601).",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only items modified at or before this instant (ISO-8601)."
-            }
+              "format": "date-time"
+            },
+            "description": "Only items modified at or before this instant (ISO-8601)."
           },
           {
             "name": "includeDeleted",
             "in": "query",
-            "description": "When true, soft-deleted items are included in the result.",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "When true, soft-deleted items are included in the result."
-            }
+              "type": "boolean"
+            },
+            "description": "When true, soft-deleted items are included in the result."
           }
         ],
         "responses": {
@@ -1017,13 +879,13 @@
               }
             }
           }
-        }
+        },
+        "summary": "List items"
       },
       "post": {
         "tags": [
           "Items"
         ],
-        "summary": "Create item",
         "description": "Creates a new inventory item. Send as multipart/form-data with an 'item' JSON part and an optional 'image' file part.\n\nThis API requires **ITEM WRITE** authority.",
         "operationId": "create-item",
         "requestBody": {
@@ -1058,7 +920,98 @@
               }
             }
           }
-        }
+        },
+        "summary": "Create item"
+      }
+    },
+    "/third-party-api/v1/items/{itemUuid}/images": {
+      "post": {
+        "tags": [
+          "Items"
+        ],
+        "description": "Attaches or replaces the image of an inventory item. Send as multipart/form-data with an 'image' file part. Returns the stored image paths.\n\nThis API requires **ITEM WRITE** authority.",
+        "operationId": "upload-item-image",
+        "parameters": [
+          {
+            "name": "itemUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "UUID of the item."
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "image"
+                ],
+                "type": "object",
+                "properties": {
+                  "image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ItemImageDto"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Upload item image"
+      }
+    },
+    "/third-party-api/v1/items/batch": {
+      "post": {
+        "tags": [
+          "Items"
+        ],
+        "description": "Creates multiple inventory items in a single call and returns the created items.\n\nThis API requires **ITEM WRITE** authority.",
+        "operationId": "batch-create-items",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/ThirdPartyItemCreateDto"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ItemDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Batch create items"
       }
     },
     "/third-party-api/v1/discounts": {
@@ -1066,74 +1019,74 @@
         "tags": [
           "Discounts"
         ],
-        "summary": "List discounts",
         "description": "Returns a page of the merchant's discounts, optionally filtered by name, amount type, active flag or modification time.\n\nThis API requires **ITEM READ** authority.",
         "operationId": "list-discounts",
         "parameters": [
           {
             "name": "name",
             "in": "query",
-            "description": "Match discounts whose name contains this text (case-insensitive).",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "Match discounts whose name contains this text (case-insensitive)."
-            }
+              "type": "string"
+            },
+            "description": "Match discounts whose name contains this text (case-insensitive)."
           },
           {
             "name": "discountAmountType",
             "in": "query",
-            "description": "Only discounts of this amount type: PERCENTAGE or FIXED.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only discounts of this amount type: PERCENTAGE or FIXED."
-            }
+              "enum": [
+                "PERCENTAGE",
+                "FIXED"
+              ]
+            },
+            "description": "Only discounts of this amount type: PERCENTAGE or FIXED."
           },
           {
             "name": "lastModified",
             "in": "query",
-            "description": "Only discounts modified exactly at this instant (ISO-8601). Prefer lastModifiedFrom/lastModifiedTo ranges.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only discounts modified exactly at this instant (ISO-8601). Prefer lastModifiedFrom/lastModifiedTo ranges."
-            }
+              "format": "date-time"
+            },
+            "description": "Only discounts modified exactly at this instant (ISO-8601). Prefer lastModifiedFrom/lastModifiedTo ranges."
           },
           {
             "name": "lastModifiedFrom",
             "in": "query",
-            "description": "Only discounts modified at or after this instant (ISO-8601). Useful for incremental sync.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only discounts modified at or after this instant (ISO-8601). Useful for incremental sync."
-            }
+              "format": "date-time"
+            },
+            "description": "Only discounts modified at or after this instant (ISO-8601). Useful for incremental sync."
           },
           {
             "name": "lastModifiedTo",
             "in": "query",
-            "description": "Only discounts modified at or before this instant (ISO-8601).",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only discounts modified at or before this instant (ISO-8601)."
-            }
+              "format": "date-time"
+            },
+            "description": "Only discounts modified at or before this instant (ISO-8601)."
           },
           {
             "name": "includeDeleted",
             "in": "query",
-            "description": "When true, soft-deleted discounts are included in the result.",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "When true, soft-deleted discounts are included in the result."
-            }
+              "type": "boolean"
+            },
+            "description": "When true, soft-deleted discounts are included in the result."
           },
           {
             "name": "page",
             "in": "query",
-            "description": "Zero-based page index (0..N)",
+            "description": "Zero-based page index to fetch.",
             "required": false,
             "schema": {
               "minimum": 0,
@@ -1144,7 +1097,7 @@
           {
             "name": "size",
             "in": "query",
-            "description": "The size of the page to be returned",
+            "description": "Number of elements per page.",
             "required": false,
             "schema": {
               "minimum": 1,
@@ -1155,7 +1108,7 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+            "description": "Sorting criteria: 'property,(asc|desc)'. Multiple sort parameters are supported.",
             "required": false,
             "schema": {
               "type": "array",
@@ -1176,13 +1129,13 @@
               }
             }
           }
-        }
+        },
+        "summary": "List discounts"
       },
       "post": {
         "tags": [
           "Discounts"
         ],
-        "summary": "Create discount",
         "description": "Creates a new discount.\n\nThis API requires **ITEM WRITE** authority.",
         "operationId": "create-discount",
         "requestBody": {
@@ -1206,7 +1159,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Create discount"
       }
     },
     "/third-party-api/v1/discounts/batch": {
@@ -1214,7 +1168,6 @@
         "tags": [
           "Discounts"
         ],
-        "summary": "Batch create discounts",
         "description": "Creates multiple discounts in a single call and returns the created discounts.\n\nThis API requires **ITEM WRITE** authority.",
         "operationId": "batch-create-discounts",
         "requestBody": {
@@ -1244,7 +1197,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Batch create discounts"
       }
     },
     "/third-party-api/v1/charges": {
@@ -1252,64 +1206,65 @@
         "tags": [
           "Charges"
         ],
-        "summary": "List charges",
         "description": "Returns a page of the merchant's charges, optionally filtered by amount type, default flag or modification time.\n\nThis API requires **ITEM READ** authority.",
         "operationId": "list-charges",
         "parameters": [
           {
             "name": "chargeAmountType",
             "in": "query",
-            "description": "Only charges of this amount type: PERCENTAGE or FIXED.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only charges of this amount type: PERCENTAGE or FIXED."
-            }
+              "enum": [
+                "PERCENTAGE",
+                "FIXED"
+              ]
+            },
+            "description": "Only charges of this amount type: PERCENTAGE or FIXED."
           },
           {
             "name": "lastModified",
             "in": "query",
-            "description": "Only charges modified exactly at this instant (ISO-8601). Prefer lastModifiedFrom/lastModifiedTo ranges.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only charges modified exactly at this instant (ISO-8601). Prefer lastModifiedFrom/lastModifiedTo ranges."
-            }
+              "format": "date-time"
+            },
+            "description": "Only charges modified exactly at this instant (ISO-8601). Prefer lastModifiedFrom/lastModifiedTo ranges."
           },
           {
             "name": "lastModifiedFrom",
             "in": "query",
-            "description": "Only charges modified at or after this instant (ISO-8601). Useful for incremental sync.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only charges modified at or after this instant (ISO-8601). Useful for incremental sync."
-            }
+              "format": "date-time"
+            },
+            "description": "Only charges modified at or after this instant (ISO-8601). Useful for incremental sync."
           },
           {
             "name": "lastModifiedTo",
             "in": "query",
-            "description": "Only charges modified at or before this instant (ISO-8601).",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only charges modified at or before this instant (ISO-8601)."
-            }
+              "format": "date-time"
+            },
+            "description": "Only charges modified at or before this instant (ISO-8601)."
           },
           {
             "name": "includeDeleted",
             "in": "query",
-            "description": "When true, soft-deleted charges are included in the result.",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "When true, soft-deleted charges are included in the result."
-            }
+              "type": "boolean"
+            },
+            "description": "When true, soft-deleted charges are included in the result."
           },
           {
             "name": "page",
             "in": "query",
-            "description": "Zero-based page index (0..N)",
+            "description": "Zero-based page index to fetch.",
             "required": false,
             "schema": {
               "minimum": 0,
@@ -1320,7 +1275,7 @@
           {
             "name": "size",
             "in": "query",
-            "description": "The size of the page to be returned",
+            "description": "Number of elements per page.",
             "required": false,
             "schema": {
               "minimum": 1,
@@ -1331,7 +1286,7 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+            "description": "Sorting criteria: 'property,(asc|desc)'. Multiple sort parameters are supported.",
             "required": false,
             "schema": {
               "type": "array",
@@ -1352,13 +1307,13 @@
               }
             }
           }
-        }
+        },
+        "summary": "List charges"
       },
       "post": {
         "tags": [
           "Charges"
         ],
-        "summary": "Create charge",
         "description": "Creates a new charge (tax or extra fee).\n\nThis API requires **ITEM WRITE** authority.",
         "operationId": "create-charge",
         "requestBody": {
@@ -1382,7 +1337,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Create charge"
       }
     },
     "/third-party-api/v1/charges/batch": {
@@ -1390,7 +1346,6 @@
         "tags": [
           "Charges"
         ],
-        "summary": "Batch create charges",
         "description": "Creates multiple charges in a single call and returns the created charges.\n\nThis API requires **ITEM WRITE** authority.",
         "operationId": "batch-create-charges",
         "requestBody": {
@@ -1420,7 +1375,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Batch create charges"
       }
     },
     "/third-party-api/v1/categories": {
@@ -1428,64 +1384,61 @@
         "tags": [
           "Categories"
         ],
-        "summary": "List categories",
         "description": "Returns a page of the merchant's inventory categories, optionally filtered by name or modification time.\n\nThis API requires **ITEM READ** authority.",
         "operationId": "list-categories",
         "parameters": [
           {
             "name": "name",
             "in": "query",
-            "description": "Match categories whose name contains this text (case-insensitive).",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "Match categories whose name contains this text (case-insensitive)."
-            }
+              "type": "string"
+            },
+            "description": "Match categories whose name contains this text (case-insensitive)."
           },
           {
             "name": "lastModified",
             "in": "query",
-            "description": "Only categories modified exactly at this instant (ISO-8601). Prefer lastModifiedFrom/lastModifiedTo ranges.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only categories modified exactly at this instant (ISO-8601). Prefer lastModifiedFrom/lastModifiedTo ranges."
-            }
+              "format": "date-time"
+            },
+            "description": "Only categories modified exactly at this instant (ISO-8601). Prefer lastModifiedFrom/lastModifiedTo ranges."
           },
           {
             "name": "lastModifiedFrom",
             "in": "query",
-            "description": "Only categories modified at or after this instant (ISO-8601). Useful for incremental sync.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only categories modified at or after this instant (ISO-8601). Useful for incremental sync."
-            }
+              "format": "date-time"
+            },
+            "description": "Only categories modified at or after this instant (ISO-8601). Useful for incremental sync."
           },
           {
             "name": "lastModifiedTo",
             "in": "query",
-            "description": "Only categories modified at or before this instant (ISO-8601).",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only categories modified at or before this instant (ISO-8601)."
-            }
+              "format": "date-time"
+            },
+            "description": "Only categories modified at or before this instant (ISO-8601)."
           },
           {
             "name": "includeDeleted",
             "in": "query",
-            "description": "When true, soft-deleted categories are included in the result.",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "When true, soft-deleted categories are included in the result."
-            }
+              "type": "boolean"
+            },
+            "description": "When true, soft-deleted categories are included in the result."
           },
           {
             "name": "page",
             "in": "query",
-            "description": "Zero-based page index (0..N)",
+            "description": "Zero-based page index to fetch.",
             "required": false,
             "schema": {
               "minimum": 0,
@@ -1496,7 +1449,7 @@
           {
             "name": "size",
             "in": "query",
-            "description": "The size of the page to be returned",
+            "description": "Number of elements per page.",
             "required": false,
             "schema": {
               "minimum": 1,
@@ -1507,7 +1460,7 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+            "description": "Sorting criteria: 'property,(asc|desc)'. Multiple sort parameters are supported.",
             "required": false,
             "schema": {
               "type": "array",
@@ -1528,13 +1481,13 @@
               }
             }
           }
-        }
+        },
+        "summary": "List categories"
       },
       "post": {
         "tags": [
           "Categories"
         ],
-        "summary": "Create category",
         "description": "Creates a new inventory category.\n\nThis API requires **ITEM WRITE** authority.",
         "operationId": "create-category",
         "requestBody": {
@@ -1558,7 +1511,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Create category"
       }
     },
     "/third-party-api/v1/categories/batch": {
@@ -1566,7 +1520,6 @@
         "tags": [
           "Categories"
         ],
-        "summary": "Batch create categories",
         "description": "Creates multiple inventory categories in a single call and returns the created categories.\n\nThis API requires **ITEM WRITE** authority.",
         "operationId": "batch-create-categories",
         "requestBody": {
@@ -1596,7 +1549,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Batch create categories"
       }
     },
     "/third-party-api/v1/tip-settings/is-enabled": {
@@ -1604,25 +1558,25 @@
         "tags": [
           "Tip Settings"
         ],
-        "summary": "Toggle tipping enabled",
         "description": "Enables or disables tipping for the merchant without changing the rest of the configuration.\n\nThis API requires **MERCHANT WRITE** authority.",
         "operationId": "toggle-tipping-enabled",
         "parameters": [
           {
             "name": "isEnabled",
             "in": "query",
-            "description": "Whether tipping should be enabled.",
             "required": true,
             "schema": {
               "type": "boolean"
-            }
+            },
+            "description": "Whether tipping should be enabled."
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "summary": "Toggle tipping enabled"
       }
     },
     "/third-party-api/v1/transactions": {
@@ -1630,104 +1584,132 @@
         "tags": [
           "Transactions"
         ],
-        "summary": "List transactions",
         "description": "Returns a page of the merchant's payment transactions, newest first by default, optionally filtered by payment method, transaction type, card type, date range or employee.\n\nThis API requires **PAYMENT READ** authority.",
         "operationId": "list-transactions",
         "parameters": [
           {
             "name": "trimmedId",
             "in": "query",
-            "description": "Match transactions whose UUID starts with this prefix (as shown on receipts).",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "Match transactions whose UUID starts with this prefix (as shown on receipts)."
-            }
+              "type": "string"
+            },
+            "description": "Match transactions whose UUID starts with this prefix (as shown on receipts)."
           },
           {
             "name": "transactionIds",
             "in": "query",
-            "description": "Restrict the result to transactions with these UUIDs.",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "Restrict the result to transactions with these UUIDs."
-            }
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "description": "Restrict the result to transactions with these UUIDs."
           },
           {
             "name": "paymentMethods",
             "in": "query",
-            "description": "Only transactions paid with these payment methods (e.g. CASH, CREDIT, DEBIT, EBT).",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "Only transactions paid with these payment methods (e.g. CASH, CREDIT, DEBIT, EBT)."
-            }
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "CASH",
+                  "CREDIT_CARD",
+                  "EBT_CARD",
+                  "DEBIT_CARD",
+                  "CHECK",
+                  "GIFT",
+                  "LOYALTY",
+                  "ALL"
+                ]
+              }
+            },
+            "description": "Only transactions paid with these payment methods (e.g. CASH, CREDIT, DEBIT, EBT)."
           },
           {
             "name": "transactionTypes",
             "in": "query",
-            "description": "Only transactions of these kinds (e.g. SALE, REFUND, VOID).",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "Only transactions of these kinds (e.g. SALE, REFUND, VOID)."
-            }
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "SALE",
+                  "VOID",
+                  "REFUND"
+                ]
+              }
+            },
+            "description": "Only transactions of these kinds (e.g. SALE, REFUND, VOID)."
           },
           {
             "name": "cardTypes",
             "in": "query",
-            "description": "Only transactions paid with these card brands (e.g. VISA, MASTERCARD).",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "Only transactions paid with these card brands (e.g. VISA, MASTERCARD)."
-            }
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "VISA",
+                  "MASTERCARD",
+                  "AMERICAN_EXPRESS",
+                  "UNKNOWN"
+                ]
+              }
+            },
+            "description": "Only transactions paid with these card brands (e.g. VISA, MASTERCARD)."
           },
           {
             "name": "date",
             "in": "query",
-            "description": "Only transactions that took place exactly at this instant (ISO-8601). Prefer dateFrom/dateTo ranges.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only transactions that took place exactly at this instant (ISO-8601). Prefer dateFrom/dateTo ranges."
-            }
+              "format": "date-time"
+            },
+            "description": "Only transactions that took place exactly at this instant (ISO-8601). Prefer dateFrom/dateTo ranges."
           },
           {
             "name": "dateFrom",
             "in": "query",
-            "description": "Only transactions that took place at or after this instant (ISO-8601).",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only transactions that took place at or after this instant (ISO-8601)."
-            }
+              "format": "date-time"
+            },
+            "description": "Only transactions that took place at or after this instant (ISO-8601)."
           },
           {
             "name": "dateTo",
             "in": "query",
-            "description": "Only transactions that took place at or before this instant (ISO-8601).",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only transactions that took place at or before this instant (ISO-8601)."
-            }
+              "format": "date-time"
+            },
+            "description": "Only transactions that took place at or before this instant (ISO-8601)."
           },
           {
             "name": "employeeId",
             "in": "query",
-            "description": "Only transactions taken by the employee with this UUID.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only transactions taken by the employee with this UUID."
-            }
+              "format": "uuid"
+            },
+            "description": "Only transactions taken by the employee with this UUID."
           },
           {
             "name": "page",
             "in": "query",
-            "description": "Zero-based page index (0..N)",
+            "description": "Zero-based page index to fetch.",
             "required": false,
             "schema": {
               "minimum": 0,
@@ -1738,7 +1720,7 @@
           {
             "name": "size",
             "in": "query",
-            "description": "The size of the page to be returned",
+            "description": "Number of elements per page.",
             "required": false,
             "schema": {
               "minimum": 1,
@@ -1749,7 +1731,7 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+            "description": "Sorting criteria: 'property,(asc|desc)'. Multiple sort parameters are supported.",
             "required": false,
             "schema": {
               "type": "array",
@@ -1773,7 +1755,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "List transactions"
       }
     },
     "/third-party-api/v1/transactions/{uuid}": {
@@ -1781,19 +1764,18 @@
         "tags": [
           "Transactions"
         ],
-        "summary": "Get transaction",
         "description": "Returns a single payment transaction by its UUID.\n\nThis API requires **PAYMENT READ** authority.",
         "operationId": "get-transaction",
         "parameters": [
           {
             "name": "uuid",
             "in": "path",
-            "description": "UUID of the transaction.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the transaction."
           }
         ],
         "responses": {
@@ -1807,7 +1789,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Get transaction"
       }
     },
     "/third-party-api/v1/orders": {
@@ -1815,136 +1798,146 @@
         "tags": [
           "Orders"
         ],
-        "summary": "List orders",
         "description": "Returns a page of the merchant's orders, newest first by default, optionally filtered by state, customer, employee or creation/modification time.\n\nThis API requires **ORDER READ** authority.",
         "operationId": "list-orders",
         "parameters": [
           {
             "name": "trimmedId",
             "in": "query",
-            "description": "Match orders whose UUID starts with this prefix (as shown on receipts).",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "Match orders whose UUID starts with this prefix (as shown on receipts)."
-            }
+              "type": "string"
+            },
+            "description": "Match orders whose UUID starts with this prefix (as shown on receipts)."
           },
           {
             "name": "orderIds",
             "in": "query",
-            "description": "Restrict the result to orders with these UUIDs (at most 120).",
             "required": false,
             "schema": {
-              "maxLength": 120,
-              "minLength": 0,
-              "type": "string",
-              "description": "Restrict the result to orders with these UUIDs (at most 120)."
-            }
+              "maxItems": 120,
+              "minItems": 0,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "description": "Restrict the result to orders with these UUIDs (at most 120)."
           },
           {
             "name": "states",
             "in": "query",
-            "description": "Only orders in these lifecycle states (e.g. OPEN, COMPLETED).",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "Only orders in these lifecycle states (e.g. OPEN, COMPLETED)."
-            }
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "OPEN",
+                  "PAID",
+                  "PARTIALLY_PAID",
+                  "REFUNDED",
+                  "PARTIALLY_REFUNDED",
+                  "VOIDED"
+                ]
+              }
+            },
+            "description": "Only orders in these lifecycle states (e.g. OPEN, COMPLETED)."
           },
           {
             "name": "createdAt",
             "in": "query",
-            "description": "Only orders created exactly at this instant (ISO-8601). Prefer createdAtFrom/createdAtTo ranges.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only orders created exactly at this instant (ISO-8601). Prefer createdAtFrom/createdAtTo ranges."
-            }
+              "format": "date-time"
+            },
+            "description": "Only orders created exactly at this instant (ISO-8601). Prefer createdAtFrom/createdAtTo ranges."
           },
           {
             "name": "createdAtFrom",
             "in": "query",
-            "description": "Only orders created at or after this instant (ISO-8601).",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only orders created at or after this instant (ISO-8601)."
-            }
+              "format": "date-time"
+            },
+            "description": "Only orders created at or after this instant (ISO-8601)."
           },
           {
             "name": "createdAtTo",
             "in": "query",
-            "description": "Only orders created at or before this instant (ISO-8601).",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only orders created at or before this instant (ISO-8601)."
-            }
+              "format": "date-time"
+            },
+            "description": "Only orders created at or before this instant (ISO-8601)."
           },
           {
             "name": "lastModified",
             "in": "query",
-            "description": "Only orders modified exactly at this instant (ISO-8601). Prefer lastModifiedFrom/lastModifiedTo ranges.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only orders modified exactly at this instant (ISO-8601). Prefer lastModifiedFrom/lastModifiedTo ranges."
-            }
+              "format": "date-time"
+            },
+            "description": "Only orders modified exactly at this instant (ISO-8601). Prefer lastModifiedFrom/lastModifiedTo ranges."
           },
           {
             "name": "lastModifiedFrom",
             "in": "query",
-            "description": "Only orders modified at or after this instant (ISO-8601). Useful for incremental sync.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only orders modified at or after this instant (ISO-8601). Useful for incremental sync."
-            }
+              "format": "date-time"
+            },
+            "description": "Only orders modified at or after this instant (ISO-8601). Useful for incremental sync."
           },
           {
             "name": "lastModifiedTo",
             "in": "query",
-            "description": "Only orders modified at or before this instant (ISO-8601).",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only orders modified at or before this instant (ISO-8601)."
-            }
+              "format": "date-time"
+            },
+            "description": "Only orders modified at or before this instant (ISO-8601)."
           },
           {
             "name": "customerId",
             "in": "query",
-            "description": "Only orders attached to the customer with this UUID.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only orders attached to the customer with this UUID."
-            }
+              "format": "uuid"
+            },
+            "description": "Only orders attached to the customer with this UUID."
           },
           {
             "name": "includeDeleted",
             "in": "query",
-            "description": "When true, soft-deleted orders are included in the result.",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "When true, soft-deleted orders are included in the result."
-            }
+              "type": "boolean"
+            },
+            "description": "When true, soft-deleted orders are included in the result."
           },
           {
             "name": "employeeId",
             "in": "query",
-            "description": "Only orders handled by the employee with this UUID.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only orders handled by the employee with this UUID."
-            }
+              "format": "uuid"
+            },
+            "description": "Only orders handled by the employee with this UUID."
           },
           {
             "name": "page",
             "in": "query",
-            "description": "Zero-based page index (0..N)",
+            "description": "Zero-based page index to fetch.",
             "required": false,
             "schema": {
               "minimum": 0,
@@ -1955,7 +1948,7 @@
           {
             "name": "size",
             "in": "query",
-            "description": "The size of the page to be returned",
+            "description": "Number of elements per page.",
             "required": false,
             "schema": {
               "minimum": 1,
@@ -1966,7 +1959,7 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+            "description": "Sorting criteria: 'property,(asc|desc)'. Multiple sort parameters are supported.",
             "required": false,
             "schema": {
               "type": "array",
@@ -1990,7 +1983,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "List orders"
       }
     },
     "/third-party-api/v1/orders/{uuid}": {
@@ -1998,19 +1992,18 @@
         "tags": [
           "Orders"
         ],
-        "summary": "Get order",
         "description": "Returns a single order by its UUID, including line items, discounts, totals and transactions.\n\nThis API requires **ORDER READ** authority.",
         "operationId": "get-order",
         "parameters": [
           {
             "name": "uuid",
             "in": "path",
-            "description": "UUID of the order.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the order."
           }
         ],
         "responses": {
@@ -2024,7 +2017,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Get order"
       }
     },
     "/third-party-api/v1/oauth2/authorize": {
@@ -2032,36 +2026,35 @@
         "tags": [
           "OAuth2"
         ],
-        "summary": "Authorize application",
         "description": "Starts the OAuth2 authorization flow for a third-party application. On success the merchant is redirected to the redirect URI with an authorization code that can be exchanged for tokens.",
         "operationId": "authorize-application",
         "parameters": [
           {
             "name": "client_id",
             "in": "query",
-            "description": "Client identifier of the third-party application.",
             "required": true,
             "schema": {
               "type": "string"
-            }
+            },
+            "description": "Client identifier of the third-party application."
           },
           {
             "name": "redirect_uri",
             "in": "query",
-            "description": "URI the merchant is redirected to with the authorization code; defaults to the app's registered redirect URI.",
             "required": false,
             "schema": {
               "type": "string"
-            }
+            },
+            "description": "URI the merchant is redirected to with the authorization code; defaults to the app's registered redirect URI."
           },
           {
             "name": "state",
             "in": "query",
-            "description": "Opaque value echoed back on the redirect to protect against CSRF.",
             "required": false,
             "schema": {
               "type": "string"
-            }
+            },
+            "description": "Opaque value echoed back on the redirect to protect against CSRF."
           }
         ],
         "responses": {
@@ -2069,7 +2062,8 @@
             "description": "OK"
           }
         },
-        "security": []
+        "security": [],
+        "summary": "Authorize application"
       }
     },
     "/third-party-api/v1/merchants/{merchantId}/apps/billing-info": {
@@ -2077,44 +2071,46 @@
         "tags": [
           "Merchants"
         ],
-        "summary": "Get app billing info",
         "description": "Returns a page of billing information for the merchant's installed third-party applications, optionally filtered by app or developer.\n\nThis API requires **MERCHANT READ** authority.",
         "operationId": "get-app-billing-info",
         "parameters": [
           {
             "name": "merchantId",
             "in": "path",
-            "description": "UUID of the merchant.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the merchant."
           },
           {
             "name": "appIds",
             "in": "query",
-            "description": "Restrict the result to applications with these UUIDs.",
             "required": false,
             "schema": {
-              "type": "string",
-              "description": "Restrict the result to applications with these UUIDs."
-            }
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "description": "Restrict the result to applications with these UUIDs."
           },
           {
             "name": "developerId",
             "in": "query",
-            "description": "Only applications published by the developer with this UUID.",
             "required": false,
             "schema": {
               "type": "string",
-              "description": "Only applications published by the developer with this UUID."
-            }
+              "format": "uuid"
+            },
+            "description": "Only applications published by the developer with this UUID."
           },
           {
             "name": "page",
             "in": "query",
-            "description": "Zero-based page index (0..N)",
+            "description": "Zero-based page index to fetch.",
             "required": false,
             "schema": {
               "minimum": 0,
@@ -2125,7 +2121,7 @@
           {
             "name": "size",
             "in": "query",
-            "description": "The size of the page to be returned",
+            "description": "Number of elements per page.",
             "required": false,
             "schema": {
               "minimum": 1,
@@ -2136,7 +2132,7 @@
           {
             "name": "sort",
             "in": "query",
-            "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.",
+            "description": "Sorting criteria: 'property,(asc|desc)'. Multiple sort parameters are supported.",
             "required": false,
             "schema": {
               "type": "array",
@@ -2157,7 +2153,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Get app billing info"
       }
     },
     "/third-party-api/v1/dual-pricing-settings": {
@@ -2165,7 +2162,6 @@
         "tags": [
           "Dual Pricing"
         ],
-        "summary": "Get dual pricing settings",
         "description": "Returns the merchant's dual-pricing configuration — the percentage difference between card and cash prices.\n\nThis API requires **ITEM READ** authority.",
         "operationId": "get-dual-pricing-settings",
         "responses": {
@@ -2179,7 +2175,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Get dual pricing settings"
       }
     },
     "/third-party-api/v1/apps/{appId}/merchants/{merchantId}/billing-info": {
@@ -2187,29 +2184,28 @@
         "tags": [
           "Apps"
         ],
-        "summary": "Get merchant billing info for app",
         "description": "Returns the billing status of a third-party application for a specific merchant, including the current and available subscription plans.",
         "operationId": "get-merchant-billing-info-for-app",
         "parameters": [
           {
             "name": "appId",
             "in": "path",
-            "description": "UUID of the application.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the application."
           },
           {
             "name": "merchantId",
             "in": "path",
-            "description": "UUID of the merchant.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the merchant."
           }
         ],
         "responses": {
@@ -2223,7 +2219,8 @@
               }
             }
           }
-        }
+        },
+        "summary": "Get merchant billing info for app"
       }
     },
     "/third-party-api/v1/items/{itemId}/images": {
@@ -2231,26 +2228,26 @@
         "tags": [
           "Items"
         ],
-        "summary": "Delete item image",
         "description": "Removes the image attached to an inventory item.\n\nThis API requires **ITEM WRITE** authority.",
         "operationId": "delete-item-image",
         "parameters": [
           {
             "name": "itemId",
             "in": "path",
-            "description": "UUID of the item.",
             "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
+            },
+            "description": "UUID of the item."
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "summary": "Delete item image"
       }
     }
   },
@@ -2267,26 +2264,26 @@
         "properties": {
           "entryLocationType": {
             "type": "string",
-            "description": "Where the customer is asked to enter a tip (e.g. on the payment terminal or on the receipt).",
             "enum": [
               "TABLET_SCREEN",
               "PRINTED_RECEIPT"
-            ]
+            ],
+            "description": "Where the customer is asked to enter a tip (e.g. on the payment terminal or on the receipt)."
           },
           "suggestionCalculationType": {
             "type": "string",
-            "description": "How suggested tip amounts are calculated (e.g. before or after tax).",
             "enum": [
               "EXCLUDE_TAXES",
               "INCLUDE_TAXES"
-            ]
+            ],
+            "description": "How suggested tip amounts are calculated (e.g. before or after tax)."
           },
           "suggestions": {
             "type": "array",
-            "description": "Preset tip suggestions offered to the customer.",
             "items": {
               "$ref": "#/components/schemas/TipSuggestionDto"
-            }
+            },
+            "description": "Preset tip suggestions offered to the customer."
           },
           "isEnabled": {
             "type": "boolean",
@@ -2306,21 +2303,21 @@
         "properties": {
           "tipSuggestionId": {
             "type": "string",
-            "description": "Unique UUID identifier of the tip suggestion.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique UUID identifier of the tip suggestion."
           },
           "amount": {
             "type": "integer",
-            "description": "Suggestion value — percentage points for percentage suggestions, or the smallest currency unit (e.g. cents) for fixed-amount suggestions.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Suggestion value — percentage points for percentage suggestions, or the smallest currency unit (e.g. cents) for fixed-amount suggestions."
           },
           "amountType": {
             "type": "string",
-            "description": "How the amount is interpreted: a percentage of the order total or a fixed amount.",
             "enum": [
               "PERCENTAGE",
               "FIXED"
-            ]
+            ],
+            "description": "How the amount is interpreted: a percentage of the order total or a fixed amount."
           },
           "isEnabled": {
             "type": "boolean",
@@ -2384,8 +2381,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Unique UUID identifier of the merchant.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique UUID identifier of the merchant."
           },
           "name": {
             "type": "string",
@@ -2439,7 +2436,8 @@
           {
             "$ref": "#/components/schemas/UnitType"
           }
-        ]
+        ],
+        "description": "Merchant-defined custom unit of measure."
       },
       "ItemUpdateDto": {
         "required": [
@@ -2462,16 +2460,17 @@
             "description": "New display name of the item."
           },
           "unitPrice": {
-            "$ref": "#/components/schemas/PricePair"
+            "$ref": "#/components/schemas/PricePair",
+            "description": "New cash/card price of one unit of the item under dual pricing."
           },
           "priceType": {
             "type": "string",
-            "description": "How the item is priced: FIXED (catalog price), VARIABLE (price entered at sale time) or PER_UNIT (price per unit of measure, e.g. per pound).",
             "enum": [
               "FIXED",
               "VARIABLE",
               "PER_UNIT"
-            ]
+            ],
+            "description": "How the item is priced: FIXED (catalog price), VARIABLE (price entered at sale time) or PER_UNIT (price per unit of measure, e.g. per pound)."
           },
           "unitType": {
             "oneOf": [
@@ -2490,7 +2489,8 @@
               {
                 "$ref": "#/components/schemas/Oz"
               }
-            ]
+            ],
+            "description": "Unit of measure for PER_UNIT items; null for other price types."
           },
           "isEBT": {
             "type": "boolean",
@@ -2498,21 +2498,19 @@
           },
           "categories": {
             "type": "array",
-            "description": "UUIDs of the categories the item belongs to.",
             "items": {
               "type": "string",
-              "description": "UUIDs of the categories the item belongs to.",
               "format": "uuid"
-            }
+            },
+            "description": "UUIDs of the categories the item belongs to."
           },
           "charges": {
             "type": "array",
-            "description": "UUIDs of the charges (extra fees) applied to the item.",
             "items": {
               "type": "string",
-              "description": "UUIDs of the charges (extra fees) applied to the item.",
               "format": "uuid"
-            }
+            },
+            "description": "UUIDs of the charges (extra fees) applied to the item."
           },
           "isChargesDefault": {
             "type": "boolean",
@@ -2524,19 +2522,18 @@
           },
           "itemCost": {
             "type": "integer",
-            "description": "The merchant's cost for one unit of the item, in the smallest currency unit (e.g. cents).",
-            "format": "int64"
+            "format": "int64",
+            "description": "The merchant's cost for one unit of the item, in the smallest currency unit (e.g. cents)."
           },
           "quantity": {
             "type": "integer",
-            "description": "Deprecated integer stock counter. Use stockQuantity instead.",
             "format": "int32",
-            "deprecated": true
+            "description": "Deprecated integer stock counter. Use stockQuantity instead."
           },
           "stockQuantity": {
             "type": "number",
-            "description": "New stock quantity. Supports fractional values for per-unit items (e.g. 2.5 lb).",
-            "format": "double"
+            "format": "double",
+            "description": "New stock quantity. Supports fractional values for per-unit items (e.g. 2.5 lb)."
           },
           "trackInventory": {
             "type": "boolean",
@@ -2544,16 +2541,16 @@
           },
           "dualPricingBasePriceType": {
             "type": "string",
-            "description": "Which side of the price pair (CASH or CARD) is the base price; the other side is derived from the dual-pricing rate.",
             "enum": [
               "CASH",
               "CARD"
-            ]
+            ],
+            "description": "Which side of the price pair (CASH or CARD) is the base price; the other side is derived from the dual-pricing rate."
           },
           "lastModified": {
             "type": "string",
-            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted.",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted."
           },
           "isAvailable": {
             "type": "boolean",
@@ -2568,7 +2565,8 @@
           {
             "$ref": "#/components/schemas/UnitType"
           }
-        ]
+        ],
+        "description": "Kilogram unit of measure."
       },
       "Lb": {
         "type": "object",
@@ -2576,7 +2574,8 @@
           {
             "$ref": "#/components/schemas/UnitType"
           }
-        ]
+        ],
+        "description": "Pound unit of measure."
       },
       "Oz": {
         "type": "object",
@@ -2584,7 +2583,8 @@
           {
             "$ref": "#/components/schemas/UnitType"
           }
-        ]
+        ],
+        "description": "Ounce unit of measure."
       },
       "PricePair": {
         "required": [
@@ -2596,14 +2596,14 @@
           "cash": {
             "minimum": 0,
             "type": "integer",
-            "description": "Price paid with cash, in the smallest currency unit (e.g. cents).",
-            "format": "int64"
+            "format": "int64",
+            "description": "Price paid with cash, in the smallest currency unit (e.g. cents)."
           },
           "card": {
             "minimum": 0,
             "type": "integer",
-            "description": "Price paid with card, in the smallest currency unit (e.g. cents).",
-            "format": "int64"
+            "format": "int64",
+            "description": "Price paid with card, in the smallest currency unit (e.g. cents)."
           }
         },
         "description": "A pair of prices for the same amount under dual pricing: what the customer pays with cash and what they pay with card. When dual pricing is disabled both values are equal."
@@ -2619,13 +2619,14 @@
             "description": "Display name of the unit. Equals the discriminator for built-in units ('Kg', 'Lb', 'Oz'); a merchant-defined label for 'Custom' units."
           },
           "value": {
-            "type": "string"
+            "type": "string",
+            "description": "Type discriminator: one of 'Kg', 'Lb', 'Oz' or 'Custom'."
           }
         },
-        "description": "Unit of measure for items sold per unit (priceType PER_UNIT). The 'value' discriminator is one of 'Kg', 'Lb', 'Oz' or 'Custom'; for 'Custom' the 'name' field carries the merchant-defined unit label.",
         "discriminator": {
           "propertyName": "value"
-        }
+        },
+        "description": "Unit of measure for items sold per unit (priceType PER_UNIT). The 'value' discriminator is one of 'Kg', 'Lb', 'Oz' or 'Custom'; for 'Custom' the 'name' field carries the merchant-defined unit label."
       },
       "CategoryDto": {
         "required": [
@@ -2638,8 +2639,8 @@
         "properties": {
           "categoryId": {
             "type": "string",
-            "description": "Unique UUID identifier of the category.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique UUID identifier of the category."
           },
           "name": {
             "type": "string",
@@ -2647,13 +2648,13 @@
           },
           "createdAt": {
             "type": "string",
-            "description": "When the category was created (ISO-8601).",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "When the category was created (ISO-8601)."
           },
           "lastModified": {
             "type": "string",
-            "description": "When the category was last modified (ISO-8601).",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "When the category was last modified (ISO-8601)."
           },
           "isDeleted": {
             "type": "boolean",
@@ -2676,8 +2677,8 @@
         "properties": {
           "chargeId": {
             "type": "string",
-            "description": "Unique UUID identifier of the charge.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique UUID identifier of the charge."
           },
           "name": {
             "type": "string",
@@ -2685,16 +2686,16 @@
           },
           "chargeAmountType": {
             "type": "string",
-            "description": "How the amount is interpreted: PERCENTAGE (percentage of the item price) or FIXED (absolute amount).",
             "enum": [
               "PERCENTAGE",
               "FIXED"
-            ]
+            ],
+            "description": "How the amount is interpreted: PERCENTAGE (percentage of the item price) or FIXED (absolute amount)."
           },
           "amount": {
             "type": "integer",
-            "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges."
           },
           "isDefault": {
             "type": "boolean",
@@ -2702,13 +2703,13 @@
           },
           "createdAt": {
             "type": "string",
-            "description": "When the charge was created (ISO-8601).",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "When the charge was created (ISO-8601)."
           },
           "lastModified": {
             "type": "string",
-            "description": "When the charge was last modified (ISO-8601).",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "When the charge was last modified (ISO-8601)."
           },
           "isDeleted": {
             "type": "boolean",
@@ -2737,8 +2738,8 @@
         "properties": {
           "itemId": {
             "type": "string",
-            "description": "Unique UUID identifier of the item.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique UUID identifier of the item."
           },
           "name": {
             "type": "string",
@@ -2753,16 +2754,17 @@
             "description": "Path to the item's thumbnail image, if one is attached."
           },
           "unitPrice": {
-            "$ref": "#/components/schemas/PricePair"
+            "$ref": "#/components/schemas/PricePair",
+            "description": "Cash/card price of one unit of the item under dual pricing."
           },
           "priceType": {
             "type": "string",
-            "description": "How the item is priced: FIXED (catalog price), VARIABLE (price entered at sale time) or PER_UNIT (price per unit of measure, e.g. per pound).",
             "enum": [
               "FIXED",
               "VARIABLE",
               "PER_UNIT"
-            ]
+            ],
+            "description": "How the item is priced: FIXED (catalog price), VARIABLE (price entered at sale time) or PER_UNIT (price per unit of measure, e.g. per pound)."
           },
           "unitType": {
             "oneOf": [
@@ -2781,7 +2783,8 @@
               {
                 "$ref": "#/components/schemas/Oz"
               }
-            ]
+            ],
+            "description": "Unit of measure for PER_UNIT items; null for other price types."
           },
           "isEBT": {
             "type": "boolean",
@@ -2789,17 +2792,17 @@
           },
           "categories": {
             "type": "array",
-            "description": "Categories the item belongs to.",
             "items": {
               "$ref": "#/components/schemas/CategoryDto"
-            }
+            },
+            "description": "Categories the item belongs to."
           },
           "charges": {
             "type": "array",
-            "description": "Charges (extra fees) applied to the item.",
             "items": {
               "$ref": "#/components/schemas/ChargeDto"
-            }
+            },
+            "description": "Charges (extra fees) applied to the item."
           },
           "isChargesDefault": {
             "type": "boolean",
@@ -2811,19 +2814,18 @@
           },
           "itemCost": {
             "type": "integer",
-            "description": "The merchant's cost for one unit of the item, in the smallest currency unit (e.g. cents).",
-            "format": "int64"
+            "format": "int64",
+            "description": "The merchant's cost for one unit of the item, in the smallest currency unit (e.g. cents)."
           },
           "quantity": {
             "type": "integer",
-            "description": "Deprecated integer stock counter. Use stockQuantity instead.",
             "format": "int32",
-            "deprecated": true
+            "description": "Deprecated integer stock counter. Use stockQuantity instead."
           },
           "stockQuantity": {
             "type": "number",
-            "description": "Current stock quantity. Supports fractional values for per-unit items (e.g. 2.5 lb).",
-            "format": "double"
+            "format": "double",
+            "description": "Current stock quantity. Supports fractional values for per-unit items (e.g. 2.5 lb)."
           },
           "trackInventory": {
             "type": "boolean",
@@ -2831,21 +2833,21 @@
           },
           "dualPricingBasePriceType": {
             "type": "string",
-            "description": "Which side of the price pair (CASH or CARD) the merchant entered as the base price; the other side is derived from the dual-pricing rate.",
             "enum": [
               "CASH",
               "CARD"
-            ]
+            ],
+            "description": "Which side of the price pair (CASH or CARD) the merchant entered as the base price; the other side is derived from the dual-pricing rate."
           },
           "createdAt": {
             "type": "string",
-            "description": "When the item was created (ISO-8601).",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "When the item was created (ISO-8601)."
           },
           "lastModified": {
             "type": "string",
-            "description": "When the item was last modified (ISO-8601).",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "When the item was last modified (ISO-8601)."
           },
           "isAvailable": {
             "type": "boolean",
@@ -2874,21 +2876,21 @@
           },
           "amount": {
             "type": "integer",
-            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts."
           },
           "discountAmountType": {
             "type": "string",
-            "description": "How the amount is interpreted: PERCENTAGE (percentage of the price) or FIXED (absolute amount).",
             "enum": [
               "PERCENTAGE",
               "FIXED"
-            ]
+            ],
+            "description": "How the amount is interpreted: PERCENTAGE (percentage of the price) or FIXED (absolute amount)."
           },
           "lastModified": {
             "type": "string",
-            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted.",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted."
           },
           "isActive": {
             "type": "boolean",
@@ -2913,21 +2915,21 @@
           },
           "chargeAmountType": {
             "type": "string",
-            "description": "How the amount is interpreted: PERCENTAGE (percentage of the item price) or FIXED (absolute amount).",
             "enum": [
               "PERCENTAGE",
               "FIXED"
-            ]
+            ],
+            "description": "How the amount is interpreted: PERCENTAGE (percentage of the item price) or FIXED (absolute amount)."
           },
           "amount": {
             "type": "integer",
-            "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges."
           },
           "lastModified": {
             "type": "string",
-            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted.",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted."
           },
           "isDefault": {
             "type": "boolean",
@@ -2949,8 +2951,8 @@
           },
           "lastModified": {
             "type": "string",
-            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted.",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted."
           }
         },
         "description": "Payload for updating an existing inventory category."
@@ -2964,8 +2966,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Unique UUID identifier of the employee.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique UUID identifier of the employee."
           },
           "name": {
             "type": "string",
@@ -2991,13 +2993,13 @@
         "properties": {
           "lineItemChargeId": {
             "type": "string",
-            "description": "Unique UUID identifier of this line-item charge application.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique UUID identifier of this line-item charge application."
           },
           "chargeId": {
             "type": "string",
-            "description": "UUID of the merchant's charge this application was created from.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "UUID of the merchant's charge this application was created from."
           },
           "name": {
             "type": "string",
@@ -3005,16 +3007,16 @@
           },
           "chargeAmountType": {
             "type": "string",
-            "description": "How the amount is interpreted: PERCENTAGE (percentage of the line price) or FIXED (absolute amount).",
             "enum": [
               "PERCENTAGE",
               "FIXED"
-            ]
+            ],
+            "description": "How the amount is interpreted: PERCENTAGE (percentage of the line price) or FIXED (absolute amount)."
           },
           "amount": {
             "type": "integer",
-            "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges."
           },
           "isDefault": {
             "type": "boolean",
@@ -3034,8 +3036,8 @@
         "properties": {
           "lineItemDiscountId": {
             "type": "string",
-            "description": "Unique UUID identifier of this line-item discount application.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique UUID identifier of this line-item discount application."
           },
           "name": {
             "type": "string",
@@ -3043,17 +3045,17 @@
           },
           "discountAmountType": {
             "type": "string",
-            "description": "How the amount is interpreted: PERCENTAGE (percentage of the line price) or FIXED (absolute amount).",
             "enum": [
               "PERCENTAGE",
               "FIXED"
-            ]
+            ],
+            "description": "How the amount is interpreted: PERCENTAGE (percentage of the line price) or FIXED (absolute amount)."
           },
           "amount": {
             "minimum": 0,
             "type": "integer",
-            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts."
           }
         },
         "description": "A discount applied to a specific line item."
@@ -3076,22 +3078,23 @@
         "properties": {
           "lineItemId": {
             "type": "string",
-            "description": "Unique UUID identifier of the line item.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique UUID identifier of the line item."
           },
           "quantity": {
             "minimum": 0,
             "type": "number",
-            "description": "Quantity sold. Fractional for per-unit items (e.g. 2.5 lb); otherwise a whole number.",
-            "format": "double"
+            "format": "double",
+            "description": "Quantity sold. Fractional for per-unit items (e.g. 2.5 lb); otherwise a whole number."
           },
           "totalPrice": {
-            "$ref": "#/components/schemas/PricePair"
+            "$ref": "#/components/schemas/PricePair",
+            "description": "Cash/card total price of the line (unit price × quantity) before discounts."
           },
           "itemId": {
             "type": "string",
-            "description": "UUID of the inventory item this line was created from; null for ad-hoc lines.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "UUID of the inventory item this line was created from; null for ad-hoc lines."
           },
           "imagePath": {
             "type": "string",
@@ -3103,12 +3106,12 @@
           },
           "priceType": {
             "type": "string",
-            "description": "How the item is priced: FIXED, VARIABLE or PER_UNIT.",
             "enum": [
               "FIXED",
               "VARIABLE",
               "PER_UNIT"
-            ]
+            ],
+            "description": "How the item is priced: FIXED, VARIABLE or PER_UNIT."
           },
           "unitType": {
             "oneOf": [
@@ -3127,31 +3130,33 @@
               {
                 "$ref": "#/components/schemas/Oz"
               }
-            ]
+            ],
+            "description": "Unit of measure for PER_UNIT items; null for other price types."
           },
           "unitPrice": {
-            "$ref": "#/components/schemas/PricePair"
+            "$ref": "#/components/schemas/PricePair",
+            "description": "Cash/card price of one unit."
           },
           "discounts": {
             "type": "array",
-            "description": "Discounts applied to this line item.",
             "items": {
               "$ref": "#/components/schemas/LineItemDiscountDto"
-            }
+            },
+            "description": "Discounts applied to this line item."
           },
           "taxes": {
             "type": "array",
-            "description": "Taxes applied to this line item.",
             "items": {
               "$ref": "#/components/schemas/LineItemChargeDto"
-            }
+            },
+            "description": "Taxes applied to this line item."
           },
           "fees": {
             "type": "array",
-            "description": "Fees applied to this line item.",
             "items": {
               "$ref": "#/components/schemas/LineItemChargeDto"
-            }
+            },
+            "description": "Fees applied to this line item."
           },
           "isEbt": {
             "type": "boolean",
@@ -3160,8 +3165,7 @@
           "devNotes": {
             "type": "object",
             "additionalProperties": {
-              "type": "string",
-              "description": "Free-form key-value metadata attached to the line item by third-party apps. Not shown to the merchant."
+              "type": "string"
             },
             "description": "Free-form key-value metadata attached to the line item by third-party apps. Not shown to the merchant."
           },
@@ -3171,33 +3175,35 @@
           },
           "transactionId": {
             "type": "string",
-            "description": "UUID of the transaction that paid for this line, once paid.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "UUID of the transaction that paid for this line, once paid."
           },
           "isTaxable": {
             "type": "boolean",
             "description": "Whether taxes apply to this line item."
           },
           "totalPriceDiscounted": {
-            "$ref": "#/components/schemas/PricePair"
+            "$ref": "#/components/schemas/PricePair",
+            "description": "Cash/card total price after discounts. Present only when computed."
           },
           "totalDiscount": {
-            "$ref": "#/components/schemas/PricePair"
+            "$ref": "#/components/schemas/PricePair",
+            "description": "Cash/card total discount applied to this line. Present only when computed."
           },
           "finalTotalPrice": {
             "type": "integer",
-            "description": "Final total price, in the smallest currency unit, resolved for the payment type used. Present only when computed.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Final total price, in the smallest currency unit, resolved for the payment type used. Present only when computed."
           },
           "finalTotalDiscount": {
             "type": "integer",
-            "description": "Final total discount, in the smallest currency unit, resolved for the payment type used. Present only when computed.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Final total discount, in the smallest currency unit, resolved for the payment type used. Present only when computed."
           },
           "finalTotalPriceDiscounted": {
             "type": "integer",
-            "description": "Final total price after discounts, in the smallest currency unit, resolved for the payment type used. Present only when computed.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Final total price after discounts, in the smallest currency unit, resolved for the payment type used. Present only when computed."
           }
         },
         "description": "A single line of an order: one inventory item (or ad-hoc entry) with its quantity, prices, discounts, taxes and fees."
@@ -3213,13 +3219,13 @@
         "properties": {
           "orderDiscountId": {
             "type": "string",
-            "description": "Unique UUID identifier of this order discount application.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique UUID identifier of this order discount application."
           },
           "discountId": {
             "type": "string",
-            "description": "UUID of the merchant's discount this application was created from; null for ad-hoc discounts.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "UUID of the merchant's discount this application was created from; null for ad-hoc discounts."
           },
           "name": {
             "type": "string",
@@ -3227,16 +3233,16 @@
           },
           "discountAmountType": {
             "type": "string",
-            "description": "How the amount is interpreted: PERCENTAGE (percentage of the order price) or FIXED (absolute amount).",
             "enum": [
               "PERCENTAGE",
               "FIXED"
-            ]
+            ],
+            "description": "How the amount is interpreted: PERCENTAGE (percentage of the order price) or FIXED (absolute amount)."
           },
           "amount": {
             "type": "integer",
-            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts."
           }
         },
         "description": "A discount applied to a whole order."
@@ -3260,62 +3266,64 @@
         "properties": {
           "orderId": {
             "type": "string",
-            "description": "Unique UUID identifier of the order.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique UUID identifier of the order."
           },
           "customerId": {
             "type": "string",
-            "description": "UUID of the customer attached to the order, if any.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "UUID of the customer attached to the order, if any."
           },
           "items": {
             "type": "array",
-            "description": "Line items of the order.",
             "items": {
               "$ref": "#/components/schemas/LineItemDto"
-            }
+            },
+            "description": "Line items of the order."
           },
           "subtotals": {
-            "$ref": "#/components/schemas/PricePair"
+            "$ref": "#/components/schemas/PricePair",
+            "description": "Cash/card subtotal of the order before discounts, taxes and fees."
           },
           "ebtSubtotal": {
             "type": "integer",
-            "description": "Subtotal of the EBT-eligible portion of the order, in the smallest currency unit; null when no items are EBT-eligible.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Subtotal of the EBT-eligible portion of the order, in the smallest currency unit; null when no items are EBT-eligible."
           },
           "discounts": {
             "type": "array",
-            "description": "Order-level discounts applied to the order.",
             "items": {
               "$ref": "#/components/schemas/OrderDiscountDto"
-            }
+            },
+            "description": "Order-level discounts applied to the order."
           },
           "tax": {
-            "$ref": "#/components/schemas/PricePair"
+            "$ref": "#/components/schemas/PricePair",
+            "description": "Cash/card total tax applied to the order."
           },
           "fee": {
             "type": "integer",
-            "description": "Total fees applied to the order, in the smallest currency unit (e.g. cents).",
-            "format": "int64"
+            "format": "int64",
+            "description": "Total fees applied to the order, in the smallest currency unit (e.g. cents)."
           },
           "total": {
-            "$ref": "#/components/schemas/PricePair"
+            "$ref": "#/components/schemas/PricePair",
+            "description": "Cash/card grand total of the order."
           },
           "ebtTotal": {
             "type": "integer",
-            "description": "Grand total of the EBT-eligible portion, in the smallest currency unit; null when no items are EBT-eligible.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Grand total of the EBT-eligible portion, in the smallest currency unit; null when no items are EBT-eligible."
           },
           "transactions": {
             "type": "array",
-            "description": "Payment transactions recorded against the order.",
             "items": {
               "$ref": "#/components/schemas/TransactionGetDto"
-            }
+            },
+            "description": "Payment transactions recorded against the order."
           },
           "state": {
             "type": "string",
-            "description": "Lifecycle state of the order (e.g. OPEN, COMPLETED).",
             "enum": [
               "OPEN",
               "PAID",
@@ -3323,73 +3331,77 @@
               "REFUNDED",
               "PARTIALLY_REFUNDED",
               "VOIDED"
-            ]
+            ],
+            "description": "Lifecycle state of the order (e.g. OPEN, COMPLETED)."
           },
           "tipAmount": {
             "type": "integer",
-            "description": "Tip amount added to the order, in the smallest currency unit; null when no tip.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Tip amount added to the order, in the smallest currency unit; null when no tip."
           },
           "paymentType": {
             "type": "string",
-            "description": "How the order was (or is being) paid.",
             "enum": [
               "FULL",
               "SPLIT_ITEM",
               "SPLIT_CUSTOM"
-            ]
+            ],
+            "description": "How the order was (or is being) paid."
           },
           "notes": {
             "type": "string",
             "description": "Free-form notes attached to the order."
           },
           "employee": {
-            "$ref": "#/components/schemas/EmployeeDto"
+            "$ref": "#/components/schemas/EmployeeDto",
+            "description": "Employee who handled the order, if recorded."
           },
           "createdAt": {
             "type": "string",
-            "description": "When the order was created (ISO-8601).",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "When the order was created (ISO-8601)."
           },
           "lastModified": {
             "type": "string",
-            "description": "When the order was last modified (ISO-8601).",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "When the order was last modified (ISO-8601)."
           },
           "isDeleted": {
             "type": "boolean",
             "description": "Whether the order has been soft-deleted. Deleted orders are only returned when explicitly requested via includeDeleted."
           },
           "discountAmount": {
-            "$ref": "#/components/schemas/PricePair"
+            "$ref": "#/components/schemas/PricePair",
+            "description": "Cash/card total discount applied to the order. Present only when computed."
           },
           "taxTotal": {
-            "$ref": "#/components/schemas/PricePair"
+            "$ref": "#/components/schemas/PricePair",
+            "description": "Cash/card total tax after discounts. Present only when computed."
           },
           "finalTax": {
             "type": "integer",
-            "description": "Final tax actually charged, in the smallest currency unit, resolved for the payment type used. Present only when computed.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Final tax actually charged, in the smallest currency unit, resolved for the payment type used. Present only when computed."
           },
           "finalDiscount": {
             "type": "integer",
-            "description": "Final discount actually applied, in the smallest currency unit, resolved for the payment type used. Present only when computed.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Final discount actually applied, in the smallest currency unit, resolved for the payment type used. Present only when computed."
           },
           "finalSubtotal": {
             "type": "integer",
-            "description": "Final subtotal, in the smallest currency unit, resolved for the payment type used. Present only when computed.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Final subtotal, in the smallest currency unit, resolved for the payment type used. Present only when computed."
           },
           "finalTotal": {
             "type": "integer",
-            "description": "Final total, in the smallest currency unit, resolved for the payment type used. Present only when computed.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Final total, in the smallest currency unit, resolved for the payment type used. Present only when computed."
           },
           "finalTotalWithTips": {
             "type": "integer",
-            "description": "Final total including tips, in the smallest currency unit, resolved for the payment type used. Present only when computed.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Final total including tips, in the smallest currency unit, resolved for the payment type used. Present only when computed."
           }
         },
         "description": "An order (sale) in CorePOS, including its line items, discounts, totals and payment transactions. Monetary amounts are in the smallest currency unit (e.g. cents); dual-priced amounts are cash/card pairs."
@@ -3408,8 +3420,8 @@
         "properties": {
           "transactionId": {
             "type": "string",
-            "description": "Unique UUID identifier of the transaction.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique UUID identifier of the transaction."
           },
           "refNumber": {
             "type": "string",
@@ -3417,21 +3429,20 @@
           },
           "orderId": {
             "type": "string",
-            "description": "UUID of the order this transaction belongs to, if any.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "UUID of the order this transaction belongs to, if any."
           },
           "transactionType": {
             "type": "string",
-            "description": "Kind of transaction (e.g. SALE, REFUND, VOID).",
             "enum": [
               "SALE",
               "VOID",
               "REFUND"
-            ]
+            ],
+            "description": "Kind of transaction (e.g. SALE, REFUND, VOID)."
           },
           "paymentMethod": {
             "type": "string",
-            "description": "Payment method used (e.g. CASH, CREDIT, DEBIT, EBT).",
             "enum": [
               "CASH",
               "CREDIT_CARD",
@@ -3441,17 +3452,18 @@
               "GIFT",
               "LOYALTY",
               "ALL"
-            ]
+            ],
+            "description": "Payment method used (e.g. CASH, CREDIT, DEBIT, EBT)."
           },
           "amount": {
             "type": "integer",
-            "description": "Amount of the transaction, in the smallest currency unit (e.g. cents).",
-            "format": "int64"
+            "format": "int64",
+            "description": "Amount of the transaction, in the smallest currency unit (e.g. cents)."
           },
           "taxAmount": {
             "type": "integer",
-            "description": "Tax portion of the amount, in the smallest currency unit (e.g. cents).",
-            "format": "int64"
+            "format": "int64",
+            "description": "Tax portion of the amount, in the smallest currency unit (e.g. cents)."
           },
           "cardNumber": {
             "type": "string",
@@ -3459,13 +3471,13 @@
           },
           "cardType": {
             "type": "string",
-            "description": "Card brand used for the payment (e.g. VISA, MASTERCARD), if paid by card.",
             "enum": [
               "VISA",
               "MASTERCARD",
               "AMERICAN_EXPRESS",
               "UNKNOWN"
-            ]
+            ],
+            "description": "Card brand used for the payment (e.g. VISA, MASTERCARD), if paid by card."
           },
           "rawData": {
             "type": "string",
@@ -3497,30 +3509,31 @@
           },
           "tenderedAmount": {
             "type": "integer",
-            "description": "Amount tendered by the customer, in the smallest currency unit; used for cash payments.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Amount tendered by the customer, in the smallest currency unit; used for cash payments."
           },
           "changeAmount": {
             "type": "integer",
-            "description": "Change returned to the customer, in the smallest currency unit; used for cash payments.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Change returned to the customer, in the smallest currency unit; used for cash payments."
           },
           "date": {
             "type": "string",
-            "description": "When the transaction took place (ISO-8601).",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "When the transaction took place (ISO-8601)."
           },
           "refundedTransactionId": {
             "type": "string",
-            "description": "UUID of the transaction that was refunded by this one, for REFUND transactions.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "UUID of the transaction that was refunded by this one, for REFUND transactions."
           },
           "dualPricingSurchargeApplied": {
             "type": "boolean",
             "description": "Whether a dual-pricing card surcharge was applied to this transaction."
           },
           "employee": {
-            "$ref": "#/components/schemas/EmployeeDto"
+            "$ref": "#/components/schemas/EmployeeDto",
+            "description": "Employee who took the payment, if recorded."
           }
         },
         "description": "A payment transaction recorded in CorePOS (sale, refund, etc.), including the employee who took it. Monetary amounts are in the smallest currency unit (e.g. cents)."
@@ -3563,8 +3576,8 @@
           },
           "accessTokenExpiration": {
             "type": "string",
-            "description": "When the access token expires (ISO-8601).",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "When the access token expires (ISO-8601)."
           },
           "refreshToken": {
             "type": "string",
@@ -3572,8 +3585,8 @@
           },
           "refreshTokenExpiration": {
             "type": "string",
-            "description": "When the refresh token expires (ISO-8601).",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "When the refresh token expires (ISO-8601)."
           }
         },
         "description": "An OAuth2 access/refresh token pair issued to a third-party application."
@@ -3601,20 +3614,6 @@
         },
         "description": "Payload for refreshing an expired access token."
       },
-      "ItemImageDto": {
-        "type": "object",
-        "properties": {
-          "imagePath": {
-            "type": "string",
-            "description": "Path to the stored full-size image."
-          },
-          "thumbPath": {
-            "type": "string",
-            "description": "Path to the stored thumbnail image."
-          }
-        },
-        "description": "Paths of an item's stored images after an image upload."
-      },
       "ThirdPartyItemCreateDto": {
         "required": [
           "categories",
@@ -3637,16 +3636,17 @@
             "description": "Display name of the item."
           },
           "unitPrice": {
-            "$ref": "#/components/schemas/PricePair"
+            "$ref": "#/components/schemas/PricePair",
+            "description": "Cash/card price of one unit of the item under dual pricing."
           },
           "priceType": {
             "type": "string",
-            "description": "How the item is priced: FIXED (catalog price), VARIABLE (price entered at sale time) or PER_UNIT (price per unit of measure, e.g. per pound).",
             "enum": [
               "FIXED",
               "VARIABLE",
               "PER_UNIT"
-            ]
+            ],
+            "description": "How the item is priced: FIXED (catalog price), VARIABLE (price entered at sale time) or PER_UNIT (price per unit of measure, e.g. per pound)."
           },
           "unitType": {
             "oneOf": [
@@ -3665,7 +3665,8 @@
               {
                 "$ref": "#/components/schemas/Oz"
               }
-            ]
+            ],
+            "description": "Unit of measure for PER_UNIT items; null for other price types."
           },
           "isEBT": {
             "type": "boolean",
@@ -3673,21 +3674,19 @@
           },
           "categories": {
             "type": "array",
-            "description": "UUIDs of existing categories the item belongs to.",
             "items": {
               "type": "string",
-              "description": "UUIDs of existing categories the item belongs to.",
               "format": "uuid"
-            }
+            },
+            "description": "UUIDs of existing categories the item belongs to."
           },
           "charges": {
             "type": "array",
-            "description": "UUIDs of existing charges (extra fees) applied to the item.",
             "items": {
               "type": "string",
-              "description": "UUIDs of existing charges (extra fees) applied to the item.",
               "format": "uuid"
-            }
+            },
+            "description": "UUIDs of existing charges (extra fees) applied to the item."
           },
           "isChargesDefault": {
             "type": "boolean",
@@ -3699,19 +3698,18 @@
           },
           "itemCost": {
             "type": "integer",
-            "description": "The merchant's cost for one unit of the item, in the smallest currency unit (e.g. cents).",
-            "format": "int64"
+            "format": "int64",
+            "description": "The merchant's cost for one unit of the item, in the smallest currency unit (e.g. cents)."
           },
           "quantity": {
             "type": "integer",
-            "description": "Deprecated integer stock counter. Use stockQuantity instead.",
             "format": "int32",
-            "deprecated": true
+            "description": "Deprecated integer stock counter. Use stockQuantity instead."
           },
           "stockQuantity": {
             "type": "number",
-            "description": "Initial stock quantity. Supports fractional values for per-unit items (e.g. 2.5 lb).",
-            "format": "double"
+            "format": "double",
+            "description": "Initial stock quantity. Supports fractional values for per-unit items (e.g. 2.5 lb)."
           },
           "trackInventory": {
             "type": "boolean",
@@ -3719,21 +3717,21 @@
           },
           "dualPricingBasePriceType": {
             "type": "string",
-            "description": "Which side of the price pair (CASH or CARD) is the base price; the other side is derived from the dual-pricing rate.",
             "enum": [
               "CASH",
               "CARD"
-            ]
+            ],
+            "description": "Which side of the price pair (CASH or CARD) is the base price; the other side is derived from the dual-pricing rate."
           },
           "createdAt": {
             "type": "string",
-            "description": "Creation timestamp (ISO-8601). Defaults to the server time when omitted.",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Creation timestamp (ISO-8601). Defaults to the server time when omitted."
           },
           "lastModified": {
             "type": "string",
-            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted.",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted."
           },
           "isAvailable": {
             "type": "boolean",
@@ -3741,6 +3739,20 @@
           }
         },
         "description": "Payload for creating a new inventory item."
+      },
+      "ItemImageDto": {
+        "type": "object",
+        "properties": {
+          "imagePath": {
+            "type": "string",
+            "description": "Path to the stored full-size image."
+          },
+          "thumbPath": {
+            "type": "string",
+            "description": "Path to the stored thumbnail image."
+          }
+        },
+        "description": "Paths of an item's stored images after an image upload."
       },
       "ThirdPartyDiscountCreateDto": {
         "required": [
@@ -3760,26 +3772,26 @@
           "amount": {
             "minimum": 0,
             "type": "integer",
-            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts. Must be at least 0.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts. Must be at least 0."
           },
           "discountAmountType": {
             "type": "string",
-            "description": "How the amount is interpreted: PERCENTAGE (percentage of the price) or FIXED (absolute amount).",
             "enum": [
               "PERCENTAGE",
               "FIXED"
-            ]
+            ],
+            "description": "How the amount is interpreted: PERCENTAGE (percentage of the price) or FIXED (absolute amount)."
           },
           "createdAt": {
             "type": "string",
-            "description": "Creation timestamp (ISO-8601). Defaults to the server time when omitted.",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Creation timestamp (ISO-8601). Defaults to the server time when omitted."
           },
           "lastModified": {
             "type": "string",
-            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted.",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted."
           },
           "isActive": {
             "type": "boolean",
@@ -3802,8 +3814,8 @@
         "properties": {
           "discountId": {
             "type": "string",
-            "description": "Unique UUID identifier of the discount.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique UUID identifier of the discount."
           },
           "name": {
             "type": "string",
@@ -3811,16 +3823,16 @@
           },
           "amount": {
             "type": "integer",
-            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts."
           },
           "discountAmountType": {
             "type": "string",
-            "description": "How the amount is interpreted: PERCENTAGE (percentage of the price) or FIXED (absolute amount).",
             "enum": [
               "PERCENTAGE",
               "FIXED"
-            ]
+            ],
+            "description": "How the amount is interpreted: PERCENTAGE (percentage of the price) or FIXED (absolute amount)."
           },
           "isActive": {
             "type": "boolean",
@@ -3828,13 +3840,13 @@
           },
           "createdAt": {
             "type": "string",
-            "description": "When the discount was created (ISO-8601).",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "When the discount was created (ISO-8601)."
           },
           "lastModified": {
             "type": "string",
-            "description": "When the discount was last modified (ISO-8601).",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "When the discount was last modified (ISO-8601)."
           },
           "isDeleted": {
             "type": "boolean",
@@ -3856,8 +3868,8 @@
         "properties": {
           "chargeId": {
             "type": "string",
-            "description": "Optional UUID for the new charge; generated by the server when omitted.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Optional UUID for the new charge; generated by the server when omitted."
           },
           "name": {
             "type": "string",
@@ -3865,27 +3877,27 @@
           },
           "chargeAmountType": {
             "type": "string",
-            "description": "How the amount is interpreted: PERCENTAGE (percentage of the item price) or FIXED (absolute amount).",
             "enum": [
               "PERCENTAGE",
               "FIXED"
-            ]
+            ],
+            "description": "How the amount is interpreted: PERCENTAGE (percentage of the item price) or FIXED (absolute amount)."
           },
           "amount": {
             "minimum": 0,
             "type": "integer",
-            "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges. Must be at least 0.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges. Must be at least 0."
           },
           "createdAt": {
             "type": "string",
-            "description": "Creation timestamp (ISO-8601). Defaults to the server time when omitted.",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Creation timestamp (ISO-8601). Defaults to the server time when omitted."
           },
           "lastModified": {
             "type": "string",
-            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted.",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted."
           },
           "isDefault": {
             "type": "boolean",
@@ -3904,8 +3916,8 @@
         "properties": {
           "categoryId": {
             "type": "string",
-            "description": "Optional UUID for the new category; generated by the server when omitted.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Optional UUID for the new category; generated by the server when omitted."
           },
           "name": {
             "type": "string",
@@ -3913,13 +3925,13 @@
           },
           "createdAt": {
             "type": "string",
-            "description": "Creation timestamp (ISO-8601). Defaults to the server time when omitted.",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Creation timestamp (ISO-8601). Defaults to the server time when omitted."
           },
           "lastModified": {
             "type": "string",
-            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted.",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted."
           }
         },
         "description": "Payload for creating a new inventory category."
@@ -3929,86 +3941,109 @@
         "properties": {
           "totalPages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Total number of pages available."
           },
           "totalElements": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "Total number of elements across all pages."
           },
           "size": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Requested page size."
           },
           "content": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/TransactionDto"
-            }
+            },
+            "description": "The elements of this page."
           },
           "number": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Zero-based index of this page."
           },
           "sort": {
-            "$ref": "#/components/schemas/SortObject"
+            "$ref": "#/components/schemas/SortObject",
+            "description": "Sorting applied to this page."
           },
           "numberOfElements": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Number of elements on this page."
           },
           "pageable": {
-            "$ref": "#/components/schemas/PageableObject"
+            "$ref": "#/components/schemas/PageableObject",
+            "description": "The paging request that produced this page."
           },
           "first": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this is the first page."
           },
           "last": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this is the last page."
           },
           "empty": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this page has no elements."
           }
-        }
+        },
+        "description": "A page of TransactionDto results."
       },
       "PageableObject": {
         "type": "object",
         "properties": {
           "offset": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "Offset of the first element of this page in the overall result."
           },
           "sort": {
-            "$ref": "#/components/schemas/SortObject"
+            "$ref": "#/components/schemas/SortObject",
+            "description": "Sorting applied to the request."
           },
           "paged": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether paging is applied."
           },
           "pageNumber": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Zero-based page index requested."
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Requested page size."
           },
           "unpaged": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether paging is disabled."
           }
-        }
+        },
+        "description": "The paging request that produced a page."
       },
       "SortObject": {
         "type": "object",
         "properties": {
           "empty": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether no sorting is applied."
           },
           "sorted": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether any sorting is applied."
           },
           "unsorted": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether the result is unsorted."
           }
-        }
+        },
+        "description": "Sorting applied to a page request."
       },
       "TransactionDto": {
         "required": [
@@ -4028,23 +4063,23 @@
           },
           "date": {
             "type": "string",
-            "description": "When the transaction took place (ISO-8601).",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "When the transaction took place (ISO-8601)."
           },
           "amount": {
             "type": "integer",
-            "description": "Amount of the transaction, in the smallest currency unit (e.g. cents).",
-            "format": "int64"
+            "format": "int64",
+            "description": "Amount of the transaction, in the smallest currency unit (e.g. cents)."
           },
           "transactionId": {
             "type": "string",
-            "description": "Unique UUID identifier of the transaction.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique UUID identifier of the transaction."
           },
           "orderId": {
             "type": "string",
-            "description": "UUID of the order this transaction belongs to, if any.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "UUID of the order this transaction belongs to, if any."
           },
           "refNumber": {
             "type": "string",
@@ -4052,16 +4087,15 @@
           },
           "transactionType": {
             "type": "string",
-            "description": "Kind of transaction (e.g. SALE, REFUND, VOID).",
             "enum": [
               "SALE",
               "VOID",
               "REFUND"
-            ]
+            ],
+            "description": "Kind of transaction (e.g. SALE, REFUND, VOID)."
           },
           "paymentMethod": {
             "type": "string",
-            "description": "Payment method used (e.g. CASH, CREDIT, DEBIT, EBT).",
             "enum": [
               "CASH",
               "CREDIT_CARD",
@@ -4071,22 +4105,23 @@
               "GIFT",
               "LOYALTY",
               "ALL"
-            ]
+            ],
+            "description": "Payment method used (e.g. CASH, CREDIT, DEBIT, EBT)."
           },
           "taxAmount": {
             "type": "integer",
-            "description": "Tax portion of the amount, in the smallest currency unit (e.g. cents).",
-            "format": "int64"
+            "format": "int64",
+            "description": "Tax portion of the amount, in the smallest currency unit (e.g. cents)."
           },
           "cardType": {
             "type": "string",
-            "description": "Card brand used for the payment (e.g. VISA, MASTERCARD), if paid by card.",
             "enum": [
               "VISA",
               "MASTERCARD",
               "AMERICAN_EXPRESS",
               "UNKNOWN"
-            ]
+            ],
+            "description": "Card brand used for the payment (e.g. VISA, MASTERCARD), if paid by card."
           },
           "rawData": {
             "type": "string",
@@ -4114,18 +4149,18 @@
           },
           "tenderedAmount": {
             "type": "integer",
-            "description": "Amount tendered by the customer, in the smallest currency unit; used for cash payments.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Amount tendered by the customer, in the smallest currency unit; used for cash payments."
           },
           "changeAmount": {
             "type": "integer",
-            "description": "Change returned to the customer, in the smallest currency unit; used for cash payments.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Change returned to the customer, in the smallest currency unit; used for cash payments."
           },
           "refundedTransactionId": {
             "type": "string",
-            "description": "UUID of the transaction that was refunded by this one, for REFUND transactions.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "UUID of the transaction that was refunded by this one, for REFUND transactions."
           },
           "dualPricingSurchargeApplied": {
             "type": "boolean",
@@ -4143,46 +4178,58 @@
         "properties": {
           "totalPages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Total number of pages available."
           },
           "totalElements": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "Total number of elements across all pages."
           },
           "size": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Requested page size."
           },
           "content": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/OrderDto"
-            }
+            },
+            "description": "The elements of this page."
           },
           "number": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Zero-based index of this page."
           },
           "sort": {
-            "$ref": "#/components/schemas/SortObject"
+            "$ref": "#/components/schemas/SortObject",
+            "description": "Sorting applied to this page."
           },
           "numberOfElements": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Number of elements on this page."
           },
           "pageable": {
-            "$ref": "#/components/schemas/PageableObject"
+            "$ref": "#/components/schemas/PageableObject",
+            "description": "The paging request that produced this page."
           },
           "first": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this is the first page."
           },
           "last": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this is the last page."
           },
           "empty": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this page has no elements."
           }
-        }
+        },
+        "description": "A page of OrderDto results."
       },
       "MerchantThirdPartyDto": {
         "required": [
@@ -4193,8 +4240,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Unique UUID identifier of the merchant.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique UUID identifier of the merchant."
           },
           "name": {
             "type": "string",
@@ -4254,8 +4301,8 @@
         "properties": {
           "appId": {
             "type": "string",
-            "description": "Unique UUID identifier of the application.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique UUID identifier of the application."
           },
           "appName": {
             "type": "string",
@@ -4267,33 +4314,34 @@
           },
           "billingStartTime": {
             "type": "string",
-            "description": "When billing started for this merchant and application (ISO-8601).",
-            "format": "date-time"
+            "format": "date-time",
+            "description": "When billing started for this merchant and application (ISO-8601)."
           },
           "status": {
             "type": "string",
-            "description": "Current billing status of the application for this merchant.",
             "enum": [
               "ACTIVE",
               "INACTIVE",
               "LAPSED",
               "SUPPRESSED"
-            ]
+            ],
+            "description": "Current billing status of the application for this merchant."
           },
           "daysLapsed": {
             "type": "integer",
-            "description": "Number of days elapsed since billing started.",
-            "format": "int64"
+            "format": "int64",
+            "description": "Number of days elapsed since billing started."
           },
           "currentSubscription": {
-            "$ref": "#/components/schemas/AppSubscriptionDto"
+            "$ref": "#/components/schemas/AppSubscriptionDto",
+            "description": "Subscription plan the merchant is currently on."
           },
           "availableSubscriptions": {
             "type": "array",
-            "description": "All subscription plans the application offers.",
             "items": {
               "$ref": "#/components/schemas/AppSubscriptionDto"
-            }
+            },
+            "description": "All subscription plans the application offers."
           }
         },
         "description": "Billing status of a third-party application for a merchant, including the current and available subscription plans."
@@ -4310,8 +4358,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Unique UUID identifier of the subscription plan.",
-            "format": "uuid"
+            "format": "uuid",
+            "description": "Unique UUID identifier of the subscription plan."
           },
           "name": {
             "type": "string",
@@ -4319,8 +4367,8 @@
           },
           "amount": {
             "type": "integer",
-            "description": "Price of the plan, in the smallest currency unit (e.g. cents).",
-            "format": "int64"
+            "format": "int64",
+            "description": "Price of the plan, in the smallest currency unit (e.g. cents)."
           },
           "description": {
             "type": "string",
@@ -4338,92 +4386,116 @@
         "properties": {
           "totalPages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Total number of pages available."
           },
           "totalElements": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "Total number of elements across all pages."
           },
           "size": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Requested page size."
           },
           "content": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AppBillingInfoDto"
-            }
+            },
+            "description": "The elements of this page."
           },
           "number": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Zero-based index of this page."
           },
           "sort": {
-            "$ref": "#/components/schemas/SortObject"
+            "$ref": "#/components/schemas/SortObject",
+            "description": "Sorting applied to this page."
           },
           "numberOfElements": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Number of elements on this page."
           },
           "pageable": {
-            "$ref": "#/components/schemas/PageableObject"
+            "$ref": "#/components/schemas/PageableObject",
+            "description": "The paging request that produced this page."
           },
           "first": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this is the first page."
           },
           "last": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this is the last page."
           },
           "empty": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this page has no elements."
           }
-        }
+        },
+        "description": "A page of AppBillingInfoDto results."
       },
       "PageItemDto": {
         "type": "object",
         "properties": {
           "totalPages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Total number of pages available."
           },
           "totalElements": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "Total number of elements across all pages."
           },
           "size": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Requested page size."
           },
           "content": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ItemDto"
-            }
+            },
+            "description": "The elements of this page."
           },
           "number": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Zero-based index of this page."
           },
           "sort": {
-            "$ref": "#/components/schemas/SortObject"
+            "$ref": "#/components/schemas/SortObject",
+            "description": "Sorting applied to this page."
           },
           "numberOfElements": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Number of elements on this page."
           },
           "pageable": {
-            "$ref": "#/components/schemas/PageableObject"
+            "$ref": "#/components/schemas/PageableObject",
+            "description": "The paging request that produced this page."
           },
           "first": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this is the first page."
           },
           "last": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this is the last page."
           },
           "empty": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this page has no elements."
           }
-        }
+        },
+        "description": "A page of ItemDto results."
       },
       "DualPricingSettingDto": {
         "required": [
@@ -4435,8 +4507,8 @@
           "percentage": {
             "maximum": 4,
             "type": "number",
-            "description": "Percentage difference between card and cash prices (e.g. 3.5 means card prices are 3.5% higher). At most 4, with up to two decimal places.",
-            "format": "float"
+            "format": "float",
+            "description": "Percentage difference between card and cash prices (e.g. 3.5 means card prices are 3.5% higher). At most 4, with up to two decimal places."
           },
           "applyToDebit": {
             "type": "boolean",
@@ -4450,138 +4522,174 @@
         "properties": {
           "totalPages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Total number of pages available."
           },
           "totalElements": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "Total number of elements across all pages."
           },
           "size": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Requested page size."
           },
           "content": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/DiscountDto"
-            }
+            },
+            "description": "The elements of this page."
           },
           "number": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Zero-based index of this page."
           },
           "sort": {
-            "$ref": "#/components/schemas/SortObject"
+            "$ref": "#/components/schemas/SortObject",
+            "description": "Sorting applied to this page."
           },
           "numberOfElements": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Number of elements on this page."
           },
           "pageable": {
-            "$ref": "#/components/schemas/PageableObject"
+            "$ref": "#/components/schemas/PageableObject",
+            "description": "The paging request that produced this page."
           },
           "first": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this is the first page."
           },
           "last": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this is the last page."
           },
           "empty": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this page has no elements."
           }
-        }
+        },
+        "description": "A page of DiscountDto results."
       },
       "PageChargeDto": {
         "type": "object",
         "properties": {
           "totalPages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Total number of pages available."
           },
           "totalElements": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "Total number of elements across all pages."
           },
           "size": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Requested page size."
           },
           "content": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ChargeDto"
-            }
+            },
+            "description": "The elements of this page."
           },
           "number": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Zero-based index of this page."
           },
           "sort": {
-            "$ref": "#/components/schemas/SortObject"
+            "$ref": "#/components/schemas/SortObject",
+            "description": "Sorting applied to this page."
           },
           "numberOfElements": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Number of elements on this page."
           },
           "pageable": {
-            "$ref": "#/components/schemas/PageableObject"
+            "$ref": "#/components/schemas/PageableObject",
+            "description": "The paging request that produced this page."
           },
           "first": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this is the first page."
           },
           "last": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this is the last page."
           },
           "empty": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this page has no elements."
           }
-        }
+        },
+        "description": "A page of ChargeDto results."
       },
       "PageCategoryDto": {
         "type": "object",
         "properties": {
           "totalPages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Total number of pages available."
           },
           "totalElements": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "description": "Total number of elements across all pages."
           },
           "size": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Requested page size."
           },
           "content": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CategoryDto"
-            }
+            },
+            "description": "The elements of this page."
           },
           "number": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Zero-based index of this page."
           },
           "sort": {
-            "$ref": "#/components/schemas/SortObject"
+            "$ref": "#/components/schemas/SortObject",
+            "description": "Sorting applied to this page."
           },
           "numberOfElements": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "description": "Number of elements on this page."
           },
           "pageable": {
-            "$ref": "#/components/schemas/PageableObject"
+            "$ref": "#/components/schemas/PageableObject",
+            "description": "The paging request that produced this page."
           },
           "first": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this is the first page."
           },
           "last": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this is the last page."
           },
           "empty": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Whether this page has no elements."
           }
-        }
+        },
+        "description": "A page of CategoryDto results."
       }
     },
     "securitySchemes": {
@@ -4592,5 +4700,51 @@
         "bearerFormat": "JWT"
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "Items",
+      "description": "Manage inventory items."
+    },
+    {
+      "name": "Categories",
+      "description": "Manage inventory categories."
+    },
+    {
+      "name": "Charges",
+      "description": "Manage charges (extra fees) applied to items."
+    },
+    {
+      "name": "Discounts",
+      "description": "Manage discounts."
+    },
+    {
+      "name": "Orders",
+      "description": "Read orders and manage line-item dev notes."
+    },
+    {
+      "name": "Transactions",
+      "description": "Read payment transactions."
+    },
+    {
+      "name": "Merchants",
+      "description": "Read and update merchant information."
+    },
+    {
+      "name": "OAuth2",
+      "description": "Authorization and token endpoints."
+    },
+    {
+      "name": "Tip Settings",
+      "description": "Read and update tipping configuration."
+    },
+    {
+      "name": "Apps",
+      "description": "App billing information."
+    },
+    {
+      "name": "Dual Pricing",
+      "description": "Read dual-pricing configuration."
+    }
+  ]
 }
