@@ -1,12 +1,14 @@
 import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
 // REST API documentation. api-docs/sidebar.ts is written by `npm run gen-api-docs`
-// and default-exports the generated items; the hand-written introduction and
-// installation pages lead, and the spec's own info page follows as the overview.
+// and default-exports the generated items, the first of which is the spec's own
+// info page — it carries the sidebar label "Introduction" and would sit next to
+// the hand-written one, so it is dropped here. The page itself stays published:
+// every operation page links back to it as its info page.
 import apiSidebar from './api-docs/sidebar';
 
-const generated = (apiSidebar as {docId?: string; label?: string}[]).map((item) =>
-  item.docId === 'corepos-api' ? {...item, label: 'API overview'} : item,
+const generated = (apiSidebar as {type?: string; id?: string}[]).filter(
+  (item) => !(item.type === 'doc' && item.id === 'corepos-api'),
 );
 
 const sidebars: SidebarsConfig = {
