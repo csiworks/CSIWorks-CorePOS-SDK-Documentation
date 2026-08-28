@@ -2,7 +2,7 @@
 id: models-order
 sidebar_position: 3
 title: Order
-description: Order models.
+description: Order models used by the CorePOS Android SDK.
 hide_title: true
 ---
 
@@ -11,12 +11,14 @@ hide_title: true
 This section covers all order models (entities) used in the API
 
 ## LineItemDiscount
+
 ```kotlin
 data class LineItemDiscount
 ```
 The `LineItemDiscount` model represents a discount, applied to a single line item, containing the following fields:
 
 ### Values
+
 - `lineItemDiscountId`: A unique **UUID** identifier for the line item discount.
 - `name`: The name of the discount (e.g., "Holiday Sale").
 - `discountType`: The type of discount. Can be `FIXED (0)` or `PERCENTAGE (1)`.
@@ -26,14 +28,16 @@ The `LineItemDiscount` model represents a discount, applied to a single line ite
 - `isActive`: A flag indicating whether the discount is currently active.
 
 ## LineItemCharge
+
 ```kotlin
 data class LineItemCharge
 ```
 The `LineItemCharge` model represents taxes and fees, applied to a single line item, containing the following fields:
 
 ### Values
+
 - `lineItemCharge`: A unique **UUID** identifier for the line item charge.
-- `chargeId`: A unique **UUID** identifier for the charge. Reference to the corresponding inventory [**Charge**](models-inventory#charge).
+- `chargeId`: A unique **UUID** identifier for the charge. Reference to the corresponding inventory [**Charge**](inventory.md#charge).
 - `name`: The name of the charge (e.g., "Sales Tax", "Shipping Fee").
 - `chargeAmountType`: The type of charge amount. Can be `FIXED (0)` or `PERCENTAGE (1)`.
   - **FIXED**, Represents a fixed amount, such as a flat fee.  
@@ -44,6 +48,7 @@ The `LineItemCharge` model represents taxes and fees, applied to a single line i
 - `isDefault`: A flag indicating whether this charge is the default charge.
 
 ## LineItem
+
 ```kotlin
 data class LineItem
 ```
@@ -54,15 +59,16 @@ The LineItem can be thought of as an item placed on the checkout conveyor belt a
 :::
 
 ### Values
+
 - `lineItemId`: A unique **UUID** identifier for the line item.  
 - `quantity`: The quantity of the item in the line item (supports fractional values).  
 - `totalCash`: The total cash price for the line item (after adjustments).  
 - `totalCard`: The total card price for the line item (after adjustments).  
-- `itemId`: A unique **UUID** identifier for the item. Reference to the corresponding inventory [**Item**](models-inventory#item).  
+- `itemId`: A unique **UUID** identifier for the item. Reference to the corresponding inventory [**Item**](inventory.md#item).  
 - `imagePath`: A path to the item's image.  
 - `thumbnailPath`: A path to the item's thumbnail image.  
 - `name`: The name of the item.  
-- `priceType`: [**PriceType**](models-inventory#pricetype-enum), the type of pricing applied to this line item.  
+- `priceType`: [**PriceType**](inventory.md#pricetype-enum), the type of pricing applied to this line item.  
 - `unitType`: The unit type for the item (e.g., `Lb`, `Oz`, `Kg`).  
 - `unitCash`: The cash price per unit of the item.  
 - `unitCard`: The card price per unit of the item.  
@@ -76,12 +82,14 @@ The LineItem can be thought of as an item placed on the checkout conveyor belt a
 - `isTaxable`: A flag indicating whether the line item is subject to taxes.
 
 ## LineItemBuilder
+
 ```kotlin
 class LineItemBuilder
 ```
 The `LineItemBuilder` class provides a fluent interface for creating and modifying `LineItem` objects with validation and utility methods.
 
 ### Factory Methods
+
 - `create()` - Creates a new empty builder instance
 - `from(lineItem)` - Creates a builder from an existing LineItem
 - `variablePrice(itemId, name, cashPrice, devNotes?, binName?)` - Creates a variable price line item
@@ -89,6 +97,7 @@ The `LineItemBuilder` class provides a fluent interface for creating and modifyi
 - `fixedPrice(itemId, name, devNotes?, binName?)` - Creates a fixed price line item
 
 ### Builder Methods
+
 **Basic Setters:**
 - `setLineItemId(String?)` - Set line item ID
 - `setQuantity(Double)` - Set item quantity
@@ -121,14 +130,16 @@ The `LineItemBuilder` class provides a fluent interface for creating and modifyi
 - `getValidationErrors()` - Get list of validation errors
 
 ## OrderDiscount
+
 ```kotlin
 data class OrderDiscount
 ```
 The `OrderDiscount` model represents a discount applied at the **order level** (as opposed to line-item level), containing the following fields:
 
 ### Values
+
 - `orderDiscountId`: A unique **UUID** identifier for the order discount.  
-- `discountId`: A unique **UUID** identifier for the discount. Reference to the corresponding inventory [**Discount**](models-inventory#discount). 
+- `discountId`: A unique **UUID** identifier for the discount. Reference to the corresponding inventory [**Discount**](inventory.md#discount). 
 - `name`: The name of the discount (e.g., "Holiday Promo", "Employee Discount").  
 - `discountType`: The type of discount. Can be `FIXED (0)` or `PERCENTAGE (1)`.
   - **FIXED**, Represents a fixed amount discount.  
@@ -137,12 +148,14 @@ The `OrderDiscount` model represents a discount applied at the **order level** (
 - `isActive`: A flag indicating whether the discount is currently active.
 
 ## Order
+
 ```kotlin
 data class Order
 ```
 The `Order` model represents a order, containing the following fields:
 
 ### Values
+
 - `orderId`: A unique **UUID** identifier for the order.  
 - `customerId`: A unique **UUID** identifier. Reference to the customer who placed the order.  
 - `items`: A list of [**LineItem**](#lineitem) objects included in the order.  
@@ -173,12 +186,14 @@ The `Order` model represents a order, containing the following fields:
 - `employee`: The [**Employee**](#employee) who carried out or processed this order. May be null if no employee was assigned.
 
 ## Transaction
+
 ```kotlin
 data class Transaction
 ```
 The `Transaction` model represents a financial operation related to an order, containing the following fields:
 
 ### Values
+
 - `transactionId`: A unique **UUID** identifier for the transaction.  
 - `orderId`: Reference to the [**Order**](#order) this transaction belongs to.  
 - `transactionType`: The type of transaction. Can be: 
@@ -198,12 +213,14 @@ The `Transaction` model represents a financial operation related to an order, co
 - `employee`: The [**Employee**](#employee) who processed this transaction. May be null if no employee was assigned.
 
 ## LineItemUtils
+
 ```kotlin
 object LineItemUtils
 ```
 The `LineItemUtils` object provides utility functions for common LineItem operations.
 
 ### Available Methods
+
 - `updateQuantity(lineItem, newQuantity)` - Updates quantity and recalculates totals
 - `updateUnitPrice(lineItem, newUnitPrice)` - Updates unit price and recalculates totals
 - `addDiscount(lineItem, name, amount, type)` - Adds a discount to the line item
@@ -217,12 +234,23 @@ The `LineItemUtils` object provides utility functions for common LineItem operat
 - `validateForUpdate(lineItem)` - Validates item for update operations
 
 ## Employee
+
 ```kotlin
 data class Employee
 ```
 The `Employee` model represents an employee record, containing identifying and contact information, containing the following fields:
 
 ### Values
+
 - `employeeId`: A unique **UUID** identifier for the employee.  
 - `name`: The full name of the employee. May be null if not provided.
 - `email`: The employee’s email address.  
+
+## ValidationResult
+
+```kotlin
+sealed class ValidationResult
+```
+
+Represents the result of validation operations performed by [LineItemUtils](#lineitemutils).
+
