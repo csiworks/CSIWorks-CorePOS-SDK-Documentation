@@ -119,6 +119,9 @@ const unescapeEntities = (s: string): string =>
     // AIDL-generated interfaces are not on Dokka's analysis classpath
     .replaceAll('<Error class: unknown class>', '…');
 
+// Outside code spans MDX reads `<` and `{` as JSX; generic type names carry both.
+const mdxSafe = (s: string): string => s.replaceAll('<', '\\<').replaceAll('{', '\\{');
+
 // "getPagingItems" -> "Get Paging Items", with acronyms and compounds fixed up.
 function titleFromName(name: string): string {
   const words = name
@@ -609,7 +612,7 @@ function renderOperationBody(
   else {
     for (const p of op.paramOrder) {
       const desc = op.params.get(p.name) || fromNarrative.get(p.name) || '';
-      out += `- \`${p.name}\` (${p.type}): ${desc}\n`;
+      out += `- \`${p.name}\` (${mdxSafe(p.type)}): ${desc}\n`;
     }
     out += '\n';
   }
@@ -671,7 +674,7 @@ function renderTypeReference(typeDir: string, level: number): string {
       const propName = (row[0] ?? '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1');
       const {decl, desc} = parseSummaryCell(row[1] ?? '');
       const type = declType(unescapeEntities(decl.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')));
-      out += `- \`${propName}\`${type ? ` (${type})` : ''}${desc ? ': ' + cleanInline(desc, typeDir) : ''}\n`;
+      out += `- \`${propName}\`${type ? ` (${mdxSafe(type)})` : ''}${desc ? ': ' + cleanInline(desc, typeDir) : ''}\n`;
     }
     out += '\n';
   }
