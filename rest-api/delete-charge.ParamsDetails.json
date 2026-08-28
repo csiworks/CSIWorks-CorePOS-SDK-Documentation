@@ -1,1 +1,1 @@
-{"parameters":[{"name":"chargeId","in":"path","required":true,"schema":{"type":"string","format":"uuid"}}]}
+{"parameters":[{"name":"chargeId","in":"path","description":"UUID of the charge to delete.","required":true,"schema":{"type":"string","format":"uuid"}}]}
