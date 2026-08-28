@@ -1,0 +1,9 @@
+{
+  "label": "Models",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "slug": "/models",
+    "description": "This section covers all models (entities) used in the API"
+  }
+}
