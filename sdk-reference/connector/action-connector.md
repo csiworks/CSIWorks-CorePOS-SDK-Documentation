@@ -1,7 +1,6 @@
 ---
 title: ActionConnector
 sidebar_label: ActionConnector
-slug: /connector/action-connector
 ---
 
 # ActionConnector

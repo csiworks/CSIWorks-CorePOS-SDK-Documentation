@@ -1,7 +1,6 @@
 ---
 title: Transaction
 sidebar_label: Transaction
-slug: /order/transaction
 ---
 
 # Transaction

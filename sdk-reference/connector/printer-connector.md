@@ -1,7 +1,6 @@
 ---
 title: PrinterConnector
 sidebar_label: PrinterConnector
-slug: /connector/printer-connector
 ---
 
 # PrinterConnector

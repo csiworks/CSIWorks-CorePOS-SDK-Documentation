@@ -1,7 +1,6 @@
 ---
 title: ErrorCodes
 sidebar_label: ErrorCodes
-slug: /common/error-codes
 ---
 
 # ErrorCodes

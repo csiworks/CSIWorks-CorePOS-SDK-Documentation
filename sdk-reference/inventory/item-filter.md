@@ -1,7 +1,6 @@
 ---
 title: ItemFilter
 sidebar_label: ItemFilter
-slug: /inventory/item-filter
 ---
 
 # ItemFilter

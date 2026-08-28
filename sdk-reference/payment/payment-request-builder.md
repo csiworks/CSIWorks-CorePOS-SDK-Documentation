@@ -1,7 +1,6 @@
 ---
 title: PaymentRequestBuilder
 sidebar_label: PaymentRequestBuilder
-slug: /payment/payment-request-builder
 ---
 
 # PaymentRequestBuilder

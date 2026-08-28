@@ -1,1 +1,1 @@
-{"parameters":[{"name":"uuid","in":"path","description":"UUID of the order.","required":true,"schema":{"type":"string","format":"uuid"}}]}
+{"parameters":[{"name":"uuid","in":"path","required":true,"schema":{"type":"string","format":"uuid"}}]}

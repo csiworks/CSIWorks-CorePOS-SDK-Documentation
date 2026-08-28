@@ -1,7 +1,6 @@
 ---
 title: Charge
 sidebar_label: Charge
-slug: /inventory/charge
 ---
 
 # Charge

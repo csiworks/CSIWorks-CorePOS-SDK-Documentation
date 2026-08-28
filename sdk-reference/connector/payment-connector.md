@@ -1,7 +1,6 @@
 ---
 title: PaymentConnector
 sidebar_label: PaymentConnector
-slug: /connector/payment-connector
 ---
 
 # PaymentConnector

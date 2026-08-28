@@ -1,7 +1,6 @@
 ---
 title: Pageable
 sidebar_label: Pageable
-slug: /pagination/pageable
 ---
 
 # Pageable

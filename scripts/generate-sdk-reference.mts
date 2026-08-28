@@ -531,8 +531,7 @@ for (const pkg of packages) {
   for (const typeDir of pkg.types) {
     const outFile = outDocPath(typeDir);
     const {name, markdown} = renderType(typeDir, outFile, 1);
-    // explicit slug: a type named like its package folder would otherwise become the folder index
-    const front = `---\ntitle: ${name}\nsidebar_label: ${name}\nslug: /${outFile.replace(/\.md$/, '')}\n---\n\n# ${name}\n\n`;
+    const front = `---\ntitle: ${name}\nsidebar_label: ${name}\n---\n\n# ${name}\n\n`;
     writeFileSync(join(target, outFile), front + markdown);
     pageCount++;
   }

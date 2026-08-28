@@ -1,7 +1,6 @@
 ---
 title: LineItem
 sidebar_label: LineItem
-slug: /order/line-item
 ---
 
 # LineItem
