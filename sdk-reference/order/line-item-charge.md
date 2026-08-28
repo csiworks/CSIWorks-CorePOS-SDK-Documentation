@@ -1,6 +1,7 @@
 ---
 title: LineItemCharge
 sidebar_label: LineItemCharge
+slug: /order/line-item-charge
 ---
 
 # LineItemCharge

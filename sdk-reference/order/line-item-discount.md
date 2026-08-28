@@ -1,6 +1,7 @@
 ---
 title: LineItemDiscount
 sidebar_label: LineItemDiscount
+slug: /order/line-item-discount
 ---
 
 # LineItemDiscount

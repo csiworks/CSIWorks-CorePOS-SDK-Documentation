@@ -1,6 +1,7 @@
 ---
 title: InventoryConnector
 sidebar_label: InventoryConnector
+slug: /connector/inventory-connector
 ---
 
 # InventoryConnector

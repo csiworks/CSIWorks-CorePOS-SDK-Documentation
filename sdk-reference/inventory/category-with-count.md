@@ -1,6 +1,7 @@
 ---
 title: CategoryWithCount
 sidebar_label: CategoryWithCount
+slug: /inventory/category-with-count
 ---
 
 # CategoryWithCount

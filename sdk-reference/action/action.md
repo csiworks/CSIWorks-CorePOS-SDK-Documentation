@@ -1,6 +1,7 @@
 ---
 title: Action
 sidebar_label: Action
+slug: /action/action
 ---
 
 # Action
