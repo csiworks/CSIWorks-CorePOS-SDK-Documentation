@@ -27,7 +27,7 @@ fun addVariablePriceLineItem(
 - `orderId` (String): UUID of the target [Order](../models/order.md#order).
 - `itemId` (String): UUID of the inventory item.
 - `cashPrice` (Long): price in the smallest currency unit (e.g., cents).
-- `devNotes` (Map<String, String>?): optional free-form metadata attached to the line item.
+- `devNotes` (Map\<String, String>?): optional free-form metadata attached to the line item.
 - `binName` (String?): optional identifier used to group related line items within an order.
 
 #### Returns:

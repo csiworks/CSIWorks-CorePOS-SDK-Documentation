@@ -20,7 +20,7 @@ fun deleteLineItemDiscounts(orderId: String, lineItemId: String, discountIds: Li
 
 - `orderId` (String): UUID of the [Order](../models/order.md#order).
 - `lineItemId` (String): UUID of the line item.
-- `discountIds` (List<String>): UUIDs of the discounts to remove.
+- `discountIds` (List\<String>): UUIDs of the discounts to remove.
 
 #### Returns:
 

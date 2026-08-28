@@ -27,7 +27,7 @@ fun addFixedPriceLineItems(
 - `orderId` (String): UUID of the target [Order](../models/order.md#order).
 - `itemId` (String): UUID of the inventory item.
 - `itemsNumber` (Int): number of line items to add.
-- `devNotes` (Map<String, String>?): optional free-form metadata attached to the line items.
+- `devNotes` (Map\<String, String>?): optional free-form metadata attached to the line items.
 - `binName` (String?): optional identifier used to group related line items within an order.
 
 #### Returns:
