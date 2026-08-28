@@ -1,6 +1,7 @@
 ---
 title: ServiceConnector
 sidebar_label: ServiceConnector
+slug: /connector/service-connector
 ---
 
 # ServiceConnector
