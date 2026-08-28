@@ -1,6 +1,7 @@
 ---
 title: BarcodeHandlingStatus
 sidebar_label: BarcodeHandlingStatus
+slug: /scanner/barcode-handling-status
 ---
 
 # BarcodeHandlingStatus

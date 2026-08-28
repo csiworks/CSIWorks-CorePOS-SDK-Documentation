@@ -1,6 +1,7 @@
 ---
 title: Category
 sidebar_label: Category
+slug: /inventory/category
 ---
 
 # Category

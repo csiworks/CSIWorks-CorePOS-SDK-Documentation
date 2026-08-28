@@ -1,6 +1,7 @@
 ---
 title: TenderConnector
 sidebar_label: TenderConnector
+slug: /connector/tender-connector
 ---
 
 # TenderConnector
