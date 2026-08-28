@@ -1,1 +1,1 @@
-{"parameters":[{"name":"categoryId","in":"path","required":true,"schema":{"type":"string","format":"uuid"}}]}
+{"parameters":[{"name":"categoryId","in":"path","description":"UUID of the category.","required":true,"schema":{"type":"string","format":"uuid"}}]}
