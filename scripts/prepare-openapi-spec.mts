@@ -18,13 +18,28 @@ interface Tag {
   description?: string;
 }
 
+interface Server {
+  url: string;
+  description?: string;
+}
+
 interface OpenApiSpec {
   paths?: Record<string, Record<string, Operation>>;
   tags?: Tag[];
+  servers?: Server[];
 }
 
 const SPEC_URL =
   process.env.COREPOS_SPEC_URL ?? 'https://api-sandbox.coreposnow.com/v3/api-docs/third-party';
+
+// The application is served behind a proxy and cannot know its public address, so
+// springdoc advertises "/" and every request sample would render without a host.
+// The hosts come from the environment: production is the base URL, sandbox is
+// offered as an override for testing.
+const SERVERS: Server[] = [
+  {url: process.env.COREPOS_API_PRODUCTION_URL, description: 'Production'},
+  {url: process.env.COREPOS_API_SANDBOX_URL, description: 'Sandbox'},
+].filter((s): s is Server => Boolean(s.url));
 
 const siteRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 const outFile = join(siteRoot, 'openapi', 'corepos-third-party.json');
@@ -58,6 +73,12 @@ if (!res.ok) {
   process.exit(1);
 }
 const spec = (await res.json()) as OpenApiSpec;
+
+if (SERVERS.length) {
+  spec.servers = SERVERS;
+} else {
+  console.warn('COREPOS_API_PRODUCTION_URL / COREPOS_API_SANDBOX_URL are unset; keeping the published servers.');
+}
 
 const usedIds = new Set<string>();
 const usedTags = new Set<string>();
