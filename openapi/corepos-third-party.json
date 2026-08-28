@@ -2166,7 +2166,7 @@
           "Dual Pricing"
         ],
         "summary": "Get dual pricing settings",
-        "description": "Returns the merchant's dual-pricing configuration â€” the percentage difference between card and cash prices.\n\nThis API requires **ITEM READ** authority.",
+        "description": "Returns the merchant's dual-pricing configuration — the percentage difference between card and cash prices.\n\nThis API requires **ITEM READ** authority.",
         "operationId": "get-dual-pricing-settings",
         "responses": {
           "200": {
@@ -2311,7 +2311,7 @@
           },
           "amount": {
             "type": "integer",
-            "description": "Suggestion value â€” percentage points for percentage suggestions, or the smallest currency unit (e.g. cents) for fixed-amount suggestions.",
+            "description": "Suggestion value — percentage points for percentage suggestions, or the smallest currency unit (e.g. cents) for fixed-amount suggestions.",
             "format": "int64"
           },
           "amountType": {
@@ -2693,7 +2693,7 @@
           },
           "amount": {
             "type": "integer",
-            "description": "Charge value â€” percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges.",
+            "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges.",
             "format": "int64"
           },
           "isDefault": {
@@ -2874,7 +2874,7 @@
           },
           "amount": {
             "type": "integer",
-            "description": "Discount value â€” percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts.",
+            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts.",
             "format": "int64"
           },
           "discountAmountType": {
@@ -2921,7 +2921,7 @@
           },
           "amount": {
             "type": "integer",
-            "description": "Charge value â€” percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges.",
+            "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges.",
             "format": "int64"
           },
           "lastModified": {
@@ -3013,7 +3013,7 @@
           },
           "amount": {
             "type": "integer",
-            "description": "Charge value â€” percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges.",
+            "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges.",
             "format": "int64"
           },
           "isDefault": {
@@ -3052,7 +3052,7 @@
           "amount": {
             "minimum": 0,
             "type": "integer",
-            "description": "Discount value â€” percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts.",
+            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts.",
             "format": "int64"
           }
         },
@@ -3235,7 +3235,7 @@
           },
           "amount": {
             "type": "integer",
-            "description": "Discount value â€” percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts.",
+            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts.",
             "format": "int64"
           }
         },
@@ -3760,7 +3760,7 @@
           "amount": {
             "minimum": 0,
             "type": "integer",
-            "description": "Discount value â€” percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts. Must be at least 0.",
+            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts. Must be at least 0.",
             "format": "int64"
           },
           "discountAmountType": {
@@ -3811,7 +3811,7 @@
           },
           "amount": {
             "type": "integer",
-            "description": "Discount value â€” percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts.",
+            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts.",
             "format": "int64"
           },
           "discountAmountType": {
@@ -3874,7 +3874,7 @@
           "amount": {
             "minimum": 0,
             "type": "integer",
-            "description": "Charge value â€” percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges. Must be at least 0.",
+            "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges. Must be at least 0.",
             "format": "int64"
           },
           "createdAt": {
@@ -4443,7 +4443,7 @@
             "description": "Whether the dual-pricing surcharge also applies to debit card payments."
           }
         },
-        "description": "The merchant's dual-pricing configuration â€” the difference between card and cash prices."
+        "description": "The merchant's dual-pricing configuration — the difference between card and cash prices."
       },
       "PageDiscountDto": {
         "type": "object",
@@ -4587,7 +4587,7 @@
     "securitySchemes": {
       "bearerAuth": {
         "type": "http",
-        "description": "Use your JWT Bearer token in the 'Authorization' header. Example: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCIâ€¦'",
+        "description": "Use your JWT Bearer token in the 'Authorization' header. Example: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI…'",
         "scheme": "bearer",
         "bearerFormat": "JWT"
       }
