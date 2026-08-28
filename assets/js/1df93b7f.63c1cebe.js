@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkcore_pos_sdk=self.webpackChunkcore_pos_sdk||[]).push([[34583],{66948:(e,c,n)=>{n.r(c),n.d(c,{default:()=>u});var o=n(96540),s=n(86025);const t="0.1.7-rc5";function u(){const e=(0,s.default)(`${t}/introduction`);return(0,o.useEffect)(()=>{window.location.replace(e)},[e]),null}}}]);
