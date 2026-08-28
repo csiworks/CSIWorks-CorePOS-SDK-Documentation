@@ -1,19 +1,20 @@
 ---
 id: printer-api
-sidebar_position: 5
+sidebar_position: 6
 title: PrinterConnector
-description: How to utilize all PrinterConnector functionality.
+description: PrinterConnector reference for the CorePOS Android SDK.
 hide_title: true
 ---
 
 ## Introduction
-### Class Overview
-```kotlin
-class PrinterConnector(context: Context)
-```
+
 The `PrinterConnector` provides methods to interact with the printing service in the CorePOS system. The primary functionality includes sending bitmap images to be printed.
 
-**Purpose:** Manages printing operations, including printing bitmap images.
+### Class Overview
+
+```kotlin
+class PrinterConnector(context: Context) : ServiceConnector<IPrinterService>(context)
+```
 
 ### Initialization:
 
@@ -32,15 +33,19 @@ fun printBitmap(bitmap: Bitmap)
 ```
 
 #### Parameters:
-`bitmap`(Bitmap): The image to be printed, in the form of a Bitmap object.
+
+- `bitmap` (Bitmap): the image to print.
 
 #### Returns:
+
 Void (Unit) No return value is provided. The operation is asynchronous, and a callback is triggered to indicate success or failure.
 
 #### Error Handling:
+
 Returns `null` on error.
 
-### Example Usage:
+### Example Usage
+
 ```kotlin
 class ReceiptActivity : AppCompatActivity() {
     private lateinit var printerConnector: PrinterConnector
@@ -69,3 +74,4 @@ class ReceiptActivity : AppCompatActivity() {
     }
 }
 ```
+

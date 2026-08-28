@@ -2,7 +2,7 @@
 id: action-api-get-actions
 sidebar_position: 3
 title: Get Actions
-description: Retrieve the list of actions.
+description: Retrieve all actions created by the specified package (or that package is associated with).
 hide_title: true
 ---
 
@@ -13,19 +13,23 @@ hide_title: true
 ### Signature:
 
 ```kotlin
-getActions(packageName: String): List<Action>?
+fun getActions(packageName: String): List<Action>?
 ```
 
 #### Parameters:
-`packageName`(String): Application package to filter actions by.
+
+- `packageName` (String): package name of the app whose actions to fetch.
 
 #### Returns:
-`List<Action>?`: The list of [`Action`](../models/models-action#action), or `null` if the operation fails.
+
+`List<Action>?`: the list of matching actions, or `null` on failure.
 
 #### Error Handling:
+
 Returns `null` on error.
 
-### Example Usage:
+### Example Usage
+
 ```kotlin
     private fun loadActionMethods() {
         lifecycleScope.launch(Dispatchers.IO) {
@@ -40,3 +44,4 @@ Returns `null` on error.
         }
     }
 ```
+
