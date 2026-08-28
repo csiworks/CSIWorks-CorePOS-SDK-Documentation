@@ -2,9 +2,9 @@
 id: models-inventory
 sidebar_position: 1
 title: Inventory
-description: Inventory models.
-pagination_prev: null
+description: Inventory models used by the CorePOS Android SDK.
 hide_title: true
+pagination_prev: null
 ---
 
 ## Inventory Models
@@ -12,22 +12,26 @@ hide_title: true
 This section covers all inventory models (entities) used in the API
 
 ## Category
+
 ```kotlin
 data class Category
 ```
 The `Category` model represents a category in the inventory, containing the following fields:
 
 ### Values
+
 - `categoryId`: A unique **UUID** identifier for the category.
 - `name`: The name of the category.
 
 ## Charge
+
 ```kotlin
 data class Charge
 ```
 The `Charge` model represents taxes and fees associated with inventory items, containing the following fields:
 
 ### Values
+
 - `chargeId`: A unique **UUID** identifier for the charge.
 - `name`: The name of the charge (e.g., "Sales Tax", "Shipping Fee").
 - `chargeAmountType`: The type of charge amount. Can be `FIXED (0)` or `PERCENTAGE (1)`.
@@ -39,22 +43,29 @@ The `Charge` model represents taxes and fees associated with inventory items, co
 - `isDefault`: A flag indicating whether this charge is the default charge.
 
 ### Public Functions
+
 ```kotlin
 fun getAmountType(): AmountType?
 ```
 Returns the AmountType enum value corresponding to the chargeAmountType field.
-#### Parameters:
+
+#### Parameters
+
 `None`
-#### Returns:
+
+#### Returns
+
 `AmountType?` - The [**AmountType**](#amounttype-enum) enum value (FIXED or PERCENTAGE) based on chargeAmountType, or null if invalid
 
 ## Discount
+
 ```kotlin
 data class Discount
 ```
 The `Discount` model represents a discount applied to items in the inventory, containing the following fields:
 
 ### Values
+
 - `discountId`: A unique **UUID** identifier for the discount.
 - `name`: The name of the discount (e.g., "Holiday Sale").
 - `discountType`: The type of discount. Can be `FIXED (0)` or `PERCENTAGE (1)`.
@@ -64,12 +75,14 @@ The `Discount` model represents a discount applied to items in the inventory, co
 - `isActive`: A flag indicating whether the discount is currently active.
 
 ## Item
+
 ```kotlin
 data class Item
 ```
 The `Item` model represents an inventory item, containing the following fields:
 
 ### Values
+
 - `itemId`: A unique **UUID** identifier for the item.
 - `name`: The name of the item.
 - `imagePath`: A path to the item's image.
@@ -94,6 +107,7 @@ If `dualPricingBasePriceType` = 0 (**CASH**), then the base price is the **cash 
 Else if `dualPricingBasePriceType` = 1 (**CARD**), then the base price is the **card price**, and the **cash** price is based on the CARD price with **dualPricing**
 
 #### Important clarification
+
 The base price remains **unchanged**, when the `dualPricing` rate is updated  
 Only its counterpart price will change, depending on which price type is set as the base  
 
@@ -103,83 +117,111 @@ This means the item behaves as follows when `dualPricing` changes
 :::
 
 ### Public Functions
+
 ```kotlin
 fun getPriceType(): PriceType?
 ```
 Returns the PriceType enum value corresponding to the priceType field.
-#### Parameters:
+
+#### Parameters
+
 `None`
-#### Returns:
+
+#### Returns
+
 `PriceType?` - The [**PriceType**](#pricetype-enum) enum value (FIXED, VARIABLE, or PER_UNIT) based on priceType, or null if invalid
 
 ## PriceType Enum
+
 ```kotlin
 enum class PriceType
 ```
 The `PriceType` enum defines the different types of pricing available for items:
 
 ### Values
+
 - `FIXED (0)`: A fixed price for the item.
 - `VARIABLE (1)`: A variable price for the item.
 - `PER_UNIT (2)`: Price per unit of the item.
 
 ### Static Functions
+
 ```kotlin
 infix fun from(code: Int): PriceType?
 ```
 Returns the PriceType enum value corresponding to the provided code.
-#### Parameters:
+
+#### Parameters
+
 `code: Int` - The integer code representing the price type
-#### Returns:
+
+#### Returns
+
 `PriceType?` - The corresponding PriceType enum value, or null if the code is invalid
 
 ## AmountType Enum
+
 ```kotlin
 enum class AmountType
 ```
 The `AmountType` enum defines the different types of charge amounts:
 
 ### Values
+
 - `FIXED (0)`: A fixed amount charge, such as a flat fee.
 - `PERCENTAGE (1)`: A percentage-based charge, such as a tax rate.
 
 ### Static Functions
+
 ```kotlin
 infix fun from(code: Int): AmountType?
 ```
 Returns the AmountType enum value corresponding to the provided code.
-#### Parameters:
+
+#### Parameters
+
 `code: Int` - The integer code representing the amount type
-#### Returns:
+
+#### Returns
+
 `AmountType?` - The corresponding AmountType enum value, or null if the code is invalid
 
 ## EbtFlag
+
 ```kotlin
 data class EbtFlag
 ```
 The `EbtFlag` model represents EBT (Electronic Benefit Transfer) eligibility status for an inventory item, containing the following fields:
 
 ### Values
+
 - `itemId`: A unique **UUID** identifier for the item.
 - `isEbt`: A flag indicating whether the item is eligible for EBT.
 
 ### Static Functions
+
 ```kotlin
 fun mapToList(flagsMap: Map<String, Boolean>): List<EbtFlag>
 ```
 Converts a map of item IDs and EBT flags to a list of EbtFlag objects.
-#### Parameters:
+
+#### Parameters
+
 `flagsMap: Map<String, Boolean>` - A map where keys are item IDs and values are EBT eligibility flags
-#### Returns:
+
+#### Returns
+
 `List<EbtFlag>` - A list of EbtFlag objects created from the input map
 
 ## ItemFilter
+
 ```kotlin
 data class ItemFilter
 ```
 The `ItemFilter` model is used to filter items when retrieving a list from the inventory. It contains the following fields:
 
 ### Values
+
 - `nameQuery`: Filter items by name containing this query (optional)  
 - `categoryId`: Filter by a specific category **UUID** (optional)  
 - `withoutCategory`: If true, includes only items without a category  
@@ -187,12 +229,14 @@ The `ItemFilter` model is used to filter items when retrieving a list from the i
 - `productCode`: Filter items by product code (optional)
 
 ## ItemPageResult
+
 ```kotlin
 data class ItemPageResult
 ```
 The `ItemPageResult` model represents a paginated response returned when fetching a list of items. It contains both the retrieved items and pagination metadata to manage navigation between pages. Сontaining the following fields:
 
 ### Values
+
 - `items`: A list of [**Item**](#item) returned for the current page.
 - `currentPage`: The current page index (starting from 0) that was fetched.
 - `pageSize`: The number of items per page as specified in the request.
@@ -202,11 +246,14 @@ The `ItemPageResult` model represents a paginated response returned when fetchin
 - `hasPreviousPage`: Indicates whether there is a previous page available before the current one
 
 ## CategoryWithCount
+
 ```kotlin
 data class CategoryWithCount
 ```
 The `CategoryWithCount` model represents a product category along with the number of items that belong to it. Сontaining the following fields:
 
 ### Values
+
 - `category`: The [**Category**](#category) represents a category in the inventory.
 - `itemCount`: The total number of items associated with this category.
+

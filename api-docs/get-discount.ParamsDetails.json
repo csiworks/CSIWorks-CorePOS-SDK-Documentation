@@ -1,0 +1,1 @@
+{"parameters":[{"name":"discountId","in":"path","description":"UUID of the discount.","required":true,"schema":{"type":"string","format":"uuid"}}]}

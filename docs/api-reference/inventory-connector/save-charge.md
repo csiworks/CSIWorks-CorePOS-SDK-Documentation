@@ -2,7 +2,7 @@
 id: inventory-api-save-charge
 sidebar_position: 9
 title: Save Charge
-description: Creates a new charge or updates an existing one.
+description: Persist charge (tax/fee) data to the system.
 hide_title: true
 ---
 
@@ -17,15 +17,19 @@ fun saveCharge(charge: Charge): Charge?
 ```
 
 #### Parameters:
-- `charge`: [`Charge`](../models/models-inventory#charge) object to save.
+
+- `charge` (Charge): the charge to save; a charge with an existing identifier is updated.
 
 #### Returns:
-`Charge?`: The saved [`Charge`](../models/models-inventory#charge) with updated data (including generated ID for new charges), or `null` if the operation fails.
+
+`Charge?`: the saved [Charge](../models/inventory.md#charge), or `null` on failure.
 
 #### Error Handling:
+
 Returns `null` on error.
 
-### Example Usage:
+### Example Usage
+
 ```kotlin
 private fun createNewCharge(chargeName: String, amount: Long, amountType: AmountType) {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -52,7 +56,8 @@ private fun createNewCharge(chargeName: String, amount: Long, amountType: Amount
 }
 ```
 
-### Best Practice with Repository Pattern:
+### Best Practice with Repository Pattern
+
 ```kotlin
 interface InventoryRepository {
     suspend fun saveCharge(charge: Charge): Charge?
@@ -72,3 +77,4 @@ class InventoryRepositoryImpl(
     }
 }
 ```
+

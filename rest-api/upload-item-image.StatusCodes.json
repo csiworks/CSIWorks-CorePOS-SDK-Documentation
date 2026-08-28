@@ -1,1 +1,0 @@
-{"responses":{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{"imagePath":{"type":"string"},"thumbPath":{"type":"string"}},"title":"ItemImageDto"}}}}}}

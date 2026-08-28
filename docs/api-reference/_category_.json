@@ -1,9 +1,9 @@
 {
-  "label": "Api Reference",
+  "label": "Reference",
   "position": 4,
   "link": {
-    "slug": "/api-reference",
     "type": "generated-index",
-    "description": "This API Reference guide provides detailed instructions on how to utilize all available SDK functionality for seamless POS integration into your app, including essential operations and usage examples."
+    "slug": "/api-reference",
+    "description": "Reference for every connector and model in the CorePOS Android SDK, including operations, parameters and usage examples."
   }
 }

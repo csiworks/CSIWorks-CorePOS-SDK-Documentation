@@ -1,1 +1,0 @@
-{"title":"Body","body":{"content":{"application/json":{"schema":{"required":["lastModified","name"],"type":"object","properties":{"name":{"type":"string"},"lastModified":{"type":"string","format":"date-time"}},"title":"CategoryUpdateDto"}}},"required":true}}

@@ -1,1 +1,0 @@
-{"parameters":[{"name":"orderId","in":"path","required":true,"schema":{"type":"string","format":"uuid"}},{"name":"lineItemId","in":"path","required":true,"schema":{"type":"string","format":"uuid"}}]}

@@ -1,8 +1,8 @@
 ---
 id: order-api-add-per-unit-line-item
-sidebar_position: 5
+sidebar_position: 6
 title: Add Per-Unit Line Item
-description: Add a line item priced by unit and quantity.
+description: Add an item using quantity (e.g., weight/units) where pricing is determined by the catalog’s unit price.
 hide_title: true
 ---
 
@@ -23,19 +23,23 @@ fun addPerUnitLineItem(
 ```
 
 #### Parameters:
-- `orderId` (String): Unique **UUID** identifier of the [`Order`](../models/models-order#order).
-- `itemId` (String): Unique **UUID** identifier of the inventory [`Item`](../models/models-inventory#item).
-- `quantity` (Double): Number of units.
-- `devNotes` (Map(String, String)?, optional): Free-form metadata.
-- `binName` (String?): Optional, A specific identifier for categorizing items in an order. This is the general name of a specific group of items, united by some logic.
+
+- `orderId` (String): UUID of the target [Order](../models/order.md#order).
+- `itemId` (String): UUID of the inventory item.
+- `quantity` (Double): quantity of the item to add.
+- `devNotes` (Map\<String, String>?): optional free-form metadata attached to the line item.
+- `binName` (String?): optional identifier used to group related line items within an order.
 
 #### Returns:
-`LineItem?`: The created [`LineItem`](../models/models-order#lineitem), or `null` if the operation fails.
+
+`LineItem?`: the created [LineItem](../models/order.md#lineitem), or `null` on failure.
 
 #### Error Handling:
+
 Returns `null` on error.
 
-### Example Usage:
+### Example Usage
+
 ```kotlin
 private fun addWeightedItem(orderId: String, itemId: String, qtyKg: Double) {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -53,7 +57,8 @@ private fun addWeightedItem(orderId: String, itemId: String, qtyKg: Double) {
 }
 ```
 
-### Best Practice with Repository Pattern::
+### Best Practice with Repository Pattern
+
 ```kotlin
 interface OrderRepository {
     fun addPerUnitLineItem(
@@ -79,3 +84,4 @@ class OrderRepositoryImpl(
     } catch (_: Exception) { null }
 }
 ```
+

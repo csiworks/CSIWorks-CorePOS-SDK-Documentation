@@ -1,1 +1,0 @@
-{"parameters":[{"name":"appId","in":"path","required":true,"schema":{"type":"string","format":"uuid"}},{"name":"merchantId","in":"path","required":true,"schema":{"type":"string","format":"uuid"}}]}

@@ -1,8 +1,8 @@
 ---
 id: order-api-delete-line-item-discounts
-sidebar_position: 9
+sidebar_position: 13
 title: Delete Line Item Discounts
-description: Remove multiple discounts from a line item in an order.
+description: Remove multiple discounts from a line item within an order in a single operation.
 hide_title: true
 ---
 
@@ -13,25 +13,25 @@ hide_title: true
 ### Signature:
 
 ```kotlin
-fun deleteLineItemDiscounts(
-    orderId: String,
-    lineItemId: String,
-    discountIds: List<String>
-): Order?
+fun deleteLineItemDiscounts(orderId: String, lineItemId: String, discountIds: List<String>): Order?
 ```
 
 #### Parameters:
-- `orderId` (String): Unique **UUID** identifier of the [`Order`](../models/models-order#order).
-- `lineItemId` (String): Unique **UUID** identifier of the [`LineItem`](../models/models-order#lineitem).
-- `discountIds` (List(String)): List of unique **UUID** identifiers of the discounts to remove.
+
+- `orderId` (String): UUID of the [Order](../models/order.md#order).
+- `lineItemId` (String): UUID of the line item.
+- `discountIds` (List\<String>): UUIDs of the discounts to remove.
 
 #### Returns:
-`Order?`: The updated [`Order`](../models/models-order#order) with the discounts removed, or `null` if the operation fails.
+
+`Order?`: the updated [Order](../models/order.md#order), or `null` on failure.
 
 #### Error Handling:
+
 Returns `null` on error.
 
-### Example Usage:
+### Example Usage
+
 ```kotlin
 private fun removeMultipleLineItemDiscounts(
     orderId: String, 
@@ -51,7 +51,8 @@ private fun removeMultipleLineItemDiscounts(
 }
 ```
 
-### Best Practice with Repository Pattern:
+### Best Practice with Repository Pattern
+
 ```kotlin
 interface OrderRepository {
     suspend fun deleteLineItemDiscounts(
@@ -73,3 +74,4 @@ class OrderRepositoryImpl(
     } catch (_: Exception) { null }
 }
 ```
+

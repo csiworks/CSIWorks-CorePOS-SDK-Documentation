@@ -2,7 +2,7 @@
 id: inventory-api-delete-charge
 sidebar_position: 10
 title: Delete Charge
-description: Removes a charge from the system.
+description: Permanently delete a charge (tax/fee) by its ID.
 hide_title: true
 ---
 
@@ -17,15 +17,19 @@ fun deleteCharge(chargeId: String)
 ```
 
 #### Parameters:
-`chargeId` (String): Unique **UUID** identifier of the charge to delete
+
+- `chargeId` (String): UUID of the charge to delete.
 
 #### Returns:
+
 Void (Unit) No return value is provided. The operation is asynchronous, and a callback is triggered to indicate success or failure.
 
 #### Error Handling:
+
 Triggers error callback on failure.
 
-### Example Usage:
+### Example Usage
+
 ```kotlin
 private fun deleteCharge(chargeId: String) {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -45,7 +49,8 @@ private fun deleteCharge(chargeId: String) {
 }
 ```
 
-### Best Practice with Repository Pattern:
+### Best Practice with Repository Pattern
+
 ```kotlin
 interface InventoryRepository {
     suspend fun deleteCharge(chargeId: String): Boolean
@@ -66,3 +71,4 @@ class InventoryRepositoryImpl(
     }
 }
 ```
+

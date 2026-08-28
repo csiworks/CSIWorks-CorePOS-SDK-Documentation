@@ -1,1 +1,0 @@
-{"title":"Body","body":{"content":{"application/json":{"schema":{"required":["clientId","clientSecret","refreshToken"],"type":"object","properties":{"refreshToken":{"type":"string"},"clientId":{"type":"string"},"clientSecret":{"type":"string"}},"title":"OAuthRefreshTokenDto"}}},"required":true}}

@@ -2,7 +2,7 @@
 id: inventory-api-update-ebt-flags
 sidebar_position: 7
 title: Update EBT Flags
-description: Updates EBT eligibility flags for multiple items.
+description: Update EBT (Electronic Benefit Transfer) eligibility flags for multiple inventory items in a single operation.
 hide_title: true
 ---
 
@@ -17,15 +17,19 @@ fun updateEbtFlags(flags: Map<String, Boolean>)
 ```
 
 #### Parameters:
-`flags` (Map (String, Boolean)): A map where keys are item IDs (**UUID**) and values are boolean flags indicating EBT eligibility
+
+- `flags` (Map\<String, Boolean>): map of item UUID to its new EBT eligibility flag.
 
 #### Returns:
+
 Void (Unit) - No return value is provided. The operation is asynchronous, and a callback is triggered to indicate success or failure.
 
 #### Error Handling:
+
 Triggers error callback on failure.
 
-### Example Usage:
+### Example Usage
+
 ```kotlin
 private fun updateItemEbtEligibility(itemEbtFlags: Map<String, Boolean>) {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -53,7 +57,8 @@ val ebtFlags = mapOf(
 updateItemEbtEligibility(ebtFlags)
 ```
 
-### Best Practice with Repository Pattern:
+### Best Practice with Repository Pattern
+
 ```kotlin
 interface InventoryRepository {
     suspend fun updateEbtFlags(flags: Map<String, Boolean>): Boolean
@@ -74,3 +79,4 @@ class InventoryRepositoryImpl(
     }
 }
 ```
+

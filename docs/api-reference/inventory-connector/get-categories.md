@@ -2,7 +2,7 @@
 id: inventory-api-get-categories
 sidebar_position: 6
 title: Get Categories
-description: Retrieves all available inventory categories.
+description: Fetch the complete list of categories for organizing inventory items.
 hide_title: true
 ---
 
@@ -17,15 +17,19 @@ fun getCategories(): List<Category>?
 ```
 
 #### Parameters:
-None
+
+None.
 
 #### Returns:
-`List<Category>?`: A list of [`Category`](../models/models-inventory#category), or `null` if the operation fails.
+
+`List<Category>?`: the list of categories, or `null` on failure.
 
 #### Error Handling:
+
 Returns `null` on error.
 
-### Example Usage:
+### Example Usage
+
 ```kotlin
 private fun loadCategories() {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -43,7 +47,8 @@ private fun loadCategories() {
 }
 ```
 
-### Best Practice with Repository Pattern::
+### Best Practice with Repository Pattern
+
 ```kotlin
 interface InventoryRepository {
     suspend fun getCategories(): List<Category>?
@@ -63,3 +68,4 @@ class InventoryRepositoryImpl(
     }
 }
 ```
+

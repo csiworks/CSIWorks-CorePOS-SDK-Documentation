@@ -1,0 +1,1 @@
+{"parameters":[{"name":"categoryId","in":"path","description":"UUID of the category to update.","required":true,"schema":{"type":"string","format":"uuid"}}]}

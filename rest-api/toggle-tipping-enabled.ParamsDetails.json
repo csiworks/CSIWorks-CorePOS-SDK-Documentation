@@ -1,1 +1,0 @@
-{"parameters":[{"name":"isEnabled","in":"query","required":true,"schema":{"type":"boolean"}}]}

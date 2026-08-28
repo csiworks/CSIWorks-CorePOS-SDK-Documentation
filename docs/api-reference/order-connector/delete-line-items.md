@@ -1,6 +1,6 @@
 ---
 id: order-api-delete-line-items
-sidebar_position: 7
+sidebar_position: 10
 title: Delete Line Items
 description: Remove multiple line items from an order in a single operation.
 hide_title: true
@@ -17,16 +17,20 @@ fun deleteLineItems(orderId: String, lineItemIds: List<String>)
 ```
 
 #### Parameters:
-- `orderId` (String): Unique **UUID** identifier of the [`Order`](../models/models-order#order).
-- `lineItemIds` (List(String)): List of unique **UUID** identifiers of the [`LineItem`](../models/models-order#lineitem) objects to remove.
+
+- `orderId` (String): UUID of the [Order](../models/order.md#order).
+- `lineItemIds` (List\<String>): UUIDs of the line items to delete.
 
 #### Returns:
+
 Void (Unit) No return value is provided. The operation is asynchronous, and a callback is triggered to indicate success or failure.
 
 #### Error Handling:
+
 Triggers error callback on failure.
 
-### Example Usage:
+### Example Usage
+
 ```kotlin
 private fun removeMultipleItems(orderId: String, itemsToRemove: List<String>) {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -39,7 +43,8 @@ private fun removeMultipleItems(orderId: String, itemsToRemove: List<String>) {
 }
 ```
 
-### Best Practice with Repository Pattern::
+### Best Practice with Repository Pattern
+
 ```kotlin
 interface OrderRepository {
     fun deleteLineItems(orderId: String, lineItemIds: List<String>)
@@ -56,3 +61,4 @@ class OrderRepositoryImpl(
     }
 }
 ```
+
