@@ -1,8 +1,8 @@
 ---
 id: inventory-api-delete-item
 sidebar_position: 5
-title: Delete item
-description: Removes an inventory item from the system.
+title: Delete Item
+description: Permanently delete an inventory item by its ID.
 hide_title: true
 ---
 
@@ -17,15 +17,19 @@ fun deleteItem(itemId: String)
 ```
 
 #### Parameters:
-`itemId` (String): Unique **UUID** identifier of the item to retrieve
+
+- `itemId` (String): UUID of the item to delete.
 
 #### Returns:
+
 Void (Unit) No return value is provided. The operation is asynchronous, and a callback is triggered to indicate success or failure.
 
 #### Error Handling:
+
 Triggers error callback on failure.
 
-### Example Usage:
+### Example Usage
+
 ```kotlin
 private fun deleteItem(itemId: String) {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -45,7 +49,8 @@ private fun deleteItem(itemId: String) {
 }
 ```
 
-### Best Practice with Repository Pattern::
+### Best Practice with Repository Pattern
+
 ```kotlin
 interface InventoryRepository {
     suspend fun deleteItem(itemId: String)
@@ -66,3 +71,4 @@ class InventoryRepositoryImpl(
     }
 }
 ```
+

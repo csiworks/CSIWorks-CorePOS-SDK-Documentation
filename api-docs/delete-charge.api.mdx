@@ -1,0 +1,71 @@
+---
+id: delete-charge
+title: "Delete charge"
+description: "Soft-deletes a charge. It is removed from the items it was applied to."
+sidebar_label: "Delete charge"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFVMtu2zAQ/JXFXtwatB0X6EU3J3YLuWkc+IEUcHygrXVERCIVcuVGEQTka/ph/ZKCkpI6SdEeexJF7nJnZmdZIssbh8Eaz2Jpb8jhRmBEbmdVxspoDHBh9tyLKCEmBxJ2dVwfQgblwFJqDhTB3poUOCZQTKkDxfBdOpBZliiKgE3/Wl/rZawcjC5DsHSXK0sOut1wOfkKV/NwOel2QeYcG6u46KNAk5GVHkMYYYANgF5THQVm0sqUmKwHX6KWKWGAzXEYoUDlsWeSY3xNaLUKx2D2NdwmAdhAU8AXbtFFGLDNSaDbxZRKDErkIvNVHFulb1Dg3thUMgaY5yrCqtr4ZJcZ7cj5+A8nJ/7zsvzsC1aVwJQ4Nr+Z1ZQ4xgAHHCsb9TJpuejJTA0Ow0ED0w3KJ4IVCnRkD0/8c5v41Ddcx7SXecKwqGNhNT9Hj9LRLvc617lbkpbsKPfV15vj44Vn3lA5DnoWImbO3srrCAqTW5heLeG0TgM2t6RB6Vrzzqhp80Pd3Q7EJCOyfZjcyzRLKIBOm0XFNN5+3qmZmoarh3B4oUIX6vnH3Vn48/FHB9vWeCQNPBTt4tNTY6ZXy1ptpfemBq448fFnxtLlbOHd+IbAYnQxPp19u9Yvg7zWTcBhiJXAzDhOpfa3tu4b152EZ4++uLbEndFMmv/jSLVtY7rnQZZIpT2P2jpl6741vnKfJz5E0U6WQ4HB85BtBMbGsc8qy610tLJJVfntu5ysN9dG4EFaJbde9HWJkXJ+HWGwl4mjv0j0bt5O4Xv417z+kVW7KXXhGcgk938o8JaK43ei2hyP4nhyPllOsKp+ATXsuGE=
+sidebar_class_name: "delete api-method"
+info_path: api-docs//corepos-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete charge"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/third-party-api/v1/charges/{chargeId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Soft-deletes a charge. It is removed from the items it was applied to.
+
+This API requires **ITEM WRITE** authority.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./delete-charge.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./delete-charge.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./delete-charge.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

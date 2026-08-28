@@ -1,23 +1,24 @@
 ---
 id: payment-api
-sidebar_position: 7
+sidebar_position: 8
 title: PaymentConnector
-description: How to utilize all PaymentConnector functionality.
+description: PaymentConnector reference for the CorePOS Android SDK.
 hide_title: true
 ---
 
 ## Introduction
+
 :::caution Not Currently Functional
 This connector is not currently in use and may not be functional in the current version. It is likely redundant since payment flows are triggered via Intents with the `EXTRA_PAYMENT_REQUEST` parameter.
 :::
 
-### Class Overview
-```kotlin
-class PaymentConnector(context: Context)
-```
 The `PaymentConnector` provides methods to process payment transactions in the CorePOS system. All methods are executed asynchronously and return results through callbacks.
 
-**Purpose:** Manages payment processing operations for various tender types including credit, debit, cash, EBT, and other payment methods.
+### Class Overview
+
+```kotlin
+class PaymentConnector(context: Context) : ServiceConnector<IPaymentService>(context)
+```
 
 ### Initialization:
 
@@ -32,20 +33,24 @@ val paymentConnector = PaymentConnector(context)
 ### Signature:
 
 ```kotlin
-fun processPayment(paymentRequest: PaymentRequest, callback: IPaymentCallback)
+fun processPayment(paymentRequest: PaymentRequest, callback: …): PaymentResponse?
 ```
 
 #### Parameters:
-- `paymentRequest` (PaymentRequest): Payment request containing payment details and card information
-- `callback` (IPaymentCallback): Callback interface to handle payment results
+
+- `paymentRequest` (PaymentRequest): the payment to process.
+- `callback` (…): unused; the result is returned synchronously.
 
 #### Returns:
-Void (Unit) - Results are returned through the callback interface
+
+`PaymentResponse?`: the [PaymentResponse](models/payment.md#paymentresponse), or `null` on failure.
 
 #### Error Handling:
+
 Errors are handled through the callback's `onError` method.
 
-### Example Usage:
+### Example Usage
+
 ```kotlin
 class PaymentActivity : AppCompatActivity() {
     private lateinit var paymentConnector: PaymentConnector
@@ -105,3 +110,4 @@ class PaymentActivity : AppCompatActivity() {
     }
 }
 ```
+

@@ -2,7 +2,7 @@
 id: tender-api-introduction
 sidebar_position: 1
 title: Introduction
-description: Introduction to TenderConnector.
+description: Overview of TenderConnector and its operations.
 hide_title: true
 pagination_prev: null
 ---
@@ -10,6 +10,7 @@ pagination_prev: null
 ## Introduction
 
 #### At a Glance
+
 - **What it is:** A way to add a custom tender button to the CorePOS checkout screen that launches your app to process a payment.
 - **Use cases:** EBT flows, external gateway integrations, loyalty/redemption, or any bespoke tender not covered by built‑in methods.
 - **How it works:** CorePOS calls your app via an intent; your app triggers payment processing with parameters provided by your app in extras
@@ -21,7 +22,9 @@ Keep your payment Activity lightweight. Do SDK call on background threads and re
 :::
 
 ### Integration Steps
+
 #### Implement a Payment Activity
+
 Create an Activity that will be launched by CorePOS to handle the payment. Register it in **AndroidManifest.xml** with the required intent filter:
 
 ```xml
@@ -47,18 +50,22 @@ In `YourPaymentActivity`, read the incoming extras from the launch intent, run y
 - `Intents.EXTRA_CASH_TAX_AMOUNT`(Long) — Portion of the amount that is cash tax, in smallest unit.
 - `Intents.EXTRA_CARD_TAX_AMOUNT`(Long) — Portion of the amount that is card tax, in smallest unit.
 - `Intents.EXTRA_ORDER_ID`(String) — CorePOS order **UUID**.
-- `Intents.EXTRA_TENDER`(Tender) — The [`Tender`](../models/models-tender#tender) record configured in CorePOS.
+- `Intents.EXTRA_TENDER`(Tender) — The [`Tender`](../models/tender.md#tender) record configured in CorePOS.
 - `Intents.EXTRA_NOTE`(String, optional) —	Optional order notes.
 
-
 #### Return Results to CorePOS
+
 After executing your specific logic, finish your Activity with a result intent. CorePOS will then continue processing the payment. If successful, include the required and optional extras shown below. If cancelled or failed, return `RESULT_CANCELED` and (optionally) an error code/message.
 
 **Outgoing extras (from your app back to CorePOS)**
-##### Required:
+
+##### Required
+
 - `Intents.EXTRA_AMOUNT`(Long) — Final amount in the smallest unit.
-##### Optional:
-- `Intents.EXTRA_TENDER_TYPE`(TenderType, enum) — Specify a concrete [`TenderType`](../models/models-tender#tendertype) (e.g., EBT). 
+
+##### Optional
+
+- `Intents.EXTRA_TENDER_TYPE`(TenderType, enum) — Specify a concrete [`TenderType`](../models/tender.md#tendertype) (e.g., EBT). 
   - If omitted, CorePOS records it as a Custom Tender.
 - `Intents.EXTRA_CLIENT_ID`(String) — Unique ID from your system (e.g., a payment or transaction ID).
 - `Intents.EXTRA_NOTE`(String) — Notes about the payment.
@@ -102,7 +109,8 @@ Standardise your error codes/messages so merchants and support can quickly diagn
 ::: 
 
 #### Creating the Tender Button in CorePOS
-Once your app is ready, create a corresponding [`Tender`](../models/models-tender#tender) in CorePOS using the SDK. This exposes a button on the checkout screen that launches your Activity.
+
+Once your app is ready, create a corresponding [`Tender`](../models/tender.md#tender) in CorePOS using the SDK. This exposes a button on the checkout screen that launches your Activity.
 ```kotlin
 val tenderConnector = TenderConnector(context)
 
@@ -119,7 +127,8 @@ val tender = tenderConnector.createTender(
 The `packageName` must match your Android application ID that contains `YourPaymentActivity`.
 :::
 
-####  API Reference
+#### API Reference
+
 ```kotlin
 class TenderConnector(context: Context) : ServiceConnector<ITenderService>(context) {
     override fun getServiceInterface(iBinder: IBinder?): ITenderService
@@ -139,6 +148,8 @@ class TenderConnector(context: Context) : ServiceConnector<ITenderService>(conte
 ```
 
 ### TenderConnector Methods:
-- [`Create Tender`](tender-api-create-tender) - Creates a custom tender button.
-- [`Get Tenders`](tender-api-get-tenders) - Retrieves a list of available tenders for a given package name.
-- [`Update Tender`](tender-api-update-tender) - Updates an existing tender's configuration.
+
+- [`Create Tender`](create-tender.md) - Create a new custom tender button.
+- [`Get Tenders`](get-tenders.md) - Retrieve all tenders created by the specified package (or that package is associated with).
+- [`Update Tedner`](update-tender.md) - Update an existing tender.
+

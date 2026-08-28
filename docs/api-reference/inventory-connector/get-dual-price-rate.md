@@ -2,7 +2,7 @@
 id: inventory-api-get-dual-price-rate
 sidebar_position: 14
 title: Get Dual Price Rate
-description: Retrieves the current dual pricing rate.
+description: Fetch the current dual pricing rate used for calculating card vs cash pricing.
 hide_title: true
 ---
 
@@ -17,15 +17,19 @@ fun getDualPriceRate(): Float?
 ```
 
 #### Parameters:
-None
+
+None.
 
 #### Returns:
-`Float?`: The current dual pricing rate as a decimal (e.g., 3.5 for 3.5%), or `null` if the operation fails.
+
+`Float?`: the dual price rate, or `null` on failure.
 
 #### Error Handling:
+
 Returns `null` on error.
 
-### Example Usage:
+### Example Usage
+
 ```kotlin
 private fun loadDualPriceRate() {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -48,7 +52,8 @@ private fun displayDualPriceRate(rate: Float) {
 }
 ```
 
-### Best Practice with Repository Pattern:
+### Best Practice with Repository Pattern
+
 ```kotlin
 interface InventoryRepository {
     suspend fun getDualPriceRate(): Float?
@@ -68,3 +73,4 @@ class InventoryRepositoryImpl(
     }
 }
 ```
+
