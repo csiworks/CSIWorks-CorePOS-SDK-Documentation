@@ -1,6 +1,7 @@
 ---
 title: Card
 sidebar_label: Card
+slug: /payment/card
 ---
 
 # Card

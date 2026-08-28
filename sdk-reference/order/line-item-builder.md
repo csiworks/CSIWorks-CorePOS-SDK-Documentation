@@ -1,6 +1,7 @@
 ---
 title: LineItemBuilder
 sidebar_label: LineItemBuilder
+slug: /order/line-item-builder
 ---
 
 # LineItemBuilder

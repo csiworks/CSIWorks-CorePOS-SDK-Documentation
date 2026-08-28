@@ -1,6 +1,7 @@
 ---
 title: PaymentResponse
 sidebar_label: PaymentResponse
+slug: /payment/payment-response
 ---
 
 # PaymentResponse

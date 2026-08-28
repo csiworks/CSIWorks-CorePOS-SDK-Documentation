@@ -1,6 +1,7 @@
 ---
 title: OrderConnector
 sidebar_label: OrderConnector
+slug: /connector/order-connector
 ---
 
 # OrderConnector
