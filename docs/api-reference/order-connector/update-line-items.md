@@ -19,7 +19,7 @@ fun updateLineItems(orderId: String, lineItems: List<LineItem>): List<LineItem>?
 #### Parameters:
 
 - `orderId` (String): UUID of the [Order](../models/order.md#order).
-- `lineItems` (List<LineItem>): line items with updated values; matched by their identifiers.
+- `lineItems` (List\<LineItem>): line items with updated values; matched by their identifiers.
 
 #### Returns:
 
