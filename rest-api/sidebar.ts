@@ -8,59 +8,17 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Items",
+      label: "Apps",
       link: {
         type: "doc",
-        id: "items",
+        id: "apps",
       },
       items: [
         {
           type: "doc",
-          id: "get-item",
-          label: "Get item",
+          id: "get-merchant-billing-info-for-app",
+          label: "Get merchant billing info for app",
           className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "update-item",
-          label: "Update item",
-          className: "api-method put",
-        },
-        {
-          type: "doc",
-          id: "delete-item",
-          label: "Delete item",
-          className: "api-method delete",
-        },
-        {
-          type: "doc",
-          id: "list-items",
-          label: "List items",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "create-item",
-          label: "Create item",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "upload-item-image",
-          label: "Upload item image",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "batch-create-items",
-          label: "Batch create items",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "delete-item-image",
-          label: "Delete item image",
-          className: "api-method delete",
         },
       ],
     },
@@ -204,57 +162,75 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Orders",
+      label: "Dual Pricing",
       link: {
         type: "doc",
-        id: "orders",
+        id: "dual-pricing",
       },
       items: [
         {
           type: "doc",
-          id: "add-line-item-dev-notes",
-          label: "Add line item dev notes",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "delete-line-item-dev-notes",
-          label: "Delete line item dev notes",
-          className: "api-method delete",
-        },
-        {
-          type: "doc",
-          id: "list-orders",
-          label: "List orders",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "get-order",
-          label: "Get order",
+          id: "get-dual-pricing-settings",
+          label: "Get dual pricing settings",
           className: "api-method get",
         },
       ],
     },
     {
       type: "category",
-      label: "Transactions",
+      label: "Items",
       link: {
         type: "doc",
-        id: "transactions",
+        id: "items",
       },
       items: [
         {
           type: "doc",
-          id: "list-transactions",
-          label: "List transactions",
+          id: "get-item",
+          label: "Get item",
           className: "api-method get",
         },
         {
           type: "doc",
-          id: "get-transaction",
-          label: "Get transaction",
+          id: "update-item",
+          label: "Update item",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "delete-item",
+          label: "Delete item",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "upload-item-image",
+          label: "Upload item image",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "batch-create-items",
+          label: "Batch create items",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "list-items",
+          label: "List items",
           className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "create-item",
+          label: "Create item",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "delete-item-image",
+          label: "Delete item image",
+          className: "api-method delete",
         },
       ],
     },
@@ -316,6 +292,40 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Orders",
+      link: {
+        type: "doc",
+        id: "orders",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "add-line-item-dev-notes",
+          label: "Add line item dev notes",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "delete-line-item-dev-notes",
+          label: "Delete line item dev notes",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "list-orders",
+          label: "List orders",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "get-order",
+          label: "Get order",
+          className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Tip Settings",
       link: {
         type: "doc",
@@ -344,32 +354,22 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Apps",
+      label: "Transactions",
       link: {
         type: "doc",
-        id: "apps",
+        id: "transactions",
       },
       items: [
         {
           type: "doc",
-          id: "get-merchant-billing-info-for-app",
-          label: "Get merchant billing info for app",
+          id: "list-transactions",
+          label: "List transactions",
           className: "api-method get",
         },
-      ],
-    },
-    {
-      type: "category",
-      label: "Dual Pricing",
-      link: {
-        type: "doc",
-        id: "dual-pricing",
-      },
-      items: [
         {
           type: "doc",
-          id: "get-dual-pricing-settings",
-          label: "Get dual pricing settings",
+          id: "get-transaction",
+          label: "Get transaction",
           className: "api-method get",
         },
       ],
