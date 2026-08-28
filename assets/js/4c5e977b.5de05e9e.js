@@ -1,0 +1,1 @@
+(self.webpackChunkcore_pos_sdk=self.webpackChunkcore_pos_sdk||[]).push([[6473],{20217:()=>{},28202:()=>{},42634:()=>{},49730:()=>{},50477:()=>{},96452:()=>{}}]);

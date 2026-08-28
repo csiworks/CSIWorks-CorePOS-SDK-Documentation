@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcore_pos_sdk=self.webpackChunkcore_pos_sdk||[]).push([[6856],{17094:e=>{e.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"sdk-reference"}')}}]);
