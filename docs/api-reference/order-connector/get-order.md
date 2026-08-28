@@ -2,7 +2,7 @@
 id: order-api-get-order
 sidebar_position: 2
 title: Get Order
-description: Retrieve a single order by ID.
+description: Retrieve a single order by its unique identifier.
 hide_title: true
 ---
 
@@ -17,15 +17,19 @@ fun getOrder(orderId: String): Order?
 ```
 
 #### Parameters:
-`orderId` (String): Unique **UUID** identifier of the order.
+
+- `orderId` (String): UUID of the [Order](../models/order.md#order).
 
 #### Returns:
-`Order?`: The [`Order`](../models/models-order#order), or `null` if the operation fails.
+
+`Order?`: the matching [Order](../models/order.md#order), or `null` if not found or on error.
 
 #### Error Handling:
+
 Returns `null` on error.
 
-### Example Usage:
+### Example Usage
+
 ```kotlin
 private fun loadOrder(orderId: String) {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -41,7 +45,8 @@ private fun loadOrder(orderId: String) {
 }
 ```
 
-### Best Practice with Repository Pattern::
+### Best Practice with Repository Pattern
+
 ```kotlin
 interface OrderRepository {
     suspend fun getOrder(orderId: String): Order?
@@ -55,3 +60,4 @@ class OrderRepositoryImpl(
         catch (_: Exception) { null }
 }
 ```
+

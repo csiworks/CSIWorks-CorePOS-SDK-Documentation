@@ -2,7 +2,7 @@
 id: inventory-api-save-category
 sidebar_position: 11
 title: Save Category
-description: Creates a new category or updates an existing one.
+description: Persist category data to the system.
 hide_title: true
 ---
 
@@ -17,15 +17,19 @@ fun saveCategory(category: Category): Category?
 ```
 
 #### Parameters:
-- `category`: [`Category`](../models/models-inventory#category) object to save.
+
+- `category` (Category): the category to save; a category with an existing identifier is updated.
 
 #### Returns:
-`Category?`: The saved [`Category`](../models/models-inventory#category) with updated data (including generated ID for new categories), or `null` if the operation fails.
+
+`Category?`: the saved [Category](../models/inventory.md#category), or `null` on failure.
 
 #### Error Handling:
+
 Returns `null` on error.
 
-### Example Usage:
+### Example Usage
+
 ```kotlin
 private fun createNewCategory(categoryName: String) {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -49,7 +53,8 @@ private fun createNewCategory(categoryName: String) {
 }
 ```
 
-### Best Practice with Repository Pattern:
+### Best Practice with Repository Pattern
+
 ```kotlin
 interface InventoryRepository {
     suspend fun saveCategory(category: Category): Category?
@@ -69,3 +74,4 @@ class InventoryRepositoryImpl(
     }
 }
 ```
+

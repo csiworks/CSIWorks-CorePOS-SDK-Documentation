@@ -1,8 +1,8 @@
 ---
 id: inventory-api-save-item
 sidebar_position: 4
-title: Save item
-description: Creates a new inventory item or updates an existing one.
+title: Save Item
+description: Persist inventory item data to the system, including optional image attachment.
 hide_title: true
 ---
 
@@ -17,16 +17,20 @@ fun saveItem(item: Item, imageUri: String?): Item?
 ```
 
 #### Parameters:
-- `item`: [`Item`](../models/models-inventory#item).
-- `imageUri?`(String, optional): URI path to item image
+
+- `item` (Item): the item to save; an item with an existing identifier is updated.
+- `imageUri` (String?): optional URI of an image to attach to the item.
 
 #### Returns:
-`Item?`: The saved [`Item`](../models/models-inventory#item) with updated data (including generated ID for new items), or `null` if the operation fails.
+
+`Item?`: the saved [Item](../models/inventory.md#item), or `null` on failure.
 
 #### Error Handling:
+
 Returns `null` on error.
 
-### Example Usage:
+### Example Usage
+
 ```kotlin
 private fun createNewItem(item: Item, imageUri: String?) {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -46,7 +50,8 @@ private fun createNewItem(item: Item, imageUri: String?) {
 }
 ```
 
-### Best Practice with Repository Pattern::
+### Best Practice with Repository Pattern
+
 ```kotlin
 interface InventoryRepository {
     suspend fun saveItem(item: Item, imageUri: String?): Item?
@@ -66,3 +71,4 @@ class InventoryRepositoryImpl(
     }
 }
 ```
+

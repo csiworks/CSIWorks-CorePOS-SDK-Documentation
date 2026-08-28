@@ -2,7 +2,7 @@
 id: tender-api-get-tenders
 sidebar_position: 3
 title: Get Tenders
-description: Retrieve the list of tenders.
+description: Retrieve all tenders created by the specified package (or that package is associated with).
 hide_title: true
 ---
 
@@ -17,15 +17,19 @@ fun getTenders(packageName: String): List<Tender>?
 ```
 
 #### Parameters:
-`packageName`(String): Application package to filter tenders by.
+
+- `packageName` (String): package name of the app whose tenders to fetch.
 
 #### Returns:
-`List<Tender>?`: The list of [`Tender`](../models/models-tender#tender), or `null` if the operation fails.
+
+`List<Tender>?`: the list of matching tenders, or `null` on failure.
 
 #### Error Handling:
+
 Returns `null` on error.
 
-### Example Usage:
+### Example Usage
+
 ```kotlin
     private fun loadPaymentMethods() {
         lifecycleScope.launch(Dispatchers.IO) {
@@ -40,3 +44,4 @@ Returns `null` on error.
         }
     }
 ```
+
