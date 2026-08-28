@@ -1,1 +1,1 @@
-{"responses":{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{"imagePath":{"type":"string"},"thumbPath":{"type":"string"}},"title":"ItemImageDto"}}}}}}
+{"responses":{"200":{"description":"OK","content":{"application/json":{"schema":{"type":"object","properties":{"imagePath":{"type":"string","description":"Path to the stored full-size image."},"thumbPath":{"type":"string","description":"Path to the stored thumbnail image."}},"description":"Paths of an item's stored images after an image upload.","title":"ItemImageDto"}}}}}}

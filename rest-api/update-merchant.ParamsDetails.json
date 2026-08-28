@@ -1,1 +1,1 @@
-{"parameters":[{"name":"merchantId","in":"path","required":true,"schema":{"type":"string","format":"uuid"}}]}
+{"parameters":[{"name":"merchantId","in":"path","description":"UUID of the merchant to update.","required":true,"schema":{"type":"string","format":"uuid"}}]}
