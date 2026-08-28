@@ -1,0 +1,71 @@
+---
+id: upload-item-image
+title: "Upload item image"
+description: "Attaches or replaces the image of an inventory item. Send as multipart/form-data with an 'image' file part. Returns the stored image paths."
+sidebar_label: "Upload item image"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVc1u20YQfpXFXNQaKyku0Atv8k8LOmlk6AcuIOuwIkfmJuQusztUQxME8jR5sDxJMUvKliLBh96qi5bc+fnmm2+GDZB68hCtICYsPKwlpOgTp0vS1kAEEyKVZOiFdcJhmasEvaAMhS7UEwq7FcoIbXZoyLpaaMJiJOZoUqG8KKqcdKkcjbfWFcNUkRL/aMrYZxACDMRW5yjYZiRmSJUzXXhP1mHaZykVZX70aB7NItNeTO5j4fBLpR16cXERL27/Eg+zeHF7cSFURZl1muoRSLAlOsWFxClEUJW5VemQIQ5DXJBQKqcKJHTMQQNGFQgRsMmy0ilI0EwC54efmVku4xuuP5DBZYOEHlUKEbkKJfgkw0JB1ADVJUf25LR5AglMiCJGxXnadt05o6crm9bskVhDaIiPZ3jk16/RX/OuoCttLfcp7eYTJsS1OuaDNHp26czeQrbRRrka2vBjeL60xnfev717x3/HjEzfgzyErcoy10lowPiTZ5PmlJG34N0z72cgHqdlK0H2UDbbKs+HXj/3Mh1BK4Gyqtj854jB2yidv0Rsz3n5/UQQFgN/pGIv1JbQhdug6k6PLBvSlDMcnsGY727IQk97gZRZlm9pfaApVABjyrRLhyyKeqhKPd5djjmpHzd79bbjLi9I8Oh2e41XLmf/k6JvcKuqnMQ82Irl7AOwKj0mFc9T8N2gcugmFUNYrQ+v59zXrnWHRi9MZ0Tl6Qh5FLWtnLh7WIir4CbIfkbeKIH8waQb5+cgooHIUKXoRuL2qyrKHCMx6L2wvss2fyZ6qu/i5XN8+VHHPjaz35Pr+Me37wPoR5GRdPBA9oc/9nK/e1iEpmqztQF435Rr6/B+Ouetc1LAfPLx5mr696M5NmKuO4PdJUuPW1eooP9+wyxD74NMxH4XHYU+mP//9w7u+0/4lcZlrrRhQoIGm17LK/hJy8zgJe/e8EmSEB3u407SawkZz0O0gqbZKI9Ll7ctv/5SoWOxriXslNNqw01cNZBqz+cUoq3KPb5B9y+zfpv+Ks7t+LMF9S+VqRm8yit+AgmfsT78nrTrVkIn4gCqu77uUg8XHOTV/dzWb+XeaZIkWNKB+cm25fF82R730/mCNd9/XAqbsg8HDnHl65EHu23/BYFvyIY=
+sidebar_class_name: "post api-method"
+info_path: api-docs//corepos-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Upload item image"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/third-party-api/v1/items/{itemUuid}/images"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Attaches or replaces the image of an inventory item. Send as multipart/form-data with an 'image' file part. Returns the stored image paths.
+
+This API requires **ITEM WRITE** authority.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./upload-item-image.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./upload-item-image.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./upload-item-image.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      
