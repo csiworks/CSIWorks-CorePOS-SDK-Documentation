@@ -18,7 +18,7 @@ fun updateEbtFlags(flags: Map<String, Boolean>)
 
 #### Parameters:
 
-- `flags` (Map<String, Boolean>): map of item UUID to its new EBT eligibility flag.
+- `flags` (Map\<String, Boolean>): map of item UUID to its new EBT eligibility flag.
 
 #### Returns:
 

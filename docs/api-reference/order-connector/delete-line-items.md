@@ -19,7 +19,7 @@ fun deleteLineItems(orderId: String, lineItemIds: List<String>)
 #### Parameters:
 
 - `orderId` (String): UUID of the [Order](../models/order.md#order).
-- `lineItemIds` (List<String>): UUIDs of the line items to delete.
+- `lineItemIds` (List\<String>): UUIDs of the line items to delete.
 
 #### Returns:
 
