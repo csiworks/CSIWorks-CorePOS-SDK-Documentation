@@ -7,8 +7,12 @@
   },
   "servers": [
     {
-      "url": "/",
-      "description": "Default Server URL"
+      "url": "https://api.coreposnow.com",
+      "description": "Production"
+    },
+    {
+      "url": "https://api-sandbox.coreposnow.com",
+      "description": "Sandbox"
     }
   ],
   "security": [
