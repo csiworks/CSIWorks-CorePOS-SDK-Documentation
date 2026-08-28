@@ -50,33 +50,20 @@ Retrofit, OkHttp, Gson and the Kotlin coroutines runtime come in transitively; n
 
 ### Creating a client
 
-`ApiClient` builds the service interfaces. It defaults to production
-(`https://api.coreposnow.com`), so a production integration only supplies the merchant's access token:
+`ApiClient` builds the service interfaces. Pass the environment's base URL and the merchant's access
+token — the client has no default host, so the base URL is not optional.
 
 ```kotlin
 import com.coreposnow.sdk.rest.api.ItemsApi
 import com.coreposnow.sdk.rest.infrastructure.ApiClient
 
-val client = ApiClient(authName = "bearerAuth", bearerToken = accessToken)
-
-val itemsApi = client.createService(ItemsApi::class.java)
-```
-
-To work against sandbox, pass the base URL explicitly:
-
-```kotlin
 val client = ApiClient(
     baseUrl = "https://api-sandbox.coreposnow.com",
     authName = "bearerAuth",
     bearerToken = accessToken,
 )
-```
 
-The default can also be overridden without touching the call sites, which is convenient for running a
-test suite against sandbox:
-
-```
--Dcom.coreposnow.sdk.rest.baseUrl=https://api-sandbox.coreposnow.com
+val itemsApi = client.createService(ItemsApi::class.java)
 ```
 
 One service interface exists per section of this documentation — `ItemsApi`, `CategoriesApi`,

@@ -13,7 +13,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'link',
       label: 'API docs',
-      href: '/api-docs/api-introduction',
+      href: '/api-docs/corepos-api',
     },
   ],
 };
