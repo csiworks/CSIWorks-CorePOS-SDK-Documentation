@@ -1,0 +1,9 @@
+{
+  "label": "TenderConnector",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "slug": "/tender-connector",
+    "description": "Reference for every TenderConnector operation."
+  }
+}
