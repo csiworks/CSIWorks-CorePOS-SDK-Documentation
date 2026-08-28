@@ -1,1 +1,0 @@
-{"parameters":[{"name":"chargeId","in":"path","description":"UUID of the charge.","required":true,"schema":{"type":"string","format":"uuid"}}]}

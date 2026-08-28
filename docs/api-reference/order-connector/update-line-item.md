@@ -1,6 +1,6 @@
 ---
 id: order-api-update-line-item
-sidebar_position: 12
+sidebar_position: 8
 title: Update Line Item
 description: Update an existing line item in an order.
 hide_title: true
@@ -17,20 +17,16 @@ fun updateLineItem(orderId: String, lineItem: LineItem): LineItem?
 ```
 
 #### Parameters:
-
-- `orderId` (String): UUID of the [Order](../models/order.md#order).
-- `lineItem` (LineItem): line item with updated values; matched by its identifier.
+- `orderId` (String): Unique **UUID** identifier of the [`Order`](../models/models-order#order).
+- `lineItem` (LineItem): The [`LineItem`](../models/models-order#lineitem) to update with new data.
 
 #### Returns:
-
-`LineItem?`: the updated [LineItem](../models/order.md#lineitem), or `null` on failure.
+`LineItem?` - Returns the updated [`LineItem`](../models/models-order#lineitem) if successful, or null if the operation fails.
 
 #### Error Handling:
-
 Returns null on failure.
 
-### Example Usage
-
+### Example Usage:
 ```kotlin
 private fun updateItemQuantity(orderId: String, lineItem: LineItem, newQuantity: Double) {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -43,8 +39,7 @@ private fun updateItemQuantity(orderId: String, lineItem: LineItem, newQuantity:
 }
 ```
 
-### Best Practice with Repository Pattern
-
+### Best Practice with Repository Pattern:
 ```kotlin
 interface OrderRepository {
     suspend fun updateLineItem(orderId: String, lineItem: LineItem): LineItem?
@@ -60,4 +55,3 @@ class OrderRepositoryImpl(
     }
 }
 ```
-

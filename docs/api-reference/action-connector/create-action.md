@@ -7,31 +7,31 @@ hide_title: true
 ---
 
 ## Create Action
-
 **Purpose:** Create a new custom action button.
 
 ### Signature:
 
 ```kotlin
-fun createAction(actionName: String, packageName: String, enabled: Boolean): Action?
+fun createAction(
+        actionName: String,
+        packageName: String,
+        enabled: Boolean
+    ): Action?
 ```
 
 #### Parameters:
+- `actionName`: The text displayed on the action button.  
+- `packageName`: The package name of the 3rd-party app that created this action (i.e., action button owner).  
+- `enabled`: Determines whether the action button is visible (`true`) or hidden/disabled (`false`).  
 
-- `actionName` (String): display name of the action.
-- `packageName` (String): package name of the app that owns the action.
-- `enabled` (Boolean): whether the action is initially enabled.
 
 #### Returns:
-
-`Action?`: the created [Action](../models/action.md#action), or `null` on failure.
+`Action?`: The [`Action`](../models/models-action#action), or `null` if the operation fails.
 
 #### Error Handling:
-
 Returns `null` on error.
 
-### Example Usage
-
+### Example Usage:
 ```kotlin
     fun createActionMethod(
         actionName: String,
@@ -54,4 +54,3 @@ Returns `null` on error.
         }
     }
 ```
-

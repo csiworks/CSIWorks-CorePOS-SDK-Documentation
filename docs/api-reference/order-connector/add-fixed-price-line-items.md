@@ -1,6 +1,6 @@
 ---
 id: order-api-add-fixed-price-line-items
-sidebar_position: 7
+sidebar_position: 6
 title: Add Fixed-Price Line Items
 description: Add multiple fixed-price line items to an order in a single operation.
 hide_title: true
@@ -23,23 +23,19 @@ fun addFixedPriceLineItems(
 ```
 
 #### Parameters:
-
-- `orderId` (String): UUID of the target [Order](../models/order.md#order).
-- `itemId` (String): UUID of the inventory item.
-- `itemsNumber` (Int): number of line items to add.
-- `devNotes` (Map\<String, String>?): optional free-form metadata attached to the line items.
-- `binName` (String?): optional identifier used to group related line items within an order.
+- `orderId` (String): Unique **UUID** identifier of the [`Order`](../models/models-order#order).
+- `itemId` (String): Unique **UUID** identifier of the [`Item`](../models/models-inventory#item).
+- `itemsNumber` (Int): Number of line items to add for this item.
+- `devNotes` (Map(String, String)?): Optional development notes as key-value pairs.
+- `binName` (String?): Optional, A specific identifier for categorizing items in an order. This is the general name of a specific group of items, united by some logic.  
 
 #### Returns:
-
-`List<LineItem>?`: the created line items, or `null` on failure.
+List([`LineItem`](../models/models-order#lineitem))? - Returns the list of created line items or null if the operation fails.
 
 #### Error Handling:
-
 Triggers error callback on failure.
 
-### Example Usage
-
+### Example Usage:
 ```kotlin
 private fun addBulkFixedPriceItems(orderId: String, itemId: String, itemsNumber: Int, devNotes: Map<String, String>? = null, binName: String? = null) {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -54,8 +50,7 @@ private fun addBulkFixedPriceItems(orderId: String, itemId: String, itemsNumber:
 }
 ```
 
-### Best Practice with Repository Pattern
-
+### Best Practice with Repository Pattern::
 ```kotlin
 interface OrderRepository {
     fun addFixedPriceLineItems(orderId: String, itemId: String, itemsNumber: Int, devNotes: Map<String, String>?, binName: String?): List<LineItem>?
@@ -71,4 +66,3 @@ class OrderRepositoryImpl(
     }
 }
 ```
-

@@ -2,7 +2,7 @@
 id: inventory-api-update-item-stock-quantity
 sidebar_position: 13
 title: Update Item Stock Quantity
-description: Update the stock quantity for a specific inventory item.
+description: Updates the stock quantity for an item.
 hide_title: true
 ---
 
@@ -17,20 +17,16 @@ fun updateItemStockQuantity(itemId: String, quantity: Double)
 ```
 
 #### Parameters:
-
-- `itemId` (String): UUID of the item.
-- `quantity` (Double): amount to change the stock quantity by.
+- `itemId` (String): Unique **UUID** identifier of the item
+- `quantity` (Double): New stock quantity value
 
 #### Returns:
-
 Void (Unit) No return value is provided. The operation is asynchronous, and a callback is triggered to indicate success or failure.
 
 #### Error Handling:
-
 Triggers error callback on failure.
 
-### Example Usage
-
+### Example Usage:
 ```kotlin
 private fun updateStock(itemId: String, newQuantity: Double) {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -50,8 +46,7 @@ private fun updateStock(itemId: String, newQuantity: Double) {
 }
 ```
 
-### Best Practice with Repository Pattern
-
+### Best Practice with Repository Pattern:
 ```kotlin
 interface InventoryRepository {
     suspend fun updateItemStockQuantity(itemId: String, quantity: Double): Boolean
@@ -72,4 +67,3 @@ class InventoryRepositoryImpl(
     }
 }
 ```
-

@@ -2,42 +2,34 @@
 id: models-scanner
 sidebar_position: 9
 title: Scanner
-description: Scanner models used by the CorePOS Android SDK.
+description: Scanner models.
 hide_title: true
 ---
 
 ## Scanner Models
 
 ## BarcodeHandlingStatus
-
 ```kotlin
 enum class BarcodeHandlingStatus
 ```
 The `BarcodeHandlingStatus` enum defines the possible states of barcode processing and is intended for third-party apps to notify the system that they are also processing barcode scanning, and then report the result. Containing the following fields:
 
 ### Values
-
 - `PENDING(0)`: The barcode is processed by handler
 - `SUCCESS(1)`: The barcode was successfully processed
 - `CANCELLED(2)`: The barcode processing was cancelled or failed
 
 ### Static Functions
-
 ```kotlin
 infix fun from(code: Int): BarcodeHandlingStatus?
 ```
 Returns the BarcodeHandlingStatus enum value corresponding to the provided code
-
-#### Parameters
-
+#### Parameters:
 `code: Int` -The integer code representing the barcode handling status
-
-#### Returns
-
+#### Returns:
 `BarcodeHandlingStatus?` - The corresponding enum value, or null if the code is invalid
 
-### Example Usage
-
+### Example Usage:
 ```kotlin
   class BarcodeReceiver : BaseReceiver(), KoinComponent {
 
@@ -89,4 +81,3 @@ Returns the BarcodeHandlingStatus enum value corresponding to the provided code
     }
   }
 ```
-

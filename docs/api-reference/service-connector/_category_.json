@@ -1,9 +1,0 @@
-{
-  "label": "ServiceConnector",
-  "position": 9,
-  "link": {
-    "type": "generated-index",
-    "slug": "/service-connector",
-    "description": "Reference for every ServiceConnector operation."
-  }
-}

@@ -2,7 +2,7 @@
 id: inventory-api-get-charges
 sidebar_position: 8
 title: Get Charges
-description: Fetch the complete list of charges (taxes and fees) available in the system.
+description: Retrieves all available charges (taxes and fees).
 hide_title: true
 ---
 
@@ -17,19 +17,15 @@ fun getCharges(): List<Charge>?
 ```
 
 #### Parameters:
-
-None.
+None
 
 #### Returns:
-
-`List<Charge>?`: the list of charges, or `null` on failure.
+`List<Charge>?`: A list of [`Charge`](../models/models-inventory#charge), or `null` if the operation fails.
 
 #### Error Handling:
-
 Returns `null` on error.
 
-### Example Usage
-
+### Example Usage:
 ```kotlin
 private fun loadCharges() {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -47,8 +43,7 @@ private fun loadCharges() {
 }
 ```
 
-### Best Practice with Repository Pattern
-
+### Best Practice with Repository Pattern:
 ```kotlin
 interface InventoryRepository {
     suspend fun getCharges(): List<Charge>?
@@ -68,4 +63,3 @@ class InventoryRepositoryImpl(
     }
 }
 ```
-

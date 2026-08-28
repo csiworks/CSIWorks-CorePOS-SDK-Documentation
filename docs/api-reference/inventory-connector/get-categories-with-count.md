@@ -2,7 +2,7 @@
 id: inventory-api-get-categories-with-count
 sidebar_position: 15
 title: Get Categories With Count
-description: Retrieve a list of categories along with the number of items assigned to each category.
+description: Retrieve a list of categories along with the number of items
 hide_title: true
 ---
 
@@ -17,19 +17,15 @@ fun getCategoriesWithCount(): List<CategoryWithCount>?
 ```
 
 #### Parameters:
-
-None.
+None
 
 #### Returns:
-
-`List<CategoryWithCount>?`: the list of categories with item counts, or `null` on failure.
+`List<CategoryWithCount>?`: A list of [`CategoryWithCount`](../models/models-inventory#categorywithcount), or `null` if the operation fails.
 
 #### Error Handling:
-
 Returns `null` on error.
 
-### Example Usage
-
+### Example Usage:
 ```kotlin
 private fun loadCategoryStats() {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -46,4 +42,3 @@ private fun loadCategoryStats() {
     }
 }
 ```
-

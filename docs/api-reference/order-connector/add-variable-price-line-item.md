@@ -2,7 +2,7 @@
 id: order-api-add-variable-price-line-item
 sidebar_position: 4
 title: Add Variable-Price Line Item
-description: Add an item to an order with a specified cash price (use when the item’s price is not fixed in catalog).
+description: Add a line item priced by explicit cash amount.
 hide_title: true
 ---
 
@@ -23,23 +23,19 @@ fun addVariablePriceLineItem(
 ```
 
 #### Parameters:
-
-- `orderId` (String): UUID of the target [Order](../models/order.md#order).
-- `itemId` (String): UUID of the inventory item.
-- `cashPrice` (Long): price in the smallest currency unit (e.g., cents).
-- `devNotes` (Map\<String, String>?): optional free-form metadata attached to the line item.
-- `binName` (String?): optional identifier used to group related line items within an order.
+- `orderId` (String): Unique **UUID** identifier of the [`Order`](../models/models-order#order).
+- `itemId` (String): Unique **UUID** identifier of the inventory [`Item`](../models/models-inventory#item).
+- `cashPrice` (Long): Price in smallest currency unit.
+- `devNotes` (Map(String, String)?, optional): Free-form metadata.
+- `binName` (String?): Optional, A specific identifier for categorizing items in an order. This is the general name of a specific group of items, united by some logic.
 
 #### Returns:
-
-`LineItem?`: the created [LineItem](../models/order.md#lineitem), or `null` on failure.
+`LineItem?`: The created [`LineItem`](../models/models-order#lineitem), or `null` if the operation fails.
 
 #### Error Handling:
-
 Returns `null` on error.
 
-### Example Usage
-
+### Example Usage:
 ```kotlin
 private fun addCustomPricedItem(orderId: String, itemId: String, priceCents: Long) {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -55,8 +51,7 @@ private fun addCustomPricedItem(orderId: String, itemId: String, priceCents: Lon
 }
 ```
 
-### Best Practice with Repository Pattern
-
+### Best Practice with Repository Pattern::
 ```kotlin
 interface OrderRepository {
         suspend fun addVariablePrice(
@@ -78,4 +73,3 @@ class OrderRepositoryImpl(
     } catch (_: Exception) { null }
 }
 ```
-

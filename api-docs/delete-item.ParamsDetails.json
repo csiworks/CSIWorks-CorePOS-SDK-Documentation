@@ -1,1 +1,0 @@
-{"parameters":[{"name":"itemUuid","in":"path","description":"UUID of the item to delete.","required":true,"schema":{"type":"string","format":"uuid"}}]}

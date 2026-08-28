@@ -22,22 +22,18 @@ fun addFixedPriceLineItem(
 ```
 
 #### Parameters:
-
-- `orderId` (String): UUID of the target [Order](../models/order.md#order).
-- `itemId` (String): UUID of the inventory item.
-- `devNotes` (Map\<String, String>?): optional free-form metadata attached to the line item.
-- `binName` (String?): optional identifier used to group related line items within an order.
+- `orderId` (String): Unique **UUID** identifier of the [`Order`](../models/models-order#order).
+- `itemId` (String): Unique **UUID** identifier of the [`Item`](../models/models-inventory#item).
+- `devNotes` (Map(String, String)?): Optional development notes as key-value pairs.
+- `binName` (String?): Optional, A specific identifier for categorizing items in an order. This is the general name of a specific group of items, united by some logic.  
 
 #### Returns:
-
-`LineItem?`: the created [LineItem](../models/order.md#lineitem), or `null` on failure.
+[`LineItem`](../models/models-order#lineitem)? - Returns the created line item or null if the operation fails.
 
 #### Error Handling:
-
 Triggers error callback on failure.
 
-### Example Usage
-
+### Example Usage:
 ```kotlin
 private fun addFixedPriceItem(orderId: String, itemId: String, devNotes: Map<String, String>? = null, binName: String? = null) {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -52,8 +48,7 @@ private fun addFixedPriceItem(orderId: String, itemId: String, devNotes: Map<Str
 }
 ```
 
-### Best Practice with Repository Pattern
-
+### Best Practice with Repository Pattern::
 ```kotlin
 interface OrderRepository {
     fun addFixedPriceLineItem(orderId: String, itemId: String, devNotes: Map<String, String>?, binName: String?): LineItem?
@@ -69,4 +64,3 @@ class OrderRepositoryImpl(
     }
 }
 ```
-

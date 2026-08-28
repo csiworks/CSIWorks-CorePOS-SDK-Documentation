@@ -1,1 +1,0 @@
-{"parameters":[{"name":"isEnabled","in":"query","description":"Whether tipping should be enabled.","required":true,"schema":{"type":"boolean"}}]}

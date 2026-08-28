@@ -1,8 +1,8 @@
 ---
 id: order-api-add-line-item-discount
-sidebar_position: 9
+sidebar_position: 7
 title: Add Line Item Discount
-description: Add a discount to a specific line item within an order.
+description: Add a discount to a specific line item in an order.
 hide_title: true
 ---
 
@@ -23,23 +23,19 @@ fun addLineItemDiscount(
 ```
 
 #### Parameters:
-
-- `orderId` (String): UUID of the [Order](../models/order.md#order).
-- `lineItemId` (String): UUID of the line item to discount.
-- `discountName` (String): display name of the discount.
-- `amountType` (AmountType): whether amount is a fixed amount or a percentage.
-- `amount` (Long): discount value — smallest currency unit (e.g., cents) for fixed discounts, or percentage points for percentage discounts.
+- `orderId` (String): Unique **UUID** identifier of the [`Order`](../models/models-order#order).
+- `lineItemId` (String): Unique **UUID** identifier of the [`LineItem`](../models/models-order#lineitem).
+- `discountName` (String): Name or description of the discount.
+- `amountType` (AmountType): Type of amount (percentage or fixed amount).
+- `amount` (Long): Discount amount (in cents for fixed amounts, or percentage points for percentage discounts).
 
 #### Returns:
-
-`Order?`: the updated [Order](../models/order.md#order), or `null` on failure.
+`Order?`: The updated [`Order`](../models/models-order#order) with the discount applied, or `null` if the operation fails.
 
 #### Error Handling:
-
 Returns `null` on error.
 
-### Example Usage
-
+### Example Usage:
 ```kotlin
 private fun applyLineItemDiscount(orderId: String, lineItemId: String) {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -57,8 +53,7 @@ private fun applyLineItemDiscount(orderId: String, lineItemId: String) {
 }
 ```
 
-### Best Practice with Repository Pattern
-
+### Best Practice with Repository Pattern:
 ```kotlin
 interface OrderRepository {
     suspend fun addLineItemDiscount(

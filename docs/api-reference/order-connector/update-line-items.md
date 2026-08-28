@@ -1,6 +1,6 @@
 ---
 id: order-api-update-line-items
-sidebar_position: 14
+sidebar_position: 9
 title: Update Line Items
 description: Update multiple line items in an order with a single operation.
 hide_title: true
@@ -17,20 +17,16 @@ fun updateLineItems(orderId: String, lineItems: List<LineItem>): List<LineItem>?
 ```
 
 #### Parameters:
-
-- `orderId` (String): UUID of the [Order](../models/order.md#order).
-- `lineItems` (List\<LineItem>): line items with updated values; matched by their identifiers.
+- `orderId` (String): Unique **UUID** identifier of the [`Order`](../models/models-order#order).
+- `lineItems` (List(LineItem)): List of [`LineItem`](../models/models-order#lineitem) objects to update.
 
 #### Returns:
-
-`List<LineItem>?`: the updated line items, or `null` on failure.
+`List<LineItem>?` - Returns the list of updated line items if successful, or null if the operation fails.
 
 #### Error Handling:
-
 Returns null on failure.
 
-### Example Usage
-
+### Example Usage:
 ```kotlin
 private fun bulkUpdateQuantities(orderId: String, lineItems: List<LineItem>, quantityUpdates: Map<String, Double>) {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -47,8 +43,7 @@ private fun bulkUpdateQuantities(orderId: String, lineItems: List<LineItem>, qua
 }
 ```
 
-### Best Practice with Repository Pattern
-
+### Best Practice with Repository Pattern:
 ```kotlin
 interface OrderRepository {
     suspend fun updateLineItems(orderId: String, lineItems: List<LineItem>): List<LineItem>?
@@ -64,4 +59,3 @@ class OrderRepositoryImpl(
     }
 }
 ```
-

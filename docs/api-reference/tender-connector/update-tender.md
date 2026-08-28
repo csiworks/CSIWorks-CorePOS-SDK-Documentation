@@ -6,7 +6,7 @@ description: Update an existing tender.
 hide_title: true
 ---
 
-## Update Tedner
+## Update Tender
 
 **Purpose:** Update an existing tender.
 
@@ -17,19 +17,15 @@ fun updateTender(tender: Tender): Tender?
 ```
 
 #### Parameters:
-
-- `tender` (Tender): tender with updated values; matched by its identifier.
+`tender`: The [`Tender`](../models/models-tender#tender) object to update.
 
 #### Returns:
-
-`Tender?`: the updated [Tender](../models/tender.md#tender), or `null` on failure.
+`Tender?`: Updated [`Tender`](../models/models-tender#tender), or `null` if the operation fails.
 
 #### Error Handling:
-
 Returns `null` on error.
 
-### Example Usage
-
+### Example Usage:
 ```kotlin
 fun updatePaymentMethod(
         tender: Tender
@@ -47,4 +43,3 @@ fun updatePaymentMethod(
         }
     }
 ```
-

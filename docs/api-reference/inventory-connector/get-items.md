@@ -2,7 +2,7 @@
 id: inventory-api-get-items
 sidebar_position: 3
 title: Get Items
-description: Retrieves a list of inventory items with optional filtering. Fetch all items or a filtered subset from the inventory system.
+description: Retrieves a list of items.
 hide_title: true
 ---
 
@@ -17,19 +17,15 @@ fun getItems(filter: ItemFilter? = null): List<Item>?
 ```
 
 #### Parameters:
-
-- `filter` (ItemFilter?): optional filter criteria; `null` returns all items.
+`filter` (optional): [`ItemFilter`](../models/models-inventory#itemfilter) - Filter criteria to limit results
 
 #### Returns:
-
-`List<Item>?`: the matching items, or `null` on failure.
+`List<Item>?`: A list of [`Item`](../models/models-inventory#item) matching the criteria, or `null` if the operation fails.
 
 #### Error Handling:
-
 Returns `null` on error.
 
-### Example Usage
-
+### Example Usage:
 ```kotlin
     private fun loadItems() {
         lifecycleScope.launch(Dispatchers.IO) {
@@ -51,8 +47,7 @@ Returns `null` on error.
     }
 ```
 
-### Best Practice with Repository Pattern
-
+### Best Practice with Repository Pattern::
 ```kotlin
 interface InventoryRepository {
     suspend fun getItems(filter: ItemFilter? = null): List<Item>?
@@ -72,4 +67,3 @@ class InventoryRepositoryImpl(
     }
 }
 ```
-

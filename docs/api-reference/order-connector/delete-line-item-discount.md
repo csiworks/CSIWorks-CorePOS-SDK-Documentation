@@ -1,8 +1,8 @@
 ---
 id: order-api-delete-line-item-discount
-sidebar_position: 11
+sidebar_position: 8
 title: Delete Line Item Discount
-description: Remove a specific discount from a line item within an order.
+description: Remove a specific discount from a line item in an order.
 hide_title: true
 ---
 
@@ -13,25 +13,25 @@ hide_title: true
 ### Signature:
 
 ```kotlin
-fun deleteLineItemDiscount(orderId: String, lineItemId: String, discountId: String): Order?
+fun deleteLineItemDiscount(
+    orderId: String,
+    lineItemId: String,
+    discountId: String
+): Order?
 ```
 
 #### Parameters:
-
-- `orderId` (String): UUID of the [Order](../models/order.md#order).
-- `lineItemId` (String): UUID of the line item.
-- `discountId` (String): UUID of the discount to remove.
+- `orderId` (String): Unique **UUID** identifier of the [`Order`](../models/models-order#order).
+- `lineItemId` (String): Unique **UUID** identifier of the [`LineItem`](../models/models-order#lineitem).
+- `discountId` (String): Unique **UUID** identifier of the discount to remove.
 
 #### Returns:
-
-`Order?`: the updated [Order](../models/order.md#order), or `null` on failure.
+`Order?`: The updated [`Order`](../models/models-order#order) with the discount removed, or `null` if the operation fails.
 
 #### Error Handling:
-
 Returns `null` on error.
 
-### Example Usage
-
+### Example Usage:
 ```kotlin
 private fun removeLineItemDiscount(orderId: String, lineItemId: String, discountId: String) {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -47,8 +47,7 @@ private fun removeLineItemDiscount(orderId: String, lineItemId: String, discount
 }
 ```
 
-### Best Practice with Repository Pattern
-
+### Best Practice with Repository Pattern:
 ```kotlin
 interface OrderRepository {
     suspend fun deleteLineItemDiscount(
@@ -70,4 +69,3 @@ class OrderRepositoryImpl(
     } catch (_: Exception) { null }
 }
 ```
-
