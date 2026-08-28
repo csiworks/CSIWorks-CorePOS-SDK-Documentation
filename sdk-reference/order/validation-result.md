@@ -1,6 +1,7 @@
 ---
 title: ValidationResult
 sidebar_label: ValidationResult
+slug: /order/validation-result
 ---
 
 # ValidationResult

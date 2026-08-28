@@ -1,6 +1,7 @@
 ---
 title: PaymentRequest
 sidebar_label: PaymentRequest
+slug: /payment/payment-request
 ---
 
 # PaymentRequest

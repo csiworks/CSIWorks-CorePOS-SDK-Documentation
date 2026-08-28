@@ -1,6 +1,7 @@
 ---
 title: MerchantConnector
 sidebar_label: MerchantConnector
+slug: /connector/merchant-connector
 ---
 
 # MerchantConnector

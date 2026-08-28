@@ -1,6 +1,7 @@
 ---
 title: AmountType
 sidebar_label: AmountType
+slug: /inventory/amount-type
 ---
 
 # AmountType

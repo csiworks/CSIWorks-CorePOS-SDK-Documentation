@@ -1,6 +1,7 @@
 ---
 title: Employee
 sidebar_label: Employee
+slug: /order/employee
 ---
 
 # Employee
