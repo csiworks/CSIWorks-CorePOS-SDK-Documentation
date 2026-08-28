@@ -2,11 +2,11 @@
 id: inventory-api-get-item
 sidebar_position: 2
 title: Get Item
-description: Fetch detailed information for a specific inventory item.
+description: Retrieves a single inventory item by its ID.
 hide_title: true
 ---
 
-## Get Item
+## Get Items
 
 **Purpose:** Fetch detailed information for a specific inventory item.
 
@@ -17,19 +17,15 @@ fun getItem(itemId: String): Item?
 ```
 
 #### Parameters:
-
-- `itemId` (String): UUID of the item.
+`itemId` (String): Unique **UUID** identifier of the item to retrieve
 
 #### Returns:
-
-`Item?`: the [Item](../models/inventory.md#item), or `null` if not found or on failure.
+`Item?`: The inventory [`Item`](../models/models-inventory#item), or `null` if the operation fails.
 
 #### Error Handling:
-
 Returns `null` on error.
 
-### Example Usage
-
+### Example Usage:
 ```kotlin
 private fun loadItemDetails(itemId: String) {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -51,8 +47,7 @@ private fun loadItemDetails(itemId: String) {
 }
 ```
 
-### Best Practice with Repository Pattern
-
+### Best Practice with Repository Pattern::
 ```kotlin
 interface InventoryRepository {
     suspend fun getItem(itemId: String): Item?
@@ -71,4 +66,3 @@ class InventoryRepositoryImpl(
     }
 }
 ```
-

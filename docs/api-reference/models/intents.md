@@ -2,11 +2,9 @@
 id: models-intents
 sidebar_position: 7
 title: Intents
-description: Intents models used by the CorePOS Android SDK.
+description: Intent constants and utilities for CorePOS SDK inter-app communication.
 hide_title: true
 ---
-
-## Intents Models
 
 ## Intents
 
@@ -53,7 +51,8 @@ Third-party apps must **add their handler to the existing** list and **must not 
 :::
 
 - `EXTRA_BARCODE_HANDLER_PACKAGE_NAME` (String): The package name of the third-party app that handled the barcode.
-- `EXTRA_BARCODE_HANDLING_STATUS` ([**BarcodeHandlingStatus**](scanner.md#barcodehandlingstatus)) The current processing status of the handler.
+- `EXTRA_BARCODE_HANDLING_STATUS` ([**BarcodeHandlingStatus**](models-scanner#barcodehandlingstatus)) The current processing status of the handler.
+
 
 ## Event Descriptions
 
@@ -151,4 +150,3 @@ class MainActivity : AppCompatActivity() {
     }
 }
 ```
-

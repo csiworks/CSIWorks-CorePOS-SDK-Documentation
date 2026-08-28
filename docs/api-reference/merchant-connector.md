@@ -1,20 +1,19 @@
 ---
 id: merchant-api
-sidebar_position: 7
+sidebar_position: 6
 title: MerchantConnector
-description: MerchantConnector reference for the CorePOS Android SDK.
+description: How to utilize all MerchantConnector functionality.
 hide_title: true
 ---
 
 ## Introduction
-
+### Class Overview
+```kotlin
+class MerchantConnector(context: Context)
+```
 The `MerchantConnector` provides methods to interact with merchant data in the CorePOS system. The primary functionality includes retrieving merchant information through callbacks.
 
-### Class Overview
-
-```kotlin
-class MerchantConnector(context: Context) : ServiceConnector<IMerchantService>(context)
-```
+**Purpose:** Manages merchant operations like retrieving merchant details.
 
 ### Initialization:
 
@@ -33,19 +32,15 @@ fun getMerchant(): Merchant?
 ```
 
 #### Parameters:
-
 None.
 
 #### Returns:
-
-`Merchant?`: the [Merchant](models/merchant.md#merchant), or `null` on failure.
+`Merchant?`: The inventory [`Merchant`](models/models-merchant#merchant), or `null` if the operation fails.
 
 #### Error Handling:
-
 Returns `null` on error.
 
-### Example Usage
-
+### Example Usage:
 ```kotlin
 class MainActivity : AppCompatActivity() {
     private lateinit var merchantConnector: MerchantConnector
@@ -72,8 +67,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-### Best Practice with Repository Pattern
-
+### Best Practice with Repository Pattern::
 ```kotlin
 interface MerchantRepository {
     suspend fun getMerchant(): Merchant?
@@ -87,4 +81,3 @@ class MerchantRepositoryImpl(
         catch (_: Exception) { null }
 }
 ```
-

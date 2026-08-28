@@ -7,7 +7,6 @@ hide_title: true
 ---
 
 ## Create Tender
-
 **Purpose:** Create a new custom tender button.
 
 ### Signature:
@@ -23,23 +22,21 @@ fun createTender(
 ```
 
 #### Parameters:
+- `uuid`: A unique **UUID** identifier for the tender.  
+- `buttonTitle`: The text displayed on the tender button.  
+- `tenderName`: An internal name for the tender (not currently in use, reserved for internal reference).  
+- `packageName`: The package name of the 3rd-party app that created this tender (i.e., tender button owner).  
+- `enabled`: Determines whether the tender button is visible (`true`) or hidden/disabled (`false`).  
+- `openCashDrawer`: Flag to indicate whether the cash drawer should be opened when this tender is used.  
 
-- `buttonTitle` (String): label shown on the payment-screen button.
-- `tenderName` (String): internal name of the tender.
-- `packageName` (String): package name of the app that owns the tender.
-- `enabled` (Boolean): whether the tender is initially enabled.
-- `openCashDrawer` (Boolean): whether completing a payment with this tender opens the cash drawer.
 
 #### Returns:
-
-`Tender?`: the created [Tender](../models/tender.md#tender), or `null` on failure.
+`Tender?`: The [`Tender`](../models/models-tender#tender), or `null` if the operation fails.
 
 #### Error Handling:
-
 Returns `null` on error.
 
-### Example Usage
-
+### Example Usage:
 ```kotlin
     fun createPaymentMethod(
         buttonTitle: String,
@@ -65,4 +62,3 @@ Returns `null` on error.
         }
     }
 ```
-

@@ -2,7 +2,7 @@
 id: inventory-api-get-paging-items
 sidebar_position: 16
 title: Get Paging Items
-description: Retrieves a paginated list of inventory items with optional filtering.
+description: Retrieves a paginated list of items.
 hide_title: true
 ---
 
@@ -17,20 +17,16 @@ fun getPagingItems(filter: ItemFilter? = null, pageable: Pageable): ItemPageResu
 ```
 
 #### Parameters:
-
-- `filter` (ItemFilter?): optional filter criteria; `null` returns all items.
-- `pageable` (Pageable): page number and size to fetch.
+`filter` (optional): [`ItemFilter`](../models/models-inventory#itemfilter) - Filter criteria to limit results
+`pageable`: [`Pageable`](../models/models-pagination#pageable) - Defines pagination parameters
 
 #### Returns:
-
-`ItemPageResult?`: the requested page of items, or `null` on failure.
+`ItemPageResult?`: A paginated response containing the list of [`Item`](../models/models-inventory#item) and pagination metadata, or `null` if the operation fails.
 
 #### Error Handling:
-
 Returns `null` on error.
 
-### Example Usage
-
+### Example Usage:
 ```kotlin
 private fun loadPagedItems() {
     lifecycleScope.launch(Dispatchers.IO) {
@@ -51,4 +47,3 @@ private fun loadPagedItems() {
     }
 }
 ```
-
