@@ -1,0 +1,9 @@
+{
+  "label": "Quick Guide",
+  "position": 3,
+  "link": {
+    "slug": "/quick-guide",
+    "type": "generated-index",
+    "description": "This guide covers the essential operations you'll need to integrate POS functionality into your app."
+  }
+}

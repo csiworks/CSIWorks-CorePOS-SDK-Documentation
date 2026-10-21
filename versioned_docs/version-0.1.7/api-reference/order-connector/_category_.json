@@ -1,0 +1,9 @@
+{
+  "label": "OrderConnector",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "slug": "/order-connector",
+    "description": "Reference for every OrderConnector operation."
+  }
+}
