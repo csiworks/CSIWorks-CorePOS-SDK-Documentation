@@ -2961,7 +2961,6 @@
       },
       "EmployeeDto": {
         "required": [
-          "email",
           "id"
         ],
         "type": "object",
@@ -2977,7 +2976,7 @@
           },
           "email": {
             "type": "string",
-            "description": "Email address of the employee."
+            "description": "Email address of the employee; unknown while the account service cannot be reached."
           }
         },
         "description": "An employee of the merchant."
