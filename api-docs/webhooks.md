@@ -21,12 +21,12 @@ merchant that installed the app: each event names the merchant in `merchantId`. 
 merchant that installed the app:
 
 ```kotlin
-import com.coreposnow.sdk.rest.api.WebhooksApi
+import com.coreposnow.sdk.rest.api.WebhookSubscriptionApi
 import com.coreposnow.sdk.rest.model.WebhookSubscriptionSaveDto
 
-val webhooksApi = client.createService(WebhooksApi::class.java)
+val subscriptionApi = client.createService(WebhookSubscriptionApi::class.java)
 
-val subscription = webhooksApi.setWebhookSubscription(
+val subscription = subscriptionApi.setWebhookSubscription(
     WebhookSubscriptionSaveDto(
         url = "https://app.example.com/corepos/webhooks",
         events = setOf(
