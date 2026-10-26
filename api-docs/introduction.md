@@ -10,8 +10,8 @@ pagination_prev: null
 ## Introduction
 
 The CorePOS API lets a third-party application read and modify a merchant's CorePOS data over HTTPS —
-inventory items, categories, charges and discounts, orders and their line items, payment transactions,
-merchant details and tipping configuration.
+inventory items, categories, charges and discounts, orders, their line items and payments, employees,
+merchant details and tipping configuration — and be told about changes to it through webhooks.
 
 Use it for anything that runs off the register: back-office tools, e-commerce synchronisation, reporting
 and reconciliation. For integrations that run **on** the POS device — custom tender buttons, action
@@ -46,6 +46,11 @@ Three endpoints cover the whole flow:
 Access is scoped per merchant and per capability. Each endpoint states the authority it requires — for
 example **ITEM READ** to list items or **ITEM WRITE** to create one. A request made with a token that
 lacks the authority is rejected, so request only the capabilities your integration actually uses.
+
+### Webhooks
+
+Instead of polling, an app can subscribe to events: CorePOS posts each committed change to an item, an order, an
+employee or the app's installation to the app's URL as a signed request. See [Webhooks](./webhooks.md).
 
 ### Client libraries
 

@@ -80,8 +80,9 @@ test suite against sandbox:
 ```
 
 One service interface exists per section of this documentation — `ItemsApi`, `CategoriesApi`,
-`OrdersApi`, `TransactionsApi`, `MerchantsApi`, `ChargesApi`, `DiscountsApi`, `TipSettingsApi`,
-`DualPricingApi`, `AppsApi` and `OAuth2Api`.
+`OrdersApi`, `TransactionsApi`, `EmployeesApi`, `MerchantsApi`, `ChargesApi`, `DiscountsApi`,
+`TipSettingsApi`, `DualPricingApi`, `AppsApi`, `WebhookSubscriptionApi` and `OAuth2Api`. Webhook
+events have no interface, since CorePOS sends them to your app; their body is the `WebhookEventDto` model.
 
 ### Making a call
 
