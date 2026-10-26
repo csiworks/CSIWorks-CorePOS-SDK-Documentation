@@ -13,7 +13,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'API docs',
       collapsed: false,
-      items: ['api-introduction', 'api-installation', ...generated],
+      items: ['api-introduction', 'api-installation', 'api-webhooks', ...generated],
     },
     {
       type: 'link',
