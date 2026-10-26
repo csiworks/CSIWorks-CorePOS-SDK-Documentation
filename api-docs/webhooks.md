@@ -101,15 +101,17 @@ The body tells you what happened and to which entity:
   longer exists, such as the second `item.deleted` of an item that was purged.
 - `source` says who made the change: `ANDROID`, `WEB`, `THIRD_PARTY_APP`, `SERVER_TO_SERVER`, `ADMIN` or `SYSTEM`.
   Changes your own app made through the API arrive too, with source `THIRD_PARTY_APP`.
-- `createdAt` is when the change was committed, in milliseconds since the epoch.
+- `createdAt` is when the change was made, in milliseconds since the epoch.
 
-### Answering, retries and ordering
+### Answering, retries and order
 
 Answer with any `2xx` status within 3 seconds, and do the work afterwards: put the event on a queue rather than
 calling back into the API before you answer.
 
 - Any other status, a timeout or a connection error is a failure. The event is sent again after 10 seconds, then
   after a delay that doubles each time, up to an hour.
-- Events reach your app in the order they were committed. While an event keeps failing, the events after it wait.
+- Events are not guaranteed to arrive in the order the changes were made. To tell whether an event is newer than
+  the state you hold, compare the `lastModified` of its `data` — every item, order, employee and app carries one.
+- While an event keeps failing, the events after it wait.
 - After 10 failures in a row the subscription is suspended. Setting it again resumes it, from the event that failed.
 - An event can arrive more than once, always with the same `id`. Keep the ids you processed and drop repeats.
