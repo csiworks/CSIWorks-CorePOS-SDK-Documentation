@@ -16,6 +16,12 @@ const sidebar: SidebarsConfig = {
           label: "Get merchant billing info for app",
           className: "api-method get",
         },
+        {
+          type: "doc",
+          id: "get-the-app",
+          label: "Get the app",
+          className: "api-method get",
+        },
       ],
     },
     {
@@ -174,6 +180,40 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Employees",
+      link: {
+        type: "doc",
+        id: "employees",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "get-employee",
+          label: "Get employee",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "update-employee",
+          label: "Update employee",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "list-employees",
+          label: "List employees",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "add-employee",
+          label: "Add employee",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Items",
       link: {
         type: "doc",
@@ -296,14 +336,20 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "add-line-item-dev-notes",
-          label: "Add line item dev notes",
-          className: "api-method post",
+          id: "get-order",
+          label: "Get order",
+          className: "api-method get",
         },
         {
           type: "doc",
-          id: "delete-line-item-dev-notes",
-          label: "Delete line item dev notes",
+          id: "update-order",
+          label: "Update order",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "delete-order",
+          label: "Delete order",
           className: "api-method delete",
         },
         {
@@ -314,9 +360,27 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "get-order",
-          label: "Get order",
-          className: "api-method get",
+          id: "create-order",
+          label: "Create order",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "add-transaction",
+          label: "Add transaction",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "add-line-item-dev-notes",
+          label: "Add line item dev notes",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "delete-line-item-dev-notes",
+          label: "Delete line item dev notes",
+          className: "api-method delete",
         },
       ],
     },
@@ -367,6 +431,94 @@ const sidebar: SidebarsConfig = {
           id: "get-transaction",
           label: "Get transaction",
           className: "api-method get",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Webhook subscription",
+      link: {
+        type: "doc",
+        id: "webhook-subscription",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "get-webhook-subscription",
+          label: "Get webhook subscription",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "set-webhook-subscription",
+          label: "Set webhook subscription",
+          className: "api-method put",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Webhook events",
+      items: [
+        {
+          type: "doc",
+          id: "item-created",
+          label: "Item created",
+          className: "api-method event",
+        },
+        {
+          type: "doc",
+          id: "item-updated",
+          label: "Item updated",
+          className: "api-method event",
+        },
+        {
+          type: "doc",
+          id: "item-deleted",
+          label: "Item deleted",
+          className: "api-method event",
+        },
+        {
+          type: "doc",
+          id: "order-created",
+          label: "Order created",
+          className: "api-method event",
+        },
+        {
+          type: "doc",
+          id: "order-updated",
+          label: "Order updated",
+          className: "api-method event",
+        },
+        {
+          type: "doc",
+          id: "order-deleted",
+          label: "Order deleted",
+          className: "api-method event",
+        },
+        {
+          type: "doc",
+          id: "employee-created",
+          label: "Employee created",
+          className: "api-method event",
+        },
+        {
+          type: "doc",
+          id: "employee-updated",
+          label: "Employee updated",
+          className: "api-method event",
+        },
+        {
+          type: "doc",
+          id: "app-installed",
+          label: "App installed",
+          className: "api-method event",
+        },
+        {
+          type: "doc",
+          id: "app-uninstalled",
+          label: "App uninstalled",
+          className: "api-method event",
         },
       ],
     },

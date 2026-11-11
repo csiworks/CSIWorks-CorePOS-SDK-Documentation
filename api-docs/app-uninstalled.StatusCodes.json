@@ -1,0 +1,1 @@
+{"responses":{"200":{"description":"The app took the event. Any 2xx status counts; anything else, or no answer within 3 seconds, is a failure and the event is sent again."}}}
