@@ -2764,7 +2764,8 @@
           "id": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique identifier of the event. A webhook delivered again carries the same one, so it can be used to drop duplicates."
+            "description": "Unique identifier of the event. A webhook delivered again carries the same one, so it can be used to drop duplicates.",
+            "example": "a6d00fd4-5535-5158-8f7b-360e63e8413b"
           },
           "type": {
             "type": "string",
@@ -2815,17 +2816,20 @@
           "entityId": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the entity the event is about."
+            "description": "UUID of the entity the event is about.",
+            "example": "e42c7662-902c-41d7-9c3c-ea8f567e74d2"
           },
           "createdAt": {
             "type": "string",
             "format": "date-time",
-            "description": "When the change was made."
+            "description": "When the change was made.",
+            "example": "2026-11-11T16:09:47.885Z"
           },
           "merchantId": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the merchant whose entity changed."
+            "description": "UUID of the merchant whose entity changed.",
+            "example": "6aa9a46e-9fea-454f-b52f-05877a569275"
           },
           "source": {
             "type": "string",
@@ -2896,7 +2900,8 @@
           },
           "isActive": {
             "type": "boolean",
-            "description": "Whether events are posted."
+            "description": "Whether events are posted.",
+            "example": true
           }
         },
         "required": [
@@ -2948,11 +2953,13 @@
           },
           "isActive": {
             "type": "boolean",
-            "description": "Whether events are posted; an inactive subscription keeps its place and resumes from it."
+            "description": "Whether events are posted; an inactive subscription keeps its place and resumes from it.",
+            "example": true
           },
           "secret": {
             "type": "string",
-            "description": "Secret the requests are signed with (X-CorePOS-Signature)."
+            "description": "Secret the requests are signed with (X-CorePOS-Signature).",
+            "example": "whsec_4f9c2b7e1a6d3058c8e2b1f7a9d40c6e"
           }
         },
         "required": [
@@ -2991,7 +2998,8 @@
           },
           "isEnabled": {
             "type": "boolean",
-            "description": "Whether tipping is enabled for the merchant."
+            "description": "Whether tipping is enabled for the merchant.",
+            "example": true
           }
         },
         "required": [
@@ -3008,12 +3016,14 @@
           "tipSuggestionId": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique UUID identifier of the tip suggestion."
+            "description": "Unique UUID identifier of the tip suggestion.",
+            "example": "6f3a1c8e-5d2b-4e9f-a1c7-3b8d0e6f2a45"
           },
           "amount": {
             "type": "integer",
             "format": "int64",
-            "description": "Suggestion value — percentage points for percentage suggestions, or the smallest currency unit (e.g. cents) for fixed-amount suggestions."
+            "description": "Suggestion value — percentage points for percentage suggestions, or the smallest currency unit (e.g. cents) for fixed-amount suggestions.",
+            "example": 15
           },
           "amountType": {
             "type": "string",
@@ -3025,7 +3035,8 @@
           },
           "isEnabled": {
             "type": "boolean",
-            "description": "Whether this suggestion is currently offered to customers."
+            "description": "Whether this suggestion is currently offered to customers.",
+            "example": true
           }
         },
         "required": [
@@ -3066,16 +3077,19 @@
           "lineItemChargeId": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique UUID identifier of this line-item charge application."
+            "description": "Unique UUID identifier of this line-item charge application.",
+            "example": "4a8e1d6c-2b9f-4f3a-a7c1-6e5d0b2f8c94"
           },
           "chargeId": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the merchant's charge this application was created from."
+            "description": "UUID of the merchant's charge this application was created from.",
+            "example": "9c4f2a71-6d3e-4b8a-8f15-0e7b2d4c6a93"
           },
           "name": {
             "type": "string",
-            "description": "Display name of the charge."
+            "description": "Display name of the charge.",
+            "example": "Sales tax"
           },
           "chargeAmountType": {
             "type": "string",
@@ -3088,11 +3102,13 @@
           "amount": {
             "type": "integer",
             "format": "int64",
-            "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges."
+            "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges.",
+            "example": 725
           },
           "isDefault": {
             "type": "boolean",
-            "description": "Whether this charge comes from the merchant's default charges."
+            "description": "Whether this charge comes from the merchant's default charges.",
+            "example": true
           }
         },
         "required": [
@@ -3111,11 +3127,13 @@
           "lineItemDiscountId": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique UUID identifier of this line-item discount application."
+            "description": "Unique UUID identifier of this line-item discount application.",
+            "example": "8d2c5f7a-3e1b-4c9d-b6a0-9f4e2d1c7b53"
           },
           "name": {
             "type": "string",
-            "description": "Display name of the discount."
+            "description": "Display name of the discount.",
+            "example": "Morning coffee"
           },
           "discountAmountType": {
             "type": "string",
@@ -3129,6 +3147,7 @@
             "type": "integer",
             "format": "int64",
             "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts.",
+            "example": 30,
             "minimum": 0
           }
         },
@@ -3146,12 +3165,14 @@
           "lineItemId": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique UUID identifier of the line item."
+            "description": "Unique UUID identifier of the line item.",
+            "example": "fbae7560-e86d-49f0-a480-867ec18a9ce3"
           },
           "quantity": {
             "type": "number",
             "format": "double",
             "description": "Quantity sold. Fractional for per-unit items (e.g. 2.5 lb); otherwise a whole number.",
+            "example": 1,
             "minimum": 0
           },
           "totalPrice": {
@@ -3161,15 +3182,18 @@
           "itemId": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the inventory item this line was created from; null for ad-hoc lines."
+            "description": "UUID of the inventory item this line was created from; null for ad-hoc lines.",
+            "example": "e42c7662-902c-41d7-9c3c-ea8f567e74d2"
           },
           "imagePath": {
             "type": "string",
-            "description": "Path to the item's image, if one is attached."
+            "description": "Path to the item's image, if one is attached.",
+            "example": "merchants/6aa9a46e-9fea-454f-b52f-05877a569275/items/e42c7662-902c-41d7-9c3c-ea8f567e74d2/coffee.jpg"
           },
           "name": {
             "type": "string",
-            "description": "Display name of the line item."
+            "description": "Display name of the line item.",
+            "example": "Coffee"
           },
           "priceType": {
             "type": "string",
@@ -3227,7 +3251,8 @@
           },
           "isEbt": {
             "type": "boolean",
-            "description": "Whether this line is EBT-eligible."
+            "description": "Whether this line is EBT-eligible.",
+            "example": false
           },
           "devNotes": {
             "type": "object",
@@ -3238,16 +3263,19 @@
           },
           "binName": {
             "type": "string",
-            "description": "Optional identifier (max 200 characters) used to group related line items within an order."
+            "description": "Optional identifier (max 200 characters) used to group related line items within an order.",
+            "example": "Table 4"
           },
           "transactionId": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the transaction that paid for this line, once paid."
+            "description": "UUID of the transaction that paid for this line, once paid.",
+            "example": "7e1c3b9a-4d2f-4a6e-9b81-5c0f2e7d3a64"
           },
           "isTaxable": {
             "type": "boolean",
-            "description": "Whether taxes apply to this line item."
+            "description": "Whether taxes apply to this line item.",
+            "example": true
           },
           "totalPriceDiscounted": {
             "$ref": "#/components/schemas/PricePair",
@@ -3260,17 +3288,20 @@
           "finalTotalPrice": {
             "type": "integer",
             "format": "int64",
-            "description": "Final total price, in the smallest currency unit, resolved for the payment type used. Present only when computed."
+            "description": "Final total price, in the smallest currency unit, resolved for the payment type used. Present only when computed.",
+            "example": 310
           },
           "finalTotalDiscount": {
             "type": "integer",
             "format": "int64",
-            "description": "Final total discount, in the smallest currency unit, resolved for the payment type used. Present only when computed."
+            "description": "Final total discount, in the smallest currency unit, resolved for the payment type used. Present only when computed.",
+            "example": 0
           },
           "finalTotalPriceDiscounted": {
             "type": "integer",
             "format": "int64",
-            "description": "Final total price after discounts, in the smallest currency unit, resolved for the payment type used. Present only when computed."
+            "description": "Final total price after discounts, in the smallest currency unit, resolved for the payment type used. Present only when computed.",
+            "example": 310
           }
         },
         "required": [
@@ -3294,16 +3325,19 @@
           "orderDiscountId": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique UUID identifier of this order discount application."
+            "description": "Unique UUID identifier of this order discount application.",
+            "example": "1e6b9d4f-8a2c-4d7e-9c35-0b7f3a5e2d18"
           },
           "discountId": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the merchant's discount this application was created from; null for ad-hoc discounts."
+            "description": "UUID of the merchant's discount this application was created from; null for ad-hoc discounts.",
+            "example": "2f7d9b3c-1a6e-4c85-b0f4-7e3a9c5d1b28"
           },
           "name": {
             "type": "string",
-            "description": "Display name of the discount."
+            "description": "Display name of the discount.",
+            "example": "Morning coffee"
           },
           "discountAmountType": {
             "type": "string",
@@ -3316,7 +3350,8 @@
           "amount": {
             "type": "integer",
             "format": "int64",
-            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts."
+            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts.",
+            "example": 1000
           }
         },
         "required": [
@@ -3331,7 +3366,8 @@
         "properties": {
           "customerId": {
             "type": "string",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "c3d9e2a1-7b4f-4e6a-8d25-1f0a9b8c7e36"
           },
           "items": {
             "type": "array",
@@ -3345,6 +3381,7 @@
           "ebtSubtotal": {
             "type": "integer",
             "format": "int64",
+            "example": 0,
             "minimum": 0
           },
           "discounts": {
@@ -3358,7 +3395,8 @@
           },
           "fee": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "example": 0
           },
           "total": {
             "$ref": "#/components/schemas/PricePair"
@@ -3366,6 +3404,7 @@
           "ebtTotal": {
             "type": "integer",
             "format": "int64",
+            "example": 0,
             "minimum": 0
           },
           "transactions": {
@@ -3388,10 +3427,12 @@
           "tipAmount": {
             "type": "integer",
             "format": "int64",
+            "example": 50,
             "minimum": 0
           },
           "notes": {
-            "type": "string"
+            "type": "string",
+            "example": "Extra hot"
           },
           "paymentType": {
             "type": "string",
@@ -3403,11 +3444,13 @@
           },
           "createdAt": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "example": "2026-11-11T16:09:47.885Z"
           },
           "lastModified": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "example": "2026-11-11T16:09:48.306Z"
           }
         },
         "required": [
@@ -3438,12 +3481,14 @@
             "type": "integer",
             "format": "int64",
             "description": "Price paid with cash, in the smallest currency unit (e.g. cents).",
+            "example": 300,
             "minimum": 0
           },
           "card": {
             "type": "integer",
             "format": "int64",
             "description": "Price paid with card, in the smallest currency unit (e.g. cents).",
+            "example": 310,
             "minimum": 0
           }
         },
@@ -3458,16 +3503,19 @@
           "transactionId": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique UUID identifier of the transaction."
+            "description": "Unique UUID identifier of the transaction.",
+            "example": "7e1c3b9a-4d2f-4a6e-9b81-5c0f2e7d3a64"
           },
           "refNumber": {
             "type": "string",
-            "description": "Reference number of the transaction as printed on the receipt."
+            "description": "Reference number of the transaction as printed on the receipt.",
+            "example": "000123"
           },
           "orderId": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the order this transaction belongs to, if any."
+            "description": "UUID of the order this transaction belongs to, if any.",
+            "example": "bab295a4-2408-4e9c-ab99-1cffad3c8ac1"
           },
           "transactionType": {
             "type": "string",
@@ -3476,7 +3524,8 @@
               "SALE",
               "VOID",
               "REFUND"
-            ]
+            ],
+            "example": "SALE"
           },
           "paymentMethod": {
             "type": "string",
@@ -3490,23 +3539,27 @@
               "GIFT",
               "LOYALTY",
               "ALL"
-            ]
+            ],
+            "example": "CREDIT_CARD"
           },
           "amount": {
             "type": "integer",
             "format": "int64",
             "description": "Amount of the transaction, in the smallest currency unit (e.g. cents).",
+            "example": 360,
             "minimum": 0
           },
           "taxAmount": {
             "type": "integer",
             "format": "int64",
             "description": "Tax portion of the amount, in the smallest currency unit (e.g. cents).",
+            "example": 0,
             "minimum": 0
           },
           "cardNumber": {
             "type": "string",
-            "description": "Masked card number used for the payment, if paid by card."
+            "description": "Masked card number used for the payment, if paid by card.",
+            "example": "************4242"
           },
           "cardType": {
             "type": "string",
@@ -3516,59 +3569,72 @@
               "MASTERCARD",
               "AMERICAN_EXPRESS",
               "UNKNOWN"
-            ]
+            ],
+            "example": "VISA"
           },
           "rawData": {
             "type": "string",
-            "description": "Raw response data returned by the payment terminal, if any."
+            "description": "Raw response data returned by the payment terminal, if any.",
+            "example": "APPROVED|000123|A1B2C3"
           },
           "takenBy": {
             "type": "string",
-            "description": "Name of the person who took the payment, if recorded."
+            "description": "Name of the person who took the payment, if recorded.",
+            "example": "Store Cashier"
           },
           "entry": {
             "type": "string",
-            "description": "How the card was entered (e.g. swipe, chip, contactless), if paid by card."
+            "description": "How the card was entered (e.g. swipe, chip, contactless), if paid by card.",
+            "example": "CHIP"
           },
           "authCode": {
             "type": "string",
-            "description": "Authorization code returned by the payment processor, if paid by card."
+            "description": "Authorization code returned by the payment processor, if paid by card.",
+            "example": "A1B2C3"
           },
           "hostRefNumber": {
             "type": "string",
-            "description": "Reference number assigned by the payment host, if paid by card."
+            "description": "Reference number assigned by the payment host, if paid by card.",
+            "example": 512345678901
           },
           "aid": {
             "type": "string",
-            "description": "EMV application identifier (AID) of the card, if paid by chip card."
+            "description": "EMV application identifier (AID) of the card, if paid by chip card.",
+            "example": "A0000000031010"
           },
           "appLabel": {
             "type": "string",
-            "description": "EMV application label of the card, if paid by chip card."
+            "description": "EMV application label of the card, if paid by chip card.",
+            "example": "VISA CREDIT"
           },
           "tenderedAmount": {
             "type": "integer",
             "format": "int64",
-            "description": "Amount tendered by the customer, in the smallest currency unit; used for cash payments."
+            "description": "Amount tendered by the customer, in the smallest currency unit; used for cash payments.",
+            "example": 360
           },
           "changeAmount": {
             "type": "integer",
             "format": "int64",
-            "description": "Change returned to the customer, in the smallest currency unit; used for cash payments."
+            "description": "Change returned to the customer, in the smallest currency unit; used for cash payments.",
+            "example": 0
           },
           "date": {
             "type": "string",
             "format": "date-time",
-            "description": "When the transaction took place (ISO-8601)."
+            "description": "When the transaction took place (ISO-8601).",
+            "example": "2026-11-11T16:12:05.214Z"
           },
           "refundedTransactionId": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the transaction that was refunded by this one, for REFUND transactions."
+            "description": "UUID of the transaction that was refunded by this one, for REFUND transactions.",
+            "example": "3d8f1b6e-9c2a-4e7d-b5f0-8a1c6e4d2b97"
           },
           "dualPricingSurchargeApplied": {
             "type": "boolean",
-            "description": "Whether a dual-pricing card surcharge was applied to this transaction."
+            "description": "Whether a dual-pricing card surcharge was applied to this transaction.",
+            "example": true
           }
         },
         "required": [
@@ -3590,10 +3656,12 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Display name of the unit. Equals the discriminator for built-in units ('Kg', 'Lb', 'Oz'); a merchant-defined label for 'Custom' units."
+            "description": "Display name of the unit. Equals the discriminator for built-in units ('Kg', 'Lb', 'Oz'); a merchant-defined label for 'Custom' units.",
+            "example": "Lb"
           },
           "value": {
-            "type": "string"
+            "type": "string",
+            "example": "Lb"
           }
         },
         "required": [
@@ -3607,20 +3675,24 @@
           "id": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique UUID identifier of the employee."
+            "description": "Unique UUID identifier of the employee.",
+            "example": "0dde8c66-4e7e-44da-9a92-409e526ec5ac"
           },
           "name": {
             "type": "string",
-            "description": "Display name of the employee."
+            "description": "Display name of the employee.",
+            "example": "Store Cashier"
           },
           "email": {
             "type": "string",
-            "description": "Email address of the employee; unknown while the account service cannot be reached."
+            "description": "Email address of the employee; unknown while the account service cannot be reached.",
+            "example": "cashier@corner.store"
           },
           "lastModified": {
             "type": "string",
             "format": "date-time",
-            "description": "When the employee last changed, its profile included."
+            "description": "When the employee last changed, its profile included.",
+            "example": "2026-11-11T16:09:48.306Z"
           }
         },
         "required": [
@@ -3635,12 +3707,14 @@
           "orderId": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique UUID identifier of the order."
+            "description": "Unique UUID identifier of the order.",
+            "example": "bab295a4-2408-4e9c-ab99-1cffad3c8ac1"
           },
           "customerId": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the customer attached to the order, if any."
+            "description": "UUID of the customer attached to the order, if any.",
+            "example": "c3d9e2a1-7b4f-4e6a-8d25-1f0a9b8c7e36"
           },
           "items": {
             "type": "array",
@@ -3656,7 +3730,8 @@
           "ebtSubtotal": {
             "type": "integer",
             "format": "int64",
-            "description": "Subtotal of the EBT-eligible portion of the order, in the smallest currency unit; null when no items are EBT-eligible."
+            "description": "Subtotal of the EBT-eligible portion of the order, in the smallest currency unit; null when no items are EBT-eligible.",
+            "example": 0
           },
           "discounts": {
             "type": "array",
@@ -3672,7 +3747,8 @@
           "fee": {
             "type": "integer",
             "format": "int64",
-            "description": "Total fees applied to the order, in the smallest currency unit (e.g. cents)."
+            "description": "Total fees applied to the order, in the smallest currency unit (e.g. cents).",
+            "example": 0
           },
           "total": {
             "$ref": "#/components/schemas/PricePair",
@@ -3681,7 +3757,8 @@
           "ebtTotal": {
             "type": "integer",
             "format": "int64",
-            "description": "Grand total of the EBT-eligible portion, in the smallest currency unit; null when no items are EBT-eligible."
+            "description": "Grand total of the EBT-eligible portion, in the smallest currency unit; null when no items are EBT-eligible.",
+            "example": 0
           },
           "transactions": {
             "type": "array",
@@ -3705,7 +3782,8 @@
           "tipAmount": {
             "type": "integer",
             "format": "int64",
-            "description": "Tip amount added to the order, in the smallest currency unit; null when no tip."
+            "description": "Tip amount added to the order, in the smallest currency unit; null when no tip.",
+            "example": 50
           },
           "paymentType": {
             "type": "string",
@@ -3718,7 +3796,8 @@
           },
           "notes": {
             "type": "string",
-            "description": "Free-form notes attached to the order."
+            "description": "Free-form notes attached to the order.",
+            "example": "Extra hot"
           },
           "employee": {
             "$ref": "#/components/schemas/EmployeeDto",
@@ -3727,16 +3806,19 @@
           "createdAt": {
             "type": "string",
             "format": "date-time",
-            "description": "When the order was created (ISO-8601)."
+            "description": "When the order was created (ISO-8601).",
+            "example": "2026-11-11T16:09:47.885Z"
           },
           "lastModified": {
             "type": "string",
             "format": "date-time",
-            "description": "When the order was last modified (ISO-8601)."
+            "description": "When the order was last modified (ISO-8601).",
+            "example": "2026-11-11T16:09:48.306Z"
           },
           "isDeleted": {
             "type": "boolean",
-            "description": "Whether the order has been soft-deleted. Deleted orders are only returned when explicitly requested via includeDeleted."
+            "description": "Whether the order has been soft-deleted. Deleted orders are only returned when explicitly requested via includeDeleted.",
+            "example": false
           },
           "discountAmount": {
             "$ref": "#/components/schemas/PricePair",
@@ -3749,27 +3831,32 @@
           "finalTax": {
             "type": "integer",
             "format": "int64",
-            "description": "Final tax actually charged, in the smallest currency unit, resolved for the payment type used. Present only when computed."
+            "description": "Final tax actually charged, in the smallest currency unit, resolved for the payment type used. Present only when computed.",
+            "example": 0
           },
           "finalDiscount": {
             "type": "integer",
             "format": "int64",
-            "description": "Final discount actually applied, in the smallest currency unit, resolved for the payment type used. Present only when computed."
+            "description": "Final discount actually applied, in the smallest currency unit, resolved for the payment type used. Present only when computed.",
+            "example": 0
           },
           "finalSubtotal": {
             "type": "integer",
             "format": "int64",
-            "description": "Final subtotal, in the smallest currency unit, resolved for the payment type used. Present only when computed."
+            "description": "Final subtotal, in the smallest currency unit, resolved for the payment type used. Present only when computed.",
+            "example": 310
           },
           "finalTotal": {
             "type": "integer",
             "format": "int64",
-            "description": "Final total, in the smallest currency unit, resolved for the payment type used. Present only when computed."
+            "description": "Final total, in the smallest currency unit, resolved for the payment type used. Present only when computed.",
+            "example": 310
           },
           "finalTotalWithTips": {
             "type": "integer",
             "format": "int64",
-            "description": "Final total including tips, in the smallest currency unit, resolved for the payment type used. Present only when computed."
+            "description": "Final total including tips, in the smallest currency unit, resolved for the payment type used. Present only when computed.",
+            "example": 360
           }
         },
         "required": [
@@ -3794,16 +3881,19 @@
           "transactionId": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique UUID identifier of the transaction."
+            "description": "Unique UUID identifier of the transaction.",
+            "example": "7e1c3b9a-4d2f-4a6e-9b81-5c0f2e7d3a64"
           },
           "refNumber": {
             "type": "string",
-            "description": "Reference number of the transaction as printed on the receipt."
+            "description": "Reference number of the transaction as printed on the receipt.",
+            "example": "000123"
           },
           "orderId": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the order this transaction belongs to, if any."
+            "description": "UUID of the order this transaction belongs to, if any.",
+            "example": "bab295a4-2408-4e9c-ab99-1cffad3c8ac1"
           },
           "transactionType": {
             "type": "string",
@@ -3812,7 +3902,8 @@
               "SALE",
               "VOID",
               "REFUND"
-            ]
+            ],
+            "example": "SALE"
           },
           "paymentMethod": {
             "type": "string",
@@ -3826,21 +3917,25 @@
               "GIFT",
               "LOYALTY",
               "ALL"
-            ]
+            ],
+            "example": "CREDIT_CARD"
           },
           "amount": {
             "type": "integer",
             "format": "int64",
-            "description": "Amount of the transaction, in the smallest currency unit (e.g. cents)."
+            "description": "Amount of the transaction, in the smallest currency unit (e.g. cents).",
+            "example": 360
           },
           "taxAmount": {
             "type": "integer",
             "format": "int64",
-            "description": "Tax portion of the amount, in the smallest currency unit (e.g. cents)."
+            "description": "Tax portion of the amount, in the smallest currency unit (e.g. cents).",
+            "example": 0
           },
           "cardNumber": {
             "type": "string",
-            "description": "Masked card number used for the payment, if paid by card."
+            "description": "Masked card number used for the payment, if paid by card.",
+            "example": "************4242"
           },
           "cardType": {
             "type": "string",
@@ -3850,59 +3945,72 @@
               "MASTERCARD",
               "AMERICAN_EXPRESS",
               "UNKNOWN"
-            ]
+            ],
+            "example": "VISA"
           },
           "rawData": {
             "type": "string",
-            "description": "Raw response data returned by the payment terminal, if any."
+            "description": "Raw response data returned by the payment terminal, if any.",
+            "example": "APPROVED|000123|A1B2C3"
           },
           "takenBy": {
             "type": "string",
-            "description": "Name of the person who took the payment, if recorded."
+            "description": "Name of the person who took the payment, if recorded.",
+            "example": "Store Cashier"
           },
           "entry": {
             "type": "string",
-            "description": "How the card was entered (e.g. swipe, chip, contactless), if paid by card."
+            "description": "How the card was entered (e.g. swipe, chip, contactless), if paid by card.",
+            "example": "CHIP"
           },
           "authCode": {
             "type": "string",
-            "description": "Authorization code returned by the payment processor, if paid by card."
+            "description": "Authorization code returned by the payment processor, if paid by card.",
+            "example": "A1B2C3"
           },
           "hostRefNumber": {
             "type": "string",
-            "description": "Reference number assigned by the payment host, if paid by card."
+            "description": "Reference number assigned by the payment host, if paid by card.",
+            "example": 512345678901
           },
           "aid": {
             "type": "string",
-            "description": "EMV application identifier (AID) of the card, if paid by chip card."
+            "description": "EMV application identifier (AID) of the card, if paid by chip card.",
+            "example": "A0000000031010"
           },
           "appLabel": {
             "type": "string",
-            "description": "EMV application label of the card, if paid by chip card."
+            "description": "EMV application label of the card, if paid by chip card.",
+            "example": "VISA CREDIT"
           },
           "tenderedAmount": {
             "type": "integer",
             "format": "int64",
-            "description": "Amount tendered by the customer, in the smallest currency unit; used for cash payments."
+            "description": "Amount tendered by the customer, in the smallest currency unit; used for cash payments.",
+            "example": 360
           },
           "changeAmount": {
             "type": "integer",
             "format": "int64",
-            "description": "Change returned to the customer, in the smallest currency unit; used for cash payments."
+            "description": "Change returned to the customer, in the smallest currency unit; used for cash payments.",
+            "example": 0
           },
           "date": {
             "type": "string",
             "format": "date-time",
-            "description": "When the transaction took place (ISO-8601)."
+            "description": "When the transaction took place (ISO-8601).",
+            "example": "2026-11-11T16:12:05.214Z"
           },
           "refundedTransactionId": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the transaction that was refunded by this one, for REFUND transactions."
+            "description": "UUID of the transaction that was refunded by this one, for REFUND transactions.",
+            "example": "3d8f1b6e-9c2a-4e7d-b5f0-8a1c6e4d2b97"
           },
           "dualPricingSurchargeApplied": {
             "type": "boolean",
-            "description": "Whether a dual-pricing card surcharge was applied to this transaction."
+            "description": "Whether a dual-pricing card surcharge was applied to this transaction.",
+            "example": true
           },
           "employee": {
             "$ref": "#/components/schemas/EmployeeDto",
@@ -3925,39 +4033,48 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "New business name of the merchant."
+            "description": "New business name of the merchant.",
+            "example": "Corner Store"
           },
           "address1": {
             "type": "string",
-            "description": "First street address line."
+            "description": "First street address line.",
+            "example": 1450
           },
           "address2": {
             "type": "string",
-            "description": "Second street address line."
+            "description": "Second street address line.",
+            "example": "Suite 2"
           },
           "address3": {
             "type": "string",
-            "description": "Third street address line."
+            "description": "Third street address line.",
+            "example": "Building B"
           },
           "city": {
             "type": "string",
-            "description": "City of the merchant's address."
+            "description": "City of the merchant's address.",
+            "example": "San Francisco"
           },
           "country": {
             "type": "string",
-            "description": "Country of the merchant's address, one of: USA, Canada, Australia, Singapore, Hong Kong (China). Required to update the phone number, as it defines the accepted phone number format."
+            "description": "Country of the merchant's address, one of: USA, Canada, Australia, Singapore, Hong Kong (China). Required to update the phone number, as it defines the accepted phone number format.",
+            "example": "US"
           },
           "state": {
             "type": "string",
-            "description": "State or province of the merchant's address."
+            "description": "State or province of the merchant's address.",
+            "example": "CA"
           },
           "zip": {
             "type": "string",
-            "description": "Postal (ZIP) code of the merchant's address."
+            "description": "Postal (ZIP) code of the merchant's address.",
+            "example": 94103
           },
           "phoneNumber": {
             "type": "string",
-            "description": "Contact phone number of the merchant, valid for the given country."
+            "description": "Contact phone number of the merchant, valid for the given country.",
+            "example": "+14155550142"
           }
         },
         "required": [
@@ -3971,47 +4088,58 @@
           "id": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique UUID identifier of the merchant."
+            "description": "Unique UUID identifier of the merchant.",
+            "example": "6aa9a46e-9fea-454f-b52f-05877a569275"
           },
           "name": {
             "type": "string",
-            "description": "Business name of the merchant."
+            "description": "Business name of the merchant.",
+            "example": "Corner Store"
           },
           "address1": {
             "type": "string",
-            "description": "First street address line."
+            "description": "First street address line.",
+            "example": 1450
           },
           "address2": {
             "type": "string",
-            "description": "Second street address line."
+            "description": "Second street address line.",
+            "example": "Suite 2"
           },
           "address3": {
             "type": "string",
-            "description": "Third street address line."
+            "description": "Third street address line.",
+            "example": "Building B"
           },
           "city": {
             "type": "string",
-            "description": "City of the merchant's address."
+            "description": "City of the merchant's address.",
+            "example": "San Francisco"
           },
           "country": {
             "type": "string",
-            "description": "Country of the merchant's address."
+            "description": "Country of the merchant's address.",
+            "example": "US"
           },
           "state": {
             "type": "string",
-            "description": "State or province of the merchant's address."
+            "description": "State or province of the merchant's address.",
+            "example": "CA"
           },
           "zip": {
             "type": "string",
-            "description": "Postal (ZIP) code of the merchant's address."
+            "description": "Postal (ZIP) code of the merchant's address.",
+            "example": 94103
           },
           "phoneNumber": {
             "type": "string",
-            "description": "Contact phone number of the merchant."
+            "description": "Contact phone number of the merchant.",
+            "example": "+14155550142"
           },
           "isDemo": {
             "type": "boolean",
-            "description": "Whether this is a demo merchant with sample data."
+            "description": "Whether this is a demo merchant with sample data.",
+            "example": false
           }
         },
         "required": [
@@ -4026,7 +4154,8 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "New display name of the item."
+            "description": "New display name of the item.",
+            "example": "Coffee"
           },
           "unitPrice": {
             "$ref": "#/components/schemas/PricePair",
@@ -4063,11 +4192,15 @@
           },
           "isEBT": {
             "type": "boolean",
-            "description": "Whether the item is eligible for EBT (Electronic Benefit Transfer) payment."
+            "description": "Whether the item is eligible for EBT (Electronic Benefit Transfer) payment.",
+            "example": false
           },
           "categories": {
             "type": "array",
             "description": "UUIDs of the categories the item belongs to.",
+            "example": [
+              "5b1e8f0e-3f0c-4c1e-9a77-2c7d1e6b9a10"
+            ],
             "items": {
               "type": "string",
               "format": "uuid"
@@ -4076,6 +4209,9 @@
           "charges": {
             "type": "array",
             "description": "UUIDs of the charges (extra fees) applied to the item.",
+            "example": [
+              "9c4f2a71-6d3e-4b8a-8f15-0e7b2d4c6a93"
+            ],
             "items": {
               "type": "string",
               "format": "uuid"
@@ -4083,31 +4219,37 @@
           },
           "isChargesDefault": {
             "type": "boolean",
-            "description": "Whether the merchant's default charges are applied to the item in addition to the explicitly listed ones."
+            "description": "Whether the merchant's default charges are applied to the item in addition to the explicitly listed ones.",
+            "example": false
           },
           "productCode": {
             "type": "string",
-            "description": "Product code of the item (e.g. UPC/barcode value)."
+            "description": "Product code of the item (e.g. UPC/barcode value).",
+            "example": "012345678905"
           },
           "itemCost": {
             "type": "integer",
             "format": "int64",
-            "description": "The merchant's cost for one unit of the item, in the smallest currency unit (e.g. cents)."
+            "description": "The merchant's cost for one unit of the item, in the smallest currency unit (e.g. cents).",
+            "example": 120
           },
           "quantity": {
             "type": "integer",
             "format": "int32",
             "deprecated": true,
-            "description": "Deprecated integer stock counter. Use stockQuantity instead."
+            "description": "Deprecated integer stock counter. Use stockQuantity instead.",
+            "example": 48
           },
           "stockQuantity": {
             "type": "number",
             "format": "double",
-            "description": "New stock quantity. Supports fractional values for per-unit items (e.g. 2.5 lb)."
+            "description": "New stock quantity. Supports fractional values for per-unit items (e.g. 2.5 lb).",
+            "example": 48
           },
           "trackInventory": {
             "type": "boolean",
-            "description": "Whether CorePOS tracks stock for this item and decrements it on each sale."
+            "description": "Whether CorePOS tracks stock for this item and decrements it on each sale.",
+            "example": true
           },
           "dualPricingBasePriceType": {
             "type": "string",
@@ -4120,11 +4262,13 @@
           "lastModified": {
             "type": "string",
             "format": "date-time",
-            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted."
+            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted.",
+            "example": "2026-11-11T16:09:48.306Z"
           },
           "isAvailable": {
             "type": "boolean",
-            "description": "Whether the item is currently available for sale on the register."
+            "description": "Whether the item is currently available for sale on the register.",
+            "example": true
           }
         },
         "required": [
@@ -4148,25 +4292,30 @@
           "categoryId": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique UUID identifier of the category."
+            "description": "Unique UUID identifier of the category.",
+            "example": "5b1e8f0e-3f0c-4c1e-9a77-2c7d1e6b9a10"
           },
           "name": {
             "type": "string",
-            "description": "Display name of the category."
+            "description": "Display name of the category.",
+            "example": "Hot drinks"
           },
           "createdAt": {
             "type": "string",
             "format": "date-time",
-            "description": "When the category was created (ISO-8601)."
+            "description": "When the category was created (ISO-8601).",
+            "example": "2026-11-11T16:09:47.885Z"
           },
           "lastModified": {
             "type": "string",
             "format": "date-time",
-            "description": "When the category was last modified (ISO-8601)."
+            "description": "When the category was last modified (ISO-8601).",
+            "example": "2026-11-11T16:09:48.306Z"
           },
           "isDeleted": {
             "type": "boolean",
-            "description": "Whether the category has been soft-deleted. Deleted categories are only returned when explicitly requested via includeDeleted."
+            "description": "Whether the category has been soft-deleted. Deleted categories are only returned when explicitly requested via includeDeleted.",
+            "example": false
           }
         },
         "required": [
@@ -4183,11 +4332,13 @@
           "chargeId": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique UUID identifier of the charge."
+            "description": "Unique UUID identifier of the charge.",
+            "example": "9c4f2a71-6d3e-4b8a-8f15-0e7b2d4c6a93"
           },
           "name": {
             "type": "string",
-            "description": "Display name of the charge."
+            "description": "Display name of the charge.",
+            "example": "Sales tax"
           },
           "chargeAmountType": {
             "type": "string",
@@ -4195,30 +4346,36 @@
             "enum": [
               "PERCENTAGE",
               "FIXED"
-            ]
+            ],
+            "example": "PERCENTAGE"
           },
           "amount": {
             "type": "integer",
             "format": "int64",
-            "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges."
+            "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges.",
+            "example": 725
           },
           "isDefault": {
             "type": "boolean",
-            "description": "Whether the charge is applied by default to items that opt into the merchant's default charges."
+            "description": "Whether the charge is applied by default to items that opt into the merchant's default charges.",
+            "example": true
           },
           "createdAt": {
             "type": "string",
             "format": "date-time",
-            "description": "When the charge was created (ISO-8601)."
+            "description": "When the charge was created (ISO-8601).",
+            "example": "2026-11-11T16:09:47.885Z"
           },
           "lastModified": {
             "type": "string",
             "format": "date-time",
-            "description": "When the charge was last modified (ISO-8601)."
+            "description": "When the charge was last modified (ISO-8601).",
+            "example": "2026-11-11T16:09:48.306Z"
           },
           "isDeleted": {
             "type": "boolean",
-            "description": "Whether the charge has been soft-deleted. Deleted charges are only returned when explicitly requested via includeDeleted."
+            "description": "Whether the charge has been soft-deleted. Deleted charges are only returned when explicitly requested via includeDeleted.",
+            "example": false
           }
         },
         "required": [
@@ -4238,19 +4395,23 @@
           "itemId": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique UUID identifier of the item."
+            "description": "Unique UUID identifier of the item.",
+            "example": "e42c7662-902c-41d7-9c3c-ea8f567e74d2"
           },
           "name": {
             "type": "string",
-            "description": "Display name of the item."
+            "description": "Display name of the item.",
+            "example": "Coffee"
           },
           "imagePath": {
             "type": "string",
-            "description": "Path to the item's full-size image, if one is attached."
+            "description": "Path to the item's full-size image, if one is attached.",
+            "example": "merchants/6aa9a46e-9fea-454f-b52f-05877a569275/items/e42c7662-902c-41d7-9c3c-ea8f567e74d2/coffee.jpg"
           },
           "thumbnailPath": {
             "type": "string",
-            "description": "Path to the item's thumbnail image, if one is attached."
+            "description": "Path to the item's thumbnail image, if one is attached.",
+            "example": "merchants/6aa9a46e-9fea-454f-b52f-05877a569275/items/e42c7662-902c-41d7-9c3c-ea8f567e74d2/coffee_thumb.jpg"
           },
           "unitPrice": {
             "$ref": "#/components/schemas/PricePair",
@@ -4287,11 +4448,13 @@
           },
           "isEBT": {
             "type": "boolean",
-            "description": "Whether the item is eligible for EBT (Electronic Benefit Transfer) payment."
+            "description": "Whether the item is eligible for EBT (Electronic Benefit Transfer) payment.",
+            "example": false
           },
           "categories": {
             "type": "array",
             "description": "Categories the item belongs to.",
+            "example": "5b1e8f0e-3f0c-4c1e-9a77-2c7d1e6b9a10",
             "items": {
               "$ref": "#/components/schemas/CategoryDto"
             }
@@ -4299,37 +4462,44 @@
           "charges": {
             "type": "array",
             "description": "Charges (extra fees) applied to the item.",
+            "example": "9c4f2a71-6d3e-4b8a-8f15-0e7b2d4c6a93",
             "items": {
               "$ref": "#/components/schemas/ChargeDto"
             }
           },
           "isChargesDefault": {
             "type": "boolean",
-            "description": "Whether the merchant's default charges are applied to the item in addition to the explicitly listed ones."
+            "description": "Whether the merchant's default charges are applied to the item in addition to the explicitly listed ones.",
+            "example": false
           },
           "productCode": {
             "type": "string",
-            "description": "Product code of the item (e.g. UPC/barcode value)."
+            "description": "Product code of the item (e.g. UPC/barcode value).",
+            "example": "012345678905"
           },
           "itemCost": {
             "type": "integer",
             "format": "int64",
-            "description": "The merchant's cost for one unit of the item, in the smallest currency unit (e.g. cents)."
+            "description": "The merchant's cost for one unit of the item, in the smallest currency unit (e.g. cents).",
+            "example": 120
           },
           "quantity": {
             "type": "integer",
             "format": "int32",
             "deprecated": true,
-            "description": "Deprecated integer stock counter. Use stockQuantity instead."
+            "description": "Deprecated integer stock counter. Use stockQuantity instead.",
+            "example": 48
           },
           "stockQuantity": {
             "type": "number",
             "format": "double",
-            "description": "Current stock quantity. Supports fractional values for per-unit items (e.g. 2.5 lb)."
+            "description": "Current stock quantity. Supports fractional values for per-unit items (e.g. 2.5 lb).",
+            "example": 48
           },
           "trackInventory": {
             "type": "boolean",
-            "description": "Whether CorePOS tracks stock for this item and decrements it on each sale."
+            "description": "Whether CorePOS tracks stock for this item and decrements it on each sale.",
+            "example": true
           },
           "dualPricingBasePriceType": {
             "type": "string",
@@ -4342,20 +4512,24 @@
           "createdAt": {
             "type": "string",
             "format": "date-time",
-            "description": "When the item was created (ISO-8601)."
+            "description": "When the item was created (ISO-8601).",
+            "example": "2026-11-11T16:09:47.885Z"
           },
           "lastModified": {
             "type": "string",
             "format": "date-time",
-            "description": "When the item was last modified (ISO-8601)."
+            "description": "When the item was last modified (ISO-8601).",
+            "example": "2026-11-11T16:09:48.306Z"
           },
           "isAvailable": {
             "type": "boolean",
-            "description": "Whether the item is currently available for sale on the register."
+            "description": "Whether the item is currently available for sale on the register.",
+            "example": true
           },
           "isDeleted": {
             "type": "boolean",
-            "description": "Whether the item has been soft-deleted. Deleted items are only returned when explicitly requested via includeDeleted."
+            "description": "Whether the item has been soft-deleted. Deleted items are only returned when explicitly requested via includeDeleted.",
+            "example": false
           }
         },
         "required": [
@@ -4380,7 +4554,8 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Display name of the employee."
+            "description": "Display name of the employee.",
+            "example": "Head Cashier"
           }
         }
       },
@@ -4390,12 +4565,14 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "New display name of the discount."
+            "description": "New display name of the discount.",
+            "example": "Morning coffee"
           },
           "amount": {
             "type": "integer",
             "format": "int64",
-            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts."
+            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts.",
+            "example": 1000
           },
           "discountAmountType": {
             "type": "string",
@@ -4403,16 +4580,19 @@
             "enum": [
               "PERCENTAGE",
               "FIXED"
-            ]
+            ],
+            "example": "PERCENTAGE"
           },
           "lastModified": {
             "type": "string",
             "format": "date-time",
-            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted."
+            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted.",
+            "example": "2026-11-11T16:09:48.306Z"
           },
           "isActive": {
             "type": "boolean",
-            "description": "Whether the discount is currently active and selectable on the register."
+            "description": "Whether the discount is currently active and selectable on the register.",
+            "example": true
           }
         },
         "required": [
@@ -4429,7 +4609,8 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "New display name of the charge."
+            "description": "New display name of the charge.",
+            "example": "Sales tax"
           },
           "chargeAmountType": {
             "type": "string",
@@ -4437,21 +4618,25 @@
             "enum": [
               "PERCENTAGE",
               "FIXED"
-            ]
+            ],
+            "example": "PERCENTAGE"
           },
           "amount": {
             "type": "integer",
             "format": "int64",
-            "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges."
+            "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges.",
+            "example": 725
           },
           "lastModified": {
             "type": "string",
             "format": "date-time",
-            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted."
+            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted.",
+            "example": "2026-11-11T16:09:48.306Z"
           },
           "isDefault": {
             "type": "boolean",
-            "description": "Whether the charge is applied by default to items that opt into the merchant's default charges."
+            "description": "Whether the charge is applied by default to items that opt into the merchant's default charges.",
+            "example": true
           }
         },
         "required": [
@@ -4468,12 +4653,14 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "New display name of the category."
+            "description": "New display name of the category.",
+            "example": "Hot drinks"
           },
           "lastModified": {
             "type": "string",
             "format": "date-time",
-            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted."
+            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted.",
+            "example": "2026-11-11T16:09:48.306Z"
           }
         },
         "required": [
@@ -4486,11 +4673,13 @@
         "properties": {
           "orderId": {
             "type": "string",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "bab295a4-2408-4e9c-ab99-1cffad3c8ac1"
           },
           "customerId": {
             "type": "string",
-            "format": "uuid"
+            "format": "uuid",
+            "example": "c3d9e2a1-7b4f-4e6a-8d25-1f0a9b8c7e36"
           },
           "items": {
             "type": "array",
@@ -4504,6 +4693,7 @@
           "ebtSubtotal": {
             "type": "integer",
             "format": "int64",
+            "example": 0,
             "minimum": 0
           },
           "discounts": {
@@ -4517,7 +4707,8 @@
           },
           "fee": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "example": 0
           },
           "total": {
             "$ref": "#/components/schemas/PricePair"
@@ -4525,6 +4716,7 @@
           "ebtTotal": {
             "type": "integer",
             "format": "int64",
+            "example": 0,
             "minimum": 0
           },
           "transactions": {
@@ -4547,10 +4739,12 @@
           "tipAmount": {
             "type": "integer",
             "format": "int64",
+            "example": 50,
             "minimum": 0
           },
           "notes": {
-            "type": "string"
+            "type": "string",
+            "example": "Extra hot"
           },
           "paymentType": {
             "type": "string",
@@ -4562,11 +4756,13 @@
           },
           "createdAt": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "example": "2026-11-11T16:09:47.885Z"
           },
           "lastModified": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "example": "2026-11-11T16:09:48.306Z"
           }
         },
         "required": [
@@ -4589,16 +4785,19 @@
           "transactionId": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique UUID identifier of the transaction."
+            "description": "Unique UUID identifier of the transaction.",
+            "example": "7e1c3b9a-4d2f-4a6e-9b81-5c0f2e7d3a64"
           },
           "refNumber": {
             "type": "string",
-            "description": "Reference number of the transaction as printed on the receipt."
+            "description": "Reference number of the transaction as printed on the receipt.",
+            "example": "000123"
           },
           "orderId": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the order this transaction belongs to, if any."
+            "description": "UUID of the order this transaction belongs to, if any.",
+            "example": "bab295a4-2408-4e9c-ab99-1cffad3c8ac1"
           },
           "transactionType": {
             "type": "string",
@@ -4607,7 +4806,8 @@
               "SALE",
               "VOID",
               "REFUND"
-            ]
+            ],
+            "example": "SALE"
           },
           "paymentMethod": {
             "type": "string",
@@ -4621,23 +4821,27 @@
               "GIFT",
               "LOYALTY",
               "ALL"
-            ]
+            ],
+            "example": "CREDIT_CARD"
           },
           "amount": {
             "type": "integer",
             "format": "int64",
             "description": "Amount of the transaction, in the smallest currency unit (e.g. cents).",
+            "example": 360,
             "minimum": 0
           },
           "taxAmount": {
             "type": "integer",
             "format": "int64",
             "description": "Tax portion of the amount, in the smallest currency unit (e.g. cents).",
+            "example": 0,
             "minimum": 0
           },
           "cardNumber": {
             "type": "string",
-            "description": "Masked card number used for the payment, if paid by card."
+            "description": "Masked card number used for the payment, if paid by card.",
+            "example": "************4242"
           },
           "cardType": {
             "type": "string",
@@ -4647,62 +4851,78 @@
               "MASTERCARD",
               "AMERICAN_EXPRESS",
               "UNKNOWN"
-            ]
+            ],
+            "example": "VISA"
           },
           "rawData": {
             "type": "string",
-            "description": "Raw response data returned by the payment terminal, if any."
+            "description": "Raw response data returned by the payment terminal, if any.",
+            "example": "APPROVED|000123|A1B2C3"
           },
           "takenBy": {
             "type": "string",
-            "description": "Name of the person who took the payment, if recorded."
+            "description": "Name of the person who took the payment, if recorded.",
+            "example": "Store Cashier"
           },
           "entry": {
             "type": "string",
-            "description": "How the card was entered (e.g. swipe, chip, contactless), if paid by card."
+            "description": "How the card was entered (e.g. swipe, chip, contactless), if paid by card.",
+            "example": "CHIP"
           },
           "authCode": {
             "type": "string",
-            "description": "Authorization code returned by the payment processor, if paid by card."
+            "description": "Authorization code returned by the payment processor, if paid by card.",
+            "example": "A1B2C3"
           },
           "hostRefNumber": {
             "type": "string",
-            "description": "Reference number assigned by the payment host, if paid by card."
+            "description": "Reference number assigned by the payment host, if paid by card.",
+            "example": 512345678901
           },
           "aid": {
             "type": "string",
-            "description": "EMV application identifier (AID) of the card, if paid by chip card."
+            "description": "EMV application identifier (AID) of the card, if paid by chip card.",
+            "example": "A0000000031010"
           },
           "appLabel": {
             "type": "string",
-            "description": "EMV application label of the card, if paid by chip card."
+            "description": "EMV application label of the card, if paid by chip card.",
+            "example": "VISA CREDIT"
           },
           "tenderedAmount": {
             "type": "integer",
             "format": "int64",
-            "description": "Amount tendered by the customer, in the smallest currency unit; used for cash payments."
+            "description": "Amount tendered by the customer, in the smallest currency unit; used for cash payments.",
+            "example": 360
           },
           "changeAmount": {
             "type": "integer",
             "format": "int64",
-            "description": "Change returned to the customer, in the smallest currency unit; used for cash payments."
+            "description": "Change returned to the customer, in the smallest currency unit; used for cash payments.",
+            "example": 0
           },
           "date": {
             "type": "string",
             "format": "date-time",
-            "description": "When the transaction took place (ISO-8601)."
+            "description": "When the transaction took place (ISO-8601).",
+            "example": "2026-11-11T16:12:05.214Z"
           },
           "refundedTransactionId": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the transaction that was refunded by this one, for REFUND transactions."
+            "description": "UUID of the transaction that was refunded by this one, for REFUND transactions.",
+            "example": "3d8f1b6e-9c2a-4e7d-b5f0-8a1c6e4d2b97"
           },
           "dualPricingSurchargeApplied": {
             "type": "boolean",
-            "description": "Whether a dual-pricing card surcharge was applied to this transaction."
+            "description": "Whether a dual-pricing card surcharge was applied to this transaction.",
+            "example": true
           },
           "lineItems": {
             "type": "array",
+            "example": [
+              "fbae7560-e86d-49f0-a480-867ec18a9ce3"
+            ],
             "items": {
               "type": "string",
               "format": "uuid"
@@ -4727,15 +4947,18 @@
         "properties": {
           "code": {
             "type": "string",
-            "description": "Authorization code received from the authorize step."
+            "description": "Authorization code received from the authorize step.",
+            "example": "8Kq2xN7vRtB4mZ1c"
           },
           "clientId": {
             "type": "string",
-            "description": "Client identifier of the third-party application."
+            "description": "Client identifier of the third-party application.",
+            "example": "loyalty-app"
           },
           "clientSecret": {
             "type": "string",
-            "description": "Client secret of the third-party application."
+            "description": "Client secret of the third-party application.",
+            "example": "cs_7d1f3a9e5b2c48e6a0f4d8b1c6e2a9f3"
           }
         },
         "required": [
@@ -4750,21 +4973,25 @@
         "properties": {
           "accessToken": {
             "type": "string",
-            "description": "JWT access token to send as the 'Authorization: Bearer' header on API calls."
+            "description": "JWT access token to send as the 'Authorization: Bearer' header on API calls.",
+            "example": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2NGI4ZGE2ZiIsImV4cCI6MTc5MzAyMDU4N30.Xk3pQ9vR2tB7mZ1cN8wL4yH6sJ0dF5gA"
           },
           "accessTokenExpiration": {
             "type": "string",
             "format": "date-time",
-            "description": "When the access token expires (ISO-8601)."
+            "description": "When the access token expires (ISO-8601).",
+            "example": "2026-11-11T17:09:47.885Z"
           },
           "refreshToken": {
             "type": "string",
-            "description": "Refresh token used to obtain a new token pair when the access token expires."
+            "description": "Refresh token used to obtain a new token pair when the access token expires.",
+            "example": "rt_2b8e4c1f9a7d3e6b0c5a8f2d4e1b7c9a"
           },
           "refreshTokenExpiration": {
             "type": "string",
             "format": "date-time",
-            "description": "When the refresh token expires (ISO-8601)."
+            "description": "When the refresh token expires (ISO-8601).",
+            "example": "2026-12-11T16:09:47.885Z"
           }
         },
         "required": [
@@ -4780,15 +5007,18 @@
         "properties": {
           "refreshToken": {
             "type": "string",
-            "description": "Refresh token from the previously issued token pair."
+            "description": "Refresh token from the previously issued token pair.",
+            "example": "rt_2b8e4c1f9a7d3e6b0c5a8f2d4e1b7c9a"
           },
           "clientId": {
             "type": "string",
-            "description": "Client identifier of the third-party application."
+            "description": "Client identifier of the third-party application.",
+            "example": "loyalty-app"
           },
           "clientSecret": {
             "type": "string",
-            "description": "Client secret of the third-party application."
+            "description": "Client secret of the third-party application.",
+            "example": "cs_7d1f3a9e5b2c48e6a0f4d8b1c6e2a9f3"
           }
         },
         "required": [
@@ -4803,11 +5033,13 @@
         "properties": {
           "imagePath": {
             "type": "string",
-            "description": "Path to the stored full-size image."
+            "description": "Path to the stored full-size image.",
+            "example": "merchants/6aa9a46e-9fea-454f-b52f-05877a569275/items/e42c7662-902c-41d7-9c3c-ea8f567e74d2/coffee.jpg"
           },
           "thumbPath": {
             "type": "string",
-            "description": "Path to the stored thumbnail image."
+            "description": "Path to the stored thumbnail image.",
+            "example": "merchants/6aa9a46e-9fea-454f-b52f-05877a569275/items/e42c7662-902c-41d7-9c3c-ea8f567e74d2/coffee_thumb.jpg"
           }
         }
       },
@@ -4817,7 +5049,8 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Display name of the item."
+            "description": "Display name of the item.",
+            "example": "Coffee"
           },
           "unitPrice": {
             "$ref": "#/components/schemas/PricePair",
@@ -4854,11 +5087,15 @@
           },
           "isEBT": {
             "type": "boolean",
-            "description": "Whether the item is eligible for EBT (Electronic Benefit Transfer) payment."
+            "description": "Whether the item is eligible for EBT (Electronic Benefit Transfer) payment.",
+            "example": false
           },
           "categories": {
             "type": "array",
             "description": "UUIDs of existing categories the item belongs to.",
+            "example": [
+              "5b1e8f0e-3f0c-4c1e-9a77-2c7d1e6b9a10"
+            ],
             "items": {
               "type": "string",
               "format": "uuid"
@@ -4867,6 +5104,9 @@
           "charges": {
             "type": "array",
             "description": "UUIDs of existing charges (extra fees) applied to the item.",
+            "example": [
+              "9c4f2a71-6d3e-4b8a-8f15-0e7b2d4c6a93"
+            ],
             "items": {
               "type": "string",
               "format": "uuid"
@@ -4874,31 +5114,37 @@
           },
           "isChargesDefault": {
             "type": "boolean",
-            "description": "Whether the merchant's default charges are applied to the item in addition to the explicitly listed ones."
+            "description": "Whether the merchant's default charges are applied to the item in addition to the explicitly listed ones.",
+            "example": false
           },
           "productCode": {
             "type": "string",
-            "description": "Product code of the item (e.g. UPC/barcode value)."
+            "description": "Product code of the item (e.g. UPC/barcode value).",
+            "example": "012345678905"
           },
           "itemCost": {
             "type": "integer",
             "format": "int64",
-            "description": "The merchant's cost for one unit of the item, in the smallest currency unit (e.g. cents)."
+            "description": "The merchant's cost for one unit of the item, in the smallest currency unit (e.g. cents).",
+            "example": 120
           },
           "quantity": {
             "type": "integer",
             "format": "int32",
             "deprecated": true,
-            "description": "Deprecated integer stock counter. Use stockQuantity instead."
+            "description": "Deprecated integer stock counter. Use stockQuantity instead.",
+            "example": 48
           },
           "stockQuantity": {
             "type": "number",
             "format": "double",
-            "description": "Initial stock quantity. Supports fractional values for per-unit items (e.g. 2.5 lb)."
+            "description": "Initial stock quantity. Supports fractional values for per-unit items (e.g. 2.5 lb).",
+            "example": 48
           },
           "trackInventory": {
             "type": "boolean",
-            "description": "Whether CorePOS tracks stock for this item and decrements it on each sale."
+            "description": "Whether CorePOS tracks stock for this item and decrements it on each sale.",
+            "example": true
           },
           "dualPricingBasePriceType": {
             "type": "string",
@@ -4911,16 +5157,19 @@
           "createdAt": {
             "type": "string",
             "format": "date-time",
-            "description": "Creation timestamp (ISO-8601). Defaults to the server time when omitted."
+            "description": "Creation timestamp (ISO-8601). Defaults to the server time when omitted.",
+            "example": "2026-11-11T16:09:47.885Z"
           },
           "lastModified": {
             "type": "string",
             "format": "date-time",
-            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted."
+            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted.",
+            "example": "2026-11-11T16:09:48.306Z"
           },
           "isAvailable": {
             "type": "boolean",
-            "description": "Whether the item is available for sale on the register immediately after creation."
+            "description": "Whether the item is available for sale on the register immediately after creation.",
+            "example": true
           }
         },
         "required": [
@@ -4944,11 +5193,13 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Display name of the employee."
+            "description": "Display name of the employee.",
+            "example": "Store Cashier"
           },
           "email": {
             "type": "string",
-            "description": "Email address of the employee, who is invited to choose a password."
+            "description": "Email address of the employee, who is invited to choose a password.",
+            "example": "cashier@corner.store"
           }
         },
         "required": [
@@ -4961,12 +5212,14 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "Display name of the discount."
+            "description": "Display name of the discount.",
+            "example": "Morning coffee"
           },
           "amount": {
             "type": "integer",
             "format": "int64",
             "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts. Must be at least 0.",
+            "example": 1000,
             "minimum": 0
           },
           "discountAmountType": {
@@ -4975,21 +5228,25 @@
             "enum": [
               "PERCENTAGE",
               "FIXED"
-            ]
+            ],
+            "example": "PERCENTAGE"
           },
           "createdAt": {
             "type": "string",
             "format": "date-time",
-            "description": "Creation timestamp (ISO-8601). Defaults to the server time when omitted."
+            "description": "Creation timestamp (ISO-8601). Defaults to the server time when omitted.",
+            "example": "2026-11-11T16:09:47.885Z"
           },
           "lastModified": {
             "type": "string",
             "format": "date-time",
-            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted."
+            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted.",
+            "example": "2026-11-11T16:09:48.306Z"
           },
           "isActive": {
             "type": "boolean",
-            "description": "Whether the discount is active and selectable on the register immediately after creation."
+            "description": "Whether the discount is active and selectable on the register immediately after creation.",
+            "example": true
           }
         },
         "required": [
@@ -5008,16 +5265,19 @@
           "discountId": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique UUID identifier of the discount."
+            "description": "Unique UUID identifier of the discount.",
+            "example": "2f7d9b3c-1a6e-4c85-b0f4-7e3a9c5d1b28"
           },
           "name": {
             "type": "string",
-            "description": "Display name of the discount."
+            "description": "Display name of the discount.",
+            "example": "Morning coffee"
           },
           "amount": {
             "type": "integer",
             "format": "int64",
-            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts."
+            "description": "Discount value — percentage points (scaled by 100, e.g. 1000 = 10%) for PERCENTAGE discounts, or the smallest currency unit (e.g. cents) for FIXED discounts.",
+            "example": 1000
           },
           "discountAmountType": {
             "type": "string",
@@ -5025,25 +5285,30 @@
             "enum": [
               "PERCENTAGE",
               "FIXED"
-            ]
+            ],
+            "example": "PERCENTAGE"
           },
           "isActive": {
             "type": "boolean",
-            "description": "Whether the discount is currently active and selectable on the register."
+            "description": "Whether the discount is currently active and selectable on the register.",
+            "example": true
           },
           "createdAt": {
             "type": "string",
             "format": "date-time",
-            "description": "When the discount was created (ISO-8601)."
+            "description": "When the discount was created (ISO-8601).",
+            "example": "2026-11-11T16:09:47.885Z"
           },
           "lastModified": {
             "type": "string",
             "format": "date-time",
-            "description": "When the discount was last modified (ISO-8601)."
+            "description": "When the discount was last modified (ISO-8601).",
+            "example": "2026-11-11T16:09:48.306Z"
           },
           "isDeleted": {
             "type": "boolean",
-            "description": "Whether the discount has been soft-deleted. Deleted discounts are only returned when explicitly requested via includeDeleted."
+            "description": "Whether the discount has been soft-deleted. Deleted discounts are only returned when explicitly requested via includeDeleted.",
+            "example": false
           }
         },
         "required": [
@@ -5063,11 +5328,13 @@
           "chargeId": {
             "type": "string",
             "format": "uuid",
-            "description": "Optional UUID for the new charge; generated by the server when omitted."
+            "description": "Optional UUID for the new charge; generated by the server when omitted.",
+            "example": "9c4f2a71-6d3e-4b8a-8f15-0e7b2d4c6a93"
           },
           "name": {
             "type": "string",
-            "description": "Display name of the charge."
+            "description": "Display name of the charge.",
+            "example": "Sales tax"
           },
           "chargeAmountType": {
             "type": "string",
@@ -5075,27 +5342,32 @@
             "enum": [
               "PERCENTAGE",
               "FIXED"
-            ]
+            ],
+            "example": "PERCENTAGE"
           },
           "amount": {
             "type": "integer",
             "format": "int64",
             "description": "Charge value — percentage points (scaled by 100, e.g. 725 = 7.25%) for PERCENTAGE charges, or the smallest currency unit (e.g. cents) for FIXED charges. Must be at least 0.",
+            "example": 725,
             "minimum": 0
           },
           "createdAt": {
             "type": "string",
             "format": "date-time",
-            "description": "Creation timestamp (ISO-8601). Defaults to the server time when omitted."
+            "description": "Creation timestamp (ISO-8601). Defaults to the server time when omitted.",
+            "example": "2026-11-11T16:09:47.885Z"
           },
           "lastModified": {
             "type": "string",
             "format": "date-time",
-            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted."
+            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted.",
+            "example": "2026-11-11T16:09:48.306Z"
           },
           "isDefault": {
             "type": "boolean",
-            "description": "Whether the charge is applied by default to items that opt into the merchant's default charges."
+            "description": "Whether the charge is applied by default to items that opt into the merchant's default charges.",
+            "example": true
           }
         },
         "required": [
@@ -5114,21 +5386,25 @@
           "categoryId": {
             "type": "string",
             "format": "uuid",
-            "description": "Optional UUID for the new category; generated by the server when omitted."
+            "description": "Optional UUID for the new category; generated by the server when omitted.",
+            "example": "5b1e8f0e-3f0c-4c1e-9a77-2c7d1e6b9a10"
           },
           "name": {
             "type": "string",
-            "description": "Display name of the category."
+            "description": "Display name of the category.",
+            "example": "Hot drinks"
           },
           "createdAt": {
             "type": "string",
             "format": "date-time",
-            "description": "Creation timestamp (ISO-8601). Defaults to the server time when omitted."
+            "description": "Creation timestamp (ISO-8601). Defaults to the server time when omitted.",
+            "example": "2026-11-11T16:09:47.885Z"
           },
           "lastModified": {
             "type": "string",
             "format": "date-time",
-            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted."
+            "description": "Modification timestamp (ISO-8601). Defaults to the server time when omitted.",
+            "example": "2026-11-11T16:09:48.306Z"
           }
         },
         "required": [
@@ -5142,15 +5418,18 @@
         "properties": {
           "totalElements": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "example": 1
           },
           "totalPages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 1
           },
           "size": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 20
           },
           "content": {
             "type": "array",
@@ -5160,26 +5439,31 @@
           },
           "number": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 0
           },
           "sort": {
             "$ref": "#/components/schemas/Sortnull"
           },
           "numberOfElements": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 1
           },
           "pageable": {
             "$ref": "#/components/schemas/Pageablenull"
           },
           "first": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "last": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "empty": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": false
           }
         }
       },
@@ -5188,24 +5472,29 @@
         "properties": {
           "offset": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "example": 0
           },
           "sort": {
             "$ref": "#/components/schemas/Sortnull"
           },
           "paged": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "pageNumber": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 0
           },
           "pageSize": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 20
           },
           "unpaged": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": false
           }
         }
       },
@@ -5213,13 +5502,16 @@
         "type": "object",
         "properties": {
           "empty": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": false
           },
           "sorted": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": false
           },
           "unsorted": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           }
         }
       },
@@ -5229,31 +5521,19 @@
         "properties": {
           "entry": {
             "type": "string",
-            "description": "How the card was entered (e.g. swipe, chip, contactless), if paid by card."
+            "description": "How the card was entered (e.g. swipe, chip, contactless), if paid by card.",
+            "example": "CHIP"
           },
           "date": {
             "type": "string",
             "format": "date-time",
-            "description": "When the transaction took place (ISO-8601)."
-          },
-          "amount": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Amount of the transaction, in the smallest currency unit (e.g. cents)."
-          },
-          "transactionId": {
-            "type": "string",
-            "format": "uuid",
-            "description": "Unique UUID identifier of the transaction."
-          },
-          "orderId": {
-            "type": "string",
-            "format": "uuid",
-            "description": "UUID of the order this transaction belongs to, if any."
+            "description": "When the transaction took place (ISO-8601).",
+            "example": "2026-11-11T16:12:05.214Z"
           },
           "refNumber": {
             "type": "string",
-            "description": "Reference number of the transaction as printed on the receipt."
+            "description": "Reference number of the transaction as printed on the receipt.",
+            "example": "000123"
           },
           "transactionType": {
             "type": "string",
@@ -5262,7 +5542,8 @@
               "SALE",
               "VOID",
               "REFUND"
-            ]
+            ],
+            "example": "SALE"
           },
           "paymentMethod": {
             "type": "string",
@@ -5276,12 +5557,14 @@
               "GIFT",
               "LOYALTY",
               "ALL"
-            ]
+            ],
+            "example": "CREDIT_CARD"
           },
           "taxAmount": {
             "type": "integer",
             "format": "int64",
-            "description": "Tax portion of the amount, in the smallest currency unit (e.g. cents)."
+            "description": "Tax portion of the amount, in the smallest currency unit (e.g. cents).",
+            "example": 0
           },
           "cardType": {
             "type": "string",
@@ -5291,54 +5574,84 @@
               "MASTERCARD",
               "AMERICAN_EXPRESS",
               "UNKNOWN"
-            ]
+            ],
+            "example": "VISA"
           },
           "rawData": {
             "type": "string",
-            "description": "Raw response data returned by the payment terminal, if any."
+            "description": "Raw response data returned by the payment terminal, if any.",
+            "example": "APPROVED|000123|A1B2C3"
           },
           "takenBy": {
             "type": "string",
-            "description": "Name of the person who took the payment, if recorded."
+            "description": "Name of the person who took the payment, if recorded.",
+            "example": "Store Cashier"
           },
           "authCode": {
             "type": "string",
-            "description": "Authorization code returned by the payment processor, if paid by card."
+            "description": "Authorization code returned by the payment processor, if paid by card.",
+            "example": "A1B2C3"
           },
           "hostRefNumber": {
             "type": "string",
-            "description": "Reference number assigned by the payment host, if paid by card."
+            "description": "Reference number assigned by the payment host, if paid by card.",
+            "example": 512345678901
           },
           "aid": {
             "type": "string",
-            "description": "EMV application identifier (AID) of the card, if paid by chip card."
+            "description": "EMV application identifier (AID) of the card, if paid by chip card.",
+            "example": "A0000000031010"
           },
           "appLabel": {
             "type": "string",
-            "description": "EMV application label of the card, if paid by chip card."
+            "description": "EMV application label of the card, if paid by chip card.",
+            "example": "VISA CREDIT"
           },
           "tenderedAmount": {
             "type": "integer",
             "format": "int64",
-            "description": "Amount tendered by the customer, in the smallest currency unit; used for cash payments."
+            "description": "Amount tendered by the customer, in the smallest currency unit; used for cash payments.",
+            "example": 360
           },
           "changeAmount": {
             "type": "integer",
             "format": "int64",
-            "description": "Change returned to the customer, in the smallest currency unit; used for cash payments."
+            "description": "Change returned to the customer, in the smallest currency unit; used for cash payments.",
+            "example": 0
           },
           "refundedTransactionId": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the transaction that was refunded by this one, for REFUND transactions."
+            "description": "UUID of the transaction that was refunded by this one, for REFUND transactions.",
+            "example": "3d8f1b6e-9c2a-4e7d-b5f0-8a1c6e4d2b97"
           },
           "dualPricingSurchargeApplied": {
             "type": "boolean",
-            "description": "Whether a dual-pricing card surcharge was applied to this transaction."
+            "description": "Whether a dual-pricing card surcharge was applied to this transaction.",
+            "example": true
+          },
+          "transactionId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Unique UUID identifier of the transaction.",
+            "example": "7e1c3b9a-4d2f-4a6e-9b81-5c0f2e7d3a64"
+          },
+          "orderId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the order this transaction belongs to, if any.",
+            "example": "bab295a4-2408-4e9c-ab99-1cffad3c8ac1"
+          },
+          "amount": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Amount of the transaction, in the smallest currency unit (e.g. cents).",
+            "example": 360
           },
           "cardNumber": {
             "type": "string",
-            "description": "Masked card number used for the payment, if paid by card."
+            "description": "Masked card number used for the payment, if paid by card.",
+            "example": "************4242"
           }
         },
         "required": [
@@ -5356,15 +5669,18 @@
         "properties": {
           "totalElements": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "example": 1
           },
           "totalPages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 1
           },
           "size": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 20
           },
           "content": {
             "type": "array",
@@ -5374,26 +5690,31 @@
           },
           "number": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 0
           },
           "sort": {
             "$ref": "#/components/schemas/Sortnull"
           },
           "numberOfElements": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 1
           },
           "pageable": {
             "$ref": "#/components/schemas/Pageablenull"
           },
           "first": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "last": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "empty": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": false
           }
         }
       },
@@ -5404,47 +5725,58 @@
           "id": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique UUID identifier of the merchant."
+            "description": "Unique UUID identifier of the merchant.",
+            "example": "6aa9a46e-9fea-454f-b52f-05877a569275"
           },
           "name": {
             "type": "string",
-            "description": "Business name of the merchant."
+            "description": "Business name of the merchant.",
+            "example": "Corner Store"
           },
           "address1": {
             "type": "string",
-            "description": "First street address line."
+            "description": "First street address line.",
+            "example": 1450
           },
           "address2": {
             "type": "string",
-            "description": "Second street address line."
+            "description": "Second street address line.",
+            "example": "Suite 2"
           },
           "address3": {
             "type": "string",
-            "description": "Third street address line."
+            "description": "Third street address line.",
+            "example": "Building B"
           },
           "city": {
             "type": "string",
-            "description": "City of the merchant's address."
+            "description": "City of the merchant's address.",
+            "example": "San Francisco"
           },
           "country": {
             "type": "string",
-            "description": "Country of the merchant's address."
+            "description": "Country of the merchant's address.",
+            "example": "US"
           },
           "state": {
             "type": "string",
-            "description": "State or province of the merchant's address."
+            "description": "State or province of the merchant's address.",
+            "example": "CA"
           },
           "zip": {
             "type": "string",
-            "description": "Postal (ZIP) code of the merchant's address."
+            "description": "Postal (ZIP) code of the merchant's address.",
+            "example": 94103
           },
           "ownerEmail": {
             "type": "string",
-            "description": "Email address of the merchant's owner account."
+            "description": "Email address of the merchant's owner account.",
+            "example": "owner@corner.store"
           },
           "phoneNumber": {
             "type": "string",
-            "description": "Contact phone number of the merchant."
+            "description": "Contact phone number of the merchant.",
+            "example": "+14155550142"
           }
         },
         "required": [
@@ -5459,20 +5791,24 @@
           "appId": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique UUID identifier of the application."
+            "description": "Unique UUID identifier of the application.",
+            "example": "64b8da6f-8563-4926-9c6e-8a369687e8e2"
           },
           "appName": {
             "type": "string",
-            "description": "Display name of the application."
+            "description": "Display name of the application.",
+            "example": "Loyalty"
           },
           "isInTrial": {
             "type": "boolean",
-            "description": "Whether the merchant is currently in the application's free trial period."
+            "description": "Whether the merchant is currently in the application's free trial period.",
+            "example": false
           },
           "billingStartTime": {
             "type": "string",
             "format": "date-time",
-            "description": "When billing started for this merchant and application (ISO-8601)."
+            "description": "When billing started for this merchant and application (ISO-8601).",
+            "example": "2026-11-11T16:09:47.885Z"
           },
           "status": {
             "type": "string",
@@ -5482,12 +5818,14 @@
               "INACTIVE",
               "LAPSED",
               "SUPPRESSED"
-            ]
+            ],
+            "example": "ACTIVE"
           },
           "daysLapsed": {
             "type": "integer",
             "format": "int64",
-            "description": "Number of days elapsed since billing started."
+            "description": "Number of days elapsed since billing started.",
+            "example": 0
           },
           "currentSubscription": {
             "$ref": "#/components/schemas/AppSubscriptionDto",
@@ -5519,24 +5857,29 @@
           "id": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique UUID identifier of the subscription plan."
+            "description": "Unique UUID identifier of the subscription plan.",
+            "example": "b7e4a2c9-1d6f-4b3e-8a50-2c9e7f1d4b86"
           },
           "name": {
             "type": "string",
-            "description": "Display name of the subscription plan."
+            "description": "Display name of the subscription plan.",
+            "example": "Loyalty Pro"
           },
           "amount": {
             "type": "integer",
             "format": "int64",
-            "description": "Price of the plan, in the smallest currency unit (e.g. cents)."
+            "description": "Price of the plan, in the smallest currency unit (e.g. cents).",
+            "example": 1999
           },
           "description": {
             "type": "string",
-            "description": "Human-readable description of what the plan includes."
+            "description": "Human-readable description of what the plan includes.",
+            "example": "Unlimited loyalty members and monthly reward campaigns."
           },
           "isActive": {
             "type": "boolean",
-            "description": "Whether the plan is currently offered."
+            "description": "Whether the plan is currently offered.",
+            "example": true
           }
         },
         "required": [
@@ -5552,15 +5895,18 @@
         "properties": {
           "totalElements": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "example": 1
           },
           "totalPages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 1
           },
           "size": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 20
           },
           "content": {
             "type": "array",
@@ -5570,26 +5916,31 @@
           },
           "number": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 0
           },
           "sort": {
             "$ref": "#/components/schemas/Sortnull"
           },
           "numberOfElements": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 1
           },
           "pageable": {
             "$ref": "#/components/schemas/Pageablenull"
           },
           "first": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "last": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "empty": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": false
           }
         }
       },
@@ -5598,15 +5949,18 @@
         "properties": {
           "totalElements": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "example": 1
           },
           "totalPages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 1
           },
           "size": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 20
           },
           "content": {
             "type": "array",
@@ -5616,26 +5970,31 @@
           },
           "number": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 0
           },
           "sort": {
             "$ref": "#/components/schemas/Sortnull"
           },
           "numberOfElements": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 1
           },
           "pageable": {
             "$ref": "#/components/schemas/Pageablenull"
           },
           "first": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "last": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "empty": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": false
           }
         }
       },
@@ -5644,15 +6003,18 @@
         "properties": {
           "totalElements": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "example": 1
           },
           "totalPages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 1
           },
           "size": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 20
           },
           "content": {
             "type": "array",
@@ -5662,26 +6024,31 @@
           },
           "number": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 0
           },
           "sort": {
             "$ref": "#/components/schemas/Sortnull"
           },
           "numberOfElements": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 1
           },
           "pageable": {
             "$ref": "#/components/schemas/Pageablenull"
           },
           "first": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "last": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "empty": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": false
           }
         }
       },
@@ -5693,11 +6060,13 @@
             "type": "number",
             "format": "float",
             "description": "Percentage difference between card and cash prices (e.g. 3.5 means card prices are 3.5% higher). At most 4, with up to two decimal places.",
+            "example": 3.5,
             "maximum": 4
           },
           "applyToDebit": {
             "type": "boolean",
-            "description": "Whether the dual-pricing surcharge also applies to debit card payments."
+            "description": "Whether the dual-pricing surcharge also applies to debit card payments.",
+            "example": false
           }
         },
         "required": [
@@ -5710,15 +6079,18 @@
         "properties": {
           "totalElements": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "example": 1
           },
           "totalPages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 1
           },
           "size": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 20
           },
           "content": {
             "type": "array",
@@ -5728,26 +6100,31 @@
           },
           "number": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 0
           },
           "sort": {
             "$ref": "#/components/schemas/Sortnull"
           },
           "numberOfElements": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 1
           },
           "pageable": {
             "$ref": "#/components/schemas/Pageablenull"
           },
           "first": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "last": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "empty": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": false
           }
         }
       },
@@ -5756,15 +6133,18 @@
         "properties": {
           "totalElements": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "example": 1
           },
           "totalPages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 1
           },
           "size": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 20
           },
           "content": {
             "type": "array",
@@ -5774,26 +6154,31 @@
           },
           "number": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 0
           },
           "sort": {
             "$ref": "#/components/schemas/Sortnull"
           },
           "numberOfElements": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 1
           },
           "pageable": {
             "$ref": "#/components/schemas/Pageablenull"
           },
           "first": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "last": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "empty": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": false
           }
         }
       },
@@ -5802,15 +6187,18 @@
         "properties": {
           "totalElements": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "example": 1
           },
           "totalPages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 1
           },
           "size": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 20
           },
           "content": {
             "type": "array",
@@ -5820,26 +6208,31 @@
           },
           "number": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 0
           },
           "sort": {
             "$ref": "#/components/schemas/Sortnull"
           },
           "numberOfElements": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "example": 1
           },
           "pageable": {
             "$ref": "#/components/schemas/Pageablenull"
           },
           "first": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "last": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": true
           },
           "empty": {
-            "type": "boolean"
+            "type": "boolean",
+            "example": false
           }
         }
       },
@@ -5850,20 +6243,24 @@
           "id": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the app."
+            "description": "UUID of the app.",
+            "example": "64b8da6f-8563-4926-9c6e-8a369687e8e2"
           },
           "name": {
             "type": "string",
-            "description": "Name of the app."
+            "description": "Name of the app.",
+            "example": "Loyalty"
           },
           "description": {
             "type": "string",
-            "description": "Description of the app."
+            "description": "Description of the app.",
+            "example": "Points and rewards for returning customers."
           },
           "developerId": {
             "type": "string",
             "format": "uuid",
-            "description": "UUID of the developer of the app."
+            "description": "UUID of the developer of the app.",
+            "example": "07ac3294-434c-411f-a9d9-24fc80e47b66"
           },
           "permissions": {
             "type": "array",
@@ -5886,12 +6283,14 @@
           },
           "packageName": {
             "type": "string",
-            "description": "Android package name of the app, if it has one."
+            "description": "Android package name of the app, if it has one.",
+            "example": "com.example.loyalty"
           },
           "lastModified": {
             "type": "string",
             "format": "date-time",
-            "description": "When the app was last changed."
+            "description": "When the app was last changed.",
+            "example": "2026-11-11T16:09:48.306Z"
           }
         },
         "required": [
@@ -5913,7 +6312,8 @@
           "installedAt": {
             "type": "string",
             "format": "date-time",
-            "description": "When the merchant installed the app."
+            "description": "When the merchant installed the app.",
+            "example": "2026-11-11T16:09:47.885Z"
           }
         },
         "required": [
@@ -5967,7 +6367,7 @@
     "item.created": {
       "post": {
         "tags": [
-          "Webhook events"
+          "Items"
         ],
         "summary": "Item created",
         "description": "An item of a merchant that installed the app was created. `data` is the item as the API returns it (ItemDto).\n\nThis event requires **ITEM READ** authority.",
@@ -5986,7 +6386,74 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebhookEventDto"
+                "type": "object",
+                "description": "The body of a webhook: one event about an entity of a merchant that installed the app.",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique identifier of the event. A webhook delivered again carries the same one, so it can be used to drop duplicates.",
+                    "example": "a6d00fd4-5535-5158-8f7b-360e63e8413b"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Type of the event: the entity and what happened to it.",
+                    "enum": [
+                      "item.created"
+                    ],
+                    "example": "item.created"
+                  },
+                  "entityType": {
+                    "type": "string",
+                    "description": "Type of the entity the event is about.",
+                    "enum": [
+                      "item"
+                    ],
+                    "example": "item"
+                  },
+                  "entityId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the entity the event is about.",
+                    "example": "e42c7662-902c-41d7-9c3c-ea8f567e74d2"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "When the change was made.",
+                    "example": "2026-11-11T16:09:47.885Z"
+                  },
+                  "merchantId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the merchant whose entity changed.",
+                    "example": "6aa9a46e-9fea-454f-b52f-05877a569275"
+                  },
+                  "source": {
+                    "type": "string",
+                    "description": "Who made the change: a merchant user on a device (ANDROID) or in the back office (WEB), a THIRD_PARTY_APP, a SERVER_TO_SERVER client, an ADMIN, or the SYSTEM.",
+                    "enum": [
+                      "SYSTEM",
+                      "WEB",
+                      "ANDROID",
+                      "THIRD_PARTY_APP",
+                      "SERVER_TO_SERVER",
+                      "ADMIN"
+                    ]
+                  },
+                  "data": {
+                    "$ref": "#/components/schemas/ItemDto",
+                    "description": "The entity after the change, as the API returns it: an item, an order, an employee, an app. Absent when the entity no longer exists. Events may arrive out of order: its lastModified tells which state is newer."
+                  }
+                },
+                "required": [
+                  "createdAt",
+                  "entityId",
+                  "entityType",
+                  "id",
+                  "merchantId",
+                  "type"
+                ]
               },
               "examples": {
                 "item.created": {
@@ -6043,7 +6510,7 @@
     "item.updated": {
       "post": {
         "tags": [
-          "Webhook events"
+          "Items"
         ],
         "summary": "Item updated",
         "description": "An item of a merchant that installed the app was changed. `data` is the item as the API returns it (ItemDto).\n\nThis event requires **ITEM READ** authority.",
@@ -6062,7 +6529,74 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebhookEventDto"
+                "type": "object",
+                "description": "The body of a webhook: one event about an entity of a merchant that installed the app.",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique identifier of the event. A webhook delivered again carries the same one, so it can be used to drop duplicates.",
+                    "example": "a6d00fd4-5535-5158-8f7b-360e63e8413b"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Type of the event: the entity and what happened to it.",
+                    "enum": [
+                      "item.updated"
+                    ],
+                    "example": "item.updated"
+                  },
+                  "entityType": {
+                    "type": "string",
+                    "description": "Type of the entity the event is about.",
+                    "enum": [
+                      "item"
+                    ],
+                    "example": "item"
+                  },
+                  "entityId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the entity the event is about.",
+                    "example": "e42c7662-902c-41d7-9c3c-ea8f567e74d2"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "When the change was made.",
+                    "example": "2026-11-11T16:09:47.885Z"
+                  },
+                  "merchantId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the merchant whose entity changed.",
+                    "example": "6aa9a46e-9fea-454f-b52f-05877a569275"
+                  },
+                  "source": {
+                    "type": "string",
+                    "description": "Who made the change: a merchant user on a device (ANDROID) or in the back office (WEB), a THIRD_PARTY_APP, a SERVER_TO_SERVER client, an ADMIN, or the SYSTEM.",
+                    "enum": [
+                      "SYSTEM",
+                      "WEB",
+                      "ANDROID",
+                      "THIRD_PARTY_APP",
+                      "SERVER_TO_SERVER",
+                      "ADMIN"
+                    ]
+                  },
+                  "data": {
+                    "$ref": "#/components/schemas/ItemDto",
+                    "description": "The entity after the change, as the API returns it: an item, an order, an employee, an app. Absent when the entity no longer exists. Events may arrive out of order: its lastModified tells which state is newer."
+                  }
+                },
+                "required": [
+                  "createdAt",
+                  "entityId",
+                  "entityType",
+                  "id",
+                  "merchantId",
+                  "type"
+                ]
               },
               "examples": {
                 "item.updated": {
@@ -6119,7 +6653,7 @@
     "item.deleted": {
       "post": {
         "tags": [
-          "Webhook events"
+          "Items"
         ],
         "summary": "Item deleted",
         "description": "An item of a merchant that installed the app was deleted. When the item is later purged, another item.deleted comes without `data`. `data` is the item as the API returns it (ItemDto).\n\nThis event requires **ITEM READ** authority.",
@@ -6138,7 +6672,74 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebhookEventDto"
+                "type": "object",
+                "description": "The body of a webhook: one event about an entity of a merchant that installed the app.",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique identifier of the event. A webhook delivered again carries the same one, so it can be used to drop duplicates.",
+                    "example": "a6d00fd4-5535-5158-8f7b-360e63e8413b"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Type of the event: the entity and what happened to it.",
+                    "enum": [
+                      "item.deleted"
+                    ],
+                    "example": "item.deleted"
+                  },
+                  "entityType": {
+                    "type": "string",
+                    "description": "Type of the entity the event is about.",
+                    "enum": [
+                      "item"
+                    ],
+                    "example": "item"
+                  },
+                  "entityId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the entity the event is about.",
+                    "example": "e42c7662-902c-41d7-9c3c-ea8f567e74d2"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "When the change was made.",
+                    "example": "2026-11-11T16:09:47.885Z"
+                  },
+                  "merchantId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the merchant whose entity changed.",
+                    "example": "6aa9a46e-9fea-454f-b52f-05877a569275"
+                  },
+                  "source": {
+                    "type": "string",
+                    "description": "Who made the change: a merchant user on a device (ANDROID) or in the back office (WEB), a THIRD_PARTY_APP, a SERVER_TO_SERVER client, an ADMIN, or the SYSTEM.",
+                    "enum": [
+                      "SYSTEM",
+                      "WEB",
+                      "ANDROID",
+                      "THIRD_PARTY_APP",
+                      "SERVER_TO_SERVER",
+                      "ADMIN"
+                    ]
+                  },
+                  "data": {
+                    "$ref": "#/components/schemas/ItemDto",
+                    "description": "The entity after the change, as the API returns it: an item, an order, an employee, an app. Absent when the entity no longer exists. Events may arrive out of order: its lastModified tells which state is newer."
+                  }
+                },
+                "required": [
+                  "createdAt",
+                  "entityId",
+                  "entityType",
+                  "id",
+                  "merchantId",
+                  "type"
+                ]
               },
               "examples": {
                 "item.deleted": {
@@ -6195,7 +6796,7 @@
     "order.created": {
       "post": {
         "tags": [
-          "Webhook events"
+          "Orders"
         ],
         "summary": "Order created",
         "description": "An order of a merchant that installed the app was created. `data` is the order as the API returns it (OrderDto).\n\nThis event requires **ORDER READ** authority.",
@@ -6214,7 +6815,74 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebhookEventDto"
+                "type": "object",
+                "description": "The body of a webhook: one event about an entity of a merchant that installed the app.",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique identifier of the event. A webhook delivered again carries the same one, so it can be used to drop duplicates.",
+                    "example": "a6d00fd4-5535-5158-8f7b-360e63e8413b"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Type of the event: the entity and what happened to it.",
+                    "enum": [
+                      "order.created"
+                    ],
+                    "example": "order.created"
+                  },
+                  "entityType": {
+                    "type": "string",
+                    "description": "Type of the entity the event is about.",
+                    "enum": [
+                      "order"
+                    ],
+                    "example": "order"
+                  },
+                  "entityId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the entity the event is about.",
+                    "example": "bab295a4-2408-4e9c-ab99-1cffad3c8ac1"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "When the change was made.",
+                    "example": "2026-11-11T16:09:47.885Z"
+                  },
+                  "merchantId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the merchant whose entity changed.",
+                    "example": "6aa9a46e-9fea-454f-b52f-05877a569275"
+                  },
+                  "source": {
+                    "type": "string",
+                    "description": "Who made the change: a merchant user on a device (ANDROID) or in the back office (WEB), a THIRD_PARTY_APP, a SERVER_TO_SERVER client, an ADMIN, or the SYSTEM.",
+                    "enum": [
+                      "SYSTEM",
+                      "WEB",
+                      "ANDROID",
+                      "THIRD_PARTY_APP",
+                      "SERVER_TO_SERVER",
+                      "ADMIN"
+                    ]
+                  },
+                  "data": {
+                    "$ref": "#/components/schemas/OrderDto",
+                    "description": "The entity after the change, as the API returns it: an item, an order, an employee, an app. Absent when the entity no longer exists. Events may arrive out of order: its lastModified tells which state is newer."
+                  }
+                },
+                "required": [
+                  "createdAt",
+                  "entityId",
+                  "entityType",
+                  "id",
+                  "merchantId",
+                  "type"
+                ]
               },
               "examples": {
                 "order.created": {
@@ -6301,7 +6969,7 @@
     "order.updated": {
       "post": {
         "tags": [
-          "Webhook events"
+          "Orders"
         ],
         "summary": "Order updated",
         "description": "An order of a merchant that installed the app was changed: its line items, totals, transactions or state. `data` is the order as the API returns it (OrderDto).\n\nThis event requires **ORDER READ** authority.",
@@ -6320,7 +6988,74 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebhookEventDto"
+                "type": "object",
+                "description": "The body of a webhook: one event about an entity of a merchant that installed the app.",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique identifier of the event. A webhook delivered again carries the same one, so it can be used to drop duplicates.",
+                    "example": "a6d00fd4-5535-5158-8f7b-360e63e8413b"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Type of the event: the entity and what happened to it.",
+                    "enum": [
+                      "order.updated"
+                    ],
+                    "example": "order.updated"
+                  },
+                  "entityType": {
+                    "type": "string",
+                    "description": "Type of the entity the event is about.",
+                    "enum": [
+                      "order"
+                    ],
+                    "example": "order"
+                  },
+                  "entityId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the entity the event is about.",
+                    "example": "bab295a4-2408-4e9c-ab99-1cffad3c8ac1"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "When the change was made.",
+                    "example": "2026-11-11T16:09:47.885Z"
+                  },
+                  "merchantId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the merchant whose entity changed.",
+                    "example": "6aa9a46e-9fea-454f-b52f-05877a569275"
+                  },
+                  "source": {
+                    "type": "string",
+                    "description": "Who made the change: a merchant user on a device (ANDROID) or in the back office (WEB), a THIRD_PARTY_APP, a SERVER_TO_SERVER client, an ADMIN, or the SYSTEM.",
+                    "enum": [
+                      "SYSTEM",
+                      "WEB",
+                      "ANDROID",
+                      "THIRD_PARTY_APP",
+                      "SERVER_TO_SERVER",
+                      "ADMIN"
+                    ]
+                  },
+                  "data": {
+                    "$ref": "#/components/schemas/OrderDto",
+                    "description": "The entity after the change, as the API returns it: an item, an order, an employee, an app. Absent when the entity no longer exists. Events may arrive out of order: its lastModified tells which state is newer."
+                  }
+                },
+                "required": [
+                  "createdAt",
+                  "entityId",
+                  "entityType",
+                  "id",
+                  "merchantId",
+                  "type"
+                ]
               },
               "examples": {
                 "order.updated": {
@@ -6407,7 +7142,7 @@
     "order.deleted": {
       "post": {
         "tags": [
-          "Webhook events"
+          "Orders"
         ],
         "summary": "Order deleted",
         "description": "An order of a merchant that installed the app was deleted. When the order is later purged, another order.deleted comes without `data`. `data` is the order as the API returns it (OrderDto).\n\nThis event requires **ORDER READ** authority.",
@@ -6426,7 +7161,74 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebhookEventDto"
+                "type": "object",
+                "description": "The body of a webhook: one event about an entity of a merchant that installed the app.",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique identifier of the event. A webhook delivered again carries the same one, so it can be used to drop duplicates.",
+                    "example": "a6d00fd4-5535-5158-8f7b-360e63e8413b"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Type of the event: the entity and what happened to it.",
+                    "enum": [
+                      "order.deleted"
+                    ],
+                    "example": "order.deleted"
+                  },
+                  "entityType": {
+                    "type": "string",
+                    "description": "Type of the entity the event is about.",
+                    "enum": [
+                      "order"
+                    ],
+                    "example": "order"
+                  },
+                  "entityId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the entity the event is about.",
+                    "example": "bab295a4-2408-4e9c-ab99-1cffad3c8ac1"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "When the change was made.",
+                    "example": "2026-11-11T16:09:47.885Z"
+                  },
+                  "merchantId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the merchant whose entity changed.",
+                    "example": "6aa9a46e-9fea-454f-b52f-05877a569275"
+                  },
+                  "source": {
+                    "type": "string",
+                    "description": "Who made the change: a merchant user on a device (ANDROID) or in the back office (WEB), a THIRD_PARTY_APP, a SERVER_TO_SERVER client, an ADMIN, or the SYSTEM.",
+                    "enum": [
+                      "SYSTEM",
+                      "WEB",
+                      "ANDROID",
+                      "THIRD_PARTY_APP",
+                      "SERVER_TO_SERVER",
+                      "ADMIN"
+                    ]
+                  },
+                  "data": {
+                    "$ref": "#/components/schemas/OrderDto",
+                    "description": "The entity after the change, as the API returns it: an item, an order, an employee, an app. Absent when the entity no longer exists. Events may arrive out of order: its lastModified tells which state is newer."
+                  }
+                },
+                "required": [
+                  "createdAt",
+                  "entityId",
+                  "entityType",
+                  "id",
+                  "merchantId",
+                  "type"
+                ]
               },
               "examples": {
                 "order.deleted": {
@@ -6513,7 +7315,7 @@
     "employee.created": {
       "post": {
         "tags": [
-          "Webhook events"
+          "Employees"
         ],
         "summary": "Employee created",
         "description": "An employee was added to a merchant that installed the app. `data` is the employee: its `id`, `name`, `email`, `role` and `lastModified`.\n\nThis event requires **EMPLOYEE READ** authority.",
@@ -6532,7 +7334,112 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebhookEventDto"
+                "type": "object",
+                "description": "The body of a webhook: one event about an entity of a merchant that installed the app.",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique identifier of the event. A webhook delivered again carries the same one, so it can be used to drop duplicates.",
+                    "example": "a6d00fd4-5535-5158-8f7b-360e63e8413b"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Type of the event: the entity and what happened to it.",
+                    "enum": [
+                      "employee.created"
+                    ],
+                    "example": "employee.created"
+                  },
+                  "entityType": {
+                    "type": "string",
+                    "description": "Type of the entity the event is about.",
+                    "enum": [
+                      "employee"
+                    ],
+                    "example": "employee"
+                  },
+                  "entityId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the entity the event is about.",
+                    "example": "0dde8c66-4e7e-44da-9a92-409e526ec5ac"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "When the change was made.",
+                    "example": "2026-11-11T16:09:47.885Z"
+                  },
+                  "merchantId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the merchant whose entity changed.",
+                    "example": "6aa9a46e-9fea-454f-b52f-05877a569275"
+                  },
+                  "source": {
+                    "type": "string",
+                    "description": "Who made the change: a merchant user on a device (ANDROID) or in the back office (WEB), a THIRD_PARTY_APP, a SERVER_TO_SERVER client, an ADMIN, or the SYSTEM.",
+                    "enum": [
+                      "SYSTEM",
+                      "WEB",
+                      "ANDROID",
+                      "THIRD_PARTY_APP",
+                      "SERVER_TO_SERVER",
+                      "ADMIN"
+                    ]
+                  },
+                  "data": {
+                    "type": "object",
+                    "description": "The entity after the change, as the API returns it: an item, an order, an employee, an app. Absent when the entity no longer exists. Events may arrive out of order: its lastModified tells which state is newer.",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "UUID of the employee.",
+                        "example": "0dde8c66-4e7e-44da-9a92-409e526ec5ac"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Name of the employee.",
+                        "example": "Store Cashier"
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "Email address of the employee.",
+                        "example": "cashier@corner.store"
+                      },
+                      "role": {
+                        "type": "string",
+                        "description": "Role of the employee at the merchant.",
+                        "enum": [
+                          "OWNER",
+                          "EMPLOYEE"
+                        ],
+                        "example": "EMPLOYEE"
+                      },
+                      "lastModified": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "When the employee was last changed.",
+                        "example": "2026-11-11T16:09:48.306Z"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "lastModified",
+                      "role"
+                    ]
+                  }
+                },
+                "required": [
+                  "createdAt",
+                  "entityId",
+                  "entityType",
+                  "id",
+                  "merchantId",
+                  "type"
+                ]
               },
               "examples": {
                 "employee.created": {
@@ -6570,7 +7477,7 @@
     "employee.updated": {
       "post": {
         "tags": [
-          "Webhook events"
+          "Employees"
         ],
         "summary": "Employee updated",
         "description": "An employee of a merchant that installed the app changed: its role, or anything of its profile. `data` is the employee: its `id`, `name`, `email`, `role` and `lastModified`.\n\nThis event requires **EMPLOYEE READ** authority.",
@@ -6589,7 +7496,112 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebhookEventDto"
+                "type": "object",
+                "description": "The body of a webhook: one event about an entity of a merchant that installed the app.",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique identifier of the event. A webhook delivered again carries the same one, so it can be used to drop duplicates.",
+                    "example": "a6d00fd4-5535-5158-8f7b-360e63e8413b"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Type of the event: the entity and what happened to it.",
+                    "enum": [
+                      "employee.updated"
+                    ],
+                    "example": "employee.updated"
+                  },
+                  "entityType": {
+                    "type": "string",
+                    "description": "Type of the entity the event is about.",
+                    "enum": [
+                      "employee"
+                    ],
+                    "example": "employee"
+                  },
+                  "entityId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the entity the event is about.",
+                    "example": "0dde8c66-4e7e-44da-9a92-409e526ec5ac"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "When the change was made.",
+                    "example": "2026-11-11T16:09:47.885Z"
+                  },
+                  "merchantId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the merchant whose entity changed.",
+                    "example": "6aa9a46e-9fea-454f-b52f-05877a569275"
+                  },
+                  "source": {
+                    "type": "string",
+                    "description": "Who made the change: a merchant user on a device (ANDROID) or in the back office (WEB), a THIRD_PARTY_APP, a SERVER_TO_SERVER client, an ADMIN, or the SYSTEM.",
+                    "enum": [
+                      "SYSTEM",
+                      "WEB",
+                      "ANDROID",
+                      "THIRD_PARTY_APP",
+                      "SERVER_TO_SERVER",
+                      "ADMIN"
+                    ]
+                  },
+                  "data": {
+                    "type": "object",
+                    "description": "The entity after the change, as the API returns it: an item, an order, an employee, an app. Absent when the entity no longer exists. Events may arrive out of order: its lastModified tells which state is newer.",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "UUID of the employee.",
+                        "example": "0dde8c66-4e7e-44da-9a92-409e526ec5ac"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Name of the employee.",
+                        "example": "Store Cashier"
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "Email address of the employee.",
+                        "example": "cashier@corner.store"
+                      },
+                      "role": {
+                        "type": "string",
+                        "description": "Role of the employee at the merchant.",
+                        "enum": [
+                          "OWNER",
+                          "EMPLOYEE"
+                        ],
+                        "example": "EMPLOYEE"
+                      },
+                      "lastModified": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "When the employee was last changed.",
+                        "example": "2026-11-11T16:09:48.306Z"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "lastModified",
+                      "role"
+                    ]
+                  }
+                },
+                "required": [
+                  "createdAt",
+                  "entityId",
+                  "entityType",
+                  "id",
+                  "merchantId",
+                  "type"
+                ]
               },
               "examples": {
                 "employee.updated": {
@@ -6627,7 +7639,7 @@
     "app.installed": {
       "post": {
         "tags": [
-          "Webhook events"
+          "Apps"
         ],
         "summary": "App installed",
         "description": "A merchant installed the app. `data` is the app (AppDto).\n\nThis event is sent only about the app itself and requires no authority.",
@@ -6646,7 +7658,74 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebhookEventDto"
+                "type": "object",
+                "description": "The body of a webhook: one event about an entity of a merchant that installed the app.",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique identifier of the event. A webhook delivered again carries the same one, so it can be used to drop duplicates.",
+                    "example": "a6d00fd4-5535-5158-8f7b-360e63e8413b"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Type of the event: the entity and what happened to it.",
+                    "enum": [
+                      "app.installed"
+                    ],
+                    "example": "app.installed"
+                  },
+                  "entityType": {
+                    "type": "string",
+                    "description": "Type of the entity the event is about.",
+                    "enum": [
+                      "app"
+                    ],
+                    "example": "app"
+                  },
+                  "entityId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the entity the event is about.",
+                    "example": "64b8da6f-8563-4926-9c6e-8a369687e8e2"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "When the change was made.",
+                    "example": "2026-11-11T16:09:47.885Z"
+                  },
+                  "merchantId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the merchant whose entity changed.",
+                    "example": "6aa9a46e-9fea-454f-b52f-05877a569275"
+                  },
+                  "source": {
+                    "type": "string",
+                    "description": "Who made the change: a merchant user on a device (ANDROID) or in the back office (WEB), a THIRD_PARTY_APP, a SERVER_TO_SERVER client, an ADMIN, or the SYSTEM.",
+                    "enum": [
+                      "SYSTEM",
+                      "WEB",
+                      "ANDROID",
+                      "THIRD_PARTY_APP",
+                      "SERVER_TO_SERVER",
+                      "ADMIN"
+                    ]
+                  },
+                  "data": {
+                    "$ref": "#/components/schemas/AppDto",
+                    "description": "The entity after the change, as the API returns it: an item, an order, an employee, an app. Absent when the entity no longer exists. Events may arrive out of order: its lastModified tells which state is newer."
+                  }
+                },
+                "required": [
+                  "createdAt",
+                  "entityId",
+                  "entityType",
+                  "id",
+                  "merchantId",
+                  "type"
+                ]
               },
               "examples": {
                 "app.installed": {
@@ -6689,7 +7768,7 @@
     "app.uninstalled": {
       "post": {
         "tags": [
-          "Webhook events"
+          "Apps"
         ],
         "summary": "App uninstalled",
         "description": "A merchant uninstalled the app. It is the last event about that merchant. `data` is the app (AppDto).\n\nThis event is sent only about the app itself and requires no authority.",
@@ -6708,7 +7787,74 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebhookEventDto"
+                "type": "object",
+                "description": "The body of a webhook: one event about an entity of a merchant that installed the app.",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique identifier of the event. A webhook delivered again carries the same one, so it can be used to drop duplicates.",
+                    "example": "a6d00fd4-5535-5158-8f7b-360e63e8413b"
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Type of the event: the entity and what happened to it.",
+                    "enum": [
+                      "app.uninstalled"
+                    ],
+                    "example": "app.uninstalled"
+                  },
+                  "entityType": {
+                    "type": "string",
+                    "description": "Type of the entity the event is about.",
+                    "enum": [
+                      "app"
+                    ],
+                    "example": "app"
+                  },
+                  "entityId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the entity the event is about.",
+                    "example": "64b8da6f-8563-4926-9c6e-8a369687e8e2"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "When the change was made.",
+                    "example": "2026-11-11T16:09:47.885Z"
+                  },
+                  "merchantId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "UUID of the merchant whose entity changed.",
+                    "example": "6aa9a46e-9fea-454f-b52f-05877a569275"
+                  },
+                  "source": {
+                    "type": "string",
+                    "description": "Who made the change: a merchant user on a device (ANDROID) or in the back office (WEB), a THIRD_PARTY_APP, a SERVER_TO_SERVER client, an ADMIN, or the SYSTEM.",
+                    "enum": [
+                      "SYSTEM",
+                      "WEB",
+                      "ANDROID",
+                      "THIRD_PARTY_APP",
+                      "SERVER_TO_SERVER",
+                      "ADMIN"
+                    ]
+                  },
+                  "data": {
+                    "$ref": "#/components/schemas/AppDto",
+                    "description": "The entity after the change, as the API returns it: an item, an order, an employee, an app. Absent when the entity no longer exists. Events may arrive out of order: its lastModified tells which state is newer."
+                  }
+                },
+                "required": [
+                  "createdAt",
+                  "entityId",
+                  "entityType",
+                  "id",
+                  "merchantId",
+                  "type"
+                ]
               },
               "examples": {
                 "app.uninstalled": {
