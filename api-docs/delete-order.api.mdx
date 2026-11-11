@@ -1,0 +1,70 @@
+---
+id: delete-order
+title: "Delete order"
+description: "Deletes an OPEN order. A paid order is not deleted but voided or refunded through its transactions; deleting it answers 400."
+sidebar_label: "Delete order"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVE1v2kAQ/SurudCi5atqL+6JBFqZVgERUCoRDos94FVg19kdkxDLUn9Nf1h/STW2SUISteeevLbfzM5782ZyILXxECxg7GJ0HpYSYvSR0ylpayCAAW6R0AtlxHgyvBCWcW3RF6nScfUmtBfGkohLaCxWGYm91THyf+FwnRk+U+JstkmEJi/IKeNVxHf4z1WgNhuhSSjj79B58bHbbV+bazNLtBf9SSgc3mbaoRfN5ng6GE7F1TScDZtNoTJKrNN0aIMEm6JTnDaMIYCqolZZJUhIlVM7JOYZLHIwaocQQJbpGCRoZpsqSuClBPN5OBB2LSjBmj5IqMuJISCXoQQfJbhTEORAh5TTenLabEDC2rqdouNFRbHkYJ9a49Ez/kO3y4/TO8ffQEJkDaEhCPKiKCTskBL7RKskRAkE0KFEu7iVKkeHlkp1Z9/rlIX6Ts6XFiDBo9sfiWduCwEkRKkPOh2V6nZkHabWG3vXjuzulQITZ+Os7BYU8o34llcmXtn7f+W5rGDAGniMMu5aWdEKlUPXz5jOYvn89yXrWgn1HPQoM1fxumMexcFmToyuZuKsDBNkb9AIbco2NvqVaR5KrzREgqq09fBe7dItBqJRR+FhlKy+RnqsR+H8Iexd6NCHZvopOg9///zVAHl00UnCo52qtFC7g2EVB5D14cvRG6OrGXCPtVnbkp2mLePPrcPJ+JIn4LWa/YvB2fjHtTkFcZsrwL4HhYTUetopw1nrWquZFsexOMmaP7nuf5v92hGE99RJt0qzWSuv5vWkLODFpLBcPV4b1faTEJRDupSQWE8ckOcr5XHutkXBn28zdGzZpYS9clqtuEuLHGLt+RxDsFZbj38R9d203hzvxZuL5U0W9UdlDlyx2mb8BhJu8PC4WJbPV8Rg+H04G0JR/AHl1gGO
+sidebar_class_name: "delete api-method"
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete order"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/third-party-api/v1/orders/{uuid}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes an OPEN order. A paid order is not deleted but voided or refunded through its transactions; deleting it answers 400.
+
+This API requires **ORDER WRITE** authority.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./delete-order.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./delete-order.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./delete-order.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      
