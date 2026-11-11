@@ -1,1 +1,1 @@
-{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","description":"Changes to an employee.","properties":{"name":{"type":"string","description":"Display name of the employee."}},"title":"EmployeeUpdateDto"}}},"required":true}}
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","description":"Changes to an employee.","properties":{"name":{"type":"string","description":"Display name of the employee.","example":"Head Cashier"}},"title":"EmployeeUpdateDto"}}},"required":true}}
