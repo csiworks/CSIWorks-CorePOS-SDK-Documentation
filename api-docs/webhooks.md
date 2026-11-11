@@ -11,8 +11,8 @@ Instead of polling, your app can have CorePOS tell it about changes as they happ
 item, an order, an employee or the app's own installation becomes one event, whatever made it — the POS device, the
 back office, another app or CorePOS itself. Each event is sent to your app's webhook URL as a signed `POST`.
 
-The events, their bodies and the authority each one requires are listed under **Webhook events**, starting with
-[Item created](./item-created.api.mdx).
+Each event is listed with the endpoints of what it is about, under **Items**, **Orders**, **Employees** and **Apps**,
+with its body and the authority it requires; [Item created](./item-created.api.mdx) is the first.
 
 ### Subscribing
 
