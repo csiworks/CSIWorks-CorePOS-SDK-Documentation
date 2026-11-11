@@ -3595,7 +3595,7 @@
           "hostRefNumber": {
             "type": "string",
             "description": "Reference number assigned by the payment host, if paid by card.",
-            "example": 512345678901
+            "example": "512345678901"
           },
           "aid": {
             "type": "string",
@@ -3971,7 +3971,7 @@
           "hostRefNumber": {
             "type": "string",
             "description": "Reference number assigned by the payment host, if paid by card.",
-            "example": 512345678901
+            "example": "512345678901"
           },
           "aid": {
             "type": "string",
@@ -4039,7 +4039,7 @@
           "address1": {
             "type": "string",
             "description": "First street address line.",
-            "example": 1450
+            "example": "1450 Market Street"
           },
           "address2": {
             "type": "string",
@@ -4069,7 +4069,7 @@
           "zip": {
             "type": "string",
             "description": "Postal (ZIP) code of the merchant's address.",
-            "example": 94103
+            "example": "94103"
           },
           "phoneNumber": {
             "type": "string",
@@ -4099,7 +4099,7 @@
           "address1": {
             "type": "string",
             "description": "First street address line.",
-            "example": 1450
+            "example": "1450 Market Street"
           },
           "address2": {
             "type": "string",
@@ -4129,7 +4129,7 @@
           "zip": {
             "type": "string",
             "description": "Postal (ZIP) code of the merchant's address.",
-            "example": 94103
+            "example": "94103"
           },
           "phoneNumber": {
             "type": "string",
@@ -4454,7 +4454,6 @@
           "categories": {
             "type": "array",
             "description": "Categories the item belongs to.",
-            "example": "5b1e8f0e-3f0c-4c1e-9a77-2c7d1e6b9a10",
             "items": {
               "$ref": "#/components/schemas/CategoryDto"
             }
@@ -4462,7 +4461,6 @@
           "charges": {
             "type": "array",
             "description": "Charges (extra fees) applied to the item.",
-            "example": "9c4f2a71-6d3e-4b8a-8f15-0e7b2d4c6a93",
             "items": {
               "$ref": "#/components/schemas/ChargeDto"
             }
@@ -4877,7 +4875,7 @@
           "hostRefNumber": {
             "type": "string",
             "description": "Reference number assigned by the payment host, if paid by card.",
-            "example": 512345678901
+            "example": "512345678901"
           },
           "aid": {
             "type": "string",
@@ -5530,6 +5528,24 @@
             "description": "When the transaction took place (ISO-8601).",
             "example": "2026-11-11T16:12:05.214Z"
           },
+          "amount": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Amount of the transaction, in the smallest currency unit (e.g. cents).",
+            "example": 360
+          },
+          "orderId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the order this transaction belongs to, if any.",
+            "example": "bab295a4-2408-4e9c-ab99-1cffad3c8ac1"
+          },
+          "transactionId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Unique UUID identifier of the transaction.",
+            "example": "7e1c3b9a-4d2f-4a6e-9b81-5c0f2e7d3a64"
+          },
           "refNumber": {
             "type": "string",
             "description": "Reference number of the transaction as printed on the receipt.",
@@ -5595,7 +5611,7 @@
           "hostRefNumber": {
             "type": "string",
             "description": "Reference number assigned by the payment host, if paid by card.",
-            "example": 512345678901
+            "example": "512345678901"
           },
           "aid": {
             "type": "string",
@@ -5629,24 +5645,6 @@
             "type": "boolean",
             "description": "Whether a dual-pricing card surcharge was applied to this transaction.",
             "example": true
-          },
-          "transactionId": {
-            "type": "string",
-            "format": "uuid",
-            "description": "Unique UUID identifier of the transaction.",
-            "example": "7e1c3b9a-4d2f-4a6e-9b81-5c0f2e7d3a64"
-          },
-          "orderId": {
-            "type": "string",
-            "format": "uuid",
-            "description": "UUID of the order this transaction belongs to, if any.",
-            "example": "bab295a4-2408-4e9c-ab99-1cffad3c8ac1"
-          },
-          "amount": {
-            "type": "integer",
-            "format": "int64",
-            "description": "Amount of the transaction, in the smallest currency unit (e.g. cents).",
-            "example": 360
           },
           "cardNumber": {
             "type": "string",
@@ -5736,7 +5734,7 @@
           "address1": {
             "type": "string",
             "description": "First street address line.",
-            "example": 1450
+            "example": "1450 Market Street"
           },
           "address2": {
             "type": "string",
@@ -5766,7 +5764,7 @@
           "zip": {
             "type": "string",
             "description": "Postal (ZIP) code of the merchant's address.",
-            "example": 94103
+            "example": "94103"
           },
           "ownerEmail": {
             "type": "string",
